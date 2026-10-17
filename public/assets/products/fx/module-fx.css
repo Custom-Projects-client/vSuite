@@ -1,0 +1,83 @@
+/* vSuite product modules - shared motion layer (additive only: no layout, colour or font changes).
+   Accent colours come from --fx-a / --fx-b, set per page. */
+
+/* ---------- scroll progress bar ---------- */
+.fx-progress{position:fixed;top:0;left:0;width:100%;height:3px;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,var(--fx-a,#6c35e8),var(--fx-b,#e5ad00));z-index:99999;pointer-events:none}
+header{transition:box-shadow .3s ease,background-color .3s ease}
+.fx-scrolled header{box-shadow:0 8px 28px rgba(20,10,30,.10)}
+
+/* ---------- hover effects ---------- */
+/* cards lift */
+.card,.feature,.feature-card,.feature-item,.module,.step,.metric,.benefit,.integration,.industry-card,.workflow-step,
+.value-card,.canva-card,.content-card,.showcase-card,.intelligence-card,.arch-card,.outcome-item,.life-step,.detail-item,
+.mini-panel,.mock-card,.product,.ai-capability,.integration-node,.agent-step,.flow-step,.node,.info-panel,.faq-item{
+  transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease,background-color .28s ease}
+.card:hover,.feature:hover,.feature-card:hover,.module:hover,.step:hover,.benefit:hover,.integration:hover,.industry-card:hover,
+.workflow-step:hover,.value-card:hover,.canva-card:hover,.content-card:hover,.showcase-card:hover,.intelligence-card:hover,
+.arch-card:hover,.outcome-item:hover,.life-step:hover,.mini-panel:hover,.mock-card:hover,.product:hover,.ai-capability:hover,
+.integration-node:hover,.agent-step:hover,.flow-step:hover,.node:hover,.info-panel:hover{
+  transform:translateY(-5px);box-shadow:0 16px 34px rgba(30,15,45,.14);border-color:var(--fx-a,#6c35e8)}
+/* small rows nudge */
+.feature-item:hover,.detail-item:hover,.faq-item:hover,.metric:hover{transform:translateX(4px)}
+.faq-item:hover,.feature-item:hover{background-color:color-mix(in srgb,var(--fx-a,#6c35e8) 6%,transparent)}
+/* buttons */
+.btn,.btn-primary,.btn-secondary,.btn-outline,.nav-cta,.hero-actions a,.actions a,.queue-button,.add-button{
+  transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s ease,filter .22s ease}
+.btn:hover,.btn-primary:hover,.btn-secondary:hover,.btn-outline:hover,.nav-cta:hover,.hero-actions a:hover,.actions a:hover,.queue-button:hover,.add-button:hover{
+  transform:translateY(-3px);box-shadow:0 12px 24px rgba(20,10,30,.20);filter:brightness(1.06)}
+.btn:active,.btn-primary:active,.btn-secondary:active,.btn-outline:active,.nav-cta:active,.hero-actions a:active,.actions a:active{transform:translateY(0) scale(.98);box-shadow:none}
+/* chips / tags */
+.chip,.chips span,.values span,.value-grid > *,.prompt,.prompt-chip,.badge,.canva-tag,.filter{transition:transform .22s ease,box-shadow .22s ease}
+.chip:hover,.chips span:hover,.values span:hover,.prompt:hover,.prompt-chip:hover,.badge:hover,.canva-tag:hover,.filter:hover{transform:translateY(-2px);box-shadow:0 8px 16px rgba(20,10,30,.12)}
+/* header links: animated underline */
+header nav a:not(.nav-cta):not(.btn),header .desktop-nav a:not(.nav-cta){
+  background-image:linear-gradient(var(--fx-a,#6c35e8),var(--fx-a,#6c35e8));background-repeat:no-repeat;background-position:0 100%;background-size:0 2px;
+  padding-bottom:3px;transition:background-size .3s ease,color .2s ease}
+header nav a:not(.nav-cta):not(.btn):hover,header nav a.fx-active:not(.nav-cta){background-size:100% 2px}
+/* images */
+figure img,.image-card img,.product-image,.sample-photo img{transition:transform .6s cubic-bezier(.2,.7,.2,1),filter .4s ease}
+figure:hover img,.image-card:hover img,.product:hover .product-image{transform:scale(1.035)}
+
+/* ---------- motion (skipped when the visitor prefers reduced motion) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  /* scroll reveal */
+  .fx-js .fx-reveal{opacity:0;transform:translateY(28px);transition:opacity .75s cubic-bezier(.2,.7,.2,1) var(--fx-d,0s),transform .75s cubic-bezier(.2,.7,.2,1) var(--fx-d,0s)}
+  .fx-js .fx-reveal.fx-zoom{transform:scale(.96) translateY(14px)}
+  .fx-js .fx-reveal.fx-in{opacity:1;transform:none}
+  /* page-load entrance */
+  @keyframes fx-down{from{opacity:0;transform:translateY(-100%)}to{opacity:1;transform:none}}
+  @keyframes fx-up{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+  @keyframes fx-right{from{opacity:0;transform:translateX(60px) scale(.97)}to{opacity:1;transform:none}}
+  @keyframes fx-float{0%,100%{translate:0 0}50%{translate:0 -9px}}
+  header{animation:fx-down .6s cubic-bezier(.2,.7,.2,1) both}
+  .hero .hero-grid > *:first-child > *{animation:fx-up .8s cubic-bezier(.2,.7,.2,1) both}
+  .hero .hero-grid > *:first-child > *:nth-child(1){animation-delay:.15s}
+  .hero .hero-grid > *:first-child > *:nth-child(2){animation-delay:.28s}
+  .hero .hero-grid > *:first-child > *:nth-child(3){animation-delay:.41s}
+  .hero .hero-grid > *:first-child > *:nth-child(4){animation-delay:.54s}
+  .hero .hero-grid > *:first-child > *:nth-child(5){animation-delay:.67s}
+  .hero .hero-grid > *:first-child > *:nth-child(n+6){animation-delay:.8s}
+  .hero .hero-grid > *:last-child{animation:fx-right 1s cubic-bezier(.2,.7,.2,1) .3s both,fx-float 7s ease-in-out 1.6s infinite}
+}
+
+/* ---------- card hover variety (additive: transform / shadow only) ----------
+   Cards share the lift above; here each position in a grid gets its own animation, and card icons react. */
+@media (hover:hover) and (prefers-reduced-motion:no-preference){
+  :is(.card,.feature,.feature-card,.module,.step,.benefit,.integration,.industry-card,.workflow-step,.value-card,.canva-card,.content-card,.showcase-card,.intelligence-card,.arch-card,.outcome-item,.life-step,.mini-panel,.mock-card,.product,.ai-capability,.integration-node,.agent-step,.flow-step,.node,.info-panel):nth-child(3n+1):hover{
+    transform:translateY(-6px) rotate(-.6deg);box-shadow:0 18px 36px rgba(30,15,45,.16),inset 0 3px 0 var(--fx-a,#6c35e8)}
+  :is(.card,.feature,.feature-card,.module,.step,.benefit,.integration,.industry-card,.workflow-step,.value-card,.canva-card,.content-card,.showcase-card,.intelligence-card,.arch-card,.outcome-item,.life-step,.mini-panel,.mock-card,.product,.ai-capability,.integration-node,.agent-step,.flow-step,.node,.info-panel):nth-child(3n+2):hover{
+    transform:translateY(-8px) scale(1.025);box-shadow:0 20px 40px rgba(30,15,45,.16),inset 0 0 0 1px var(--fx-a,#6c35e8)}
+  :is(.card,.feature,.feature-card,.module,.step,.benefit,.integration,.industry-card,.workflow-step,.value-card,.canva-card,.content-card,.showcase-card,.intelligence-card,.arch-card,.outcome-item,.life-step,.mini-panel,.mock-card,.product,.ai-capability,.integration-node,.agent-step,.flow-step,.node,.info-panel):nth-child(3n):hover{
+    transform:translateY(-6px) rotate(.6deg);box-shadow:0 18px 36px rgba(30,15,45,.16),inset 0 -3px 0 var(--fx-a,#6c35e8)}
+
+  /* icons / numbers inside a card */
+  :is(.card,.feature,.feature-card,.module,.step,.benefit,.value-card,.content-card,.showcase-card,.intelligence-card,.arch-card,.ai-capability,.agent-step,.flow-step) :is([class*="icon"],.feature-number,.step-number,.num){
+    transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+  :is(.card,.feature,.feature-card,.module,.step,.benefit,.value-card,.content-card,.showcase-card,.intelligence-card,.arch-card,.ai-capability,.agent-step,.flow-step):hover :is([class*="icon"],.feature-number,.step-number,.num){
+    transform:scale(1.15) rotate(-8deg)}
+
+  /* contact / demo panels and FAQ rows */
+  .contact-panel,.demo-panel,.demo-signature,.assistant-demo,.recommendation-card,.chat-bubble{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease}
+  .contact-panel:hover,.demo-panel:hover,.demo-signature:hover,.recommendation-card:hover{transform:translateY(-5px);box-shadow:0 16px 32px rgba(0,0,0,.22)}
+  .chat-bubble:hover{transform:translateX(4px)}
+}

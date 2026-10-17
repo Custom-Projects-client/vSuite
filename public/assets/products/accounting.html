@@ -1,0 +1,1400 @@
+<!doctype html>
+<html lang="en-IN"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Explore vSuite Accounting: connected accounting workflows, financial reporting, enterprise accounting, and governed AI-assisted possibilities.">
+  <title>vSuite Accounting | Vishva Digital Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--deep:#21132f;--rich:#352047;--purple:#513260;--gold:#d4a017;--bright-gold:#e0b339;--white:#fff;--cream:#faf9f6;--beige:#f1ede6;--charcoal:#302d33;--soft:#65616a;--line:#ddd5e0;--shadow:0 18px 45px #21132f18}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:98px}body{width:100%;margin:0;background:var(--cream);color:var(--charcoal);font-family:Source Sans Pro,sans-serif}a{color:inherit;text-decoration:none}button,input{font:inherit}button{cursor:pointer}:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}section[id]{scroll-margin-top:98px}
+    .wrap{width:min(1190px,calc(100% - 40px));margin-inline:auto}.section{padding:88px 0}.white{background:#fff}.cream{background:var(--cream)}.dark{background:var(--deep);color:#fff}.dark h2,.dark h3{color:#fff}h1,h2,h3,h4{font-family:Source Sans Pro,sans-serif;letter-spacing:-.045em;color:var(--deep);margin:0 0 14px}h1{font-size:clamp(2.65rem,5vw,4.7rem);line-height:1.06}h2{font-size:clamp(2rem,3.2vw,3.05rem);line-height:1.15}h3{font-size:1.1rem}h4{font-size:.93rem}p{line-height:1.68;margin:0 0 16px}.lead{color:var(--soft);font-size:1.03rem}.dark .lead{color:#e7dfe9}.eyebrow{font-size:.73rem;letter-spacing:.15em;font-weight:800;color:var(--purple);margin-bottom:13px}.dark .eyebrow{color:var(--bright-gold)}.muted{color:var(--soft)}.small{font-size:.79rem}.micro{font-size:.69rem}.badge{display:inline-block;border:1px solid #d8c6d9;border-radius:100px;padding:6px 10px;color:var(--rich);background:#fff;font-size:.72rem;font-weight:700}.sample{display:inline-block;background:#f8edce;color:var(--deep);border-radius:5px;padding:4px 7px;font-size:.66rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}.section-head{max-width:780px;margin:0 auto 36px;text-align:center}
+    .header{position:sticky;top:0;z-index:40;background:#ffffffed;border-bottom:1px solid var(--beige);backdrop-filter:blur(14px);min-height:148px}.header-inner{min-height:148px;display:flex;align-items:center;gap:30px}.brand{display:flex;align-items:center;flex-shrink:0;min-width:0}.brand-logo{display:block;width:320px;height:132px;max-width:none;flex:none;object-fit:contain;object-position:left center;opacity:1}.nav{display:flex;align-items:center;gap:13px;margin-left:auto}.nav a{font-size:.72rem;font-weight:700;color:var(--soft);white-space:nowrap}.nav a:hover,.nav a[aria-current="location"]{color:var(--purple)}.menu-btn{display:none;margin-left:auto;border:1px solid var(--line);border-radius:9px;background:#fff;padding:9px 12px;color:var(--deep)}.mobile-nav{display:none;padding:8px 20px 18px;border-top:1px solid var(--beige);background:#fff}.mobile-nav.open{display:grid}.mobile-nav a{padding:10px;font-weight:700}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 18px;border:1px solid transparent;border-radius:9px;font-weight:800;font-size:.85rem;transition:transform .2s,background .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 9px 22px #21132f25}.btn-primary{background:var(--rich);color:#fff}.btn-primary:hover{background:var(--purple)}.btn-secondary{background:#fff;color:var(--rich);border-color:#b9a5be}.btn-secondary:hover{background:var(--beige)}.btn-gold{background:var(--bright-gold);color:var(--deep)}.btn-gold:hover{background:#efc456}.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+    .hero{padding:58px 0 76px;background:linear-gradient(140deg,#fff 0%,#fff 48%,#eee7ee 100%)}.hero-grid{display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:42px}.hero .lead{max-width:620px}.hero-logo{display:block;width:clamp(135px,20vw,205px);height:auto;aspect-ratio:1;object-fit:contain;object-position:left center;margin:0 0 12px}.values{display:flex;flex-wrap:wrap;gap:8px;margin-top:23px}.dashboard{background:#fff;border:1px solid #d1c4d4;border-radius:17px;padding:10px;box-shadow:var(--shadow);min-width:0}.dash-top{background:var(--deep);color:#fff;border-radius:9px 9px 0 0;display:flex;justify-content:space-between;gap:12px;padding:12px 15px;font-size:.69rem;font-weight:800}.dash-body{padding:13px;background:#fcfafc;border:1px solid var(--beige);border-top:0;border-radius:0 0 9px 9px}.dash-title{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--deep);font-size:.82rem;font-weight:800;margin-bottom:10px}.metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.metric,.box{border:1px solid var(--beige);border-radius:9px;background:#fff;padding:10px}.metric small{display:block;color:var(--soft);font-size:.61rem;line-height:1.25}.metric strong{display:block;color:var(--deep);font-size:.84rem;margin-top:5px}.dash-columns{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.box h4{font-size:.74rem;margin-bottom:7px}.tiny-row{display:flex;justify-content:space-between;gap:7px;border-top:1px solid var(--beige);padding:6px 0;font-size:.68rem}.tiny-row b{color:var(--rich);text-align:right}.chart-bars{height:75px;display:flex;align-items:end;gap:7px;border-bottom:1px solid var(--line);padding-top:8px}.chart-bars span{flex:1;background:#d5b969;border-radius:3px 3px 0 0}.chart-bars span:nth-child(2n){background:var(--purple)}.spark{width:100%;height:75px}.alert{border-left:3px solid var(--gold);background:#fbf4e1;color:var(--deep);padding:9px;border-radius:5px;font-size:.69rem}
+    .intro-grid,.two-col{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:36px}.photo{width:100%;height:330px;object-fit:cover;border-radius:15px;border:8px solid white;box-shadow:var(--shadow)}.flow{display:grid;grid-template-columns:repeat(7,1fr);gap:9px;margin-top:27px}.flow-step{background:#fff;border:1px solid var(--beige);border-radius:10px;padding:13px 10px;min-height:95px;font-size:.73rem;font-weight:700;color:var(--rich)}.flow-step b{display:block;color:var(--purple);margin-bottom:9px}.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:26px}.step{border:1px solid var(--beige);border-radius:10px;background:#fff;padding:15px;min-height:104px;font-size:.76rem;font-weight:700;color:var(--deep)}.step b{display:block;color:var(--purple);margin-bottom:9px;font-size:.68rem}
+    .explorer-layout{display:grid;grid-template-columns:1fr .38fr;gap:23px;align-items:start}.search-label{display:block;font-size:.83rem;font-weight:700;margin-bottom:8px}.search{width:100%;border:1px solid #b9a5be;background:#fff;border-radius:10px;padding:13px 15px;outline:none}.search:focus{border-color:var(--purple);box-shadow:0 0 0 3px #bd8b1640}.module-grid{display:grid;gap:11px;margin-top:17px}.module{border:1px solid var(--beige);background:#fff;border-radius:12px;overflow:hidden}.module[hidden]{display:none!important}.module summary{display:flex;align-items:center;gap:12px;cursor:pointer;padding:17px;list-style:none}.module summary::-webkit-details-marker{display:none}.module-marker{display:grid;place-items:center;width:34px;height:34px;flex:none;border-radius:8px;background:var(--deep);color:var(--bright-gold);font-weight:800;font-size:.75rem}.module-name{font:800 .91rem Source Sans Pro,sans-serif;color:var(--deep)}.module-count{display:block;color:var(--soft);font-size:.7rem;margin-top:3px}.plus{margin-left:auto;color:var(--purple);font-size:1.3rem}.module[open] .plus{transform:rotate(45deg)}.module-body{padding:0 17px 17px}.feature-items{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:13px 0}.feature-item{border:1px solid var(--beige);background:var(--cream);border-radius:7px;padding:10px 11px;font-size:.73rem;line-height:1.48}.feature-item strong{display:block;color:var(--deep);font-size:.77rem;margin-bottom:2px}.feature-item strong:before{content:"◆";color:var(--gold);font-size:.51rem;margin-right:6px}.detail-link{color:var(--purple);font-size:.76rem;font-weight:800;text-decoration:underline;text-underline-offset:3px}.aside-note{position:sticky;top:100px;background:var(--deep);color:#e7dfe9;border-radius:13px;padding:25px}.aside-note h3{color:#fff}.aside-note p{font-size:.84rem}.aside-note a{color:var(--bright-gold);font-weight:700;text-decoration:underline}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.card{border:1px solid var(--beige);background:#fff;border-radius:13px;padding:19px;box-shadow:0 8px 25px #21132f0a}.card p{font-size:.79rem;color:var(--soft);margin:0}.card h3{font-size:.94rem}.panel{background:#fff;border:1px solid var(--beige);border-radius:14px;padding:19px;min-width:0}.panel h3{font-size:1rem}.panel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.data-table{width:100%;border-collapse:collapse;font-size:.75rem}.data-table th,.data-table td{text-align:left;padding:9px 5px;border-bottom:1px solid var(--beige)}.data-table th{color:var(--soft);font-size:.67rem}.data-table td:last-child,.data-table th:last-child{text-align:right}.data-table tr:last-child td{font-weight:800;color:var(--deep)}.visual-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}.visual-head h3{margin:0}.kpi-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-bottom:14px}.kpi-strip .metric{background:var(--cream)}.legend{display:flex;gap:13px;flex-wrap:wrap;font-size:.69rem;color:var(--soft);margin-top:9px}.legend i{display:inline-block;width:9px;height:9px;background:var(--purple);border-radius:2px;margin-right:5px}.legend .pale{background:#d5b969}.detail-stack{display:grid;gap:12px}.detail-strip{display:flex;gap:10px;flex-wrap:wrap}.detail-strip span{background:var(--cream);border:1px solid var(--beige);border-radius:8px;padding:10px;font-size:.73rem}.number{font-weight:800;color:var(--deep)}.side-note{font-size:.73rem;color:var(--soft);margin-top:10px}
+    .enterprise-tree{display:grid;gap:10px;text-align:center}.tree-parent,.tree-child{padding:13px;border-radius:9px;border:1px solid #d1c4d4;background:#fff;color:var(--deep);font-weight:800;font-size:.77rem}.tree-parent{background:var(--deep);color:#fff}.tree-branches{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.tree-arrow{color:var(--purple);font-size:1.2rem}.ai-chat{background:#fff;border-radius:15px;padding:18px;color:var(--charcoal);border:1px solid #b9a5be}.question-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin:16px 0}.question{border:1px solid var(--beige);background:var(--cream);border-radius:8px;padding:10px;text-align:left;color:var(--deep);font-size:.75rem}.question:hover,.question.active{background:#faf2dd;border-color:var(--gold)}.answer{background:#fcf7e9;border-left:4px solid var(--gold);padding:15px;border-radius:6px;font-size:.83rem}.answer[hidden]{display:none}.agent-flow{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;margin:22px 0}.agent-step{background:var(--purple);color:#fff;border-radius:8px;padding:12px 8px;font-size:.69rem;font-weight:800;min-height:76px}.agent-step.analysis{background:#654879}.agent-step.approval{background:var(--bright-gold);color:var(--deep)}.dark .panel{color:var(--charcoal)}.progress{height:12px;border-radius:20px;background:var(--beige);overflow:hidden}.progress span{display:block;background:var(--gold);height:100%;width:60%}
+    .integrations-arch{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:14px;align-items:center}.integration-side{display:grid;gap:9px}.integration-node{border:1px solid var(--beige);border-left:3px solid var(--gold);border-radius:9px;background:#fff;padding:14px;font-size:.79rem}.integration-node strong{color:var(--deep)}.integration-node span{display:block;color:var(--soft);font-size:.72rem;margin-top:4px}.integration-center{text-align:center;border:2px solid var(--gold);border-radius:15px;background:var(--deep);color:#fff;padding:30px 16px;box-shadow:var(--shadow)}.integration-center b{font:800 1.35rem Source Sans Pro,sans-serif}.integration-center small{display:block;color:#e7dfe9;margin-top:8px}.connector{text-align:center;color:var(--purple);font-size:.75rem;font-weight:800}
+    .benefits-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:11px}.dark .card{background:#ffffff0d;border-color:#e0b33940;box-shadow:none}.dark .card h3{color:var(--bright-gold)}.dark .card p{color:#e7dfe9}.faq-grid{display:grid;grid-template-columns:.65fr 1.35fr;gap:46px}.faq-item{border-bottom:1px solid var(--line)}.faq-item:first-child{border-top:1px solid var(--line)}.faq-item summary{padding:17px 4px;cursor:pointer;color:var(--deep);font-weight:800;font-size:.86rem}.faq-item summary:hover{color:var(--purple)}.faq-item p{padding:0 4px 15px;color:var(--soft);font-size:.83rem;margin:0}
+    .cta{background:linear-gradient(115deg,var(--deep),var(--rich) 70%,#493054);padding:78px 0;color:#fff}.cta h2{color:#fff}.cta p{color:#eee7ef}.cta-grid{display:grid;grid-template-columns:1fr .86fr;gap:35px}.contact-panel{background:#ffffff12;border:1px solid #e0b33955;border-radius:15px;padding:24px}.contact-panel h3{color:#fff}.tagline{font-weight:800;letter-spacing:.13em;font-size:.8rem;color:var(--bright-gold)!important;margin-top:23px}
+    footer{background:#211a28;color:#e2dae4;padding:52px 0 20px}.footer-grid{display:grid;grid-template-columns:1.45fr repeat(3,1fr);gap:25px}.footer-logo{display:block;width:160px;height:145px;object-fit:contain;object-position:left center;background:#fff;border-radius:9px;padding:7px;margin-bottom:15px}footer h3{color:var(--bright-gold);font-size:.86rem;letter-spacing:0}footer p,footer a{display:block;font-size:.78rem;line-height:1.7;color:#e2dae4;margin-bottom:6px}footer a:hover{color:var(--bright-gold)}.footer-bottom{border-top:1px solid #e0b33940;padding-top:18px;margin-top:28px;display:flex;justify-content:space-between;gap:12px;font-size:.72rem}.placeholder-link{border-bottom:1px dashed var(--bright-gold)}.reveal{opacity:0;transform:translateY(16px);transition:opacity .65s,transform .65s}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:1100px){.header{min-height:128px}.brand-logo{width:285px;height:118px}.header-inner{min-height:128px}.nav{display:none}.menu-btn{display:block}.hero-grid{grid-template-columns:1fr}.hero-copy{max-width:850px}.explorer-layout{grid-template-columns:1fr}.aside-note{position:static}.benefits-grid{grid-template-columns:repeat(3,1fr)}.agent-flow{grid-template-columns:repeat(4,1fr)}}
+    @media(max-width:760px){.wrap{width:min(100% - 30px,1190px)}.section{padding:65px 0}.hero{padding:42px 0 52px}.intro-grid,.two-col,.faq-grid,.cta-grid{grid-template-columns:1fr}.flow,.steps,.cards,.benefits-grid{grid-template-columns:repeat(2,1fr)}.integrations-arch{grid-template-columns:1fr}.integration-side{grid-template-columns:repeat(2,1fr)}.connector{transform:rotate(90deg)}.footer-grid{grid-template-columns:repeat(2,1fr)}.footer-grid>div:first-child{grid-column:1/-1}.photo{height:260px}}
+    @media(max-width:510px){.header{min-height:108px}.header-inner{min-height:108px;gap:14px}.brand-logo{width:230px;height:96px}.metric-grid,.kpi-strip{grid-template-columns:repeat(2,1fr)}.dash-columns,.panel-grid,.feature-items,.question-list,.cards,.benefits-grid,.integration-side{grid-template-columns:1fr}.agent-flow{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.actions .btn{width:100%}.dash-top{flex-wrap:wrap}.tree-branches{grid-template-columns:1fr}.footer-bottom{display:block}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+  <link rel="stylesheet" href="css/accounting.tailwind.css">
+  <script src="vendor/lucide.min.js"></script>
+  <style>:root{--fx-a:#513260;--fx-b:#d4a017}</style>
+<link rel="stylesheet" href="fx/module-fx.css">
+</head>
+ <body data-template-id="__page-root" class="w-full" style="background: rgb(250, 249, 246);">
+  <header class="header">
+   <div class="wrap header-inner"><a class="brand" href="#overview" aria-label="vSuite Accounting overview"><img data-template-id="header-logo" class="canva-image brand-logo" loading="lazy" src="../uploads/vsuite/modules/logo-accounting.png" alt="Official vSuite Accounting logo with a deep-plum lotus, gold accents, and the words vSuite Accounting"></a>
+    <nav class="nav" aria-label="Primary navigation">
+     <a href="#overview">Overview</a><a href="#features">Accounting Features</a><a href="#reporting">Financial Reporting</a><a href="#enterprise">Enterprise Accounting</a><a href="#ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
+    </nav><button id="menu-toggle" class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><span class="menu-open">☰</span><span class="menu-close" hidden="">✕</span></button>
+   </div>
+   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#overview">Overview</a><a href="#features">Accounting Features</a><a href="#reporting">Financial Reporting</a><a href="#enterprise">Enterprise Accounting</a><a href="#ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
+   </nav>
+  </header>
+  <main>
+   <section id="overview" class="hero">
+    <div class="wrap hero-grid">
+     <div class="hero-copy reveal">
+      <p data-template-id="hero-eyebrow" class="eyebrow canva-text" style="color: rgb(81, 50, 96); font-weight: 800; font-style: normal; font-size: 16px; letter-spacing: 0.13rem;">INTELLIGENT ACCOUNTING &amp; FINANCIAL MANAGEMENT</p>
+      <h1 data-template-id="hero-title" class="canva-text" style="color: rgb(33, 19, 47); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 32px;">Smarter Accounting. Clearer Financial Insights. Better Decisions.</h1>
+      <p data-template-id="hero-copy" class="lead canva-text" style="color: rgb(101, 97, 106); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.7;">vSuite Accounting is designed to help organizations manage financial transactions, general ledger operations, accounts payable and receivable, bank reconciliation, financial reporting, and enterprise accounting processes through a connected platform. With configurable accounting rules, automated financial workflows, and AI-powered intelligence, vSuite Accounting helps businesses improve financial visibility, streamline accounting activities, and support informed decision-making.</p>
+      <div class="actions">
+       <a data-template-id="hero-demo-button" class="btn btn-primary canva-button" href="#request-demo" style="background: rgb(53, 32, 71); color: rgb(255, 255, 255); font-weight: 800; font-style: normal; font-size: 16px;">Request a Demo</a><a data-template-id="hero-features-button" class="btn btn-secondary canva-button" href="#features" style="background: rgb(255, 255, 255); color: rgb(53, 32, 71); font-weight: 800; font-style: normal; font-size: 16px;">Explore Accounting Features</a>
+      </div>
+      <div class="values" aria-label="Key value points">
+       <span class="badge">Connected Accounting Operations</span><span class="badge">Automated Financial Workflows</span><span class="badge">AI-Powered Financial Insights</span>
+      </div>
+     </div>
+     <div class="dashboard reveal" aria-label="Illustrative accounting dashboard with sample figures, entries, charts, and alerts">
+      <div class="dash-top">
+       <span>vSuite Accounting · Financial overview</span><span>ILLUSTRATIVE DEMONSTRATION DATA</span>
+      </div>
+      <div class="dash-body">
+       <div class="dash-title">
+        <span>Financial position</span><span class="sample">Sample figures · INR</span>
+       </div>
+       <div class="metric-grid">
+        <div class="metric">
+         <small>Total assets</small><strong>₹ 82.40L</strong>
+        </div>
+        <div class="metric">
+         <small>Liabilities</small><strong>₹ 31.20L</strong>
+        </div>
+        <div class="metric">
+         <small>Revenue</small><strong>₹ 24.60L</strong>
+        </div>
+        <div class="metric">
+         <small>Expenses</small><strong>₹ 17.80L</strong>
+        </div>
+        <div class="metric">
+         <small>Net profit / loss</small><strong>₹ 6.80L profit</strong>
+        </div>
+        <div class="metric">
+         <small>Cash position · ledger</small><strong>₹ 18.30L</strong>
+        </div>
+        <div class="metric">
+         <small>Accounts payable</small><strong>₹ 7.10L</strong>
+        </div>
+        <div class="metric">
+         <small>Accounts receivable</small><strong>₹ 9.40L</strong>
+        </div>
+       </div>
+       <div class="dash-columns">
+        <div class="box">
+         <h4>Recent journal entries</h4>
+         <div class="tiny-row">
+          <span>JE-1042 · Supplier accrual</span><b>₹ 42,000</b>
+         </div>
+         <div class="tiny-row">
+          <span>JE-1043 · Service revenue</span><b>₹ 86,000</b>
+         </div>
+         <h4 style="margin-top:9px">Trial balance summary</h4>
+         <div class="tiny-row">
+          <span>Total debits</span><b>₹ 1.24Cr</b>
+         </div>
+         <div class="tiny-row">
+          <span>Total credits</span><b>₹ 1.24Cr</b>
+         </div>
+        </div>
+        <div class="box">
+         <h4>Profit-and-loss trend · sample</h4>
+         <div class="chart-bars" aria-label="Illustrative monthly revenue and expense bars">
+          <span style="height:48%"></span><span style="height:34%"></span><span style="height:67%"></span><span style="height:42%"></span><span style="height:79%"></span><span style="height:54%"></span>
+         </div>
+         <div class="legend">
+          <span><i></i>Revenue</span><span><i class="pale"></i>Expenses</span>
+         </div>
+        </div>
+        <div class="box">
+         <h4>Cash flow · sample</h4>
+         <svg class="spark" viewBox="0 0 280 75" role="img" aria-label="Illustrative cash flow line fluctuating and ending higher">
+          <path d="M0 55 L45 48 L85 59 L130 32 L177 40 L225 20 L280 26" fill="none" stroke="#513260" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M0 73H280" stroke="#ddd5e0"></path>
+         </svg>
+        </div>
+        <div class="box">
+         <h4>AI financial alerts · illustrative</h4>
+         <div class="alert">
+          Review an unusual balance in the sample travel expense account. Validate source entries before acting.
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section white" aria-labelledby="intro-title">
+    <div class="wrap intro-grid">
+     <div class="reveal">
+      <p class="eyebrow">CONNECTED ACCOUNTING OPERATIONS</p>
+      <h2 id="intro-title" data-template-id="intro-title-text" class="canva-text" style="color: rgb(33, 19, 47); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 24px;">One Connected Platform for Your Accounting Operations</h2>
+      <p data-template-id="intro-copy" class="lead canva-text" style="color: rgb(101, 97, 106); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.7;">Bring essential finance activities into a structured accounting environment—from transaction capture and general ledger review to reconciliations, financial statements, and informed analysis.</p>
+      <p class="small muted">A connected approach can bring general ledger activity, accounting periods, reconciliation, expenses, payables and receivables, statements, controls, and relevant applications into a more coherent finance workflow. Scope depends on configuration and implementation.</p>
+     </div><img data-template-id="workspace-photo" class="photo canva-image" loading="lazy" src="https://images.pexels.com/photos/7654119/pexels-photo-7654119.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Teamwork in a modern office with diverse colleagues working together on documents.">
+    </div>
+    <div class="wrap" style="margin-top:42px">
+     <h3>Accounting lifecycle</h3>
+     <div class="flow" aria-label="Accounting lifecycle stages">
+      <div class="flow-step">
+       <b>01 →</b>Transaction Capture
+      </div>
+      <div class="flow-step">
+       <b>02 →</b>Account Coding
+      </div>
+      <div class="flow-step">
+       <b>03 →</b>Journal Processing
+      </div>
+      <div class="flow-step">
+       <b>04 →</b>General Ledger
+      </div>
+      <div class="flow-step">
+       <b>05 →</b>Reconciliation
+      </div>
+      <div class="flow-step">
+       <b>06 →</b>Financial Statements
+      </div>
+      <div class="flow-step">
+       <b>07</b>Financial Analysis
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section cream" aria-labelledby="how-title">
+    <div class="wrap">
+     <p class="eyebrow">FROM SOURCE TO INSIGHT</p>
+     <h2 id="how-title">How vSuite Accounting Works</h2>
+     <p class="lead">A conceptual ten-step workflow; available steps and automation depend on the implemented solution.</p>
+     <div class="steps">
+      <div class="step">
+       <b>01 / INPUT</b>Capture Transactions
+      </div>
+      <div class="step">
+       <b>02 / CODING</b>Classify Transactions
+      </div>
+      <div class="step">
+       <b>03 / JOURNALS</b>Process Journals
+      </div>
+      <div class="step">
+       <b>04 / LEDGER</b>Update the Ledger
+      </div>
+      <div class="step">
+       <b>05 / REVIEW</b>Reconcile Accounts
+      </div>
+      <div class="step">
+       <b>06 / ADJUST</b>Manage Adjustments
+      </div>
+      <div class="step">
+       <b>07 / CLOSE</b>Close Financial Periods
+      </div>
+      <div class="step">
+       <b>08 / REPORT</b>Generate Statements
+      </div>
+      <div class="step">
+       <b>09 / ANALYZE</b>Analyze Financial Results
+      </div>
+      <div class="step">
+       <b>10 / ASSIST</b>Apply Intelligent Assistance
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="features" class="section white">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">ACCOUNTING FEATURE EXPLORER</p>
+      <h2 data-template-id="features-title" class="canva-text" style="color: rgb(33, 19, 47); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 24px;">Explore the vSuite Accounting Capability Catalogue</h2>
+      <p class="lead">Ten capability groups, organized for quick review. Names describe intended areas; individual availability should be confirmed during a demonstration.</p>
+     </div>
+     <div class="explorer-layout">
+      <div><label class="search-label" for="feature-search">Search feature names and descriptions</label><input id="feature-search" class="search" type="search" placeholder="Try “reconciliation”, “forecasting”, or “ledger”" autocomplete="off">
+       <p id="search-count" class="small muted" role="status" aria-live="polite" style="margin-top:10px">Showing all 10 modules.</p>
+       <div id="module-grid" class="module-grid">
+        <details class="module">
+         <summary><span class="module-marker">01</span><span><span class="module-name">Core Accounting and General Ledger</span><span class="module-count">8 features · records, rules, and controls</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">The accounting foundation for organized entries and controlled ledger activity.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>General Ledger</strong>Organize posted account activity and balances.
+           </div>
+           <div class="feature-item">
+            <strong>Chart of Accounts</strong>Structure financial accounts for reporting.
+           </div>
+           <div class="feature-item">
+            <strong>Journal Management</strong>Prepare, review, and track journal entries.
+           </div>
+           <div class="feature-item">
+            <strong>Accounting Rules</strong>Define applicable transaction treatment.
+           </div>
+           <div class="feature-item">
+            <strong>Financial Period Management</strong>Organize accounting periods and close timing.
+           </div>
+           <div class="feature-item">
+            <strong>Financial Controls</strong>Support review and exception handling.
+           </div>
+           <div class="feature-item">
+            <strong>Accounting Approval Workflow</strong>Route configured activities for approval.
+           </div>
+           <div class="feature-item">
+            <strong>Audit Trail</strong>Retain accounting activity history where implemented.
+           </div>
+          </div><a class="detail-link" href="#ledger-detail">Explore ledger illustration →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">02</span><span><span class="module-name">Payables &amp; Receivables</span><span class="module-count">6 features · obligations and collections</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">Review supplier obligations, customer balances, cash records, and reconciliation.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>Accounts Payable</strong>Track supplier invoices and payable balances.
+           </div>
+           <div class="feature-item">
+            <strong>Accounts Receivable</strong>Review customer amounts outstanding.
+           </div>
+           <div class="feature-item">
+            <strong>Cash Management</strong>View cash position from accounting records.
+           </div>
+           <div class="feature-item">
+            <strong>Bank Reconciliation</strong>Compare ledger records with supplied bank activity.
+           </div>
+           <div class="feature-item">
+            <strong>Expense Management</strong>Classify and review business expenses.
+           </div>
+           <div class="feature-item">
+            <strong>Billing-to-Accounting Integration</strong>Map billing events to accounting where integrated.
+           </div>
+          </div><a class="detail-link" href="#payables-detail">Explore reconciliation illustration →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">03</span><span><span class="module-name">Financial Reporting</span><span class="module-count">7 features · statements and analysis</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">Organize balances and financial results into reviewable reports.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>Trial Balance</strong>Review debit and credit account totals.
+           </div>
+           <div class="feature-item">
+            <strong>Profit &amp; Loss</strong>Summarize income and expenses for a period.
+           </div>
+           <div class="feature-item">
+            <strong>Balance Sheet</strong>Present assets, liabilities, and equity.
+           </div>
+           <div class="feature-item">
+            <strong>Cash Flow Statement</strong>Organize cash movements by reporting category.
+           </div>
+           <div class="feature-item">
+            <strong>Financial Reporting</strong>Prepare configured financial views.
+           </div>
+           <div class="feature-item">
+            <strong>Real-Time Financial Dashboard</strong>Explore current views where supported by source updates.
+           </div>
+           <div class="feature-item">
+            <strong>Regulatory Reporting</strong>Prepare jurisdiction-specific outputs where configured.
+           </div>
+          </div><a class="detail-link" href="#reporting">Explore reporting →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">04</span><span><span class="module-name">Accounting Automation</span><span class="module-count">7 features · repeatable finance processes</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">Configured workflows can reduce repetitive preparation while retaining review controls.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>Automated Journal Entries</strong>Prepare entries from approved source rules.
+           </div>
+           <div class="feature-item">
+            <strong>Automated Allocations</strong>Distribute amounts using configured drivers.
+           </div>
+           <div class="feature-item">
+            <strong>Accrual Management</strong>Schedule review of period-related accruals.
+           </div>
+           <div class="feature-item">
+            <strong>Prepaid Expense Management</strong>Track expense recognition schedules.
+           </div>
+           <div class="feature-item">
+            <strong>Fixed Asset Accounting</strong>Maintain an asset accounting register.
+           </div>
+           <div class="feature-item">
+            <strong>Depreciation Management</strong>Review configured depreciation schedules.
+           </div>
+           <div class="feature-item">
+            <strong>Period-End Close</strong>Coordinate closing tasks and approvals.
+           </div>
+          </div><a class="detail-link" href="#automation-detail">Explore automation illustration →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">05</span><span><span class="module-name">Enterprise Accounting</span><span class="module-count">6 features · entities and reporting views</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">Explore structured accounting across organizational boundaries.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>Multi-Company Accounting</strong>Separate company-level accounting records.
+           </div>
+           <div class="feature-item">
+            <strong>Multi-Entity Accounting</strong>Organize results by legal or operational entity.
+           </div>
+           <div class="feature-item">
+            <strong>Multi-Currency Accounting</strong>Record relevant transaction currencies where configured.
+           </div>
+           <div class="feature-item">
+            <strong>Multi-Ledger Accounting</strong>Maintain distinct ledger views where implemented.
+           </div>
+           <div class="feature-item">
+            <strong>Intercompany Accounting</strong>Track transactions between participating entities.
+           </div>
+           <div class="feature-item">
+            <strong>Financial Consolidation</strong>Prepare group reporting based on defined scope.
+           </div>
+          </div><a class="detail-link" href="#enterprise">Explore enterprise accounting →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">06</span><span><span class="module-name">Planning &amp; Forecasting</span><span class="module-count">3 features · budgets and scenarios</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">Compare plans with actuals and examine illustrative scenarios.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>Budget Management</strong>Organize budgets against recorded outcomes.
+           </div>
+           <div class="feature-item">
+            <strong>Financial Planning</strong>Explore departmental and period plans.
+           </div>
+           <div class="feature-item">
+            <strong>Financial Forecasting</strong>Model potential results from stated assumptions.
+           </div>
+          </div><a class="detail-link" href="#planning-detail">Explore planning illustration →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">07</span><span><span class="module-name">AI Accounting</span><span class="module-count">15 features · assisted analysis and review</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">Potential AI assistance requires appropriate data, implementation, human validation, and controls.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>AI Journal Entry Suggestions</strong>Propose entries for accountant review.
+           </div>
+           <div class="feature-item">
+            <strong>Intelligent Account Coding</strong>Suggest account classifications.
+           </div>
+           <div class="feature-item">
+            <strong>AI Bank Reconciliation</strong>Suggest reconciliation candidates for validation.
+           </div>
+           <div class="feature-item">
+            <strong>Intelligent Transaction Matching</strong>Propose likely record matches.
+           </div>
+           <div class="feature-item">
+            <strong>AI Anomaly Detection</strong>Highlight entries that merit investigation.
+           </div>
+           <div class="feature-item">
+            <strong>AI Expense Classification</strong>Suggest expense categories.
+           </div>
+           <div class="feature-item">
+            <strong>AI Financial Analysis</strong>Summarize patterns in available information.
+           </div>
+           <div class="feature-item">
+            <strong>AI Forecasting</strong>Explore assumption-based projections.
+           </div>
+           <div class="feature-item">
+            <strong>Cash Flow Prediction</strong>Estimate possible future cash requirements.
+           </div>
+           <div class="feature-item">
+            <strong>Financial Risk Detection</strong>Flag potential exceptions for review.
+           </div>
+           <div class="feature-item">
+            <strong>Natural Language Financial Queries</strong>Ask questions about permitted financial views.
+           </div>
+           <div class="feature-item">
+            <strong>AI Financial Assistant</strong>Present contextual explanations for validation.
+           </div>
+           <div class="feature-item">
+            <strong>AI Month-End Close Assistant</strong>Surface close tasks and review items.
+           </div>
+           <div class="feature-item">
+            <strong>AI Financial Narratives</strong>Draft explanations of financial changes.
+           </div>
+           <div class="feature-item">
+            <strong>AI Management Insights</strong>Suggest areas for management attention.
+           </div>
+          </div><a class="detail-link" href="#ai">Explore AI assistance →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">08</span><span><span class="module-name">Agentic AI</span><span class="module-count">1 feature · controlled close coordination</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>Financial Close Agent</strong>Potentially coordinate permitted close reviews, recommendations, approvals, and authorized steps.
+           </div>
+          </div><a class="detail-link" href="#agentic">Explore close-agent concept →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">09</span><span><span class="module-name">Tax &amp; Regulatory</span><span class="module-count">4 features · configurable tax context</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">Applicable treatment requires jurisdictional configuration and professional review.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>Country-Specific Accounting</strong>Configure accounting views for relevant jurisdictions.
+           </div>
+           <div class="feature-item">
+            <strong>GST / VAT Accounting</strong>Organize configured tax-related journal context.
+           </div>
+           <div class="feature-item">
+            <strong>E-Invoice Accounting Integration</strong>Connect eligible invoice events where integrated.
+           </div>
+           <div class="feature-item">
+            <strong>Regulatory Reporting</strong>Prepare applicable reports subject to validation.
+           </div>
+          </div><a class="detail-link" href="#tax-detail">Explore tax illustration →</a>
+         </div>
+        </details>
+        <details class="module">
+         <summary><span class="module-marker">10</span><span><span class="module-name">Specialized Accounting</span><span class="module-count">3 features · projects, contracts, leases</span></span><span class="plus" aria-hidden="true">+</span></summary>
+         <div class="module-body">
+          <p class="small muted">General capability areas, not a claim of support for any particular accounting standard.</p>
+          <div class="feature-items">
+           <div class="feature-item">
+            <strong>Project Accounting</strong>Associate costs and revenue with projects.
+           </div>
+           <div class="feature-item">
+            <strong>Contract Accounting</strong>Review contract-linked accounting context.
+           </div>
+           <div class="feature-item">
+            <strong>Lease Accounting</strong>Organize lease records and schedules.
+           </div>
+          </div><a class="detail-link" href="#specialized-detail">Explore specialized illustration →</a>
+         </div>
+        </details>
+       </div>
+      </div>
+      <aside class="aside-note">
+       <p class="eyebrow">BUILT FOR EXPLORATION</p>
+       <h3>Find the relevant workflow.</h3>
+       <p>Search across every module and feature description, then expand a group for its individual capabilities.</p>
+       <p>These illustrations describe potential business use. Confirm product scope, dependencies, and availability with Vishva Digital Technologies.</p><a href="#request-demo">Discuss your requirements →</a>
+      </aside>
+     </div>
+    </div>
+   </section>
+   <section id="ledger-detail" class="section cream">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">CORE ACCOUNTING</p>
+      <h2>Make the Ledger Easier to Navigate</h2>
+      <p class="lead">A sample operating view connects account balances, journal activity, period status, and approvals.</p>
+     </div>
+     <div class="panel-grid">
+      <article class="panel">
+       <div class="visual-head">
+        <h3>General ledger overview</h3><span class="sample">Sample · INR</span>
+       </div>
+       <div class="kpi-strip">
+        <div class="metric">
+         <small>Ledger debits</small><strong>₹ 12.40L</strong>
+        </div>
+        <div class="metric">
+         <small>Ledger credits</small><strong>₹ 12.40L</strong>
+        </div>
+        <div class="metric">
+         <small>Period</small><strong>Open</strong>
+        </div>
+        <div class="metric">
+         <small>Approvals</small><strong>3 pending</strong>
+        </div>
+       </div>
+       <table class="data-table">
+        <thead>
+         <tr>
+          <th>Account</th>
+          <th>Balance</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>Cash and equivalents</td>
+          <td>₹ 18.30L Dr</td>
+         </tr>
+         <tr>
+          <td>Trade receivables</td>
+          <td>₹ 9.40L Dr</td>
+         </tr>
+         <tr>
+          <td>Trade payables</td>
+          <td>₹ 7.10L Cr</td>
+         </tr>
+        </tbody>
+       </table>
+      </article>
+      <article class="panel">
+       <div class="visual-head">
+        <h3>Debit / credit journal illustration</h3><span class="sample">Sample entry</span>
+       </div>
+       <p class="small muted">JE-1042 · Supplier expense accrual · awaiting configured approval</p>
+       <table class="data-table">
+        <thead>
+         <tr>
+          <th>Account</th>
+          <th>Debit</th>
+          <th>Credit</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>Operating expense</td>
+          <td>₹ 42,000</td>
+          <td>—</td>
+         </tr>
+         <tr>
+          <td>Accrued liabilities</td>
+          <td>—</td>
+          <td>₹ 42,000</td>
+         </tr>
+         <tr>
+          <td>Total</td>
+          <td>₹ 42,000</td>
+          <td>₹ 42,000</td>
+         </tr>
+        </tbody>
+       </table>
+       <p class="side-note">Illustration only; actual posting rules and approvals depend on configuration.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="payables-detail" class="section white">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">PAYABLES, RECEIVABLES &amp; CASH</p>
+      <h2>A Clearer View of What Moves—and What Has Not Matched</h2>
+      <p class="lead">Separate accounting records from externally supplied bank balances and payment activity.</p>
+     </div>
+     <div class="cards">
+      <article class="card">
+       <h3>Supplier invoices</h3>
+       <div class="tiny-row">
+        <span>Ready for review</span><b>5</b>
+       </div>
+       <div class="tiny-row">
+        <span>Awaiting approval</span><b>3</b>
+       </div>
+       <div class="tiny-row">
+        <span>Recorded payable</span><b>₹ 7.10L</b>
+       </div>
+       <p class="side-note">Sample accounting status; not evidence that payment has been made.</p>
+      </article>
+      <article class="card">
+       <h3>Receivables &amp; expenses</h3>
+       <div class="tiny-row">
+        <span>Outstanding customer balance</span><b>₹ 9.40L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Expense items for review</span><b>8</b>
+       </div>
+       <div class="tiny-row">
+        <span>Expense category</span><b>Travel · sample</b>
+       </div>
+      </article>
+      <article class="card">
+       <h3>Bank reconciliation</h3>
+       <div class="tiny-row">
+        <span>Matched</span><b>24</b>
+       </div>
+       <div class="tiny-row">
+        <span>Unmatched</span><b>3</b>
+       </div>
+       <div class="tiny-row">
+        <span>Pending review</span><b>2</b>
+       </div>
+       <p class="side-note">External bank activity is compared only when bank data is supplied through an implemented process.</p>
+      </article>
+     </div>
+     <div class="panel" style="margin-top:14px">
+      <div class="visual-head">
+       <h3>Cash-position context</h3><span class="sample">Illustrative</span>
+      </div>
+      <div class="detail-strip">
+       <span>Accounting ledger cash: <b class="number">₹ 18.30L</b></span><span>External bank balance: <b class="number">Not connected in this demonstration</b></span><span>Payment activity: <b class="number">Requires relevant integration</b></span>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="reporting" class="section cream">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">FINANCIAL REPORTING</p>
+      <h2>Move from Balances to Financial Perspective</h2>
+      <p class="lead">Readable statement views and period comparisons support review. All values below are illustrative sample data, not customer results or a claim of live reporting.</p>
+     </div>
+     <div class="kpi-strip">
+      <div class="metric">
+       <small>Revenue · sample</small><strong>₹ 24.60L</strong>
+      </div>
+      <div class="metric">
+       <small>Expenses · sample</small><strong>₹ 17.80L</strong>
+      </div>
+      <div class="metric">
+       <small>Net result · sample</small><strong>₹ 6.80L</strong>
+      </div>
+      <div class="metric">
+       <small>Cash · ledger sample</small><strong>₹ 18.30L</strong>
+      </div>
+     </div>
+     <div class="panel-grid">
+      <article class="panel">
+       <div class="visual-head">
+        <h3>Trial balance</h3><span class="sample">Sample</span>
+       </div>
+       <table class="data-table">
+        <thead>
+         <tr>
+          <th>Account group</th>
+          <th>Debit</th>
+          <th>Credit</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>Assets &amp; expenses</td>
+          <td>₹ 1.24Cr</td>
+          <td>—</td>
+         </tr>
+         <tr>
+          <td>Liabilities, equity &amp; income</td>
+          <td>—</td>
+          <td>₹ 1.24Cr</td>
+         </tr>
+         <tr>
+          <td>Totals</td>
+          <td>₹ 1.24Cr</td>
+          <td>₹ 1.24Cr</td>
+         </tr>
+        </tbody>
+       </table>
+      </article>
+      <article class="panel">
+       <div class="visual-head">
+        <h3>Profit &amp; Loss</h3><span class="sample">Sample period</span>
+       </div>
+       <div class="tiny-row">
+        <span>Revenue</span><b>₹ 24.60L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Expenses</span><b>(₹ 17.80L)</b>
+       </div>
+       <div class="tiny-row">
+        <span>Net profit</span><b>₹ 6.80L</b>
+       </div>
+      </article>
+      <article class="panel">
+       <div class="visual-head">
+        <h3>Balance Sheet</h3><span class="sample">Sample</span>
+       </div>
+       <div class="tiny-row">
+        <span>Assets</span><b>₹ 82.40L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Liabilities</span><b>₹ 31.20L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Equity</span><b>₹ 51.20L</b>
+       </div>
+      </article>
+      <article class="panel">
+       <div class="visual-head">
+        <h3>Cash Flow Statement</h3><span class="sample">Sample</span>
+       </div>
+       <div class="tiny-row">
+        <span>Operating activities</span><b>₹ 8.20L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Investing activities</span><b>(₹ 2.10L)</b>
+       </div>
+       <div class="tiny-row">
+        <span>Financing activities</span><b>₹ 1.40L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Illustrative net movement</span><b>₹ 7.50L</b>
+       </div>
+      </article>
+     </div>
+     <div class="panel" style="margin-top:14px">
+      <div class="visual-head">
+       <h3>Monthly revenue and expense trend</h3><span class="sample">Sample · Jan–Jun</span>
+      </div>
+      <svg viewBox="0 0 720 140" style="width:100%;height:auto" role="img" aria-label="Illustrative six-month chart with revenue generally above expenses">
+       <path d="M35 120H700" stroke="#ddd5e0"></path><path d="M40 80 170 70 300 76 430 54 560 61 690 35" stroke="#513260" stroke-width="4" fill="none"></path><path d="M40 108 170 95 300 102 430 82 560 91 690 72" stroke="#bd8b16" stroke-width="4" fill="none"></path><g fill="#65616a" font-size="12">
+        <text x="35" y="137">
+         Jan
+        </text>
+        <text x="165" y="137">
+         Feb
+        </text>
+        <text x="295" y="137">
+         Mar
+        </text>
+        <text x="425" y="137">
+         Apr
+        </text>
+        <text x="555" y="137">
+         May
+        </text>
+        <text x="680" y="137">
+         Jun
+        </text>
+       </g>
+      </svg>
+      <div class="legend">
+       <span><i></i>Revenue</span><span><i class="pale"></i>Expenses</span>
+      </div>
+      <p class="side-note">Dashboard refresh frequency and report availability depend on configured source data and implementation.</p>
+     </div>
+    </div>
+   </section>
+   <section id="automation-detail" class="section white">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">ACCOUNTING AUTOMATION</p>
+      <h2>Structured Workflows, with Review Built In</h2>
+      <p class="lead">Conceptual process illustrations; accounting treatment is determined by configured policies, not implied support for a particular standard.</p>
+     </div>
+     <div class="cards">
+      <article class="card">
+       <h3>Journal automation</h3>
+       <p>Source event → configured accounting rule → draft journal → review / approval → authorized posting.</p>
+      </article>
+      <article class="card">
+       <h3>Allocation diagram</h3>
+       <p>Shared cost ₹ 1.00L → Department A ₹ 60,000 + Department B ₹ 40,000, using an illustrative 60/40 driver.</p>
+      </article>
+      <article class="card">
+       <h3>Accrual &amp; prepaid schedule</h3>
+       <div class="tiny-row">
+        <span>Accrual review</span><b>Period end</b>
+       </div>
+       <div class="tiny-row">
+        <span>Prepaid balance</span><b>₹ 1.20L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Next scheduled review</span><b>Next period</b>
+       </div>
+      </article>
+      <article class="card">
+       <h3>Fixed-asset register</h3>
+       <div class="tiny-row">
+        <span>Asset FA-018 · Equipment</span><b>₹ 4.80L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Assigned cost center</span><b>Operations</b>
+       </div>
+      </article>
+      <article class="card">
+       <h3>Depreciation schedule</h3>
+       <div class="tiny-row">
+        <span>Illustrative monthly amount</span><b>₹ 8,000</b>
+       </div>
+       <div class="tiny-row">
+        <span>Next review</span><b>Pending</b>
+       </div>
+       <p>Method and treatment must be configured and verified.</p>
+      </article>
+      <article class="card">
+       <h3>Period-end checklist</h3>
+       <div class="tiny-row">
+        <span>Review journals</span><b>Complete</b>
+       </div>
+       <div class="tiny-row">
+        <span>Reconcile accounts</span><b>In progress</b>
+       </div>
+       <div class="tiny-row">
+        <span>Approve adjustments</span><b>Pending</b>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="enterprise" class="section cream">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">ENTERPRISE ACCOUNTING</p>
+      <h2>Financial Context Across Entities</h2>
+      <p class="lead">Explore entity, ledger, currency, and group-reporting views without assuming automatic eliminations, FX revaluation, or specific consolidation rules.</p>
+     </div>
+     <div class="two-col">
+      <div class="panel">
+       <div class="visual-head">
+        <h3>Group structure</h3><span class="sample">Conceptual</span>
+       </div>
+       <div class="enterprise-tree">
+        <div class="tree-parent">
+         Parent / group reporting view
+        </div>
+        <div class="tree-arrow" aria-hidden="true">
+         ↓
+        </div>
+        <div class="tree-branches">
+         <div class="tree-child">
+          Entity A<br><small>Primary ledger</small>
+         </div>
+         <div class="tree-child">
+          Entity B<br><small>Local ledger</small>
+         </div>
+         <div class="tree-child">
+          Entity C<br><small>Reporting ledger</small>
+         </div>
+        </div>
+        <div class="tree-arrow" aria-hidden="true">
+         ↔ Intercompany flows · subject to review ↔
+        </div>
+        <div class="tree-parent">
+         Consolidated reporting view · defined scope
+        </div>
+       </div>
+      </div>
+      <div class="detail-stack">
+       <div class="panel">
+        <div class="visual-head">
+         <h3>Enterprise reporting lens</h3><span class="sample">Sample · INR</span>
+        </div>
+        <div class="detail-strip">
+         <span>Entity filter: <b class="number">All entities</b></span><span>Reporting currency: <b class="number">INR · illustrative</b></span>
+        </div>
+        <div class="tiny-row">
+         <span>Entity A · sample assets</span><b>₹ 42.00L</b>
+        </div>
+        <div class="tiny-row">
+         <span>Entity B · sample assets</span><b>₹ 25.00L</b>
+        </div>
+        <div class="tiny-row">
+         <span>Entity C · sample assets</span><b>₹ 15.40L</b>
+        </div>
+        <div class="tiny-row">
+         <span>Illustrative combined assets</span><b>₹ 82.40L</b>
+        </div>
+        <p class="side-note">Simple illustrative aggregation, not a computed statutory consolidation. Intercompany treatment and currency conversion require separately defined rules.</p>
+       </div><img data-template-id="enterprise-photo" class="photo canva-image" loading="lazy" style="height:195px" src="https://images.pexels.com/photos/6476265/pexels-photo-6476265.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1280" alt="Office workers collaboratively reviewing data trends on a laptop during a meeting.">
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="planning-detail" class="section white">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">PLANNING &amp; FORECASTING</p>
+      <h2>Plan with Assumptions in View</h2>
+      <p class="lead">All budgets, projections, and scenarios below are illustrative—not predictions or verified outcomes.</p>
+     </div>
+     <div class="panel-grid">
+      <div class="panel">
+       <div class="visual-head">
+        <h3>Budget vs actual · monthly</h3><span class="sample">Illustrative</span>
+       </div>
+       <table class="data-table">
+        <thead>
+         <tr>
+          <th>Department</th>
+          <th>Budget</th>
+          <th>Actual</th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>Operations</td>
+          <td>₹ 5.0L</td>
+          <td>₹ 4.7L</td>
+         </tr>
+         <tr>
+          <td>Sales</td>
+          <td>₹ 3.8L</td>
+          <td>₹ 4.1L</td>
+         </tr>
+         <tr>
+          <td>Technology</td>
+          <td>₹ 2.6L</td>
+          <td>₹ 2.4L</td>
+         </tr>
+         <tr>
+          <td>Total</td>
+          <td>₹ 11.4L</td>
+          <td>₹ 11.2L</td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <div class="panel">
+       <div class="visual-head">
+        <h3>Scenario planning</h3><span class="sample">Illustrative</span>
+       </div>
+       <div class="tiny-row">
+        <span>Base · quarterly revenue projection</span><b>₹ 72L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Lower-demand scenario</span><b>₹ 64L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Higher-demand scenario</span><b>₹ 78L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Projected quarterly expenses · base</span><b>₹ 53L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Cash planning</span><b>Review funding assumptions</b>
+       </div>
+       <p class="side-note">Monthly and quarterly trends reflect assumed inputs. Validate projections before making decisions.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="ai" class="section dark">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">AI &amp; FINANCIAL INTELLIGENCE</p>
+      <h2>Ask Better Questions of Your Financial Information</h2>
+      <p class="lead">This interface demonstrates possible questions and illustrative generated explanations. It is not connected to company records. Recommendations require validation; predictions have no guaranteed accuracy.</p>
+     </div>
+     <div class="ai-chat">
+      <div class="visual-head">
+       <h3>AI Financial Assistant · concept interface</h3><span class="sample">Illustrative responses</span>
+      </div>
+      <p class="small muted">Select a sample question to see a prepared demonstration response.</p>
+      <div class="question-list" id="ai-questions">
+       <button class="question active" type="button" data-answer="a1" aria-pressed="true">What is our net profit for this month?</button><button class="question" type="button" data-answer="a2" aria-pressed="false">Which expense categories increased the most?</button><button class="question" type="button" data-answer="a3" aria-pressed="false">Which bank transactions remain unreconciled?</button><button class="question" type="button" data-answer="a4" aria-pressed="false">Which accounts have unusual balances?</button><button class="question" type="button" data-answer="a5" aria-pressed="false">How does actual spending compare with budget?</button><button class="question" type="button" data-answer="a6" aria-pressed="false">What are the key differences between this month's and last month's financial results?</button><button class="question" type="button" data-answer="a7" aria-pressed="false">What are the projected cash requirements for the next three months?</button><button class="question" type="button" data-answer="a8" aria-pressed="false">Which tasks remain incomplete before month-end close?</button>
+      </div>
+      <div aria-live="polite">
+       <div id="a1" class="answer">
+        Illustrative generated explanation: sample revenue of ₹ 24.60L less expenses of ₹ 17.80L gives a sample net profit of ₹ 6.80L. Validate the reporting period and underlying entries.
+       </div>
+       <div id="a2" class="answer" hidden="">
+        Illustrative recommendation: review travel and software costs against the prior period. Category changes require validation against actual expense records.
+       </div>
+       <div id="a3" class="answer" hidden="">
+        Illustrative explanation: three sample items are marked unmatched. Review imported bank activity and ledger entries before confirming a match.
+       </div>
+       <div id="a4" class="answer" hidden="">
+        Illustrative recommendation: investigate the sample travel expense balance and check coding, timing, and supporting documents.
+       </div>
+       <div id="a5" class="answer" hidden="">
+        Illustrative explanation: Operations is ₹ 0.3L below its sample budget; Sales is ₹ 0.3L above. Confirm budget versions and actual postings.
+       </div>
+       <div id="a6" class="answer" hidden="">
+        Illustrative generated explanation: compare revenue, major expense categories, and one-off entries between periods before drawing conclusions.
+       </div>
+       <div id="a7" class="answer" hidden="">
+        Illustrative projection guidance: assess expected receipts, approved payments, and scenario assumptions for each of the next three months. No cash requirement is verified here.
+       </div>
+       <div id="a8" class="answer" hidden="">
+        Illustrative close summary: reconcile remaining accounts, review three pending approvals, and investigate flagged exceptions before authorizing close.
+       </div>
+      </div>
+      <p class="side-note">Demonstration data and prepared responses only; not verified financial facts or live AI output.</p>
+     </div>
+    </div>
+   </section>
+   <section id="agentic" class="section dark" style="background:#352047">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">AGENTIC AI · CONTROLLED WORKFLOWS</p>
+      <h2>Financial Close Agent</h2>
+      <p class="lead">A configured agent could review close tasks, identify missing reconciliations, summarize approvals, highlight anomalies, coordinate configured workflow steps, recommend priorities, generate close summaries, and record permitted outcomes.</p>
+     </div>
+     <div class="agent-flow" aria-label="Conceptual financial close agent workflow">
+      <div class="agent-step">
+       Review Close Status
+      </div>
+      <div class="agent-step">
+       Identify Outstanding Tasks
+      </div>
+      <div class="agent-step analysis">
+       Analyze Exceptions
+      </div>
+      <div class="agent-step approval">
+       Recommend Actions
+      </div>
+      <div class="agent-step approval">
+       Request Approval Where Required
+      </div>
+      <div class="agent-step">
+       Execute Authorized Steps
+      </div>
+      <div class="agent-step">
+       Record Completion Status
+      </div>
+     </div>
+     <div class="panel">
+      <div class="visual-head">
+       <h3>Close coordination dashboard</h3><span class="sample">Illustrative only</span>
+      </div>
+      <div class="kpi-strip">
+       <div class="metric">
+        <small>Completed</small><strong>12 tasks</strong>
+       </div>
+       <div class="metric">
+        <small>Pending</small><strong>8 tasks</strong>
+       </div>
+       <div class="metric">
+        <small>Reconciliations needing attention</small><strong>3</strong>
+       </div>
+       <div class="metric">
+        <small>Journal approvals</small><strong>2</strong>
+       </div>
+      </div>
+      <div class="tiny-row">
+       <span>Exceptions for review</span><b>2 illustrative flags</b>
+      </div>
+      <div class="tiny-row">
+       <span>Overall close progress</span><b>60% · sample</b>
+      </div>
+      <div class="progress" role="img" aria-label="Illustrative close progress: 60 percent" style="margin-top:10px">
+       <span></span>
+      </div>
+     </div>
+     <p class="small" style="margin-top:17px;color:#eee7ef">Execution depends on implementation, integrations, permissions, and approval policies. Material postings require authorization; suggested actions are not automatically approved.</p>
+    </div>
+   </section>
+   <section id="tax-detail" class="section white">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">TAX &amp; REGULATORY</p>
+      <h2>Tax Context with Appropriate Review</h2>
+      <p class="lead">Illustrative accounting views only. No statutory compliance, government connectivity, certification, or automatic regulatory updates are claimed.</p>
+     </div>
+     <div class="panel-grid">
+      <div class="panel">
+       <div class="visual-head">
+        <h3>GST / VAT accounting panel</h3><span class="sample">Illustrative</span>
+       </div>
+       <div class="tiny-row">
+        <span>Taxable base</span><b>₹ 1,00,000</b>
+       </div>
+       <div class="tiny-row">
+        <span>Example tax amount</span><b>₹ 18,000</b>
+       </div>
+       <div class="tiny-row">
+        <span>Tax journal example</span><b>Tax account · Cr ₹ 18,000</b>
+       </div>
+       <p class="side-note">Numbers illustrate a journal structure, not advice on a transaction's applicable rate or treatment.</p>
+      </div>
+      <div class="panel">
+       <h3>E-invoice and reporting workflow</h3>
+       <p class="small">Invoice source → permitted integration → accounting review → configured journal → reporting checklist.</p>
+       <div class="tiny-row">
+        <span>Source mapping reviewed</span><b>Checklist item</b>
+       </div>
+       <div class="tiny-row">
+        <span>Tax account reviewed</span><b>Checklist item</b>
+       </div>
+       <div class="tiny-row">
+        <span>Jurisdictional output validated</span><b>Checklist item</b>
+       </div>
+       <p class="side-note">External services and jurisdiction-specific requirements must be assessed separately.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="specialized-detail" class="section cream">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">SPECIALIZED ACCOUNTING</p>
+      <h2>Context for Projects, Contracts, and Leases</h2>
+      <p class="lead">General capability illustrations; standards-specific support and accounting treatment must be separately confirmed.</p>
+     </div>
+     <div class="cards">
+      <div class="card">
+       <h3>Project cost &amp; revenue</h3>
+       <div class="tiny-row">
+        <span>Project revenue</span><b>₹ 18.0L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Project cost</span><b>₹ 12.4L</b>
+       </div>
+       <div class="tiny-row">
+        <span>Project budget</span><b>₹ 13.0L</b>
+       </div>
+       <p class="side-note">Illustrative project-versus-budget view.</p>
+      </div>
+      <div class="card">
+       <h3>Contract overview</h3>
+       <div class="tiny-row">
+        <span>Contract reference</span><b>CT-014</b>
+       </div>
+       <div class="tiny-row">
+        <span>Linked project</span><b>North programme</b>
+       </div>
+       <div class="tiny-row">
+        <span>Accounting review</span><b>Pending</b>
+       </div>
+      </div>
+      <div class="card">
+       <h3>Lease schedule &amp; timeline</h3>
+       <div class="tiny-row">
+        <span>Sample start</span><b>Jan 2027</b>
+       </div>
+       <div class="tiny-row">
+        <span>Scheduled review</span><b>Quarterly</b>
+       </div>
+       <div class="tiny-row">
+        <span>Sample end</span><b>Dec 2028</b>
+       </div>
+       <p class="side-note">Timeline only; no standards-specific calculation is represented.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section dark" aria-labelledby="benefits-title">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">BUSINESS BENEFITS</p>
+      <h2 id="benefits-title">A More Connected Financial Working Day</h2>
+      <p class="lead">Practical benefit themes, without invented savings, ROI, customer claims, or case studies.</p>
+     </div>
+     <div class="benefits-grid">
+      <div class="card">
+       <h3>Centralized Accounting</h3>
+       <p>Bring related accounting work into a shared context.</p>
+      </div>
+      <div class="card">
+       <h3>Improved Financial Visibility</h3>
+       <p>Make balances and results easier to review.</p>
+      </div>
+      <div class="card">
+       <h3>Structured Accounting Workflows</h3>
+       <p>Give routine processes clear stages.</p>
+      </div>
+      <div class="card">
+       <h3>Reduced Repetitive Work</h3>
+       <p>Explore configured assistance for recurring tasks.</p>
+      </div>
+      <div class="card">
+       <h3>Better Reconciliation Visibility</h3>
+       <p>Identify items still requiring investigation.</p>
+      </div>
+      <div class="card">
+       <h3>Enterprise Accounting Support</h3>
+       <p>Organize relevant entity-level views.</p>
+      </div>
+      <div class="card">
+       <h3>Financial Planning Support</h3>
+       <p>Compare plans, actuals, and assumptions.</p>
+      </div>
+      <div class="card">
+       <h3>AI-Assisted Analysis</h3>
+       <p>Surface explanations for human validation.</p>
+      </div>
+      <div class="card">
+       <h3>Controlled Financial Operations</h3>
+       <p>Keep approvals and authorization in view.</p>
+      </div>
+      <div class="card">
+       <h3>Connected Business Processes</h3>
+       <p>Plan data movement across implemented systems.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section white" aria-labelledby="trust-title">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">SECURITY &amp; GOVERNANCE</p>
+      <h2 id="trust-title">Designed Around Control, Not Unchecked Automation</h2>
+      <p class="lead">Governance measures depend on the actual deployment, configuration, and supported capabilities. No security certification or guarantee is implied.</p>
+     </div>
+     <div class="cards">
+      <div class="card">
+       <h3>Access &amp; authorization</h3>
+       <p>Role-based access where supported, authorization policies, and permissions appropriate to each workflow.</p>
+      </div>
+      <div class="card">
+       <h3>Reviews &amp; approvals</h3>
+       <p>Configurable approvals and financial controls for relevant accounting actions.</p>
+      </div>
+      <div class="card">
+       <h3>Accountability</h3>
+       <p>Accounting activity history and audit trail where implemented and retained.</p>
+      </div>
+      <div class="card">
+       <h3>Controlled AI</h3>
+       <p>Recommendations and permitted actions should remain subject to validation, review, and approval.</p>
+      </div>
+      <div class="card">
+       <h3>Integration practices</h3>
+       <p>Use secure API integration practices suited to implemented systems and access requirements.</p>
+      </div>
+      <div class="card">
+       <h3>Operational monitoring</h3>
+       <p>Monitor relevant exceptions, workflow health, and follow-up tasks.</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="integrations" class="section cream">
+    <div class="wrap">
+     <div class="section-head">
+      <p class="eyebrow">CONNECTED BUSINESS PROCESSES</p>
+      <h2>Connected Accounting Across Your Business</h2>
+      <p class="lead">Conceptual or proposed connections—not confirmed connectors or real-time synchronization. Availability depends on implementation and integration scope.</p>
+     </div>
+     <div class="integrations-arch" aria-label="Conceptual architecture connecting vSuite Accounting to other vSuite products and external financial systems">
+      <div class="integration-side">
+       <div class="integration-node">
+        <strong>vSuite Billing</strong><span>Potential billing-to-ledger events.</span>
+       </div>
+       <div class="integration-node">
+        <strong>vSuite Finance</strong><span>Potential finance process context.</span>
+       </div>
+       <div class="integration-node">
+        <strong>vSuite Commerce</strong><span>Potential commerce transaction context.</span>
+       </div>
+      </div>
+      <div>
+       <div class="connector" aria-hidden="true">
+        ← conceptual data flows →
+       </div>
+       <div class="integration-center">
+        <b>vSuite Accounting</b><small>Configured records · controls · financial views</small>
+       </div>
+       <div class="connector" aria-hidden="true">
+        ← subject to integration scope →
+       </div>
+      </div>
+      <div class="integration-side">
+       <div class="integration-node">
+        <strong>vSuite Logistics</strong><span>Potential operational cost context.</span>
+       </div>
+       <div class="integration-node">
+        <strong>vCore</strong><span>Potential shared platform context.</span>
+       </div>
+       <div class="integration-node">
+        <strong>External banking / financial systems</strong><span>Where integrations are available and authorized.</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="faq" class="section white">
+    <div class="wrap faq-grid">
+     <div>
+      <p class="eyebrow">FREQUENTLY ASKED QUESTIONS</p>
+      <h2>Questions, Answered Carefully</h2>
+      <p class="lead">This page describes intended capability areas and conceptual interfaces. A demonstration should confirm what is implemented for your use case.</p>
+     </div>
+     <div>
+      <details class="faq-item">
+       <summary>What is vSuite Accounting?</summary>
+       <p>It is presented as a connected accounting and financial-management solution from Vishva Digital Technologies. Exact delivered scope should be confirmed.</p>
+      </details>
+      <details class="faq-item">
+       <summary>Does vSuite Accounting support a general ledger and chart of accounts?</summary>
+       <p>General Ledger and Chart of Accounts are core capability areas described here. Ask for a demonstration of the available implementation and configuration.</p>
+      </details>
+      <details class="faq-item">
+       <summary>Can vSuite Accounting manage accounts payable and receivable?</summary>
+       <p>Payables and receivables are included in the intended accounting workflow. Specific invoice, balance, and approval processes depend on implementation.</p>
+      </details>
+      <details class="faq-item">
+       <summary>Does it support bank reconciliation?</summary>
+       <p>Bank Reconciliation is a described capability area. Bank-data availability, matching, and review processes depend on configured integrations and controls.</p>
+      </details>
+      <details class="faq-item">
+       <summary>Can it generate financial statements?</summary>
+       <p>Trial balance, profit and loss, balance sheet, and cash flow reporting are described here. Confirm available reports, data sources, and review requirements.</p>
+      </details>
+      <details class="faq-item">
+       <summary>Does it support multiple companies and currencies?</summary>
+       <p>Multi-company, multi-entity, and multi-currency accounting are intended areas. Currency treatment and group-reporting rules require explicit confirmation.</p>
+      </details>
+      <details class="faq-item">
+       <summary>Can accounting activities be automated?</summary>
+       <p>Configured journals, allocations, schedules, and close tasks may support automation. Authorization and review should remain appropriate to the activity.</p>
+      </details>
+      <details class="faq-item">
+       <summary>How can AI help with accounting?</summary>
+       <p>AI could suggest coding, matching, summaries, explanations, and review priorities. Its output is not a verified financial fact and requires validation.</p>
+      </details>
+      <details class="faq-item">
+       <summary>What is the Financial Close Agent?</summary>
+       <p>It is a proposed controlled workflow concept for reviewing close status, recommending next steps, and carrying out only authorized, implemented actions.</p>
+      </details>
+      <details class="faq-item">
+       <summary>Does it support GST, VAT, and e-invoicing?</summary>
+       <p>These are described capability areas. Jurisdictional configuration, external integration, and compliance validation must be confirmed; none is guaranteed here.</p>
+      </details>
+      <details class="faq-item">
+       <summary>Can it integrate with vSuite Billing?</summary>
+       <p>Billing-to-Accounting Integration is a conceptual connection shown on this page. Confirm the available connector, mapping, and implementation scope.</p>
+      </details>
+      <details class="faq-item">
+       <summary>How can I request a demonstration?</summary>
+       <p>Ask Vishva Digital Technologies for an approved contact destination. This standalone page cannot deliver a request until a contact destination is configured.</p>
+      </details>
+     </div>
+    </div>
+   </section>
+   <section id="request-demo" class="cta">
+    <div class="wrap cta-grid">
+     <div>
+      <p class="eyebrow" style="color:#e0b339">START A CONVERSATION</p>
+      <h2 data-template-id="cta-title" class="canva-text" style="color: rgb(255, 255, 255); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 24px;">Bring Intelligence to Your Financial Operations.</h2>
+      <p data-template-id="cta-copy" class="canva-text" style="color: rgb(238, 231, 239); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.7;">Discover how vSuite Accounting can help organize financial transactions, streamline accounting workflows, improve financial visibility, and support smarter financial decisions through connected accounting capabilities and intelligent automation.</p>
+      <div class="actions">
+       <a data-template-id="cta-contact-button" class="btn btn-secondary canva-button" href="#contact-options" style="background: rgb(255, 255, 255); color: rgb(53, 32, 71); font-weight: 800; font-style: normal; font-size: 16px;">Contact Vishva Digital Technologies</a>
+      </div>
+      <p class="tagline">ONE SUITE. MULTIPLE SOLUTIONS. INTELLIGENTLY CONNECTED.</p>
+     </div>
+     <aside class="contact-panel" aria-label="Demonstration contact information">
+      <h3>Discuss a demonstration</h3>
+      <p>An approved contact destination has not yet been configured for this standalone page. No demo request can be sent from here. Contact Vishva Digital Technologies through an independently verified channel to discuss your requirements.</p><a class="btn btn-gold" href="#contact-options">View contact information</a>
+     </aside>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="wrap">
+    <div class="footer-grid">
+     <div>
+      <img data-template-id="footer-logo" class="canva-image footer-logo" loading="lazy" src="../uploads/vsuite/modules/logo-accounting.png" alt="Official vSuite Accounting logo with lotus symbol and gold Accounting lettering">
+      <p>Connected accounting and financial-management capability areas, designed around structured operations, financial visibility, and controlled assistance.</p>
+      <p class="micro">Financial figures and AI responses throughout this page are illustrative demonstration data, not verified customer results.</p>
+     </div>
+     <div>
+      <h3>Quick links</h3><a href="#overview">Overview</a><a href="#features">Accounting Features</a><a href="#reporting">Financial Reporting</a><a href="#enterprise">Enterprise Accounting</a><a href="#ai">AI &amp; Agentic AI</a><a href="#faq">FAQ</a>
+     </div>
+     <div>
+      <h3>vSuite products</h3><a href="#integrations">vSuite Billing</a><a href="#integrations">vSuite Finance</a><a href="#integrations">vSuite Commerce</a><a href="#integrations">vSuite Logistics</a><a href="#integrations">vCore</a>
+     </div>
+     <div id="contact-options">
+      <h3>Vishva Digital Technologies</h3><a href="#request-demo">Request a Demo</a><span class="small">Contact link: <span data-template-id="contact-link-placeholder" class="canva-text placeholder-link" style="color: rgb(216, 169, 30); font-weight: 400; font-style: normal; font-size: 16px;">Configure approved contact destination</span></span><br><span class="small">Privacy Policy: <span data-template-id="privacy-link-placeholder" class="canva-text placeholder-link" style="color: rgb(216, 169, 30); font-weight: 400; font-style: normal; font-size: 16px;">Configure approved policy link</span></span><br><span class="small">Terms: <span data-template-id="terms-link-placeholder" class="canva-text placeholder-link" style="color: rgb(216, 169, 30); font-weight: 400; font-style: normal; font-size: 16px;">Configure approved terms link</span></span>
+      <p class="micro" style="margin-top:10px">Contact and legal destinations are configurable placeholders; no unverified URLs are provided.</p>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <span>© <span id="copyright-year"></span> Vishva Digital Technologies. All rights reserved.</span><span>vSuite Accounting · Thoughtful financial operations</span>
+    </div>
+   </div>
+  </footer>
+  <script>
+document.addEventListener("DOMContentLoaded",()=>{
+ const toggle=document.getElementById("menu-toggle"),mobile=document.getElementById("mobile-nav");
+ function setMenu(open){mobile.classList.toggle("open",open);toggle.setAttribute("aria-expanded",String(open));toggle.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");toggle.querySelector(".menu-open").hidden=open;toggle.querySelector(".menu-close").hidden=!open}
+ toggle.addEventListener("click",()=>setMenu(!mobile.classList.contains("open")));
+ mobile.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>setMenu(false)));
+ document.addEventListener("keydown",e=>{if(e.key==="Escape")setMenu(false)});
+ const modules=[...document.querySelectorAll(".module")],search=document.getElementById("feature-search"),count=document.getElementById("search-count");
+ search.addEventListener("input",()=>{const q=search.value.trim().toLocaleLowerCase(),matches=modules.filter(m=>{const shown=m.textContent.toLocaleLowerCase().includes(q);m.hidden=!shown;return shown});count.textContent=q?`${matches.length} matching module${matches.length===1?"":"s"} shown.`:"Showing all 10 modules."});
+ document.querySelectorAll(".question").forEach(button=>button.addEventListener("click",()=>{document.querySelectorAll(".question").forEach(q=>{const active=q===button;q.classList.toggle("active",active);q.setAttribute("aria-pressed",String(active))});document.querySelectorAll(".answer").forEach(a=>a.hidden=a.id!==button.dataset.answer)}));
+ document.getElementById("copyright-year").textContent=new Date().getFullYear();
+ const reveals=document.querySelectorAll(".reveal");if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver"in window){const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("visible");observer.unobserve(entry.target)}}),{threshold:.08});reveals.forEach(el=>observer.observe(el))}else reveals.forEach(el=>el.classList.add("visible"));
+});
+</script>
+ 
+<script src="fx/module-fx.js"></script>
+</body></html>

@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="en-IN"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover vSuite E-Commerce by Vishva Digital Technologies: one connected platform for every commerce journey.">
+  <title>vSuite E-Commerce | Vishva Digital Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--brand-primary:#A50046;--brand-dark:#78002F;--brand-accent:#C2185B;--brand-gold:#E5AD00;--brand-gold-light:#F2C94C;--background:#FFFFFF;--background-soft:#FAF8F7;--border:#EEE8E7;--text-primary:#34312F;--text-secondary:#716B70}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:94px}body{margin:0;width:100%;min-width:0;overflow-x:hidden;font-family:"Source Sans Pro",sans-serif;color:var(--text-primary)}[hidden]{display:none!important}a{color:inherit;text-decoration:none}button,input,select{font:inherit}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--brand-gold);outline-offset:3px}section[id]{scroll-margin-top:94px}.wrap{width:min(1280px,calc(100% - 48px));margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--border);box-shadow:0 4px 20px #78002f0b}.header-inner{min-height:150px;display:flex;align-items:center;gap:30px}.brand{display:inline-flex;align-items:center;gap:12px;flex:none}.brand-logo{display:block;width:460px;height:auto;object-fit:contain}.brand-name{color:var(--brand-dark);font-weight:900;font-size:1.35rem;line-height:1}.brand-name small{display:block;margin-top:5px;color:var(--text-secondary);font-size:.65rem;font-weight:700;letter-spacing:.045em}.desktop-nav{display:flex;align-items:center;gap:clamp(9px,1.05vw,17px);margin-left:auto}.desktop-nav a,.mobile-nav a{color:var(--brand-dark);font-size:.82rem;font-weight:700}.desktop-nav a{white-space:nowrap;padding:9px 0;border-bottom:2px solid transparent}.desktop-nav a:hover,.desktop-nav a[aria-current="location"]{border-bottom-color:var(--brand-gold)}.desktop-nav .nav-cta{padding:11px 14px;border:0;border-radius:7px;background:var(--brand-primary);color:#fff}.desktop-nav .nav-cta:hover{background:var(--brand-dark)}.menu-button{display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-left:auto;border:1px solid var(--border);border-radius:9px;background:#fff;color:var(--brand-dark)}.mobile-nav{display:grid;padding:8px 24px 18px;border-top:1px solid var(--border);background:#fff}.mobile-nav a{padding:10px;border-radius:6px}.mobile-nav a:hover{background:var(--background-soft)}
+    h1,h2,h3,p{margin-top:0}h1,h2,h3{color:var(--brand-dark);line-height:1.1;letter-spacing:-.035em}h1{font-size:clamp(3rem,5.2vw,5.3rem);font-weight:900;margin-bottom:19px}h2{font-size:clamp(2rem,3.4vw,3.25rem);font-weight:900;margin-bottom:17px}h3{font-size:1.15rem;font-weight:900}.eyebrow{margin-bottom:13px;color:var(--brand-primary);font-size:.78rem;font-weight:900;letter-spacing:.15em}.hero{padding:76px 0 80px;background:linear-gradient(115deg,#fff 38%,#faf8f7 100%)}.hero-grid{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);gap:clamp(28px,4vw,60px);align-items:center}.hero-sub{color:var(--brand-accent);font-size:clamp(1.28rem,2vw,1.85rem);font-weight:900;line-height:1.27;margin-bottom:18px}.hero-description{white-space:pre-line;color:var(--text-secondary);font-size:1.035rem;line-height:1.65;margin-bottom:0}.actions{display:flex;flex-wrap:wrap;gap:12px;margin:27px 0}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:11px 20px;border:1px solid transparent;border-radius:8px;font-weight:900;text-align:center;transition:transform .2s,box-shadow .2s,background .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 9px 22px #78002f20}.btn-primary{background:var(--brand-primary);color:#fff}.btn-primary:hover{background:var(--brand-dark)}.btn-secondary{background:#fff;color:var(--brand-dark);border-color:#cbb8bd}.value-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.value-card{padding:13px 11px;border:1px solid var(--border);border-top:3px solid var(--brand-gold);border-radius:8px;background:#fff;color:var(--brand-dark);font-size:.83rem;font-weight:700;line-height:1.3}
+    .storefront{min-width:0;padding:10px;border:1px solid #e7dada;border-radius:17px;background:#fff;box-shadow:0 25px 65px #78002f1b}.store-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:14px 17px;border-radius:9px 9px 0 0;background:var(--brand-dark);color:#fff}.store-head strong{font-size:.92rem}.sample-badge{padding:5px 8px;border-radius:5px;background:var(--brand-gold-light);color:var(--brand-dark);font-size:.67rem;font-weight:900;letter-spacing:.04em}.store-body{padding:14px;background:var(--background-soft);border:1px solid var(--border);border-top:0;border-radius:0 0 9px 9px}.store-topline{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:12px}.store-topline strong{color:var(--brand-dark)}.store-topline span{color:var(--text-secondary);font-size:.76rem}.filters{display:flex;gap:6px;overflow-x:auto;padding-bottom:10px}.filter{flex:none;padding:6px 10px;border:1px solid #ddcdd1;border-radius:99px;background:#fff;color:var(--brand-dark);font-size:.75rem;font-weight:700}.filter[aria-pressed="true"]{background:var(--brand-primary);border-color:var(--brand-primary);color:#fff}.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.product{min-width:0;overflow:hidden;border:1px solid var(--border);border-radius:9px;background:#fff}.product-image{height:91px;background:linear-gradient(140deg,#f6efed,#eadfdb);overflow:hidden}.product-image img{display:block;width:100%;height:100%;object-fit:cover}.product-image img.is-unavailable,.sample-photo img.is-unavailable{display:none}.product-info{padding:9px}.product-name{min-height:32px;margin:0 0 4px;color:var(--brand-dark);font-size:.76rem;font-weight:900;line-height:1.18}.product-price{display:block;color:var(--text-primary);font-size:.82rem;font-weight:700;margin-bottom:8px}.add-button{width:100%;padding:6px 3px;border:1px solid var(--brand-primary);border-radius:5px;background:#fff;color:var(--brand-dark);font-size:.72rem;font-weight:900}.add-button:hover{background:var(--brand-primary);color:#fff}.store-bottom{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:9px}.mini-panel{min-width:0;padding:11px;border:1px solid var(--border);border-radius:8px;background:#fff}.mini-panel h3{margin-bottom:7px;font-size:.79rem}.mini-panel p{margin:0;color:var(--text-secondary);font-size:.73rem;line-height:1.4}.mini-panel strong{color:var(--brand-dark)}.tiny-bars{height:31px;display:flex;align-items:end;gap:4px;margin-top:5px}.tiny-bars span{flex:1;border-radius:3px 3px 0 0;background:var(--brand-primary)}.tiny-bars span:nth-child(2),.tiny-bars span:nth-child(4){background:var(--brand-gold)}.disclaimer{margin:11px 2px 1px;color:var(--text-secondary);font-size:.75rem;line-height:1.4}.section-block{padding:82px 0 90px}.section-soft{background:var(--background-soft);border-top:1px solid var(--border)}.section-copy{max-width:880px;color:var(--text-secondary);font-size:1.1rem;line-height:1.7}.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;list-style:none;margin:32px 0 0;padding:0}.flow li{min-width:0;min-height:104px;padding:15px;background:#fff;border:1px solid var(--border);border-top:3px solid var(--brand-gold);border-radius:9px;color:var(--brand-dark);font-weight:700;line-height:1.25}.step-number{display:block;margin-bottom:12px;color:var(--brand-accent);font-size:.75rem;font-weight:900;letter-spacing:.1em}
+    .explorer{padding:82px 0 90px;background:var(--background)}.explorer-intro{max-width:780px;color:var(--text-secondary);font-size:1.08rem;line-height:1.65}.explorer-tools{display:flex;align-items:end;gap:14px;margin:30px 0 22px;flex-wrap:wrap}.explorer-search{flex:1 1 420px}.explorer-search label{display:block;margin-bottom:7px;color:var(--brand-dark);font-weight:900}.explorer-search input{width:100%;min-height:48px;padding:11px 14px;border:1px solid #cbb8bd;border-radius:8px;background:#fff;color:var(--text-primary)}.explorer-clear{min-height:48px;padding:10px 16px;border:1px solid var(--brand-primary);border-radius:8px;background:#fff;color:var(--brand-dark);font-weight:900}.explorer-clear:hover{background:var(--brand-primary);color:#fff}.explorer-status{margin:0 0 14px;color:var(--text-secondary);font-size:.9rem}.feature-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.feature-card{overflow:hidden;border:1px solid var(--border);border-top:4px solid var(--brand-gold);border-radius:11px;background:#fff;box-shadow:0 8px 22px #78002f0a}.feature-toggle{display:flex;align-items:start;justify-content:space-between;gap:12px;width:100%;padding:18px 17px;border:0;background:transparent;color:var(--brand-dark);text-align:left;font-weight:900}.feature-toggle:hover{background:var(--background-soft)}.feature-number{display:block;margin-bottom:7px;color:var(--brand-accent);font-size:.75rem;letter-spacing:.12em}.feature-chevron{font-size:1.25rem;color:var(--brand-gold)}.feature-panel{padding:0 17px 17px}.feature-list{list-style:none;margin:0;padding:0}.feature-row{display:flex;gap:10px;padding:12px 0;border-top:1px solid var(--border)}.feature-icon{flex:none;color:var(--brand-primary);font-weight:900}.feature-row strong{display:block;color:var(--brand-dark);font-size:.92rem}.feature-row span{display:block;margin-top:3px;color:var(--text-secondary);font-size:.82rem;line-height:1.4}.category-link{display:inline-block;margin-top:14px;color:var(--brand-primary);font-size:.82rem;font-weight:900}.explorer-empty{padding:30px;border:1px dashed #cbb8bd;border-radius:10px;background:var(--background-soft);color:var(--brand-dark)}
+    .showcase-head{max-width:850px;margin-bottom:30px}.showcase-note{color:var(--text-secondary);line-height:1.6;margin:0}.showcase-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.showcase-card{min-width:0;padding:22px;border:1px solid var(--border);border-top:4px solid var(--brand-gold);border-radius:11px;background:#fff;box-shadow:0 8px 22px #78002f0a;transition:transform .2s,box-shadow .2s}.showcase-card:hover{transform:translateY(-2px);box-shadow:0 12px 28px #78002f15}.showcase-card h3{margin:0 0 11px}.showcase-card p{color:var(--text-secondary);line-height:1.5;margin:0}.micro{font-size:.79rem;color:var(--text-secondary)}.sample-label{display:inline-block;margin-bottom:12px;padding:5px 9px;border-radius:5px;background:#f9e9ee;color:var(--brand-dark);font-size:.73rem;font-weight:900}.sample-photo{height:145px;overflow:hidden;border-radius:8px;background:linear-gradient(140deg,#f6efed,#eadfdb);margin-bottom:14px}.sample-photo img{display:block;width:100%;height:100%;object-fit:cover}.shopping-steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px;list-style:none;padding:0;margin:0 0 27px}.shopping-steps li{position:relative;min-width:0;padding:13px 10px;border:1px solid var(--border);border-top:3px solid var(--brand-gold);border-radius:8px;background:#fff;color:var(--brand-dark);font-size:.84rem;font-weight:900}.shopping-steps li:not(:last-child)::after{content:"→";position:absolute;right:-9px;top:40%;z-index:1;color:var(--brand-primary);background:#fff;padding:0 2px}.shopping-steps small{display:block;margin-bottom:6px;color:var(--brand-accent)}.sample-control{width:100%;min-height:39px;margin-top:10px;padding:7px 10px;border:1px solid #cbb8bd;border-radius:6px;background:#fff;color:var(--brand-dark)}.sample-action{display:inline-flex;align-items:center;justify-content:center;min-height:39px;padding:7px 12px;border:1px solid var(--brand-primary);border-radius:6px;background:#fff;color:var(--brand-dark);font-weight:900}.sample-action:hover,.sample-action[aria-pressed="true"]{background:var(--brand-primary);color:#fff}.sample-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.sample-actions .sample-action{flex:1}.mock-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;border-bottom:1px solid var(--border)}.mock-row:last-child{border:0}.mock-row strong{color:var(--brand-dark)}.mock-price{font-size:1.28rem;font-weight:900;color:var(--brand-dark)}.status{display:inline-block;border-radius:99px;padding:5px 10px;font-size:.76rem;font-weight:900;background:#f8e4eb;color:#78002F}.status-gold{background:#fff1c2;color:#624400}.status-neutral{background:#eee9e7;color:#34312F}.status-outline{border:1px solid #ac8c97;background:#fff;color:#78002F}.process{display:flex;flex-wrap:wrap;align-items:center;gap:8px;list-style:none;padding:0;margin:22px 0 28px}.process li{display:flex;align-items:center;gap:8px;color:var(--brand-dark);font-size:.82rem;font-weight:900}.process li:not(:last-child)::after{content:"→";color:var(--brand-primary);font-size:1.1rem}.timeline{list-style:none;padding:0 0 0 18px;margin:12px 0 0;border-left:2px solid #e8cbd3}.timeline li{position:relative;margin:0 0 17px;color:var(--text-secondary);line-height:1.4}.timeline li::before{content:"";position:absolute;left:-24px;top:4px;width:10px;height:10px;border-radius:50%;background:var(--brand-gold);border:2px solid #fff;box-shadow:0 0 0 1px var(--brand-gold)}.timeline strong{display:block;color:var(--brand-dark)}.diagram{padding:24px;border:1px solid var(--border);border-radius:12px;background:#fff}.diagram figcaption{margin-bottom:20px;color:var(--text-secondary);font-size:.87rem}.diagram-node{padding:17px;border:1px solid #ddcdd1;border-radius:9px;background:var(--background-soft);color:var(--brand-dark);font-weight:900;text-align:center}.diagram-center{background:var(--brand-dark);color:#fff;border-color:var(--brand-dark)}.connection{text-align:center;color:var(--brand-primary);font-size:.75rem;font-weight:900}.integration-grid{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:12px;align-items:center}.integration-side{display:grid;gap:12px}.integration-side .connection{padding:7px}.architecture{display:grid;grid-template-columns:repeat(3,1fr);align-items:center;gap:8px}.architecture .connection{font-size:1.15rem}.benefit-icon{display:grid;place-items:center;width:42px;height:42px;margin-bottom:16px;border-radius:10px;background:#f9e9ee;color:var(--brand-primary)}.benefit-icon svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .ai-area{padding:82px 0 90px;background:var(--background-soft);border-top:1px solid var(--border)}.ai-intro{max-width:850px;color:var(--text-secondary);font-size:1.08rem;line-height:1.65}.ai-subsection{margin-top:68px}.ai-subsection>h3{font-size:clamp(1.55rem,2.4vw,2.25rem);margin-bottom:12px}.ai-subcopy{max-width:800px;color:var(--text-secondary);line-height:1.65;margin-bottom:25px}.ai-capabilities{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:24px}.ai-capability{min-width:0;padding:19px;border:1px solid var(--border);border-top:4px solid var(--brand-gold);border-radius:11px;background:#fff;box-shadow:0 8px 22px #78002f0a}.ai-capability h4{color:var(--brand-dark);font-size:1rem;font-weight:900;margin:0 0 8px}.ai-capability p{margin:0;color:var(--text-secondary);font-size:.91rem;line-height:1.5}.ai-icon{display:grid;place-items:center;width:38px;height:38px;margin-bottom:13px;border-radius:9px;background:#f9e9ee;color:var(--brand-primary)}.ai-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+    .assistant-demo{overflow:hidden;border:1px solid #e7dada;border-radius:14px;background:#fff;box-shadow:0 18px 45px #78002f12}.assistant-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:17px 22px;background:var(--brand-dark);color:#fff}.assistant-top strong{font-size:1.08rem}.assistant-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:22px;padding:23px}.assistant-notice{margin:0 0 17px;color:var(--text-secondary);font-size:.88rem}.conversation{display:grid;gap:12px;margin-bottom:18px}.chat-bubble{padding:14px 16px;border:1px solid var(--border);border-radius:11px;background:var(--background-soft);line-height:1.55}.chat-bubble strong{display:block;margin-bottom:5px;color:var(--brand-dark);font-size:.84rem}.chat-user{margin-left:min(14%,70px);background:#f9e9ee;border-color:#ecd5de}.chat-assistant{margin-right:min(8%,38px)}.prompt-label{display:block;color:var(--brand-dark);font-weight:900;margin-bottom:10px}.prompt-list{display:flex;flex-wrap:wrap;gap:8px}.prompt-chip{max-width:100%;padding:9px 12px;border:1px solid #cbb8bd;border-radius:8px;background:#fff;color:var(--brand-dark);font-size:.88rem;font-weight:700;text-align:left;line-height:1.3;transition:background .2s,border-color .2s}.prompt-chip:hover,.prompt-chip[aria-pressed="true"]{border-color:var(--brand-primary);background:#f9e9ee}.prompt-reset{margin-top:16px}.recommendations{min-width:0;padding:18px;border:1px solid var(--border);border-radius:11px;background:var(--background-soft)}.recommendations h4{margin:0 0 7px;color:var(--brand-dark);font-size:1.12rem;font-weight:900}.recommendations>p{color:var(--text-secondary);font-size:.85rem;line-height:1.5}.recommendation-list{display:grid;gap:10px}.recommendation-card{padding:14px;border:1px solid var(--border);border-left:4px solid var(--brand-gold);border-radius:8px;background:#fff}.recommendation-card strong{display:block;color:var(--brand-dark)}.recommendation-card span{display:block;margin-top:4px;color:var(--brand-dark);font-weight:900}.recommendation-card p{margin:6px 0 0;color:var(--text-secondary);font-size:.86rem;line-height:1.4}
+    .intelligence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.intelligence-card{min-width:0;padding:21px;border:1px solid var(--border);border-top:4px solid var(--brand-primary);border-radius:11px;background:#fff;box-shadow:0 8px 22px #78002f0a}.intelligence-card.trend{border-top-color:var(--brand-gold)}.intelligence-card.review{border-top-color:var(--brand-dark);background:#fffdf9}.intelligence-card h4{margin:0 0 10px;color:var(--brand-dark);font-size:1.08rem;font-weight:900}.intelligence-card p,.intelligence-card figcaption{color:var(--text-secondary);font-size:.9rem;line-height:1.5}.intelligence-card figure{margin:13px 0 0}.intelligence-card figcaption{margin-top:9px}.intelligence-label{display:inline-block;margin-bottom:13px;padding:5px 8px;border-radius:5px;background:#f9e9ee;color:var(--brand-dark);font-size:.72rem;font-weight:900}.trend .intelligence-label,.review .intelligence-label{background:#fff1c2;color:#624400}.chart-bars{display:flex;align-items:end;gap:9px;height:78px;padding:8px 2px 0;border-bottom:1px solid #d9cdca}.chart-bars span{flex:1;min-width:0;background:var(--brand-primary);border-radius:4px 4px 0 0}.chart-bars span:nth-child(even){background:var(--brand-gold)}.segment-bar{display:flex;overflow:hidden;height:18px;border-radius:99px;margin-top:18px;background:#eee9e7}.segment-bar span:first-child{width:35%;background:var(--brand-dark)}.segment-bar span:nth-child(2){width:40%;background:var(--brand-primary)}.segment-bar span:last-child{width:25%;background:var(--brand-gold)}.review-flag{display:block;margin-top:17px;padding:12px;border:1px solid #ead8a1;border-radius:8px;background:#fff8e4;color:#624400;font-weight:700}
+    .agent-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:18px}.agent-card{padding:23px;border:1px solid var(--border);border-radius:11px;background:#fff}.agent-card h4{margin:0 0 12px;color:var(--brand-dark);font-weight:900}.agent-card ul{margin:0;padding-left:20px;line-height:1.8;color:var(--text-secondary)}.agent-card p{margin:0;color:var(--text-secondary);line-height:1.6}.agent-workflow{margin:24px 0 0;padding:23px;border:1px solid var(--border);border-radius:12px;background:#fff}.agent-workflow figcaption{margin-bottom:19px;color:var(--text-secondary);line-height:1.5}.workflow-steps{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px;list-style:none;margin:0;padding:0;counter-reset:agent}.workflow-steps li{position:relative;min-width:0;min-height:106px;padding:13px 10px;border-radius:9px;background:var(--brand-dark);color:#fff;font-size:.83rem;font-weight:700;line-height:1.3;counter-increment:agent;overflow-wrap:anywhere}.workflow-steps li::before{content:counter(agent,decimal-leading-zero);display:block;margin-bottom:10px;color:var(--brand-gold-light);font-size:.77rem;font-weight:900}.workflow-steps li:nth-child(4){background:#fff1c2;color:#624400;border:1px solid #ead8a1}.workflow-steps li:nth-child(4)::before{color:#624400}.workflow-steps li:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:40%;z-index:1;color:var(--brand-gold);font-size:1.1rem;background:#fff;padding:0 1px}.responsible-card{padding:26px;border:1px solid var(--border);border-left:5px solid var(--brand-gold);border-radius:12px;background:#fff}.responsible-card ul{margin:0 0 16px;padding-left:22px;color:var(--text-primary);line-height:1.7}.responsible-card li+li{margin-top:8px}.responsible-card p{margin:0;color:var(--text-secondary);line-height:1.6}.responsible-kicker{color:#624400;font-weight:900;margin-bottom:12px}
+    .faq-intro{max-width:760px;color:var(--text-secondary);line-height:1.65;font-size:1.08rem}.faq-list{max-width:960px;margin:30px auto 0;display:grid;gap:10px}.faq-item{background:#fff;border:1px solid var(--border);border-left:4px solid var(--brand-gold);border-radius:9px;overflow:hidden}.faq-question{width:100%;min-height:60px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;gap:20px;border:0;background:transparent;color:var(--brand-dark);font-weight:900;text-align:left}.faq-question:hover,.faq-question[aria-expanded="true"]{background:#fff7f9}.faq-question::after{content:"+";flex:none;font-size:1.5rem;line-height:1;color:var(--brand-primary)}.faq-question[aria-expanded="true"]::after{content:"−"}.faq-answer{padding:0 20px 20px;color:var(--text-secondary);line-height:1.65}.faq-answer p{margin:0}
+    .demo-section{background:var(--brand-dark);color:#fff;border-top:4px solid var(--brand-gold)}.demo-layout{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(260px,.7fr);gap:40px;align-items:center}.demo-section h2{color:#fff}.demo-section .eyebrow{color:var(--brand-gold-light)}.demo-description{max-width:760px;color:#f5e8eb;line-height:1.65;font-size:1.1rem}.demo-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:25px}.demo-actions .btn-primary{background:var(--brand-accent)}.demo-actions .btn-primary:hover{background:var(--brand-primary)}.demo-actions .btn-secondary{background:transparent;color:#fff;border-color:#f5e8eb}.demo-actions .btn-secondary:hover{background:#ffffff1c}.demo-note{margin:15px 0 0;color:#f5e8eb;line-height:1.5}.demo-signature{padding:24px;border:1px solid #ffffff55;border-top:4px solid var(--brand-gold);border-radius:10px}.demo-signature p:first-child{color:var(--brand-gold-light);font-size:1.6rem;font-weight:900;line-height:1.15}.demo-signature p:last-child{margin:0;color:#fff;font-size:.87rem;font-weight:900;letter-spacing:.07em}
+    .footer{padding:55px 0 25px;background:#560023;color:#fff;border-top:4px solid var(--brand-gold)}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.15fr;gap:30px}.footer .brand-logo{width:320px}.footer .brand-name,.footer .brand-name small{color:#fff}.footer .brand-mark{background:var(--brand-primary)}.footer h2{margin:0 0 15px;color:var(--brand-gold-light);font-size:1rem;letter-spacing:0}.footer p{color:#f0dde3;line-height:1.55}.footer nav{display:grid;align-content:start;gap:9px}.footer nav a{color:#fff;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}.footer nav a:hover{text-decoration-color:var(--brand-gold)}.footer ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;color:#f0dde3}.footer .footer-placeholder{display:inline-block;color:var(--brand-gold-light);font-weight:700}.footer-note{font-size:.87rem}.footer-bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:35px;padding-top:20px;border-top:1px solid #ffffff40;color:#f0dde3}.footer-bottom p{margin:0}.footer-tagline{color:var(--brand-gold-light)!important;font-weight:900;letter-spacing:.05em}
+    @media(max-width:1220px){.desktop-nav{display:none}.menu-button{display:inline-flex}.shopping-steps{grid-template-columns:repeat(4,minmax(0,1fr))}.shopping-steps li::after{display:none}.workflow-steps{grid-template-columns:repeat(4,minmax(0,1fr))}.workflow-steps li::after{display:none!important}}
+    @media(max-width:980px){.hero-grid,.demo-layout{grid-template-columns:1fr}.storefront{width:100%;max-width:850px;margin-inline:auto}.flow{grid-template-columns:repeat(3,minmax(0,1fr))}.feature-grid,.showcase-grid,.ai-capabilities,.intelligence-grid,.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.assistant-body{grid-template-columns:1fr}}
+    @media(max-width:680px){.wrap{width:calc(100% - 32px)}.header-inner{min-height:125px}.brand-logo{width:300px}.brand-name{font-size:1.16rem}.brand-name small{font-size:.59rem}.hero{padding:52px 0 65px}.section-block,.explorer,.ai-area{padding:62px 0 68px}.value-grid,.feature-grid,.showcase-grid,.ai-capabilities,.intelligence-grid,.agent-layout,.footer-grid{grid-template-columns:1fr}.actions .btn,.demo-actions .btn{width:100%}.products{grid-template-columns:repeat(2,minmax(0,1fr))}.product-image{height:120px}.store-bottom{grid-template-columns:1fr 1fr}.store-bottom .mini-panel:last-child{grid-column:1/-1}.flow,.shopping-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.integration-grid{grid-template-columns:1fr}.integration-side{grid-template-columns:repeat(2,minmax(0,1fr))}.architecture{grid-template-columns:1fr}.architecture .connection{transform:rotate(90deg)}.ai-subsection{margin-top:52px}.assistant-body{padding:16px}.workflow-steps{grid-template-columns:1fr}.workflow-steps li{min-height:0;padding:14px 17px}.workflow-steps li:not(:last-child)::after{display:block!important;content:"↓";top:auto;bottom:-15px;right:auto;left:24px;background:#fff;padding:0 3px}.agent-workflow{padding:17px}.footer{padding-top:45px}}
+    @media(max-width:380px){.store-bottom,.flow,.shopping-steps,.integration-side{grid-template-columns:1fr}.store-bottom .mini-panel:last-child{grid-column:auto}.flow li{min-height:0}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+  <link rel="stylesheet" href="css/ecommerce.tailwind.css">
+  <script src="vendor/lucide.min.js"></script>
+  <style>:root{--fx-a:#A50046;--fx-b:#E5AD00}</style>
+<link rel="stylesheet" href="fx/module-fx.css">
+</head>
+ <body data-template-id="__page-root" class="w-full" style="background: rgb(255, 255, 255);">
+  <header class="site-header">
+   <div class="wrap header-inner">
+    <a class="brand" href="#overview" aria-label="vSuite E-Commerce — overview"><img data-template-id="brand-logo-header" class="brand-logo canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-ecommerce.png" alt="vSuite E-Commerce logo"><span class="sr-only">vSuite E-Commerce</span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation"><a href="#overview">Overview</a><a href="#commerce-features">Features</a><a href="#shopping-experience">Shopping Experience</a><a href="#enterprise-commerce">Enterprise Commerce</a><a href="#ai-agentic-ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a class="nav-cta" href="#request-demo">Request a Demo</a>
+    </nav><button id="menu-button" class="menu-button" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false">
+     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path id="menu-icon-path" d="M4 6h16M4 12h16M4 18h16"></path>
+     </svg></button>
+   </div>
+   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden=""><a href="#overview">Overview</a><a href="#commerce-features">Features</a><a href="#shopping-experience">Shopping Experience</a><a href="#enterprise-commerce">Enterprise Commerce</a><a href="#ai-agentic-ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
+   </nav>
+  </header>
+  <main>
+   <section id="overview" class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+     <div>
+      <p data-template-id="hero-eyebrow" class="eyebrow canva-text" style="color: rgb(165, 0, 70); font-weight: 900; font-style: normal; font-size: 16px; letter-spacing: 0.15rem;">INTELLIGENT DIGITAL COMMERCE</p>
+      <h1 id="hero-title" data-template-id="hero-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 32px;">One CART. Endless Possibilities.</h1>
+      <p data-template-id="hero-subtitle" class="hero-sub canva-text" style="color: rgb(194, 24, 91); font-weight: 900; font-style: normal; font-size: 16px;">Build Better Shopping Experiences. Connect Every Commerce Journey.</p>
+      <p data-template-id="hero-description" class="hero-description canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.65;">vSuite E-Commerce brings together store management, product catalogs, customer experiences, shopping carts, checkout, orders, payments, fulfillment, and commerce operations within a connected platform.
+
+With flexible commerce capabilities, AI-powered product discovery, personalized shopping experiences, and intelligent workflows, vSuite E-Commerce is designed to help businesses create engaging digital storefronts and support their growth.</p>
+      <div class="actions"><a data-template-id="hero-demo" class="btn btn-primary canva-button" href="#request-demo" style="background: rgb(165, 0, 70); color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">Request a Demo</a><a data-template-id="hero-features" class="btn btn-secondary canva-button" href="#commerce-features" style="background: rgb(255, 255, 255); color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Explore Features</a>
+      </div>
+      <div class="value-grid" aria-label="Commerce benefits">
+       <div data-template-id="value-operations" class="value-card canva-card" style="background: rgb(255, 255, 255); color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Connected Commerce Operations</div>
+       <div data-template-id="value-shopping" class="value-card canva-card" style="background: rgb(255, 255, 255); color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Seamless Shopping Experiences</div>
+       <div data-template-id="value-intelligence" class="value-card canva-card" style="background: rgb(255, 255, 255); color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">AI-Powered Commerce Intelligence</div>
+      </div>
+     </div>
+     <aside class="storefront" aria-label="Interactive illustrative storefront and commerce dashboard">
+      <div data-template-id="store-header" class="store-head canva-panel" style="background: rgb(120, 0, 47);"><strong data-template-id="store-title" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">vSuite / Storefront preview</strong><span data-template-id="store-badge" class="sample-badge canva-tag" style="background: rgb(242, 201, 76); color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">ILLUSTRATIVE STORE</span>
+      </div>
+      <div class="store-body">
+       <div class="store-topline"><strong data-template-id="store-heading" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Discover something new</strong><span data-template-id="store-caption" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Sample product catalog</span>
+       </div>
+       <div class="filters" role="group" aria-label="Filter sample products"><button class="filter" type="button" data-category="all" aria-pressed="true">All products</button><button class="filter" type="button" data-category="tech" aria-pressed="false">Tech</button><button class="filter" type="button" data-category="style" aria-pressed="false">Style</button>
+       </div>
+       <div class="products" id="products">
+        <article class="product" data-category="tech">
+         <div class="product-image"><img data-template-id="product-headphones-image" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="White wireless headphones on a light background">
+         </div>
+         <div class="product-info">
+          <h3 data-template-id="product-headphones-name" class="product-name canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 19px;">Studio Headphones</h3><span data-template-id="product-headphones-price" class="product-price canva-text" style="color: rgb(52, 49, 47); font-weight: 700; font-style: normal; font-size: 16px;">₹2,490</span><button type="button" class="add-button" data-price="2490" aria-label="Add Studio Headphones to sample cart">Add to cart</button>
+         </div>
+        </article>
+        <article class="product" data-category="tech">
+         <div class="product-image"><img data-template-id="product-watch-image" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Black smartwatch with a classic dial on a light background">
+         </div>
+         <div class="product-info">
+          <h3 data-template-id="product-watch-name" class="product-name canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 19px;">Everyday Watch</h3><span data-template-id="product-watch-price" class="product-price canva-text" style="color: rgb(52, 49, 47); font-weight: 700; font-style: normal; font-size: 16px;">₹3,290</span><button type="button" class="add-button" data-price="3290" aria-label="Add Everyday Watch to sample cart">Add to cart</button>
+         </div>
+        </article>
+        <article class="product" data-category="style">
+         <div class="product-image"><img data-template-id="product-bag-image" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/27204287/pexels-photo-27204287.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Brown leather handbag with an adjustable strap">
+         </div>
+         <div class="product-info">
+          <h3 data-template-id="product-bag-name" class="product-name canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 19px;">Leather Carryall</h3><span data-template-id="product-bag-price" class="product-price canva-text" style="color: rgb(52, 49, 47); font-weight: 700; font-style: normal; font-size: 16px;">₹4,190</span><button type="button" class="add-button" data-price="4190" aria-label="Add Leather Carryall to sample cart">Add to cart</button>
+         </div>
+        </article>
+        <article class="product" data-category="style">
+         <div class="product-image"><img data-template-id="product-shoes-image" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Colorful modern sneakers against a light background">
+         </div>
+         <div class="product-info">
+          <h3 data-template-id="product-shoes-name" class="product-name canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 19px;">Motion Sneakers</h3><span data-template-id="product-shoes-price" class="product-price canva-text" style="color: rgb(52, 49, 47); font-weight: 700; font-style: normal; font-size: 16px;">₹2,790</span><button type="button" class="add-button" data-price="2790" aria-label="Add Motion Sneakers to sample cart">Add to cart</button>
+         </div>
+        </article>
+       </div>
+       <div class="store-bottom">
+        <div class="mini-panel">
+         <h3 data-template-id="cart-heading" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 19px;">Shopping cart</h3>
+         <p><span id="cart-count" aria-live="polite">0 items</span> · <strong id="cart-total">₹0</strong></p>
+        </div>
+        <div class="mini-panel">
+         <h3 data-template-id="order-heading" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 19px;">Sample order status</h3>
+         <p data-template-id="order-status" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Example: preparing for dispatch</p>
+        </div>
+        <div class="mini-panel">
+         <h3 data-template-id="analytics-heading" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 19px;">Commerce snapshot</h3>
+         <p data-template-id="analytics-caption" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Illustrative activity only</p>
+         <div class="tiny-bars" aria-hidden="true"><span style="height:45%"></span><span style="height:68%"></span><span style="height:57%"></span><span style="height:85%"></span><span style="height:72%"></span>
+         </div>
+        </div>
+       </div>
+       <p data-template-id="store-disclaimer" class="disclaimer canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Fictional products, prices, status, and chart. Cart actions are a local preview; no orders or payments are processed.</p>
+      </div>
+     </aside>
+    </div>
+   </section>
+   <section id="features" class="section-block section-soft" aria-labelledby="features-title">
+    <div class="wrap">
+     <p data-template-id="features-eyebrow" class="eyebrow canva-text" style="color: rgb(165, 0, 70); font-weight: 900; font-style: normal; font-size: 16px; letter-spacing: 0.15rem;">THE CONNECTED COMMERCE LIFECYCLE</p>
+     <h2 id="features-title" data-template-id="features-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">One Connected Platform for Every Commerce Journey.</h2>
+     <p data-template-id="features-copy" class="section-copy canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.7;">Bring product management, customer shopping, order management, payments, fulfillment, and customer engagement together in a connected commerce journey.</p>
+     <ol class="flow" aria-label="Commerce lifecycle">
+      <li><span class="step-number" aria-hidden="true">01</span><span data-template-id="step-1" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Store Setup</span></li>
+      <li><span class="step-number" aria-hidden="true">02</span><span data-template-id="step-2" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Product Catalog</span></li>
+      <li><span class="step-number" aria-hidden="true">03</span><span data-template-id="step-3" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Product Discovery</span></li>
+      <li><span class="step-number" aria-hidden="true">04</span><span data-template-id="step-4" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Shopping Cart</span></li>
+      <li><span class="step-number" aria-hidden="true">05</span><span data-template-id="step-5" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Checkout</span></li>
+      <li><span class="step-number" aria-hidden="true">06</span><span data-template-id="step-6" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Payment</span></li>
+      <li><span class="step-number" aria-hidden="true">07</span><span data-template-id="step-7" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Order Management</span></li>
+      <li><span class="step-number" aria-hidden="true">08</span><span data-template-id="step-8" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Fulfillment</span></li>
+      <li><span class="step-number" aria-hidden="true">09</span><span data-template-id="step-9" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Delivery</span></li>
+      <li><span class="step-number" aria-hidden="true">10</span><span data-template-id="step-10" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 700; font-style: normal; font-size: 16px;">Customer Engagement</span></li>
+     </ol>
+    </div>
+   </section>
+   <section id="commerce-features" class="explorer" aria-labelledby="explorer-title">
+    <div class="wrap">
+     <p class="eyebrow">CONNECTED COMMERCE CAPABILITIES</p>
+     <h2 id="explorer-title">Explore Commerce Features</h2>
+     <p class="explorer-intro">Discover capabilities across the connected commerce platform, from catalog and customer journeys to fulfillment, integrations, and AI-powered commerce intelligence.</p>
+     <div class="explorer-tools">
+      <div class="explorer-search"><label for="feature-search">Search commerce features</label><input id="feature-search" type="search" placeholder="Search features by name or description" autocomplete="off">
+      </div><button id="feature-clear" class="explorer-clear" type="button">Clear search</button>
+     </div>
+     <p id="feature-status" class="explorer-status" aria-live="polite"></p>
+     <div id="feature-grid" class="feature-grid"></div>
+     <div id="feature-empty" class="explorer-empty" hidden=""><strong>No features match your search</strong><br><span>Try a different feature name or description.</span><br><button id="feature-empty-clear" class="category-link" type="button">Clear search</button>
+     </div>
+    </div>
+   </section>
+   <section id="shopping-experience" class="section-block section-soft" aria-labelledby="shopping-title">
+    <div class="wrap">
+     <div class="showcase-head">
+      <p class="eyebrow">CUSTOMER SHOPPING EXPERIENCE</p>
+      <h2 id="shopping-title" data-template-id="shopping-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">A More Connected Shopping Experience</h2>
+      <p data-template-id="shopping-copy" class="showcase-note canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">A visual walkthrough using fictional products and illustrative prices. The controls below preview local choices only; no checkout or payment takes place.</p>
+     </div>
+     <ol class="shopping-steps" aria-label="Illustrative shopping journey">
+      <li><small>01</small>Product browsing</li>
+      <li><small>02</small>Product details and variants</li>
+      <li><small>03</small>Product search</li>
+      <li><small>04</small>Wishlist</li>
+      <li><small>05</small>Shopping cart</li>
+      <li><small>06</small>Checkout</li>
+      <li><small>07</small>Order confirmation</li>
+     </ol>
+     <div class="showcase-grid">
+      <article class="showcase-card"><span class="sample-label">BROWSE · SAMPLE PRODUCT</span>
+       <div class="sample-photo"><img data-template-id="shopping-browse-image" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="White wireless headphones displayed on a clean light background">
+       </div>
+       <h3>Studio Headphones</h3>
+       <p>Fictional catalog item · illustrative price</p>
+       <div class="mock-row"><strong class="mock-price">₹2,490</strong><span class="micro">Sample only</span>
+       </div>
+       <div class="sample-actions"><button type="button" class="sample-action wishlist-toggle" aria-pressed="false" aria-label="Save Studio Headphones to local sample wishlist"><span class="wish-unsaved">♡ Save</span><span class="wish-saved" hidden="">♥ Saved</span></button><button type="button" class="sample-action add-button" data-price="2490" aria-label="Add Studio Headphones to sample cart">Add to sample cart</button>
+       </div>
+      </article>
+      <article class="showcase-card"><span class="sample-label">DETAILS &amp; VARIANTS</span>
+       <div class="sample-photo"><img data-template-id="shopping-detail-image" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Black smartwatch displayed on a light background">
+       </div>
+       <h3>Everyday Watch</h3>
+       <p>Fictional watch · illustrative price ₹3,290</p><label for="watch-variant" class="micro">Preview a variant</label><select id="watch-variant" class="sample-control"><option>Black strap</option><option>Sand strap</option></select>
+       <p id="variant-preview" class="micro" aria-live="polite" style="margin-top:9px">Selected: Black strap · local preview</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">PRODUCT SEARCH</span>
+       <h3>Find a sample product</h3><label for="shopping-search" class="micro">Search fictional catalog</label><input id="shopping-search" class="sample-control" type="search" placeholder="Try watch, bag or headphones">
+       <p id="shopping-search-result" aria-live="polite" style="margin-top:16px">Enter a name to filter the sample catalog.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">WISHLIST</span>
+       <div class="sample-photo"><img data-template-id="shopping-wishlist-image" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/10919291/pexels-photo-10919291.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Brown leather handbag on a neutral background">
+       </div>
+       <h3>Save for later</h3>
+       <p>Sample wishlist: <strong id="wishlist-count">0 items</strong>. Use the heart on the product card to update this local preview.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">SHOPPING CART</span>
+       <div class="sample-photo"><img data-template-id="shopping-cart-image" class="canva-image" loading="lazy" src="https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=400" alt="Colorful modern sneakers photographed as a product">
+       </div>
+       <h3>Review your selection</h3>
+       <p>Sample cart: <strong id="journey-cart-count">0 items</strong> · <strong id="journey-cart-total">₹0</strong>. Add items above or in the storefront preview.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">CHECKOUT &amp; CONFIRMATION · PREVIEW ONLY</span>
+       <h3>Illustrative checkout summary</h3>
+       <div class="mock-row"><span>Items</span><strong id="checkout-count">0</strong>
+       </div>
+       <div class="mock-row"><span>Illustrative subtotal</span><strong id="checkout-total">₹0</strong>
+       </div>
+       <div class="mock-row"><span>Payment</span><span class="status status-neutral">Not processed</span>
+       </div>
+       <div class="mock-row"><span>Order confirmation</span><span class="status status-outline">Example preview only</span>
+       </div>
+       <p class="micro" style="margin-top:12px">No order is placed, and no payment information is collected.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="commerce-operations" class="section-block" aria-labelledby="operations-title">
+    <div class="wrap">
+     <div class="showcase-head">
+      <p class="eyebrow">ORDERS AND COMMERCE OPERATIONS</p>
+      <h2 id="operations-title" data-template-id="operations-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">Commerce Operations with Clear Order Visibility</h2>
+      <p data-template-id="operations-copy" class="showcase-note canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Illustrative dashboard only. Each status describes a different stage; none reflects a live order or connected system.</p>
+     </div>
+     <figure class="diagram">
+      <figcaption>
+       Conceptual order process · a return or refund applies only where relevant
+      </figcaption>
+      <ol class="process">
+       <li>Order Placed</li>
+       <li>Payment Status</li>
+       <li>Confirmation</li>
+       <li>Fulfillment</li>
+       <li>Shipping</li>
+       <li>Delivery</li>
+       <li>Return or Refund, Where Applicable.</li>
+      </ol>
+     </figure>
+     <div class="showcase-grid" style="margin-top:18px">
+      <article class="showcase-card"><span class="sample-label">ORDER OVERVIEW · SAMPLE</span>
+       <h3>Order EX-2048</h3>
+       <div class="mock-row"><span>Studio Headphones</span><strong>1 × ₹2,490</strong>
+       </div>
+       <div class="mock-row"><span>Illustrative total</span><strong>₹2,490</strong>
+       </div>
+       <p class="micro">Fictional order; unrelated to the interactive sample cart.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">ORDER STATUS</span>
+       <h3>Order record</h3><span class="status">Example: confirmed</span>
+       <p style="margin-top:12px">Confirmation is distinct from payment and dispatch.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">PAYMENT STATUS</span>
+       <h3>Payment review</h3><span class="status status-gold">Example: pending review</span>
+       <p style="margin-top:12px">This does not indicate a real charge or payment result.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">FULFILLMENT STATUS</span>
+       <h3>Preparing items</h3><span class="status status-neutral">Example: not dispatched</span>
+       <p style="margin-top:12px">Fulfillment is tracked separately from order confirmation.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">SHIPPING &amp; DELIVERY TIMELINE</span>
+       <h3>Illustrative milestones</h3>
+       <ol class="timeline">
+        <li><strong>Order recorded</strong>Sample milestone</li>
+        <li><strong>Preparing for dispatch</strong>Sample milestone</li>
+        <li><strong>Shipping</strong>Not yet shown as complete</li>
+        <li><strong>Delivery</strong>Not yet shown as complete</li>
+       </ol>
+      </article>
+      <article class="showcase-card"><span class="sample-label">POST-ORDER REQUESTS</span>
+       <h3>Returns and refunds</h3>
+       <div class="mock-row"><span>Return request status</span><span class="status status-outline">None in sample</span>
+       </div>
+       <div class="mock-row"><span>Refund status</span><span class="status status-neutral">Not applicable</span>
+       </div>
+       <p class="micro" style="margin-top:12px">A return request and a refund are separate processes.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="promotions" class="section-block section-soft" aria-labelledby="promotions-title">
+    <div class="wrap">
+     <div class="showcase-head">
+      <p class="eyebrow">PROMOTIONS AND CUSTOMER ENGAGEMENT</p>
+      <h2 id="promotions-title" data-template-id="promotions-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">Promotions and Customer Engagement</h2>
+      <p data-template-id="promotions-copy" class="showcase-note canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Compact, illustrative interfaces. Codes, points, tiers, prices, and rules shown here are fictional—not actual offers or live configurations.</p>
+     </div>
+     <div class="showcase-grid">
+      <article class="showcase-card"><span class="sample-label">PROMOTIONS · SAMPLE</span>
+       <h3>Weekend Edit</h3>
+       <div class="mock-row"><span>Campaign</span><strong>Illustrative draft</strong>
+       </div>
+       <div class="mock-row"><span>Example window</span><strong>2 days</strong>
+       </div>
+      </article>
+      <article class="showcase-card"><span class="sample-label">COUPONS · SAMPLE</span>
+       <h3>DEMO10</h3>
+       <p>Illustrative 10% example. Not a redeemable code or active offer.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">DISCOUNT RULES</span>
+       <h3>Example rule</h3>
+       <div class="mock-row"><span>Condition</span><strong>Selected items</strong>
+       </div>
+       <div class="mock-row"><span>Adjustment</span><strong>Illustrative only</strong>
+       </div>
+      </article>
+      <article class="showcase-card"><span class="sample-label">LOYALTY MANAGEMENT</span>
+       <h3>Sample member view</h3>
+       <div class="mock-row"><span>Tier</span><strong>Amber · sample</strong>
+       </div>
+       <div class="mock-row"><span>Points</span><strong>120 · sample</strong>
+       </div>
+      </article>
+      <article class="showcase-card"><span class="sample-label">SUBSCRIPTION COMMERCE</span>
+       <h3>Repeat-order concept</h3>
+       <div class="mock-row"><span>Schedule example</span><strong>Monthly</strong>
+       </div>
+       <p class="micro">Conceptual arrangement; no subscription is started.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">CUSTOMER-SPECIFIC PRICING</span>
+       <h3>Account pricing preview</h3>
+       <div class="mock-row"><span>Standard example</span><strong>₹1,000</strong>
+       </div>
+       <div class="mock-row"><span>Group example</span><strong>₹950</strong>
+       </div>
+       <p class="micro">Pricing is illustrative and configurable, not an actual offer.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="enterprise-commerce" class="section-block" aria-labelledby="enterprise-title">
+    <div class="wrap">
+     <div class="showcase-head">
+      <p class="eyebrow">ENTERPRISE COMMERCE</p>
+      <h2 id="enterprise-title" data-template-id="enterprise-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">Enterprise Commerce, Built to Adapt</h2>
+      <p data-template-id="enterprise-copy" class="showcase-note canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Conceptual interface examples illustrate possible commerce models. Labels, values, and diagrams do not assert a live configuration or specific availability.</p>
+     </div>
+     <div class="showcase-grid">
+      <article class="showcase-card"><span class="sample-label">MULTI-STORE · SAMPLE PORTFOLIO</span>
+       <h3>Store portfolio</h3>
+       <div class="mock-row"><span>North Studio</span><span class="status status-outline">Sample store</span>
+       </div>
+       <div class="mock-row"><span>Coast Studio</span><span class="status status-outline">Sample store</span>
+       </div>
+      </article>
+      <article class="showcase-card"><span class="sample-label">MULTI-CURRENCY &amp; MULTI-LANGUAGE</span>
+       <h3>Locale examples</h3>
+       <div class="mock-row"><span>English · INR</span><span class="micro">Illustrative</span>
+       </div>
+       <div class="mock-row"><span>French · EUR</span><span class="micro">Illustrative</span>
+       </div>
+       <p class="micro" style="margin-top:12px">Selector concept only; no locale availability is claimed.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">B2B COMMERCE</span>
+       <h3>Business account example</h3>
+       <div class="mock-row"><span>Account</span><strong>North Supply Co.</strong>
+       </div>
+       <div class="mock-row"><span>Buyer role</span><strong>Purchaser</strong>
+       </div>
+       <div class="mock-row"><span>Flow</span><strong>Request → review</strong>
+       </div>
+      </article>
+      <article class="showcase-card"><span class="sample-label">WHOLESALE COMMERCE</span>
+       <h3>Illustrative volume tiers</h3>
+       <div class="mock-row"><span>1–9 units</span><strong>₹500 / unit</strong>
+       </div>
+       <div class="mock-row"><span>10+ units</span><strong>₹470 / unit</strong>
+       </div>
+       <p class="micro" style="margin-top:10px">Fictional values, not a quotation.</p>
+      </article>
+      <article class="showcase-card"><span class="sample-label">OMNICHANNEL · CONCEPTUAL</span>
+       <h3>Connected touchpoints</h3>
+       <figure class="diagram" style="padding:12px;margin:0">
+        <div class="diagram-node diagram-center">
+         Commerce view
+        </div>
+        <div class="connection">
+         Conceptual links ↓
+        </div>
+        <div class="mock-row"><span>Storefront</span><span>Mobile</span>
+        </div>
+        <div class="mock-row"><span>Marketplace</span><span>Assisted sales</span>
+        </div>
+        <figcaption style="margin:9px 0 0">
+         Conceptual touchpoints, not verified connections.
+        </figcaption>
+       </figure>
+      </article>
+      <article class="showcase-card"><span class="sample-label">HEADLESS &amp; API-FIRST · CONCEPTUAL</span>
+       <h3>Architecture layers</h3>
+       <figure class="diagram" style="padding:12px;margin:0">
+        <div class="architecture">
+         <div class="diagram-node">
+          Experience layer
+         </div><span class="connection" aria-label="Conceptual connection">→</span>
+         <div class="diagram-node">
+          API layer
+         </div>
+        </div>
+        <div class="connection">
+         ↓ Conceptual connection
+        </div>
+        <div class="diagram-node">
+         Commerce services
+        </div>
+        <figcaption style="margin:9px 0 0">
+         Architecture concept only; no API or deployment claim.
+        </figcaption>
+       </figure>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="integrations" class="section-block section-soft" aria-labelledby="integrations-title">
+    <div class="wrap">
+     <div class="showcase-head">
+      <p class="eyebrow">INTEGRATIONS</p>
+      <h2 id="integrations-title" data-template-id="integrations-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">Connect the Commerce Ecosystem</h2>
+      <p data-template-id="integrations-copy" class="showcase-note canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Conceptual integration diagram only. Every connection below is illustrative; no provider, live connectivity, or operational status is represented.</p>
+     </div>
+     <figure class="diagram">
+      <figcaption>
+       Conceptual integration diagram: vSuite E-Commerce at the center, with conceptual connections to inventory systems or business processes, payment systems, shipping systems, and marketplace systems.
+      </figcaption>
+      <div class="integration-grid">
+       <div class="integration-side">
+        <div class="diagram-node">
+         Inventory systems or business processes
+        </div>
+        <div class="connection">
+         Conceptual integration →
+        </div>
+        <div class="diagram-node">
+         Payment systems
+        </div>
+        <div class="connection">
+         Conceptual integration →
+        </div>
+       </div>
+       <div class="diagram-node diagram-center">
+        vSuite E-Commerce<br><small>Conceptual center</small>
+       </div>
+       <div class="integration-side">
+        <div class="connection">
+         ← Conceptual integration
+        </div>
+        <div class="diagram-node">
+         Shipping systems
+        </div>
+        <div class="connection">
+         ← Conceptual integration
+        </div>
+        <div class="diagram-node">
+         Marketplace systems
+        </div>
+       </div>
+      </div>
+     </figure>
+    </div>
+   </section>
+   <section id="business-benefits" class="section-block" aria-labelledby="benefits-title">
+    <div class="wrap">
+     <div class="showcase-head">
+      <p class="eyebrow">BUSINESS BENEFITS</p>
+      <h2 id="benefits-title" data-template-id="benefits-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">Designed for Connected Commerce Outcomes</h2>
+      <p class="showcase-note">Practical ways the described capabilities can support a commerce journey.</p>
+     </div>
+     <div class="showcase-grid">
+      <article class="showcase-card"><span class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"></circle><circle cx="19" cy="5" r="2"></circle><circle cx="19" cy="19" r="2"></circle><path d="M7 11l10-5M7 13l10 5"></path>
+        </svg></span>
+       <h3>Connected operations</h3>
+       <p>Bring related commerce activities into a more coordinated view.</p>
+      </article>
+      <article class="showcase-card"><span class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6"></path>
+        </svg></span>
+       <h3>Product discovery</h3>
+       <p>Help shoppers explore relevant catalog information and choices.</p>
+      </article>
+      <article class="showcase-card"><span class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 4h2l2 12h12l2-9H6M9 21h.01M18 21h.01"></path>
+        </svg></span>
+       <h3>Shopping convenience</h3>
+       <p>Make browsing, saving, and reviewing products easier to follow.</p>
+      </article>
+      <article class="showcase-card"><span class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 9h8M8 13h8M8 17h5"></path>
+        </svg></span>
+       <h3>Order visibility</h3>
+       <p>Present order and post-order stages with distinct statuses.</p>
+      </article>
+      <article class="showcase-card"><span class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 9V4h5l12 12-5 5L3 9z"></path><circle cx="7" cy="8" r="1"></circle>
+        </svg></span>
+       <h3>Promotional flexibility</h3>
+       <p>Organize offers, rules, and customer engagement concepts.</p>
+      </article>
+      <article class="showcase-card"><span class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect>
+        </svg></span>
+       <h3>Flexible commerce models</h3>
+       <p>Consider storefront, business, wholesale, and channel needs.</p>
+      </article>
+      <article class="showcase-card"><span class="benefit-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="m12 2 1.8 6.2L20 10l-6.2 1.8L12 18l-1.8-6.2L4 10l6.2-1.8L12 2zM19 17l.7 2.3L22 20l-2.3.7L19 23l-.7-2.3L16 20l2.3-.7L19 17z"></path>
+        </svg></span>
+       <h3>AI-assisted experiences</h3>
+       <p>Explore assisted discovery and insights with appropriate oversight.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="ai-agentic-ai" class="ai-area" aria-labelledby="ai-title">
+    <div class="wrap">
+     <p class="eyebrow">ASSISTED DISCOVERY · COMMERCE INTELLIGENCE · CONTROLLED ACTION</p>
+     <h2 id="ai-title" data-template-id="ai-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">AI &amp; Agentic AI for Connected Commerce</h2>
+     <p data-template-id="ai-copy" class="ai-intro canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.65;">Explore how configurable AI-assisted experiences could support product discovery, commerce analysis, and permitted operational tasks. Capabilities depend on available data, configured logic, permissions, and applicable approvals. The interfaces below are illustrative, not live integrations.</p>
+     <section class="ai-subsection" aria-labelledby="ai-shopping-title">
+      <h3 id="ai-shopping-title">AI-Powered Shopping and Product Discovery</h3>
+      <p class="ai-subcopy">Seven ways a configured shopping experience could help people explore products and understand their options.</p>
+      <div class="ai-capabilities">
+       <article class="ai-capability"><span class="ai-icon" aria-hidden="true">
+         <svg viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"></circle><path d="m15 15 6 6"></path>
+         </svg></span>
+        <h4>AI Product Search</h4>
+        <p>Interpret product terms and attributes to help surface potentially relevant catalog items.</p>
+       </article>
+       <article class="ai-capability"><span class="ai-icon" aria-hidden="true">
+         <svg viewBox="0 0 24 24"><path d="m12 3 2.2 6.8L21 12l-6.8 2.2L12 21l-2.2-6.8L3 12l6.8-2.2L12 3z"></path>
+         </svg></span>
+        <h4>AI Product Recommendations</h4>
+        <p>Suggest products using available catalog information and configured recommendation logic.</p>
+       </article>
+       <article class="ai-capability"><span class="ai-icon" aria-hidden="true">
+         <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 3-7 8-7s8 3 8 7"></path>
+         </svg></span>
+        <h4>AI Personalized Shopping</h4>
+        <p>Adapt suggestions where suitable preference data and permissions are available.</p>
+       </article>
+       <article class="ai-capability"><span class="ai-icon" aria-hidden="true">
+         <svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM8 8h8M8 12h8M8 16h5"></path>
+         </svg></span>
+        <h4>AI Product Description Generation</h4>
+        <p>Assist in drafting descriptions from supplied product details for human review.</p>
+       </article>
+       <article class="ai-capability"><span class="ai-icon" aria-hidden="true">
+         <svg viewBox="0 0 24 24"><path d="M4 5h16v12H9l-5 4V5zM8 10h8M8 13h5"></path>
+         </svg></span>
+        <h4>AI Customer Assistant</h4>
+        <p>Help answer supported product questions using available, approved information.</p>
+       </article>
+       <article class="ai-capability"><span class="ai-icon" aria-hidden="true">
+         <svg viewBox="0 0 24 24"><path d="M3 4h2l2 12h12l2-9H6M10 21h.01M18 21h.01"></path>
+         </svg></span>
+        <h4>AI Shopping Assistant</h4>
+        <p>Guide comparisons and shopping choices without placing purchases for the customer.</p>
+       </article>
+       <article class="ai-capability"><span class="ai-icon" aria-hidden="true">
+         <svg viewBox="0 0 24 24"><path d="M4 5h16v13H8l-4 3V5zM8 10h8M8 14h5"></path>
+         </svg></span>
+        <h4>Conversational Commerce</h4>
+        <p>Support product exploration through natural-language questions and responses.</p>
+       </article>
+      </div>
+      <article class="assistant-demo" aria-labelledby="assistant-demo-title">
+       <div class="assistant-top"><strong id="assistant-demo-title">Product discovery assistant · Demonstration</strong><span class="sample-badge">SAMPLE INTERFACE</span>
+       </div>
+       <div class="assistant-body">
+        <div>
+         <p class="assistant-notice">Sample products and responses only, not a live AI integration.</p>
+         <div class="conversation">
+          <div class="chat-bubble chat-user"><strong>Sample user prompt</strong><output id="ai-user-prompt">Find a lightweight laptop for everyday work.</output>
+          </div>
+          <div class="chat-bubble chat-assistant" aria-live="polite" aria-atomic="true"><strong>Sample assistant response</strong><output id="ai-response">For everyday work, compare the fictional Alder Air 13 and Rowan Work 14. The Alder is lighter; the Rowan offers a larger display. Check the illustrative specifications before deciding.</output>
+          </div>
+         </div><span class="prompt-label" id="ai-prompts-label">Try an example question</span>
+         <div class="prompt-list" role="group" aria-labelledby="ai-prompts-label"><button type="button" class="prompt-chip" data-prompt="lightweight" aria-pressed="true">Find a lightweight laptop for everyday work.</button><button type="button" class="prompt-chip" data-prompt="compare" aria-pressed="false">Compare these two products.</button><button type="button" class="prompt-chip" data-prompt="budget" aria-pressed="false">Show products within my budget.</button><button type="button" class="prompt-chip" data-prompt="differences" aria-pressed="false">What are the key differences between these items?</button><button type="button" class="prompt-chip" data-prompt="specifications" aria-pressed="false">Recommend products matching these specifications.</button><button type="button" class="prompt-chip" data-prompt="features" aria-pressed="false">Help me understand this product's features.</button><button type="button" class="prompt-chip" data-prompt="alternatives" aria-pressed="false">Suggest alternatives with similar characteristics.</button>
+         </div><button id="ai-reset" type="button" class="sample-action prompt-reset" aria-label="Reset sample assistant demonstration">Reset demonstration</button>
+        </div>
+        <aside class="recommendations" aria-labelledby="ai-results-title">
+         <h4 id="ai-results-title">Illustrative product comparison</h4>
+         <p id="ai-result-caption">Fictional sample products · illustrative prices and specifications only.</p>
+         <div class="recommendation-list" aria-live="polite" aria-atomic="true">
+          <article class="recommendation-card" id="ai-result-one"><strong>Alder Air 13 · sample</strong><span>₹54,900 · illustrative</span>
+           <p>1.18 kg · 13-inch display · everyday work</p>
+          </article>
+          <article class="recommendation-card" id="ai-result-two"><strong>Rowan Work 14 · sample</strong><span>₹59,900 · illustrative</span>
+           <p>1.42 kg · 14-inch display · extra screen space</p>
+          </article>
+         </div>
+        </aside>
+       </div>
+      </article>
+     </section>
+     <section class="ai-subsection" aria-labelledby="intelligence-title">
+      <h3 id="intelligence-title">Commerce Intelligence</h3>
+      <p class="ai-subcopy">Illustrative commerce intelligence. Every recommendation, segment, projection, and review alert below uses sample data and configured-logic examples—not measured performance or verified detection.</p>
+      <div class="intelligence-grid">
+       <article class="intelligence-card"><span class="intelligence-label">ILLUSTRATIVE RECOMMENDATION</span>
+        <h4>AI Cross-Sell Recommendation</h4>
+        <p>Example: suggest a compatible sleeve alongside a fictional laptop, subject to catalog rules.</p>
+        <div class="mock-row"><span>Alder Air 13</span><strong>Sample laptop</strong>
+        </div>
+        <div class="mock-row"><span>Consider alongside</span><strong>Canvas Sleeve</strong>
+        </div>
+       </article>
+       <article class="intelligence-card"><span class="intelligence-label">ILLUSTRATIVE RECOMMENDATION</span>
+        <h4>AI Upsell Recommendation</h4>
+        <p>Example: surface a higher-capacity configuration when its features match the shopper’s stated needs.</p>
+        <div class="mock-row"><span>Current example</span><strong>Base storage</strong>
+        </div>
+        <div class="mock-row"><span>Consider</span><strong>More storage</strong>
+        </div>
+       </article>
+       <article class="intelligence-card trend"><span class="intelligence-label">ILLUSTRATIVE SEGMENTS</span>
+        <h4>AI Customer Segmentation</h4>
+        <p>Example groupings based on appropriate, available data and permissions.</p>
+        <figure>
+         <div class="segment-bar" aria-hidden="true"><span></span><span></span><span></span>
+         </div>
+         <figcaption>
+          Sample groups: new, returning, and browsing. Bar sizes are mock values.
+         </figcaption>
+        </figure>
+       </article>
+       <article class="intelligence-card trend"><span class="intelligence-label">ILLUSTRATIVE TREND</span>
+        <h4>AI Sales Insights</h4>
+        <p>Explore example order activity and product patterns using configured analysis.</p>
+        <figure>
+         <div class="chart-bars" aria-hidden="true"><span style="height:39%"></span><span style="height:55%"></span><span style="height:47%"></span><span style="height:69%"></span><span style="height:61%"></span>
+         </div>
+         <figcaption>
+          Mock activity bars; not actual sales or growth figures.
+         </figcaption>
+        </figure>
+       </article>
+       <article class="intelligence-card trend"><span class="intelligence-label">ILLUSTRATIVE PROJECTION</span>
+        <h4>AI Demand Prediction</h4>
+        <p>A configurable projection can inform planning when relevant history and assumptions are available.</p>
+        <figure>
+         <svg viewBox="0 0 260 80" width="100%" height="80" role="img" aria-label="Illustrative demand line with an uncertain projected segment"><path d="M2 69H258" stroke="#EEE8E7" stroke-width="2"></path><path d="M8 59 54 50 100 55 146 35 185 42" fill="none" stroke="#A50046" stroke-width="3" stroke-linecap="round"></path><path d="M185 42 218 31 252 38" fill="none" stroke="#E5AD00" stroke-width="3" stroke-dasharray="6 5" stroke-linecap="round"></path>
+         </svg>
+         <figcaption>
+          Gold dashed line: illustrative projection, not a reliable forecast in every case.
+         </figcaption>
+        </figure>
+       </article>
+       <article class="intelligence-card review"><span class="intelligence-label">ILLUSTRATIVE REVIEW ALERT</span>
+        <h4>AI Fraud Detection</h4>
+        <p>Configured checks may flag unusual activity for appropriate human review; a flag is not a finding of fraud.</p><span class="review-flag">Example: unusual order pattern · review required</span>
+       </article>
+      </div>
+     </section>
+     <section class="ai-subsection" aria-labelledby="agent-title">
+      <h3 id="agent-title">AI Commerce Agent</h3>
+      <p class="ai-subcopy">A configured commerce agent can assist with permitted tasks, operating under configured policies, permissions, and approval controls—not unrestricted autonomous transactions.</p>
+      <div class="agent-layout">
+       <article class="agent-card">
+        <h4>Permitted assistance may include</h4>
+        <ul>
+         <li>Reviewing commerce activity</li>
+         <li>Summarizing orders requiring attention</li>
+         <li>Identifying product information gaps</li>
+         <li>Suggesting customer communication</li>
+         <li>Highlighting unusual order patterns</li>
+        </ul>
+       </article>
+       <article class="agent-card">
+        <h4>Controlled by design</h4>
+        <p>What an agent can see, recommend, or do depends on the available data and its configured scope. Actions requiring approval must wait for the appropriate authorization; outcomes should be recorded for review.</p>
+       </article>
+      </div>
+      <figure class="agent-workflow">
+       <figcaption>
+        Illustrative controlled workflow · recommendations and exceptions are highlighted for review.
+       </figcaption>
+       <ol class="workflow-steps">
+        <li>Review Commerce Context</li>
+        <li>Analyze Available Data</li>
+        <li>Identify Opportunity or Exception</li>
+        <li>Recommend Action</li>
+        <li>Request Approval Where Required</li>
+        <li>Execute Authorized Step</li>
+        <li>Record Outcome</li>
+       </ol>
+      </figure>
+     </section>
+     <section class="ai-subsection" aria-labelledby="responsible-title">
+      <h3 id="responsible-title">Responsible AI, Configured for Control</h3>
+      <div class="responsible-card">
+       <div class="responsible-kicker">
+        CONTROLS &amp; HUMAN OVERSIGHT
+       </div>
+       <ul>
+        <li>AI outputs depend on available data, configured logic, and applicable permissions.</li>
+        <li>Fraud alerts require appropriate review.</li>
+        <li>Payments, refunds, and order changes remain subject to configured authorization and approval controls.</li>
+       </ul>
+       <p>These examples do not guarantee sales growth, accurate predictions in all cases, or unrestricted autonomous transactions.</p>
+      </div>
+     </section>
+    </div>
+   </section>
+   <section id="faq" class="section-block section-soft" aria-labelledby="faq-title">
+    <div class="wrap">
+     <p class="eyebrow">YOUR QUESTIONS, ANSWERED</p>
+     <h2 id="faq-title" data-template-id="faq-title-text" class="canva-text" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 24px;">Frequently Asked Questions</h2>
+     <p data-template-id="faq-copy" class="faq-intro canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">These answers describe intended or configurable capabilities. The examples on this page do not verify a live implementation, integration, or transaction.</p>
+     <div class="faq-list">
+      <article class="faq-item">
+       <h3><button id="faq-q1" data-template-id="faq-question-1" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a1" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">What is vSuite E-Commerce?</button></h3>
+       <div id="faq-a1" class="faq-answer" role="region" aria-labelledby="faq-q1" hidden="">
+        <p data-template-id="faq-answer-1" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">It is presented as a connected digital commerce platform intended to bring storefront, catalog, shopping, order, and operational activities together. This page does not verify a particular deployment.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q2" data-template-id="faq-question-2" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a2" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Which commerce capabilities does it cover?</button></h3>
+       <div id="faq-a2" class="faq-answer" role="region" aria-labelledby="faq-q2" hidden="">
+        <p data-template-id="faq-answer-2" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">The feature explorer describes catalog, customer journeys, orders, payments, fulfillment, promotions, enterprise models, integrations, and AI-assisted concepts. Availability depends on configuration and implementation.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q3" data-template-id="faq-question-3" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a3" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Can it manage products, categories, and variants?</button></h3>
+       <div id="faq-a3" class="faq-answer" role="region" aria-labelledby="faq-q3" hidden="">
+        <p data-template-id="faq-answer-3" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Product management, categories, attributes, variants, and catalogs are described as configurable capabilities. The sample products shown here are fictional.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q4" data-template-id="faq-question-4" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a4" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Does it support shopping carts and checkout?</button></h3>
+       <div id="faq-a4" class="faq-answer" role="region" aria-labelledby="faq-q4" hidden="">
+        <p data-template-id="faq-answer-4" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Shopping carts and configured checkout journeys are described capabilities. This page’s cart is a local preview: it places no order and processes no payment.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q5" data-template-id="faq-question-5" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a5" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Can it manage orders, shipping, and delivery?</button></h3>
+       <div id="faq-a5" class="faq-answer" role="region" aria-labelledby="faq-q5" hidden="">
+        <p data-template-id="faq-answer-5" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">The intended workflow covers order management, fulfillment, shipping, and delivery visibility. The displayed order and milestones are illustrative, not live records.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q6" data-template-id="faq-question-6" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a6" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Does it support returns and refunds?</button></h3>
+       <div id="faq-a6" class="faq-answer" role="region" aria-labelledby="faq-q6" hidden="">
+        <p data-template-id="faq-answer-6" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Returns and refunds are described as separate post-order activities. Their availability and handling depend on configured workflows and appropriate controls; no refund is processed here.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q7" data-template-id="faq-question-7" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a7" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Can it support multiple stores, currencies, and languages?</button></h3>
+       <div id="faq-a7" class="faq-answer" role="region" aria-labelledby="faq-q7" hidden="">
+        <p data-template-id="faq-answer-7" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Multi-store, multi-currency, and multi-language models are presented as configurable enterprise capabilities. The stores and locales pictured are examples, not verified availability.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q8" data-template-id="faq-question-8" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a8" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Does it support B2B and wholesale commerce?</button></h3>
+       <div id="faq-a8" class="faq-answer" role="region" aria-labelledby="faq-q8" hidden="">
+        <p data-template-id="faq-answer-8" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">B2B accounts and wholesale-oriented pricing are described as potential commerce models. The account and volume prices shown are fictional examples.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q9" data-template-id="faq-question-9" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a9" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Can it integrate with inventory, payment, and shipping systems?</button></h3>
+       <div id="faq-a9" class="faq-answer" role="region" aria-labelledby="faq-q9" hidden="">
+        <p data-template-id="faq-answer-9" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">The site illustrates possible connections to inventory, payment, and shipping systems. No provider or live integration is verified here; connections would require implementation.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q10" data-template-id="faq-question-10" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a10" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">What is headless commerce?</button></h3>
+       <div id="faq-a10" class="faq-answer" role="region" aria-labelledby="faq-q10" hidden="">
+        <p data-template-id="faq-answer-10" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">It separates the customer-facing experience from backend commerce services. The architecture diagram is conceptual and does not verify an API or deployment.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q11" data-template-id="faq-question-11" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a11" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">How can AI help customers discover products?</button></h3>
+       <div id="faq-a11" class="faq-answer" role="region" aria-labelledby="faq-q11" hidden="">
+        <p data-template-id="faq-answer-11" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Configured AI-assisted search, recommendations, and comparisons could use available product information to suggest relevant choices. The assistant here uses predefined sample responses, not a live AI service.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q12" data-template-id="faq-question-12" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a12" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">What is conversational commerce?</button></h3>
+       <div id="faq-a12" class="faq-answer" role="region" aria-labelledby="faq-q12" hidden="">
+        <p data-template-id="faq-answer-12" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">It is product exploration and shopping assistance through natural-language questions and responses, using supported information and configured boundaries.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q13" data-template-id="faq-question-13" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a13" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">What is the AI Commerce Agent?</button></h3>
+       <div id="faq-a13" class="faq-answer" role="region" aria-labelledby="faq-q13" hidden="">
+        <p data-template-id="faq-answer-13" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">It is a concept for assisting with permitted commerce tasks, such as summarizing activity or recommending action, within configured data access, policies, permissions, and approvals.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q14" data-template-id="faq-question-14" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a14" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">Can AI automatically process payments or refunds?</button></h3>
+       <div id="faq-a14" class="faq-answer" role="region" aria-labelledby="faq-q14" hidden="">
+        <p data-template-id="faq-answer-14" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">No. AI does not automatically process payments or refunds by default. Payments, refunds, and order changes remain subject to configured authorization and approval controls.</p>
+       </div>
+      </article>
+      <article class="faq-item">
+       <h3><button id="faq-q15" data-template-id="faq-question-15" class="faq-question canva-button" type="button" aria-expanded="false" aria-controls="faq-a15" style="color: rgb(120, 0, 47); font-weight: 900; font-style: normal; font-size: 16px;">How can I request a demonstration?</button></h3>
+       <div id="faq-a15" class="faq-answer" role="region" aria-labelledby="faq-q15" hidden="">
+        <p data-template-id="faq-answer-15" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Go to the Request a Demo section below. Its contact destination is not yet configured, so the button currently explains the next setup step rather than submitting a request.</p>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="request-demo" class="section-block demo-section" aria-labelledby="demo-title">
+    <div class="wrap demo-layout">
+     <div>
+      <p data-template-id="demo-eyebrow" class="eyebrow canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 16px;">EXPLORE THE SOLUTION</p>
+      <h2 id="demo-title" data-template-id="demo-title-text" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 24px;">Build Better Shopping Experiences. Create More Possibilities.</h2>
+      <p data-template-id="demo-copy" class="demo-description canva-text" style="color: rgb(245, 232, 235); font-weight: 400; font-style: normal; font-size: 16px;">Discover how vSuite E-Commerce can help organize digital storefronts, connect shopping journeys, support commerce operations, and introduce intelligent product discovery and customer assistance.</p>
+      <div class="demo-actions"><button id="demo-request-button" data-template-id="demo-request-button" class="btn btn-primary canva-button" type="button" aria-controls="demo-contact-note" style="background: rgb(194, 24, 91); color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">Request a Demo</button><button id="demo-contact-button" data-template-id="demo-contact-button" class="btn btn-secondary canva-button" type="button" aria-controls="demo-contact-note" style="background: transparent; color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">Contact Vishva Digital Technologies</button>
+      </div>
+      <p id="demo-contact-note" data-template-id="demo-contact-note" class="demo-note canva-text" role="status" hidden="" style="color: rgb(245, 232, 235); font-weight: 400; font-style: normal; font-size: 16px;">Contact details are configurable. No demo request is sent from this page; add an approved contact destination before using these buttons for enquiries.</p>
+     </div>
+     <aside class="demo-signature" aria-label="vSuite brand statements">
+      <p data-template-id="demo-cart-line" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 16px;">One CART. Endless Possibilities.</p>
+      <p data-template-id="demo-suite-line" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">ONE SUITE. MULTIPLE SOLUTIONS. INTELLIGENTLY CONNECTED.</p>
+     </aside>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="wrap">
+    <div class="footer-grid">
+     <div><a class="brand" href="#overview" aria-label="vSuite E-Commerce — back to overview"><img data-template-id="brand-logo-footer" class="brand-logo canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-ecommerce-footer.png" alt="vSuite E-Commerce logo"><span class="sr-only">vSuite E-Commerce</span></a>
+      <p data-template-id="footer-company" class="canva-text" style="margin-top: 19px; color: rgb(240, 221, 227); font-weight: 400; font-style: normal; font-size: 16px;">Vishva Digital Technologies</p>
+      <p data-template-id="footer-description" class="canva-text" style="color: rgb(240, 221, 227); font-weight: 400; font-style: normal; font-size: 16px;">A connected digital commerce concept spanning storefronts, shopping journeys, commerce operations, and configurable AI-assisted experiences.</p>
+     </div>
+     <div>
+      <h2 data-template-id="footer-navigation-title" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 24px;">Quick navigation</h2>
+      <nav aria-label="Footer navigation"><a href="#overview">Overview</a><a href="#commerce-features">Explore Commerce Features</a><a href="#shopping-experience">Shopping Experience</a><a href="#enterprise-commerce">Enterprise Commerce</a><a href="#ai-agentic-ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
+      </nav>
+     </div>
+     <div>
+      <h2 data-template-id="footer-products-title" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 24px;">Related vSuite products</h2>
+      <ul aria-label="Related products; destinations not supplied">
+       <li>vSuite Accounting</li>
+       <li>vSuite Payroll</li>
+       <li>vSuite Human Resources</li>
+       <li>vSuite Billing</li>
+       <li>vSuite Commerce</li>
+       <li>vSuite Logistics</li>
+      </ul>
+     </div>
+     <div>
+      <h2 data-template-id="footer-contact-title" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 24px;">Contact &amp; information</h2>
+      <p data-template-id="footer-contact-placeholder" class="footer-placeholder canva-text" style="color: rgb(242, 201, 76); font-weight: 700; font-style: normal; font-size: 16px;">Contact details configurable</p>
+      <p data-template-id="footer-legal-placeholder" class="canva-text" style="color: rgb(240, 221, 227); font-weight: 400; font-style: normal; font-size: 16px;">Privacy Policy and Terms destinations configurable; links are not yet available.</p>
+      <p data-template-id="footer-setup-note" class="footer-note canva-text" style="color: rgb(240, 221, 227); font-weight: 400; font-style: normal; font-size: 16px;">Remaining setup: approved contact details, Privacy Policy and Terms destinations, and any backend or live integration connections.</p>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© <span id="copyright-year"></span> Vishva Digital Technologies</p>
+     <p data-template-id="footer-brand-tagline" class="footer-tagline canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 16px;">ONE SUITE. MULTIPLE SOLUTIONS. INTELLIGENTLY CONNECTED.</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded",()=>{
+      const button=document.getElementById("menu-button"),menu=document.getElementById("mobile-nav"),icon=document.getElementById("menu-icon-path");
+      function setMenu(open){menu.hidden=!open;button.setAttribute("aria-expanded",String(open));button.setAttribute("aria-label",open?"Close navigation menu":"Open navigation menu");icon.setAttribute("d",open?"M5 5l14 14M19 5L5 19":"M4 6h16M4 12h16M4 18h16")}
+      button.addEventListener("click",()=>setMenu(menu.hidden));menu.querySelectorAll("a").forEach(link=>link.addEventListener("click",()=>setMenu(false)));
+      document.addEventListener("keydown",event=>{if(event.key==="Escape"&&!menu.hidden){setMenu(false);button.focus()}});window.addEventListener("resize",()=>{if(window.innerWidth>1220&&!menu.hidden)setMenu(false)});
+      const navLinks=document.querySelectorAll(".desktop-nav a,.mobile-nav a");function updateActiveLink(){const hash=window.location.hash;navLinks.forEach(link=>{if(hash&&link.getAttribute("href")===hash)link.setAttribute("aria-current","location");else link.removeAttribute("aria-current")})}window.addEventListener("hashchange",updateActiveLink);updateActiveLink();
+      document.querySelectorAll(".product-image img,.sample-photo img").forEach(image=>image.addEventListener("error",()=>image.classList.add("is-unavailable")));
+      const filters=document.querySelectorAll(".filter"),products=document.querySelectorAll(".product");filters.forEach(filter=>filter.addEventListener("click",()=>{const category=filter.dataset.category;filters.forEach(item=>item.setAttribute("aria-pressed",String(item===filter)));products.forEach(product=>product.hidden=category!=="all"&&product.dataset.category!==category)}));
+      let count=0,total=0;const formatter=new Intl.NumberFormat("en-IN");
+      const featureData=[
+        ["Store, Product and Catalog Management",["Store Management|Manage store information and related commerce activities through configurable business functions.","Product Management|Manage product information and related product operations.","Product Categories|Organize products into relevant categories.","Product Attributes|Manage product characteristics such as size, color, material, and dimensions.","Product Variants|Manage variations such as sizes, colors, or product configurations.","Product Catalog|Maintain a structured catalog for browsing and product discovery."]],
+        ["Customer, Cart, Checkout and Shopping Experience",["Customer Management|Manage customer information through configurable business functions.","Shopping Cart|Let customers collect and review products before purchase.","Wishlist|Allow customers to save products for future consideration.","Checkout|Support the configured purchase and checkout journey.","Notifications|Provide notifications associated with relevant commerce activities.","Customer Groups|Organize customers into relevant groups.","Customer-Specific Pricing|Support configured pricing for specific customers or customer groups."]],
+        ["Orders, Payments, Shipping and Fulfillment",["Order Management|Manage orders and associated activities.","Payment Management|Manage payment-related information and processes.","Shipping|Support shipping-related commerce activities.","Delivery|Support delivery-related activities and status visibility.","Returns|Manage product return activities.","Refunds|Support refund-related activities.","Order Fulfillment|Support the fulfillment of customer orders.","Order Orchestration|Coordinate order-related processes through configured workflows and connected systems."]],
+        ["Promotions, Pricing, Loyalty and Subscription Commerce",["Promotions|Manage promotional activities.","Coupons|Support coupon-related commerce activities.","Discount Rules|Configure applicable discounts for products, customers, or purchases.","Loyalty Management|Manage loyalty-related business functions.","Subscription Commerce|Support subscription-based commerce scenarios where configured."]],
+        ["Enterprise and Multi-Channel Commerce",["Multi-Store|Support multiple stores within the configured commerce environment.","Multi-Currency|Support commerce activities involving multiple currencies where implemented.","Multi-Language|Support localized shopping experiences where configured.","B2B Commerce|Support business-to-business commerce scenarios.","Wholesale Commerce|Support wholesale-oriented commerce requirements.","Omnichannel Commerce|Support connected commerce experiences across relevant sales channels where implemented."]],
+        ["Integrations and Commerce Architecture",["Inventory Integration|Connect e-commerce with relevant inventory systems or business processes.","Multiple Payment Gateways|Support multiple payment gateway configurations where implemented.","Multiple Shipping Providers|Support relevant shipping provider integrations where available.","Marketplace Integration|Connect commerce with relevant marketplaces or external systems.","Headless Commerce|Separate the customer-facing experience from commerce backend services where implemented.","API-First Commerce|Support API-oriented connections between commerce capabilities and applications."]],
+        ["AI Shopping and Product Discovery",["AI Product Search|Help customers discover products using relevant search terms, attributes, or intent.","AI Product Recommendations|Suggest potentially relevant products using available catalog information and configured logic.","AI Personalized Shopping|Illustrate shopping experiences adapted to permitted customer preferences or behavioral information.","AI Product Description Generation|Assist with drafting descriptions from provided product information.","AI Customer Assistant|Help customers navigate product information and supported shopping tasks.","AI Shopping Assistant|Assist customers with product comparisons and shopping choices.","Conversational Commerce|Support product exploration and shopping assistance through natural-language conversations."]],
+        ["AI Commerce Intelligence and Agentic AI",["AI Cross-Sell Recommendation|Suggest complementary products that may be relevant to the current purchase.","AI Upsell Recommendation|Suggest potentially suitable alternatives or product configurations.","AI Customer Segmentation|Support customer grouping and analysis using appropriate available data.","AI Sales Insights|Analyze commerce trends and sales performance.","AI Demand Prediction|Illustrate demand projections using available data and stated assumptions.","AI Fraud Detection|Identify potentially suspicious commerce activity for further review.","AI Commerce Agent|Assist with authorized commerce tasks under configured policies, permissions, and approval controls."]]
+      ];
+      const featureGrid=document.getElementById("feature-grid"),featureEmpty=document.getElementById("feature-empty"),featureSearch=document.getElementById("feature-search"),featureStatus=document.getElementById("feature-status");
+      function renderFeatures(){const query=featureSearch.value.trim().toLowerCase();let matches=0;featureGrid.replaceChildren();featureData.forEach((category,index)=>{const items=category[1].map(item=>{const [name,description]=item.split("|");return{name,description}}).filter(item=>!query||`${item.name} ${item.description}`.toLowerCase().includes(query));if(!items.length)return;matches+=items.length;const card=document.createElement("article");card.className="feature-card";const panelId=`feature-panel-${index+1}`;card.innerHTML=`<button class="feature-toggle" type="button" aria-expanded="${Boolean(query||index===0)}" aria-controls="${panelId}"><span><span class="feature-number">0${index+1}</span>${category[0]}</span><span class="feature-chevron" aria-hidden="true">⌄</span></button><div id="${panelId}" class="feature-panel"><ul class="feature-list">${items.map(item=>`<li class="feature-row"><span class="feature-icon" aria-hidden="true">◆</span><span><strong>${item.name}</strong><span>${item.description}</span></span></li>`).join("")}</ul><a class="category-link" href="#${["features","shopping-experience","commerce-operations","promotions","enterprise-commerce","integrations","ai-agentic-ai","ai-agentic-ai"][index]}">Explore this category →</a></div>`;const toggle=card.querySelector(".feature-toggle");toggle.addEventListener("click",()=>{const open=toggle.getAttribute("aria-expanded")==="true";toggle.setAttribute("aria-expanded",String(!open));card.querySelector(".feature-panel").hidden=open});if(!query&&index!==0)card.querySelector(".feature-panel").hidden=true;featureGrid.appendChild(card)});featureEmpty.hidden=matches>0;featureStatus.textContent=query?`${matches} matching feature${matches===1?"":"s"}`:`${featureData.reduce((sum,category)=>sum+category[1].length,0)} commerce features across eight categories`}
+      featureSearch.addEventListener("input",renderFeatures);["feature-clear","feature-empty-clear"].forEach(id=>document.getElementById(id).addEventListener("click",()=>{featureSearch.value="";renderFeatures();featureSearch.focus()}));renderFeatures();
+      function updateCart(){const quantity=`${count} ${count===1?"item":"items"}`,amount=`₹${formatter.format(total)}`;document.getElementById("cart-count").textContent=quantity;document.getElementById("cart-total").textContent=amount;document.getElementById("journey-cart-count").textContent=quantity;document.getElementById("journey-cart-total").textContent=amount;document.getElementById("checkout-count").textContent=String(count);document.getElementById("checkout-total").textContent=amount}
+      document.querySelectorAll(".add-button").forEach(addButton=>addButton.addEventListener("click",()=>{count++;total+=Number(addButton.dataset.price);updateCart()}));
+      document.querySelectorAll(".wishlist-toggle").forEach(toggle=>toggle.addEventListener("click",()=>{const saved=toggle.getAttribute("aria-pressed")!=="true";toggle.setAttribute("aria-pressed",String(saved));toggle.setAttribute("aria-label",saved?"Remove Studio Headphones from local sample wishlist":"Save Studio Headphones to local sample wishlist");toggle.querySelector(".wish-unsaved").hidden=saved;toggle.querySelector(".wish-saved").hidden=!saved;document.getElementById("wishlist-count").textContent=saved?"1 item":"0 items"}));
+      document.getElementById("watch-variant").addEventListener("change",event=>{document.getElementById("variant-preview").textContent=`Selected: ${event.target.value} · local preview`});
+      const shoppingSearch=document.getElementById("shopping-search"),searchResult=document.getElementById("shopping-search-result"),sampleNames=["Studio Headphones","Everyday Watch","Leather Carryall","Motion Sneakers"];shoppingSearch.addEventListener("input",()=>{const query=shoppingSearch.value.trim().toLowerCase();const matches=sampleNames.filter(name=>name.toLowerCase().includes(query));searchResult.textContent=!query?"Enter a name to filter the sample catalog.":matches.length?`Sample matches: ${matches.join(", ")}`:"No sample products match that search."});
+      // Predefined client-side examples; no AI service is contacted.
+      const demonstrations={
+        lightweight:{response:"For everyday work, compare the fictional Alder Air 13 and Rowan Work 14. The Alder is lighter; the Rowan offers a larger display. Check the illustrative specifications before deciding.",items:[["Alder Air 13","₹54,900","1.18 kg · 13-inch display · everyday work"],["Rowan Work 14","₹59,900","1.42 kg · 14-inch display · extra screen space"]]},
+        compare:{response:"In this sample comparison, Alder Air 13 prioritizes lower weight, while Rowan Work 14 provides more display space. Neither is universally the better choice.",items:[["Alder Air 13","₹54,900","1.18 kg · 13-inch display"],["Rowan Work 14","₹59,900","1.42 kg · 14-inch display"]]},
+        budget:{response:"For an illustrative budget below ₹60,000, both fictional laptops shown fit. Prices are sample values, not current offers.",items:[["Alder Air 13","₹54,900","Sample price below ₹60,000"],["Rowan Work 14","₹59,900","Sample price below ₹60,000"]]},
+        differences:{response:"The illustrated differences are weight, screen size, and sample price: Alder Air 13 is lighter and smaller; Rowan Work 14 has a larger display.",items:[["Alder Air 13","₹54,900","1.18 kg · 13-inch display"],["Rowan Work 14","₹59,900","1.42 kg · 14-inch display"]]},
+        specifications:{response:"For a lightweight everyday-work example, Alder Air 13 matches the sample portability preference. Rowan Work 14 is an alternative if a larger screen matters more.",items:[["Alder Air 13","₹54,900","Sample match · lighter design"],["Rowan Work 14","₹59,900","Sample alternative · larger screen"]]},
+        features:{response:"The fictional Alder Air 13 illustrates a lighter 13-inch option for everyday work. Its listed characteristics are demonstration data, not verified product specifications.",items:[["Alder Air 13","₹54,900","Illustrative feature: 1.18 kg and 13-inch display"]]},
+        alternatives:{response:"The fictional Rowan Work 14 is a similar everyday-work alternative to Alder Air 13, with a larger illustrative display and higher sample weight.",items:[["Alder Air 13","₹54,900","Sample reference · 13-inch display"],["Rowan Work 14","₹59,900","Sample alternative · 14-inch display"]]}
+      };
+      const chips=[...document.querySelectorAll(".prompt-chip")],promptOutput=document.getElementById("ai-user-prompt"),responseOutput=document.getElementById("ai-response"),cards=[document.getElementById("ai-result-one"),document.getElementById("ai-result-two")];
+      function selectPrompt(chip){const sample=demonstrations[chip.dataset.prompt];chips.forEach(item=>item.setAttribute("aria-pressed",String(item===chip)));promptOutput.textContent=chip.textContent;responseOutput.textContent=sample.response;cards.forEach((card,index)=>{const item=sample.items[index];card.hidden=!item;if(!item)return;card.querySelector("strong").textContent=`${item[0]} · sample`;card.querySelector("span").textContent=`${item[1]} · illustrative`;card.querySelector("p").textContent=item[2]})}
+      chips.forEach(chip=>chip.addEventListener("click",()=>selectPrompt(chip)));document.getElementById("ai-reset").addEventListener("click",()=>selectPrompt(chips[0]));
+      document.querySelectorAll(".faq-question").forEach(question=>question.addEventListener("click",()=>{const panel=document.getElementById(question.getAttribute("aria-controls"));const open=question.getAttribute("aria-expanded")==="true";question.setAttribute("aria-expanded",String(!open));panel.hidden=open}));
+      const contactNote=document.getElementById("demo-contact-note");["demo-request-button","demo-contact-button"].forEach(id=>document.getElementById(id).addEventListener("click",()=>{contactNote.hidden=false}));
+      document.getElementById("copyright-year").textContent=String(new Date().getFullYear());
+    });
+  </script>
+ 
+<script src="fx/module-fx.js"></script>
+</body></html>

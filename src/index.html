@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <title>vSuite | Vishva Digital Technologies</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Fonts (needs internet) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Source+Sans+Pro:wght@300;400&display=swap">
+
+  <!-- Theme CSS: copied from the original site. Do not edit. -->
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/page-styles.css">
+  <!-- Your own CSS goes in src/styles.css (Angular adds it after these) -->
+
+  <!-- Loader (first load + every navigation). Inline so it shows before anything else loads. -->
+  <style>
+    .vs-loader{position:fixed;inset:0;z-index:2147483000;background:#212331;display:flex;align-items:center;justify-content:center;opacity:1;visibility:visible;transition:opacity .35s ease,visibility .35s ease}
+    .vs-loader-hide{opacity:0;visibility:hidden;pointer-events:none}
+    .vs-loader-ring{width:56px;height:56px;border-radius:50%;background:conic-gradient(from 0deg,rgba(39,255,227,0) 0%,#27ffe3 30%,#5393ff 60%,#6e54d5 85%,#917bea 100%);-webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 4px));mask:radial-gradient(farthest-side,transparent calc(100% - 5px),#000 calc(100% - 4px));animation:vs-spin .9s linear infinite}
+    @keyframes vs-spin{to{transform:rotate(360deg)}}
+  </style>
+</head>
+<body>
+  <div id="app-initial-loader" class="vs-loader" aria-hidden="true"><div class="vs-loader-ring"></div></div>
+  <app-root></app-root>
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en-IN"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover vSuite ProcessFlow: intelligent document processing and configurable workflows from Vishva Digital Technologies.">
+  <title>vSuite ProcessFlow | Vishva Digital Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--purple:#4B00D6;--deep:#2B124C;--violet:#6C35E8;--gold:#E5AD00;--ink:#292431;--muted:#6F6878;--line:#E9E2F1;--soft:#F8F6FC}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:92px}body{width:100%;margin:0;background:#fff;color:var(--ink);font-family:"Source Sans Pro",sans-serif}a{text-decoration:none;color:inherit}button{font:inherit;cursor:pointer}[hidden]{display:none!important}section[id]{scroll-margin-top:92px}:is(a,button,summary):focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    .site-wrap{width:min(1200px,calc(100% - 48px));margin-inline:auto}.site-header{position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 6px 24px #2b124c0b}.header-inner{min-height:150px;display:flex;align-items:center;gap:28px}.brand{display:inline-flex;align-items:center;flex-shrink:0}.brand img{display:block;width:440px;height:145px;object-fit:contain}.desktop-nav{display:flex;align-items:center;gap:clamp(11px,1.4vw,23px);margin-left:auto}.desktop-nav a,.mobile-nav a{font-size:.91rem;font-weight:700;color:var(--deep);white-space:nowrap}.desktop-nav a:hover,.mobile-nav a:hover{color:var(--purple)}.nav-cta{padding:11px 15px;border-radius:7px;background:var(--purple);color:white!important}.nav-cta:hover{background:var(--deep)}.menu-toggle{display:none;margin-left:auto;width:46px;height:46px;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--deep)}.mobile-nav{padding:10px 24px 20px;border-top:1px solid var(--line);background:#fff}.mobile-nav a{display:block;padding:11px;border-radius:6px}.mobile-nav a:hover{background:var(--soft)}
+    h1,h2,h3,p{margin-top:0}h1,h2,h3{color:var(--deep);line-height:1.12;letter-spacing:-.025em}h1{font-size:clamp(3rem,5vw,5rem);font-weight:900;margin-bottom:18px}h2{font-size:clamp(2rem,3.4vw,3.1rem);font-weight:900;margin-bottom:18px}h3{font-size:1.2rem;font-weight:900}.eyebrow{margin-bottom:15px;color:var(--purple);font-size:.8rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}.section{padding:clamp(76px,8vw,120px) 0}.soft{background:var(--soft);border-block:1px solid var(--line)}.section-copy{max-width:790px;font-size:1.17rem;line-height:1.7;color:var(--muted)}.hero{padding:clamp(70px,8vw,116px) 0 100px;background:linear-gradient(115deg,#fff 39%,#f8f6fc)}.hero-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(32px,4vw,62px)}.hero-sub{font-size:clamp(1.35rem,2vw,1.85rem);font-weight:900;color:var(--violet);margin-bottom:18px}.hero-description{font-size:1.13rem;line-height:1.72;color:var(--muted)}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:12px 22px;border:1px solid transparent;border-radius:8px;font-weight:900;text-align:center;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px #2b124c24}.btn-primary{background:var(--purple);color:#fff}.btn-secondary{background:#fff;border-color:#cfc0e3;color:var(--deep)}
+    .dashboard{min-width:0;padding:10px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 28px 68px #2b124c1c}.dash-header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:17px;border-radius:10px 10px 0 0;background:var(--deep);color:#fff}.dash-header strong{font-size:1rem}.sample-tag{padding:5px 9px;border-radius:5px;background:#f8e7ab;color:var(--deep);font-size:.74rem;font-weight:900}.dash-body{padding:14px;background:var(--soft);border:1px solid var(--line);border-top:0;border-radius:0 0 10px 10px}.dash-caption{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:12px;font-size:.83rem;color:var(--muted)}.dash-caption strong{color:var(--deep)}.dash-grid{display:grid;grid-template-columns:minmax(0,.83fr) minmax(0,1.17fr);gap:11px}.panel{min-width:0;padding:15px;border:1px solid var(--line);border-radius:9px;background:white}.panel h3{font-size:.94rem;margin-bottom:11px}.queue-button{display:block;width:100%;margin-top:8px;padding:11px;border:1px solid var(--line);border-radius:7px;background:#fff;text-align:left;color:var(--deep);font-size:.84rem;line-height:1.3}.queue-button[aria-pressed="true"]{border-color:var(--purple);background:#f3edff}.queue-button strong,.queue-button small{display:block}.queue-button small{margin-top:4px;color:var(--muted)}.queue-help,.dash-note{color:var(--muted);font-size:.79rem;line-height:1.5}.queue-help{margin:12px 0 0}.document{min-height:190px;padding:15px;border:1px solid #ddd3e9;background:#fff;box-shadow:0 3px 10px #2b124c0d}.document-title{padding-bottom:9px;border-bottom:2px solid var(--gold);color:var(--deep);font-weight:900;font-size:.91rem}.doc-line,.metric{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--line);font-size:.82rem}.doc-line:last-child,.metric:last-child{border:0}.doc-line span,.metric span{color:var(--muted)}.doc-line strong,.metric strong{text-align:right;color:var(--deep)}.dash-lower{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:11px}.stages{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}.stages span{padding:5px 7px;border-radius:5px;background:var(--soft);color:var(--deep);font-size:.72rem;font-weight:700}.stages span:first-child{background:var(--purple);color:#fff}.pill{padding:3px 7px;border-radius:5px;background:#fff2c7;color:#624400!important}.dash-note{margin:11px 3px 0}
+    .overview-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}.outcome-list{display:grid;gap:10px}.outcome-item{display:flex;align-items:center;gap:15px;padding:17px 20px;border:1px solid var(--line);border-radius:9px;background:#fff;color:var(--deep);font-weight:700}.outcome-item span{color:var(--purple);font-size:.8rem;font-weight:900}.flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:35px 0 20px}.flow li{position:relative;min-width:0;min-height:142px;padding:19px 13px;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:9px;background:#fff;color:var(--deep);font-weight:900;line-height:1.25}.flow li:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:43%;z-index:1;padding:0 2px;background:#fff;color:var(--purple)}.step-no{display:block;margin-bottom:27px;color:var(--violet);font-size:.78rem;letter-spacing:.1em}.callouts{display:flex;gap:11px;flex-wrap:wrap}.callout{padding:11px 14px;border:1px solid #e9d69e;border-radius:8px;background:#fff9e7;color:#5d4300;font-weight:700}
+    .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:33px}.card{padding:26px 22px;min-height:250px;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:11px;background:white;box-shadow:0 9px 24px #2b124c0b}.card-num{display:block;margin-bottom:29px;color:var(--purple);font-size:.78rem;font-weight:900;letter-spacing:.07em}.card p{color:var(--muted);line-height:1.65;margin:0}.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}.info-panel{padding:27px;border:1px solid var(--line);border-left:5px solid var(--gold);border-radius:10px;background:#fff}.info-panel p{margin:0;color:var(--muted);line-height:1.75;font-size:1.08rem}.architecture{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:12px;margin-top:32px}.arch-card{padding:22px;border:1px solid var(--line);border-radius:10px;background:var(--soft)}.arch-card strong{display:block;color:var(--deep);font-size:1.05rem}.arch-card p{margin:7px 0 0;color:var(--muted);line-height:1.5}.arch-arrow{align-self:center;color:var(--purple);font-size:1.5rem;font-weight:900}.ai-points{display:grid;gap:12px;margin-top:24px}.ai-point{padding:16px 19px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--deep);font-weight:700}.ai-point:before{content:"◆";margin-right:12px;color:var(--gold);font-size:.75rem}
+    .faq-list{max-width:910px;margin:32px auto 0;display:grid;gap:11px}.faq-list details{border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:9px;background:#fff}.faq-list summary{padding:19px 22px;color:var(--deep);font-weight:900;cursor:pointer}.faq-list details p{padding:0 22px 20px;margin:0;color:var(--muted);line-height:1.7}.cta-section{background:var(--deep);border-top:4px solid var(--gold);color:white}.cta-section h2{max-width:850px;color:white}.cta-section .eyebrow{color:#f8e7ab}.cta-section .section-copy{color:#f1eafa}.cta-section .btn{margin-top:15px;border-color:#b892fa}.cta-note{max-width:740px;margin:20px 0 0;color:#f1eafa;line-height:1.6}.footer{padding:34px 0 17px;background:#2B124C;color:white;border-top:2px solid var(--gold)}.footer-inner{display:grid;grid-template-columns:minmax(220px,1.25fr) minmax(170px,1fr) minmax(170px,1fr) minmax(220px,1.15fr);gap:34px;align-items:start}.footer p{margin:0;color:#fff}.footer-logo-panel{width:min(100%,480px);padding:20px;background:#fff;border-radius:8px}.footer-logo-panel img{display:block;width:100%;height:auto;max-height:220px;object-fit:contain}.footer-name{font-size:1.12rem;font-weight:900;color:white!important}.footer-company{margin-top:26px!important;color:#fff!important;font-weight:700;font-size:.78rem}.footer-tagline{margin-top:8px!important;color:#f8e7ab!important;font-weight:700;font-size:.76rem}.footer-manifesto{margin-top:8px!important;font-size:.67rem;font-weight:900;letter-spacing:.08em}.footer-description{max-width:280px;margin-top:6px!important;color:#fff!important;line-height:1.35;font-size:.72rem}.footer-heading{margin:0 0 12px;color:#f8e7ab;font-size:.78rem;font-weight:900;letter-spacing:0;text-transform:none}.footer nav{display:grid;grid-template-columns:1fr;gap:6px;font-weight:400}.footer nav a{color:#fff;font-size:.72rem}.footer nav a:hover{text-decoration:underline;text-decoration-color:var(--violet);text-underline-offset:4px}.footer-demo{display:inline-flex!important;margin-top:18px;padding:11px 15px;border:1px solid var(--gold);border-radius:7px;color:#fff!important;font-weight:900}.footer-demo:hover{background:var(--gold);color:var(--deep)!important;text-decoration:none!important}.footer-info{color:#fff;font-size:.72rem;line-height:1.45}.footer-bottom{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-top:26px;padding-top:12px;border-top:1px solid #6C35E8;color:#fff;font-size:.7rem}.footer-bottom p{color:#fff}.footer-bottom .footer-manifesto{margin:0!important;color:#f8e7ab!important;font-size:.67rem}.footer-bottom a{text-decoration:underline;text-underline-offset:3px}.footer-bottom a:hover{color:#f8e7ab}@media(max-width:820px){.footer-inner{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}@media(max-width:520px){.footer-inner{grid-template-columns:1fr}.footer-brand{grid-column:auto}.footer nav{grid-template-columns:1fr 1fr}}
+    @media(max-width:1160px){.desktop-nav{display:none}.menu-toggle{display:inline-flex}}@media(max-width:980px){.hero-grid,.overview-grid,.split{grid-template-columns:1fr}.dashboard{max-width:780px}.flow{grid-template-columns:repeat(3,1fr)}.flow li:nth-child(3)::after{display:none}.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.site-wrap{width:calc(100% - 32px)}.header-inner{min-height:125px}.brand img{width:350px;height:120px}.hero{padding:65px 0 75px}.section{padding:76px 0}.actions .btn{width:100%}.dash-grid,.dash-lower{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow li{min-height:95px}.flow li:not(:last-child)::after{content:"↓";top:auto;right:auto;left:23px;bottom:-17px}.cards{grid-template-columns:1fr}.card{min-height:0}.architecture{grid-template-columns:1fr}.arch-arrow{text-align:center;transform:rotate(90deg)}.footer-inner{display:grid}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+  </style>
+  <link rel="stylesheet" href="css/processflow.tailwind.css">
+  <script src="vendor/lucide.min.js"></script>
+  <style>:root{--fx-a:#4B00D6;--fx-b:#E5AD00}</style>
+<link rel="stylesheet" href="fx/module-fx.css">
+</head>
+ <body data-template-id="__page-root" class="w-full" style="background: rgb(255, 255, 255);">
+  <header class="site-header">
+   <div class="site-wrap header-inner">
+    <a class="brand" href="#top" aria-label="vSuite ProcessFlow — back to top"><img data-template-id="brand-logo-header" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-processflow.png" alt="vSuite ProcessFlow"></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+     <a href="#overview">Overview</a><a href="#capabilities">Capabilities</a><a href="#how-it-works">How It Works</a><a href="#integrations">Integrations</a><a href="#ai-agentic-ai">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a class="nav-cta" href="#request-a-demo">Request a Demo</a>
+    </nav><button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false">
+     <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path id="menu-path" d="M4 6h16M4 12h16M4 18h16"></path>
+     </svg></button>
+   </div>
+   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden="">
+    <a href="#overview">Overview</a><a href="#capabilities">Capabilities</a><a href="#how-it-works">How It Works</a><a href="#integrations">Integrations</a><a href="#ai-agentic-ai">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a class="nav-cta" href="#request-a-demo">Request a Demo</a>
+   </nav>
+  </header>
+  <main id="top">
+   <section class="hero" aria-labelledby="hero-title">
+    <div class="site-wrap hero-grid">
+     <div>
+      <p data-template-id="hero-eyebrow" class="eyebrow canva-text" style="color: rgb(75, 0, 214); font-weight: 900; font-style: normal; font-size: 16px; letter-spacing: 0.13rem;">INTELLIGENT DOCUMENT PROCESSING &amp; WORKFLOW AUTOMATION</p>
+      <h1 id="hero-title" data-template-id="hero-title" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 32px;">Turn Documents into Intelligent Workflows.</h1>
+      <p data-template-id="hero-subtitle" class="hero-sub canva-text" style="color: rgb(108, 53, 232); font-weight: 900; font-style: normal; font-size: 25px;">Capture. Understand. Validate. Automate.</p>
+      <p data-template-id="hero-description" class="hero-description canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.72;">vSuite ProcessFlow brings document intake, OCR, AI-assisted data extraction, and validation into configurable workflows. Apply business rules, route approvals, manage exceptions, and prepare structured outputs for enterprise integrations.</p>
+      <div class="actions"><a data-template-id="hero-demo" class="btn btn-primary canva-button" href="#request-a-demo" style="background: rgb(75, 0, 214); color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">Request a Demo</a><a data-template-id="hero-capabilities" class="btn btn-secondary canva-button" href="#capabilities" style="background: rgb(255, 255, 255); color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Explore Capabilities</a>
+      </div>
+     </div>
+     <aside class="dashboard" aria-label="Illustrative document processing dashboard">
+      <div data-template-id="dashboard-header" class="dash-header canva-panel" style="background: rgb(43, 18, 76);"><strong data-template-id="dashboard-title" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">ProcessFlow / Workspace</strong><span data-template-id="dashboard-badge" class="sample-tag canva-tag" style="background: rgb(248, 231, 171); color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Illustrative demo data</span>
+      </div>
+      <div class="dash-body">
+       <div class="dash-caption"><strong data-template-id="queue-heading" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Incoming document queue</strong><span data-template-id="queue-caption" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">2 fictional documents · local preview</span>
+       </div>
+       <div class="dash-grid">
+        <div class="panel">
+         <h3 data-template-id="documents-heading" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 19px;">Documents</h3><button id="invoice-tab" class="queue-button" type="button" aria-pressed="true" aria-controls="document-panel"><strong>Invoice · INV-2048</strong><small>Northfield Supplies · processing</small></button> <button id="bol-tab" class="queue-button" type="button" aria-pressed="false" aria-controls="document-panel"><strong>Bill of Lading · BL-718</strong><small>Harborline Freight · review needed</small></button>
+         <p data-template-id="queue-help" class="queue-help canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">Select a document to inspect its sample extraction.</p>
+        </div>
+        <div id="document-panel" class="panel">
+         <h3 data-template-id="preview-heading" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 19px;">Document preview</h3>
+         <div id="invoice-view" class="document">
+          <div class="document-title">
+           INVOICE · INV-2048
+          </div>
+          <div class="doc-line"><span>Supplier</span><strong>Northfield Supplies</strong>
+          </div>
+          <div class="doc-line"><span>Invoice date</span><strong>08 Oct 2026</strong>
+          </div>
+          <div class="doc-line"><span>Total</span><strong>₹48,250.00</strong>
+          </div>
+          <div class="doc-line"><span>Document ID</span><strong>PF-1042</strong>
+          </div>
+         </div>
+         <div id="bol-view" class="document" hidden="">
+          <div class="document-title">
+           BILL OF LADING · BL-718
+          </div>
+          <div class="doc-line"><span>Carrier</span><strong>Harborline Freight</strong>
+          </div>
+          <div class="doc-line"><span>Shipment date</span><strong>09 Oct 2026</strong>
+          </div>
+          <div class="doc-line"><span>Packages</span><strong>24 cartons</strong>
+          </div>
+          <div class="doc-line"><span>Document ID</span><strong>PF-1043</strong>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div class="dash-lower">
+        <div class="panel">
+         <h3 data-template-id="extraction-heading" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 19px;">Extracted fields &amp; checks</h3>
+         <div class="metric"><span>OCR confidence</span><strong id="confidence">96% · sample</strong>
+         </div>
+         <div class="metric"><span>Validation status</span><strong id="validation">2 of 3 checks passed</strong>
+         </div>
+         <div class="metric"><span>Processing indicator</span><strong id="processing">Awaiting approval</strong>
+         </div>
+        </div>
+        <div class="panel">
+         <h3 data-template-id="workflow-heading" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 19px;">Workflow stages</h3>
+         <div class="stages" aria-label="Illustrative workflow stages"><span>Intake</span><span>Extract</span><span>Validate</span><span>Route</span>
+         </div>
+         <div class="metric"><span>Exception queue</span><strong id="exceptions" class="pill">1 item to review</strong>
+         </div>
+         <div class="metric"><span>Processing summary</span><strong id="summary">Approval pending</strong>
+         </div>
+        </div>
+       </div>
+       <p data-template-id="dashboard-note" class="dash-note canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">Fictional documents, values, scores, and statuses. Switching documents updates this local illustration only; no OCR or workflow service runs here.</p>
+      </div>
+     </aside>
+    </div>
+   </section>
+   <section id="overview" class="section soft" aria-labelledby="overview-title">
+    <div class="site-wrap overview-grid">
+     <div>
+      <p data-template-id="overview-eyebrow" class="eyebrow canva-text" style="color: rgb(75, 0, 214); font-weight: 900; font-style: normal; font-size: 16px;">A CONNECTED DOCUMENT JOURNEY</p>
+      <h2 id="overview-title" data-template-id="overview-title-text" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 24px;">From Unstructured Documents to Structured Business Outcomes</h2>
+      <p data-template-id="overview-copy" class="section-copy canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.7;">Move from intake and classification to OCR-assisted extraction and validation. Configurable routing and business rules can then guide approvals and exception review before information is prepared for enterprise connections and output generation.</p>
+     </div>
+     <div class="outcome-list" aria-label="Document journey outcomes">
+      <div class="outcome-item"><span>01</span> Bring incoming information into view
+      </div>
+      <div class="outcome-item"><span>02</span> Check and structure critical fields
+      </div>
+      <div class="outcome-item"><span>03</span> Route decisions to the right people
+      </div>
+      <div class="outcome-item"><span>04</span> Prepare usable business outputs
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="how-it-works" class="section" aria-labelledby="flow-title">
+    <div class="site-wrap">
+     <p data-template-id="flow-eyebrow" class="eyebrow canva-text" style="color: rgb(75, 0, 214); font-weight: 900; font-style: normal; font-size: 16px;">HOW IT WORKS</p>
+     <h2 id="flow-title" data-template-id="flow-title-text" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 24px;">A Clear Path from Arrival to Action</h2>
+     <p data-template-id="flow-copy" class="section-copy canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">A conceptual process that can be configured around document types, checks, routing decisions, approvals, and required outputs.</p>
+     <ol class="flow">
+      <li><span class="step-no">01 / RECEIVE</span><span data-template-id="flow-step-1" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Document Intake</span></li>
+      <li><span class="step-no">02 / IDENTIFY</span><span data-template-id="flow-step-2" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Classification</span></li>
+      <li><span class="step-no">03 / UNDERSTAND</span><span data-template-id="flow-step-3" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">OCR &amp; Extraction</span></li>
+      <li><span class="step-no">04 / VERIFY</span><span data-template-id="flow-step-4" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Validation</span></li>
+      <li><span class="step-no">05 / ROUTE</span><span data-template-id="flow-step-5" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Workflow Processing</span></li>
+      <li><span class="step-no">06 / DELIVER</span><span data-template-id="flow-step-6" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Output Generation</span></li>
+     </ol>
+     <div class="callouts"><span data-template-id="flow-approval" class="callout canva-tag" style="background: rgb(255, 249, 231); color: rgb(93, 67, 0); font-weight: 700; font-style: normal; font-size: 16px;">Conditional path: Human Approval when required</span><span data-template-id="flow-exception" class="callout canva-tag" style="background: rgb(255, 249, 231); color: rgb(93, 67, 0); font-weight: 700; font-style: normal; font-size: 16px;">Conditional path: Exception Handling for failed checks</span>
+     </div>
+    </div>
+   </section>
+   <section id="capabilities" class="section soft" aria-labelledby="capabilities-title">
+    <div class="site-wrap">
+     <p data-template-id="capabilities-eyebrow" class="eyebrow canva-text" style="color: rgb(75, 0, 214); font-weight: 900; font-style: normal; font-size: 16px;">CORE CAPABILITIES</p>
+     <h2 id="capabilities-title" data-template-id="capabilities-title-text" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 24px;">Built Around the Work Behind Every Document</h2>
+     <p data-template-id="capabilities-copy" class="section-copy canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">A connected approach to capturing information, understanding it, moving it forward, and resolving what needs attention.</p>
+     <div class="cards">
+      <article data-template-id="capability-card-1" class="card canva-card" style="background: rgb(255, 255, 255);"><span class="card-num">01 / CAPTURE</span>
+       <h3 data-template-id="capability-title-1" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 19px;">Document Intake</h3>
+       <p data-template-id="capability-copy-1" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">Bring incoming files into an organized queue and prepare them for classification and processing.</p>
+      </article>
+      <article data-template-id="capability-card-2" class="card canva-card" style="background: rgb(255, 255, 255);"><span class="card-num">02 / UNDERSTAND</span>
+       <h3 data-template-id="capability-title-2" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 19px;">Intelligent Extraction &amp; Validation</h3>
+       <p data-template-id="capability-copy-2" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">Identify relevant fields with OCR and AI assistance, then check values against configurable rules.</p>
+      </article>
+      <article data-template-id="capability-card-3" class="card canva-card" style="background: rgb(255, 255, 255);"><span class="card-num">03 / ROUTE</span>
+       <h3 data-template-id="capability-title-3" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 19px;">Configurable Workflow Automation</h3>
+       <p data-template-id="capability-copy-3" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">Design routing, business-rule decisions, review steps, and approvals around your process.</p>
+      </article>
+      <article data-template-id="capability-card-4" class="card canva-card" style="background: rgb(255, 255, 255);"><span class="card-num">04 / RESOLVE</span>
+       <h3 data-template-id="capability-title-4" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 19px;">Exception Management</h3>
+       <p data-template-id="capability-copy-4" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">Surface missing details and mismatches so people can review them before work proceeds.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="integrations" class="section" aria-labelledby="integrations-title">
+    <div class="site-wrap">
+     <div class="split">
+      <div>
+       <p data-template-id="integrations-eyebrow" class="eyebrow canva-text" style="color: rgb(75, 0, 214); font-weight: 900; font-style: normal; font-size: 16px;">INTEGRATIONS</p>
+       <h2 id="integrations-title" data-template-id="integrations-title-text" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 24px;">Designed to Fit Enterprise Workflows</h2>
+      </div>
+      <div class="info-panel">
+       <p data-template-id="integrations-copy" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.75;">Enterprise connections can be configured to fit existing systems. Destinations, data mappings, permissions, and implementation are defined for each deployment. The architecture below is illustrative, not a representation of live integrations.</p>
+      </div>
+     </div>
+     <div class="architecture" aria-label="Illustrative integration architecture">
+      <div class="arch-card"><strong>Document sources</strong>
+       <p>Incoming files and configured intake channels</p>
+      </div><span class="arch-arrow" aria-hidden="true">→</span>
+      <div class="arch-card"><strong>ProcessFlow layer</strong>
+       <p>Extraction, checks, review, and routing</p>
+      </div><span class="arch-arrow" aria-hidden="true">→</span>
+      <div class="arch-card"><strong>Business systems</strong>
+       <p>Configured destinations and structured outputs</p>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="ai-agentic-ai" class="section soft" aria-labelledby="ai-title">
+    <div class="site-wrap split">
+     <div>
+      <p data-template-id="ai-eyebrow" class="eyebrow canva-text" style="color: rgb(75, 0, 214); font-weight: 900; font-style: normal; font-size: 16px;">AI &amp; AGENTIC AI</p>
+      <h2 id="ai-title" data-template-id="ai-title-text" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 24px;">Intelligence with Human Oversight</h2>
+      <p data-template-id="ai-intro" class="section-copy canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">Support understanding and decision-making while keeping review and control in the workflow.</p>
+     </div>
+     <div>
+      <div class="info-panel">
+       <p data-template-id="ai-copy" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.75;">AI-assisted document understanding can be designed to help classify files, identify fields, and suggest next steps. Intelligent processing agents are capabilities being designed and configured around permissions, business rules, exception review, and human approval. This page does not demonstrate operational AI backend services.</p>
+      </div>
+      <div class="ai-points">
+       <div class="ai-point">
+        Assisted classification and field identification
+       </div>
+       <div class="ai-point">
+        Configurable rules and review checkpoints
+       </div>
+       <div class="ai-point">
+        Human oversight for uncertain or exceptional cases
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section id="faq" class="section" aria-labelledby="faq-title">
+    <div class="site-wrap">
+     <p data-template-id="faq-eyebrow" class="eyebrow canva-text" style="color: rgb(75, 0, 214); font-weight: 900; font-style: normal; font-size: 16px;">QUESTIONS &amp; ANSWERS</p>
+     <h2 id="faq-title" data-template-id="faq-title-text" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 24px;">Frequently Asked Questions</h2>
+     <div class="faq-list">
+      <details><summary data-template-id="faq-question-1" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">What is vSuite ProcessFlow?</summary>
+       <p data-template-id="faq-answer-1" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">It is a configurable approach to connecting document intake, extraction, validation, review, and output. The capabilities available in a deployment depend on configuration and implementation.</p>
+      </details>
+      <details><summary data-template-id="faq-question-2" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Which document types can be processed?</summary>
+       <p data-template-id="faq-answer-2" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">Invoices and Bills of Lading are shown as fictional examples. Supported document types, fields, and rules would be agreed during configuration.</p>
+      </details>
+      <details><summary data-template-id="faq-question-3" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">Are the dashboard and integrations live?</summary>
+       <p data-template-id="faq-answer-3" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">No. The dashboard is an interactive local illustration using fictional data. Enterprise connections require separate configuration and implementation.</p>
+      </details>
+      <details><summary data-template-id="faq-question-4" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">How do approvals and exceptions fit into the process?</summary>
+       <p data-template-id="faq-answer-4" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">A configured workflow can route failed checks and decisions requiring authorization to the appropriate people for review before further processing.</p>
+      </details>
+      <details><summary data-template-id="faq-question-5" class="canva-text" style="color: rgb(43, 18, 76); font-weight: 900; font-style: normal; font-size: 16px;">What role can AI play?</summary>
+       <p data-template-id="faq-answer-5" class="canva-text" style="color: rgb(111, 104, 120); font-weight: 400; font-style: normal; font-size: 16px;">AI assistance can be designed for document understanding and suggested processing steps, with appropriate rules, permissions, and human oversight. No live AI service is running on this page.</p>
+      </details>
+     </div>
+    </div>
+   </section>
+   <section id="request-a-demo" class="section cta-section" aria-labelledby="demo-title">
+    <div class="site-wrap">
+     <p data-template-id="demo-eyebrow" class="eyebrow canva-text" style="color: rgb(248, 231, 171); font-weight: 900; font-style: normal; font-size: 16px;">LET'S EXPLORE YOUR PROCESS</p>
+     <h2 id="demo-title" data-template-id="demo-title" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 24px;">See What a Connected Document Journey Could Look Like.</h2>
+     <p data-template-id="demo-copy" class="section-copy canva-text" style="color: rgb(241, 234, 250); font-weight: 400; font-style: normal; font-size: 16px;">Explore how intake, validation, exception review, and configurable workflows could support your team.</p><button id="demo-button" data-template-id="demo-button" class="btn btn-primary canva-button" type="button" aria-controls="demo-note" style="background: rgb(75, 0, 214); color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">Request a Demo</button>
+     <p id="demo-note" data-template-id="demo-note" class="cta-note canva-text" role="status" hidden="" style="color: rgb(241, 234, 250); font-weight: 400; font-style: normal; font-size: 16px;">A contact destination has not been configured. No demo request was sent.</p>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="site-wrap footer-inner">
+    <div class="footer-brand">
+     <div data-template-id="footer-logo-panel" class="footer-logo-panel canva-panel" style="background: rgb(255, 255, 255);">
+      <img data-template-id="brand-logo-footer" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-processflow.png" alt="vSuite ProcessFlow">
+     </div>
+     <p data-template-id="footer-product" class="footer-name canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">vSuite ProcessFlow</p>
+     <p data-template-id="footer-company" class="footer-company canva-text" style="color: rgb(248, 231, 171); font-weight: 700; font-style: normal; font-size: 16px;">Vishva Digital Technologies</p>
+     <p data-template-id="footer-description" class="footer-description canva-text" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.35;">A connected digital commerce spanning storefronts, shopping journeys, commerce operations, and configurable AI-assisted experiences.</p>
+    </div>
+    <div class="footer-links">
+     <p class="footer-heading">Quick navigation</p>
+     <nav aria-label="Footer navigation"><a href="#overview">Overview</a><a href="#capabilities">Explore ProcessFlow Capabilities</a><a href="#how-it-works">How It Works</a><a href="#integrations">Integrations</a><a href="#ai-agentic-ai">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a href="#request-a-demo">Request a Demo</a>
+     </nav>
+    </div>
+    <div class="footer-related">
+     <p class="footer-heading">Related vSuite products</p>
+     <nav aria-label="Related products"><a href="#">vSuite Payroll</a><a href="#">vSuite Human Resources</a><a href="#">vSuite Billing</a><a href="#">vSuite E-Commerce</a><a href="#">vSuite Logistics</a>
+     </nav>
+    </div>
+    <div class="footer-contact">
+     <p class="footer-heading">Contact &amp; information</p>
+     <p class="footer-info">Contact details, privacy, and compliance information can be configured for your deployment. Primary contact and service information are not specified on this illustrative page.</p>
+    </div>
+   </div>
+   <div class="site-wrap footer-bottom">
+    <p data-template-id="footer-copyright" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 400; font-style: normal; font-size: 16px;">© 2026 Vishva Digital Technologies</p>
+    <p data-template-id="footer-manifesto" class="footer-manifesto canva-text" style="color: rgb(248, 231, 171); font-weight: 900; font-style: normal; font-size: 16px;">ONE SUITE. MULTIPLE SOLUTIONS. INTELLIGENTLY CONNECTED.</p>
+   </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("mobile-nav");
+      const path = document.getElementById("menu-path");
+      function setMenu(open) {
+        menu.hidden = !open;
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        path.setAttribute("d", open ? "M5 5l14 14M19 5L5 19" : "M4 6h16M4 12h16M4 18h16");
+      }
+      toggle.addEventListener("click", function () { setMenu(menu.hidden); });
+      menu.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", function () { setMenu(false); }); });
+      document.addEventListener("keydown", function (event) { if (event.key === "Escape" && !menu.hidden) { setMenu(false); toggle.focus(); } });
+      window.addEventListener("resize", function () { if (window.innerWidth > 1160 && !menu.hidden) setMenu(false); });
+
+      const samples = {
+        invoice: {confidence:"96% · sample",validation:"2 of 3 checks passed",processing:"Awaiting approval",exceptions:"1 item to review",summary:"Approval pending"},
+        bol: {confidence:"91% · sample",validation:"1 of 3 checks passed",processing:"Exception review",exceptions:"2 items to review",summary:"Shipment details flagged"}
+      };
+      const tabs = {invoice:document.getElementById("invoice-tab"),bol:document.getElementById("bol-tab")};
+      function selectSample(key) {
+        Object.keys(tabs).forEach(function (name) {
+          tabs[name].setAttribute("aria-pressed", String(name === key));
+          document.getElementById(name + "-view").hidden = name !== key;
+        });
+        Object.keys(samples[key]).forEach(function (field) { document.getElementById(field).textContent = samples[key][field]; });
+      }
+      Object.keys(tabs).forEach(function (key) { tabs[key].addEventListener("click", function () { selectSample(key); }); });
+      document.getElementById("demo-button").addEventListener("click", function () { document.getElementById("demo-note").hidden = false; });
+    });
+  </script>
+ 
+<script src="fx/module-fx.js"></script>
+</body></html>

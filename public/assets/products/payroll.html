@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en-IN"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore vSuite Payroll by Vishva Digital Technologies: configurable payroll operations, controlled workflows, and AI-assisted validation.">
+  <title>vSuite Payroll | Vishva Digital Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--deep:#3b0d18;--rich:#511321;--accent:#702333;--gold:#e5ad00;--warm-gold:#f2c94c;--off:#faf8f7;--line:#eee8e7;--ink:#34312f;--muted:#716b70}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{margin:0;width:100%;min-width:0;overflow-x:hidden;color:var(--ink);font-family:"Source Sans Pro",sans-serif}
+    a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    [hidden]{display:none!important}section[id]{scroll-margin-top:100px}
+    .wrap{width:min(1220px,calc(100% - 48px));margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:30;background:#fffffffa;border-bottom:1px solid var(--line);box-shadow:0 3px 20px #3b0d1809}
+    .header-inner{display:flex;align-items:center;gap:20px;min-height:82px;padding:8px 0}
+    .brand{display:inline-flex;align-items:center;flex:none;background:#fff}
+    .brand img{display:block;width:220px;height:auto;max-width:none;object-fit:contain}
+    .desktop-nav{margin-left:auto;display:flex;align-items:center;gap:clamp(9px,1.15vw,19px)}
+    .desktop-nav a,.mobile-nav a{font-weight:700;color:var(--deep)}
+    .desktop-nav a{font-size:.81rem;white-space:nowrap;padding:9px 1px;border-bottom:2px solid transparent}
+    .desktop-nav a:hover,.desktop-nav a[aria-current="location"]{color:var(--accent);border-bottom-color:var(--gold)}
+    .desktop-nav .nav-cta{padding:10px 13px;border:0;border-radius:7px;background:var(--rich);color:#fff}
+    .desktop-nav .nav-cta:hover{background:var(--accent);color:#fff}
+    .menu-button{display:none;margin-left:auto;align-items:center;justify-content:center;width:44px;height:44px;border-radius:9px;border:1px solid var(--line);color:var(--deep);background:#fff}
+    .menu-button svg{width:22px;height:22px}
+    .mobile-nav{display:none;border-top:1px solid var(--line);padding:8px 24px 18px;background:#fff}
+    .mobile-nav:not([hidden]){display:grid}.mobile-nav a{padding:10px 8px;border-radius:5px}.mobile-nav a:hover{background:var(--off)}
+    h1,h2,h3,p{margin-top:0}h1,h2,h3{color:var(--deep);letter-spacing:-.035em;line-height:1.12}
+    h1{font-size:clamp(3rem,5.1vw,5.2rem);font-weight:900;margin-bottom:18px}
+    h2{font-size:clamp(2rem,3.5vw,3.3rem);font-weight:900;margin-bottom:19px}
+    h3{font-size:1.16rem;font-weight:900}
+    .eyebrow{margin:0 0 14px;font-size:.78rem;font-weight:900;letter-spacing:.15em;color:var(--accent)}
+    .hero{padding:76px 0 82px;background:linear-gradient(120deg,#fff 43%,#faf8f7 100%)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);gap:clamp(28px,4vw,58px);align-items:center}
+    .hero-sub{color:var(--accent);font-weight:900;font-size:clamp(1.3rem,2vw,1.85rem);line-height:1.27;margin-bottom:20px}
+    .hero-description{white-space:pre-line;color:var(--muted);font-size:1.035rem;line-height:1.65;max-width:640px;margin-bottom:0}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 25px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:11px 20px;border:1px solid transparent;border-radius:8px;font-weight:900;transition:transform .2s,background .2s,box-shadow .2s}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 9px 22px #3b0d1820}
+    .btn-primary{background:var(--rich);color:#fff}.btn-primary:hover{background:var(--accent)}
+    .btn-secondary{background:#fff;color:var(--rich);border-color:#bda6ac}
+    .value-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+    .value-card{background:#fff;color:var(--deep);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:8px;padding:12px;font-size:.83rem;line-height:1.3;font-weight:700}
+    .dashboard{min-width:0;background:#fff;border:1px solid #e4d9d7;border-radius:16px;padding:10px;box-shadow:0 24px 60px #3b0d1818}
+    .dash-head{padding:15px;background:var(--deep);border-radius:9px 9px 0 0;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+    .dash-head-title{color:#fff;font-size:.89rem;font-weight:900}
+    .demo-badge{color:var(--deep);background:var(--warm-gold);padding:5px 8px;border-radius:5px;font-size:.66rem;font-weight:900;letter-spacing:.05em}
+    .dash-body{padding:13px;background:var(--off);border:1px solid var(--line);border-top:0;border-radius:0 0 9px 9px}
+    .metrics,.dash-panels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    .metric,.dash-panel{min-width:0;background:#fff;border:1px solid var(--line);border-radius:9px}
+    .metric{padding:12px 13px}.metric-label{display:block;font-size:.76rem;line-height:1.2;color:var(--muted)}
+    .metric-value{display:block;color:var(--deep);font-size:1.43rem;line-height:1.2;font-weight:900;margin-top:5px}
+    .metric-gold{border-left:3px solid var(--gold)}.dash-panels{margin-top:8px}.dash-panel{padding:13px}
+    .dash-panel h3{margin-bottom:9px;font-size:.92rem}
+    .dash-row{display:flex;justify-content:space-between;gap:9px;padding:7px 0;border-top:1px solid var(--line);font-size:.8rem}
+    .dash-row strong{color:var(--rich);text-align:right}
+    .status{display:inline-block;padding:4px 8px;border-radius:20px;background:#fbf0d3;color:var(--deep);font-size:.8rem;font-weight:900}
+    .calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center;font-size:.7rem}
+    .calendar span{padding:5px 1px;border-radius:4px;color:var(--muted)}
+    .calendar .day{font-weight:900;color:var(--deep)}.calendar .marked{background:var(--rich);color:#fff;font-weight:900}
+    .calendar .review{background:var(--warm-gold);color:var(--deep);font-weight:900}
+    .calendar-caption{margin:7px 0 0;font-size:.72rem;color:var(--muted)}
+    .dash-disclaimer{margin:11px 2px 1px;color:var(--muted);font-size:.75rem;line-height:1.45}
+    .section-block{padding:84px 0 92px}.section-soft{background:var(--off);border-top:1px solid var(--line)}.section-white{background:#fff}
+    .section-intro{max-width:900px}.section-copy{color:var(--muted);font-size:1.1rem;line-height:1.7;margin-bottom:0}
+    .flow{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px;list-style:none;padding:0;margin:34px 0 17px}
+    .flow li{position:relative;min-width:0;min-height:110px;padding:14px 10px;background:var(--off);border:1px solid var(--line);border-radius:9px;color:var(--deep);font-weight:700;font-size:.85rem;line-height:1.25}
+    .flow li:not(:last-child)::after{content:"";position:absolute;top:32px;right:-9px;width:9px;height:3px;background:var(--gold)}
+    .step-number{display:grid;place-items:center;width:31px;height:31px;background:var(--rich);color:#fff;border-radius:7px;margin-bottom:10px;font-size:.76rem;font-weight:900}
+    .flow-note{color:var(--muted);font-size:.87rem;line-height:1.5}
+    .content-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:32px}
+    .content-card{min-width:0;padding:26px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:10px;box-shadow:0 8px 24px #3b0d1808}
+    .section-white .content-card{background:var(--off)}.content-card h3{margin-bottom:12px}
+    .content-card p{margin:0;color:var(--muted);line-height:1.65}
+    .feature-number{display:inline-block;color:var(--accent);font-size:.76rem;font-weight:900;letter-spacing:.13em;margin-bottom:18px}
+    .split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,6vw,90px);align-items:start}
+    .detail-stack{display:grid;gap:12px}
+    .detail-item{padding:22px 24px;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:9px}
+    .detail-item h3{margin-bottom:8px}.detail-item p{margin:0;color:var(--muted);line-height:1.6}
+    .mock-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:32px}
+    .mock-card{min-width:0;background:#fff;border:1px solid #e9ddda;border-radius:11px;padding:18px;box-shadow:0 8px 22px #3b0d1809}
+    .mock-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-bottom:11px;border-bottom:1px solid var(--line)}
+    .mock-top strong{color:var(--deep);font-size:1rem}.mock-pill{background:#fbf0d3;color:var(--deep);padding:4px 8px;border-radius:20px;font-size:.72rem;font-weight:900}
+    .mock-card p{color:var(--muted);line-height:1.5;margin:12px 0 0;font-size:.9rem}
+    .mock-line{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.87rem}
+    .mock-line:last-child{border-bottom:0}.mock-line b{color:var(--rich)}
+    .mock-note{margin-top:12px;color:var(--muted);font-size:.82rem}
+    .dark-band{background:var(--deep);color:#fff}.dark-band h2,.dark-band h3{color:#fff}
+    .dark-band .eyebrow{color:var(--warm-gold)}.dark-band .section-copy{color:#efe2e5}
+    .dark-band .content-card{background:#511321;border-color:#743c48;border-top-color:var(--gold)}
+    .dark-band .content-card p{color:#f0e5e7}
+    .faq-list{max-width:930px;display:grid;gap:11px;margin-top:32px}
+    .faq-item{background:#fff;border:1px solid var(--line);border-radius:9px}
+    .faq-item summary{display:flex;justify-content:space-between;align-items:center;gap:16px;cursor:pointer;padding:19px 22px;color:var(--deep);font-weight:900;list-style:none}
+    .faq-item summary::-webkit-details-marker{display:none}
+    .faq-item summary::after{content:"+";color:var(--accent);font-size:1.5rem;line-height:1}
+    .faq-item[open] summary::after{content:"−"}
+    .faq-item p{color:var(--muted);line-height:1.65;padding:0 22px 20px;margin:0}
+    .demo-section{background:var(--rich);color:#fff;padding:65px 0}
+    .demo-section h2{color:#fff}.demo-section .eyebrow{color:var(--warm-gold)}
+    .demo-section p:last-child{color:#f1e6e7;line-height:1.7;max-width:790px;margin-bottom:0}
+    .footer{background:var(--deep);color:#fff;padding:62px 0 24px;border-top:4px solid var(--gold)}
+    .footer-grid{display:grid;grid-template-columns:minmax(250px,1.5fr) repeat(2,minmax(150px,1fr)) minmax(175px,1fr);gap:35px}
+    .footer-logo-tile{display:inline-flex;align-items:center;justify-content:center;background:#fff;border-radius:9px;padding:7px;margin-bottom:20px}
+    .footer-logo-tile img{display:block;width:180px;height:auto;max-width:none;object-fit:contain}
+    .footer h2{color:#fff;font-size:1.5rem;margin:0 0 7px}
+    .footer h3{color:var(--warm-gold);font-size:1rem;letter-spacing:.04em;margin-bottom:18px}
+    .footer p{color:#d8c9cd;line-height:1.55;margin-bottom:10px}
+    .footer .footer-product-tag{color:var(--warm-gold);font-weight:900}
+    .footer-links{display:grid;gap:11px;align-content:start}
+    .footer-links a{color:#fff;width:fit-content}.footer-links a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:4px}
+    .footer-placeholder{color:#c5b5ba;font-size:.92rem}
+    .footer-placeholder span{color:var(--warm-gold);font-size:.77rem}
+    .footer-bottom{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;border-top:1px solid #85545f;margin-top:46px;padding-top:22px}
+    .footer-bottom p{margin:0;font-size:.84rem}.footer-brand-line{color:var(--warm-gold)!important;font-weight:900;letter-spacing:.055em}
+    @media(max-width:1200px){.desktop-nav{display:none}.menu-button{display:inline-flex}.brand img{width:180px}}
+    @media(max-width:960px){.hero-grid,.split{grid-template-columns:1fr}.dashboard{max-width:800px;width:100%;margin-inline:auto}.flow{grid-template-columns:repeat(4,minmax(0,1fr))}.flow li::after{display:none!important}.content-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:680px){.wrap{width:calc(100% - 32px)}.header-inner{min-height:70px}.brand img{width:150px}.footer-logo-tile img{width:145px}.hero{padding:51px 0 62px}.section-block{padding:62px 0 68px}.value-grid,.content-grid,.mock-grid,.footer-grid{grid-template-columns:1fr}.dash-panels{grid-template-columns:1fr}.actions .btn{width:100%}.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.flow li{min-height:95px}.footer{padding-top:46px}}
+    @media(max-width:400px){.metric{padding:9px}.metric-value{font-size:1.15rem}.flow{grid-template-columns:1fr}.flow li{min-height:0}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+  </style>
+  <link rel="stylesheet" href="css/payroll.tailwind.css">
+  <script src="vendor/lucide.min.js"></script>
+  <style>:root{--fx-a:#702333;--fx-b:#e5ad00}</style>
+<link rel="stylesheet" href="fx/module-fx.css">
+</head>
+ <body data-template-id="__page-root" class="w-full" style="background: rgb(255, 255, 255);">
+  <header class="site-header">
+   <div class="wrap header-inner">
+    <a class="brand" href="#overview" aria-label="vSuite Payroll — go to overview"><img data-template-id="header-logo" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-payroll.png" alt="Official vSuite Payroll logo with the tagline Pay Right. Every Time."></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+     <a href="#overview">Overview</a><a href="#payroll-features">Payroll Features</a><a href="#payroll-processing">Payroll Processing</a><a href="#enterprise-payroll">Enterprise Payroll</a><a href="#ai-agentic">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a class="nav-cta" href="#request-demo">Request a Demo</a>
+    </nav><button id="menu-button" class="menu-button" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false">
+     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path id="menu-icon-path" d="M4 6h16M4 12h16M4 18h16"></path>
+     </svg></button>
+   </div>
+   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden="">
+    <a href="#overview">Overview</a><a href="#payroll-features">Payroll Features</a><a href="#payroll-processing">Payroll Processing</a><a href="#enterprise-payroll">Enterprise Payroll</a><a href="#ai-agentic">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
+   </nav>
+  </header>
+  <main>
+   <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+     <div class="hero-copy">
+      <p data-template-id="hero-eyebrow" class="eyebrow canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px; letter-spacing: 0.15rem;">INTELLIGENT PAYROLL MANAGEMENT</p>
+      <h1 id="hero-title" data-template-id="hero-title-text" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 32px;">Pay Right. Every Time.</h1>
+      <p data-template-id="hero-subtitle" class="hero-sub canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">Simplify Payroll. Strengthen Controls. Pay with Confidence.</p>
+      <p data-template-id="hero-description" class="hero-description canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.65;">vSuite Payroll is designed to help organizations manage employee payroll profiles, salary components, earnings, deductions, payroll calculations, approvals, payslips, and payroll reporting through configurable business rules and controlled workflows.
+
+With payroll automation, enterprise payroll capabilities, and AI-assisted validation, vSuite Payroll aims to help organizations streamline payroll operations and improve payroll visibility.</p>
+      <div class="actions"><a data-template-id="hero-demo" class="btn btn-primary canva-button" href="#request-demo" style="background: rgb(81, 19, 33); color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">Request a Demo</a><a data-template-id="hero-features" class="btn btn-secondary canva-button" href="#payroll-features" style="background: rgb(255, 255, 255); color: rgb(81, 19, 33); font-weight: 900; font-style: normal; font-size: 16px;">Explore Payroll Features</a>
+      </div>
+      <div class="value-grid" aria-label="Payroll value propositions">
+       <div data-template-id="value-processing" class="value-card canva-card" style="background: rgb(255, 255, 255); color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Structured Payroll Processing</div>
+       <div data-template-id="value-workflows" class="value-card canva-card" style="background: rgb(255, 255, 255); color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Configurable Payroll Workflows</div>
+       <div data-template-id="value-intelligence" class="value-card canva-card" style="background: rgb(255, 255, 255); color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">AI-Assisted Payroll Intelligence</div>
+      </div>
+     </div>
+     <aside class="dashboard" aria-label="Illustrative payroll dashboard mockup with fictional totals, review status, exceptions, and calendar dates">
+      <div data-template-id="dashboard-header" class="dash-head canva-panel" style="background: rgb(59, 13, 24);"><span data-template-id="dashboard-title" class="dash-head-title canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 16px;">vSuite Payroll / Payroll overview</span><span data-template-id="dashboard-badge" class="demo-badge canva-tag" style="background: rgb(242, 201, 76); color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">ILLUSTRATIVE DEMONSTRATION DATA</span>
+      </div>
+      <div class="dash-body">
+       <div class="metrics" aria-label="Illustrative payroll totals">
+        <div class="metric"><span data-template-id="employees-label" class="metric-label canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Total employees</span><strong data-template-id="employees-value" class="metric-value canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">248</strong>
+        </div>
+        <div class="metric"><span data-template-id="gross-label" class="metric-label canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Gross earnings</span><strong data-template-id="gross-value" class="metric-value canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">$482,600</strong>
+        </div>
+        <div class="metric"><span data-template-id="deductions-label" class="metric-label canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Total deductions</span><strong data-template-id="deductions-value" class="metric-value canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">$96,520</strong>
+        </div>
+        <div class="metric metric-gold"><span data-template-id="net-label" class="metric-label canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Net payroll</span><strong data-template-id="net-value" class="metric-value canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">$386,080</strong>
+        </div>
+       </div>
+       <div class="dash-panels">
+        <div class="dash-panel">
+         <h3 data-template-id="review-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Processing &amp; review</h3>
+         <div class="dash-row"><span data-template-id="approvals-label" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Pending approvals</span><strong data-template-id="approvals-value" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">3</strong>
+         </div>
+         <div class="dash-row"><span data-template-id="status-label" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Payroll processing status</span><strong data-template-id="status-value" class="status canva-tag" style="background: rgb(251, 240, 211); color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">In review</strong>
+         </div>
+         <h3 data-template-id="exceptions-title" class="canva-text" style="margin: 12px 0px 4px; color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Payroll exceptions</h3>
+         <div class="dash-row"><span data-template-id="exceptions-label" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Requiring review</span><strong data-template-id="exceptions-value" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">4</strong>
+         </div>
+        </div>
+        <div class="dash-panel">
+         <h3 data-template-id="calendar-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Payroll calendar</h3>
+         <div class="calendar" role="img" aria-label="Illustrative payroll calendar showing review on day 15 and processing on day 18">
+          <span class="day">M</span><span class="day">T</span><span class="day">W</span><span class="day">T</span><span class="day">F</span><span class="day">S</span><span class="day">S</span> <span>12</span><span>13</span><span>14</span><span class="review">15</span><span>16</span><span>17</span><span class="marked">18</span>
+         </div>
+         <p data-template-id="calendar-caption" class="calendar-caption canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Sample sequence: 15 review · 18 processing</p>
+        </div>
+       </div>
+       <p data-template-id="dashboard-disclaimer" class="dash-disclaimer canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">All values and calendar dates are fictional and illustrative, not actual payroll results or customer data.</p>
+      </div>
+     </aside>
+    </div>
+   </section>
+   <section id="overview" class="section-block section-white" aria-labelledby="overview-title">
+    <div class="wrap">
+     <div class="section-intro">
+      <p data-template-id="overview-eyebrow" class="eyebrow canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px; letter-spacing: 0.15rem;">A CONNECTED PAYROLL FOUNDATION</p>
+      <h2 id="overview-title" data-template-id="overview-title-text" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 24px;">One Connected Platform for Your Payroll Operations</h2>
+      <p data-template-id="overview-copy" class="section-copy canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px; line-height: 1.65;">Payroll includes employee payroll profiles, salary configuration, earnings, deductions, calculations, validation, approvals, processing, payslip generation, and reporting. vSuite Payroll brings these related activities into a configurable operating flow with clear opportunities for review.</p>
+     </div>
+     <ol class="flow" aria-label="Illustrative eight-step payroll lifecycle">
+      <li><span class="step-number" aria-hidden="true">01</span><span data-template-id="flow-profile" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Employee Profile</span></li>
+      <li><span class="step-number" aria-hidden="true">02</span><span data-template-id="flow-configuration" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Configuration</span></li>
+      <li><span class="step-number" aria-hidden="true">03</span><span data-template-id="flow-calculation" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Calculation</span></li>
+      <li><span class="step-number" aria-hidden="true">04</span><span data-template-id="flow-validation" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Validation</span></li>
+      <li><span class="step-number" aria-hidden="true">05</span><span data-template-id="flow-approval" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Approval</span></li>
+      <li><span class="step-number" aria-hidden="true">06</span><span data-template-id="flow-processing" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Processing</span></li>
+      <li><span class="step-number" aria-hidden="true">07</span><span data-template-id="flow-payslip" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Payslip</span></li>
+      <li><span class="step-number" aria-hidden="true">08</span><span data-template-id="flow-reporting" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 700; font-style: normal; font-size: 16px;">Reporting</span></li>
+     </ol>
+     <p data-template-id="flow-note" class="flow-note canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">This flow represents an illustrative operating model. Actual workflows depend on configuration.</p>
+    </div>
+   </section>
+   <section id="payroll-features" class="section-block section-soft" aria-labelledby="features-title">
+    <div class="wrap">
+     <div class="section-intro">
+      <p data-template-id="features-eyebrow" class="eyebrow canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">THE PAYROLL TOOLKIT</p>
+      <h2 id="features-title" data-template-id="features-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 24px;">Payroll Features</h2>
+      <p data-template-id="features-copy" class="section-copy canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Bring the essential parts of the payroll cycle together, from employee information and salary setup to review, payslips, and reporting. Configuration can be shaped around the way an organization operates.</p>
+     </div>
+     <div class="content-grid">
+      <article data-template-id="feature-card-1" class="content-card canva-card" style="background: rgb(255, 255, 255);"><span data-template-id="feature-number-1" class="feature-number canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">01 / FOUNDATION</span>
+       <h3 data-template-id="feature-title-1" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Employee Payroll Profiles</h3>
+       <p data-template-id="feature-copy-1" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Organize the employee details needed for payroll in a consistent profile, providing a clearer starting point for each pay cycle.</p>
+      </article>
+      <article data-template-id="feature-card-2" class="content-card canva-card" style="background: rgb(255, 255, 255);"><span data-template-id="feature-number-2" class="feature-number canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">02 / SETUP</span>
+       <h3 data-template-id="feature-title-2" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Salary Configuration</h3>
+       <p data-template-id="feature-copy-2" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Structure salary components and configurable business rules so earnings and deductions can be handled in a defined operating model.</p>
+      </article>
+      <article data-template-id="feature-card-3" class="content-card canva-card" style="background: rgb(255, 255, 255);"><span data-template-id="feature-number-3" class="feature-number canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">03 / CALCULATION</span>
+       <h3 data-template-id="feature-title-3" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Earnings &amp; Deductions</h3>
+       <p data-template-id="feature-copy-3" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Bring the elements that contribute to gross and net pay into the same payroll workflow for calculation and review.</p>
+      </article>
+      <article data-template-id="feature-card-4" class="content-card canva-card" style="background: rgb(255, 255, 255);"><span data-template-id="feature-number-4" class="feature-number canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">04 / CONTROL</span>
+       <h3 data-template-id="feature-title-4" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Validation &amp; Exceptions</h3>
+       <p data-template-id="feature-copy-4" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Surface items requiring attention before payroll is finalized, supporting more deliberate review of unusual or incomplete results.</p>
+      </article>
+      <article data-template-id="feature-card-5" class="content-card canva-card" style="background: rgb(255, 255, 255);"><span data-template-id="feature-number-5" class="feature-number canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">05 / DELIVERY</span>
+       <h3 data-template-id="feature-title-5" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Approvals &amp; Payslips</h3>
+       <p data-template-id="feature-copy-5" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Move calculated payroll through appropriate review and approval steps, then support the generation of employee payslips.</p>
+      </article>
+      <article data-template-id="feature-card-6" class="content-card canva-card" style="background: rgb(255, 255, 255);"><span data-template-id="feature-number-6" class="feature-number canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">06 / VISIBILITY</span>
+       <h3 data-template-id="feature-title-6" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Payroll Reporting</h3>
+       <p data-template-id="feature-copy-6" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Make payroll outcomes easier to inspect with reporting that brings together the information needed for operational oversight.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="payroll-processing" class="section-block section-white" aria-labelledby="processing-title">
+    <div class="wrap">
+     <div class="split">
+      <div>
+       <p data-template-id="processing-eyebrow" class="eyebrow canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">FROM PREPARATION TO PAYDAY</p>
+       <h2 id="processing-title" data-template-id="processing-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 24px;">Payroll Processing with Clear Checkpoints</h2>
+       <p data-template-id="processing-copy" class="section-copy canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">A dependable payroll run is more than a final calculation. The operating sequence needs preparation, review, decisions, and a clear view of what happens next. vSuite Payroll is designed around a controlled progression so teams can work through the cycle with greater visibility. The steps shown here describe an illustrative workflow; actual processes depend on configuration.</p>
+      </div>
+      <div class="detail-stack">
+       <article data-template-id="processing-card-1" class="detail-item canva-card" style="background: rgb(255, 255, 255);">
+        <h3 data-template-id="processing-step-title-1" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Prepare the cycle</h3>
+        <p data-template-id="processing-step-copy-1" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Start with employee payroll profiles, salary settings, and the earnings and deductions relevant to the period.</p>
+       </article>
+       <article data-template-id="processing-card-2" class="detail-item canva-card" style="background: rgb(255, 255, 255);">
+        <h3 data-template-id="processing-step-title-2" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Calculate and validate</h3>
+        <p data-template-id="processing-step-copy-2" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Apply configured rules, inspect the resulting figures, and identify exceptions or entries needing further review.</p>
+       </article>
+       <article data-template-id="processing-card-3" class="detail-item canva-card" style="background: rgb(255, 255, 255);">
+        <h3 data-template-id="processing-step-title-3" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Review and approve</h3>
+        <p data-template-id="processing-step-copy-3" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Route the payroll run through the review and approval checkpoints appropriate to the organization.</p>
+       </article>
+       <article data-template-id="processing-card-4" class="detail-item canva-card" style="background: rgb(255, 255, 255);">
+        <h3 data-template-id="processing-step-title-4" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Complete and report</h3>
+        <p data-template-id="processing-step-copy-4" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Continue to processing, payslip generation, and reporting once the required checks are complete.</p>
+       </article>
+      </div>
+     </div>
+     <div class="mock-grid" aria-label="Illustrative payroll workflow interface examples">
+      <article data-template-id="mock-processing" class="mock-card canva-card" style="background: rgb(255, 255, 255);">
+       <div class="mock-top"><strong data-template-id="mock-processing-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">Payroll processing</strong><span data-template-id="mock-processing-badge" class="mock-pill canva-tag" style="background: rgb(251, 240, 211); color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">SAMPLE</span>
+       </div>
+       <div class="mock-line"><span data-template-id="mock-processing-row-a" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Preparation</span><b data-template-id="mock-processing-state-a" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">Ready for review</b>
+       </div>
+       <div class="mock-line"><span data-template-id="mock-processing-row-b" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Calculation</span><b data-template-id="mock-processing-state-b" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">Illustrative run</b>
+       </div>
+      </article>
+      <article data-template-id="mock-approvals" class="mock-card canva-card" style="background: rgb(255, 255, 255);">
+       <div class="mock-top"><strong data-template-id="mock-approvals-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">Approval queue</strong><span data-template-id="mock-approvals-badge" class="mock-pill canva-tag" style="background: rgb(251, 240, 211); color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">SAMPLE</span>
+       </div>
+       <div class="mock-line"><span data-template-id="mock-approvals-row-a" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Reviewer checkpoint</span><b data-template-id="mock-approvals-state-a" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">Pending</b>
+       </div>
+       <div class="mock-line"><span data-template-id="mock-approvals-row-b" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Final approval</span><b data-template-id="mock-approvals-state-b" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">Not started</b>
+       </div>
+      </article>
+      <article data-template-id="mock-payslip" class="mock-card canva-card" style="background: rgb(255, 255, 255);">
+       <div class="mock-top"><strong data-template-id="mock-payslip-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">Payslip preview</strong><span data-template-id="mock-payslip-badge" class="mock-pill canva-tag" style="background: rgb(251, 240, 211); color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">SAMPLE</span>
+       </div>
+       <div class="mock-line"><span data-template-id="mock-payslip-row-a" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Earnings</span><b data-template-id="mock-payslip-state-a" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">Illustrative amount</b>
+       </div>
+       <div class="mock-line"><span data-template-id="mock-payslip-row-b" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Deductions</span><b data-template-id="mock-payslip-state-b" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">Illustrative amount</b>
+       </div>
+      </article>
+      <article data-template-id="mock-exceptions" class="mock-card canva-card" style="background: rgb(255, 255, 255);">
+       <div class="mock-top"><strong data-template-id="mock-exceptions-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">Exception review</strong><span data-template-id="mock-exceptions-badge" class="mock-pill canva-tag" style="background: rgb(251, 240, 211); color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">SAMPLE</span>
+       </div>
+       <div class="mock-line"><span data-template-id="mock-exceptions-row-a" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Missing input</span><b data-template-id="mock-exceptions-state-a" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">Investigate</b>
+       </div>
+       <div class="mock-line"><span data-template-id="mock-exceptions-row-b" class="canva-text" style="color: rgb(52, 49, 47); font-weight: 400; font-style: normal; font-size: 16px;">Unusual result</span><b data-template-id="mock-exceptions-state-b" class="canva-text" style="color: rgb(81, 19, 33); font-weight: 700; font-style: normal; font-size: 16px;">Review</b>
+       </div>
+      </article>
+     </div>
+     <p data-template-id="mock-disclaimer" class="mock-note canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Illustrative interface examples only; no real employee, customer, or payment information is shown.</p>
+    </div>
+   </section>
+   <section id="enterprise-payroll" class="section-block section-soft" aria-labelledby="enterprise-title">
+    <div class="wrap">
+     <div class="section-intro">
+      <p data-template-id="enterprise-eyebrow" class="eyebrow canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">BUILT FOR ORGANIZATIONAL COMPLEXITY</p>
+      <h2 id="enterprise-title" data-template-id="enterprise-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 24px;">Enterprise Payroll</h2>
+      <p data-template-id="enterprise-copy" class="section-copy canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">As payroll operations grow, consistency and local flexibility need to work together. vSuite Payroll's configurable approach is intended to support more complex operating structures while maintaining clear controls and visibility across the payroll cycle.</p>
+     </div>
+     <div class="content-grid">
+      <article data-template-id="enterprise-card-1" class="content-card canva-card" style="background: rgb(255, 255, 255);">
+       <h3 data-template-id="enterprise-card-title-1" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Configurable business rules</h3>
+       <p data-template-id="enterprise-card-copy-1" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Define how salary components and payroll calculations fit an organization's policies rather than forcing every team into an identical process.</p>
+      </article>
+      <article data-template-id="enterprise-card-2" class="content-card canva-card" style="background: rgb(255, 255, 255);">
+       <h3 data-template-id="enterprise-card-title-2" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Controlled workflows</h3>
+       <p data-template-id="enterprise-card-copy-2" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Give preparation, validation, and approvals distinct places in the process so responsibilities and review points are easier to understand.</p>
+      </article>
+      <article data-template-id="enterprise-card-3" class="content-card canva-card" style="background: rgb(255, 255, 255);">
+       <h3 data-template-id="enterprise-card-title-3" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 19px;">Operational visibility</h3>
+       <p data-template-id="enterprise-card-copy-3" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">Keep payroll status, exceptions, and reporting in view to help teams follow progress across the complete cycle.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="ai-agentic" class="section-block dark-band" aria-labelledby="ai-title">
+    <div class="wrap">
+     <div class="section-intro">
+      <p data-template-id="ai-eyebrow" class="eyebrow canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 16px;">INTELLIGENCE WITH HUMAN OVERSIGHT</p>
+      <h2 id="ai-title" data-template-id="ai-title" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 24px;">AI &amp; Agentic AI in Payroll</h2>
+      <p data-template-id="ai-copy" class="section-copy canva-text" style="color: rgb(239, 226, 229); font-weight: 400; font-style: normal; font-size: 16px;">AI-assisted capabilities can help payroll teams notice patterns and focus their attention on items that merit review. The aim is to support informed decisions within a controlled workflow—not to replace the people responsible for payroll approvals. Availability and behavior depend on the configured solution.</p>
+     </div>
+     <div class="content-grid">
+      <article data-template-id="ai-card-1" class="content-card canva-card" style="background: rgb(81, 19, 33);">
+       <h3 data-template-id="ai-card-title-1" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 19px;">Assisted validation</h3>
+       <p data-template-id="ai-card-copy-1" class="canva-text" style="color: rgb(240, 229, 231); font-weight: 400; font-style: normal; font-size: 16px;">Highlight possible anomalies or inconsistent inputs so reviewers can examine them before the payroll run moves forward.</p>
+      </article>
+      <article data-template-id="ai-card-2" class="content-card canva-card" style="background: rgb(81, 19, 33);">
+       <h3 data-template-id="ai-card-title-2" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 19px;">Exception prioritization</h3>
+       <p data-template-id="ai-card-copy-2" class="canva-text" style="color: rgb(240, 229, 231); font-weight: 400; font-style: normal; font-size: 16px;">Help teams direct attention to the exceptions that need investigation instead of treating every item as equally urgent.</p>
+      </article>
+      <article data-template-id="ai-card-3" class="content-card canva-card" style="background: rgb(81, 19, 33);">
+       <h3 data-template-id="ai-card-title-3" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 19px;">Human-led decisions</h3>
+       <p data-template-id="ai-card-copy-3" class="canva-text" style="color: rgb(240, 229, 231); font-weight: 400; font-style: normal; font-size: 16px;">Keep review and approval checkpoints visible so suggested actions can be assessed in the context of organizational rules.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="faq" class="section-block section-soft" aria-labelledby="faq-title">
+    <div class="wrap">
+     <p data-template-id="faq-eyebrow" class="eyebrow canva-text" style="color: rgb(112, 35, 51); font-weight: 900; font-style: normal; font-size: 16px;">COMMON QUESTIONS</p>
+     <h2 id="faq-title" data-template-id="faq-title" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 24px;">Frequently Asked Questions</h2>
+     <div class="faq-list">
+      <details class="faq-item"><summary data-template-id="faq-question-1" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">What does vSuite Payroll bring together?</summary>
+       <p data-template-id="faq-answer-1" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">The page describes a connected approach to employee payroll profiles, salary configuration, earnings, deductions, calculations, validation, approvals, payslips, and reporting. The exact scope of a deployment should be confirmed with the provider.</p>
+      </details>
+      <details class="faq-item"><summary data-template-id="faq-question-2" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">Can payroll workflows be configured?</summary>
+       <p data-template-id="faq-answer-2" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">vSuite Payroll is presented as a configurable solution. Business rules and workflow steps can be designed around organizational requirements; the specific options available depend on implementation.</p>
+      </details>
+      <details class="faq-item"><summary data-template-id="faq-question-3" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">Does AI replace payroll review and approval?</summary>
+       <p data-template-id="faq-answer-3" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">No. AI-assisted validation is described here as support for identifying items to review. Human oversight and the organization's approval process remain important.</p>
+      </details>
+      <details class="faq-item"><summary data-template-id="faq-question-4" class="canva-text" style="color: rgb(59, 13, 24); font-weight: 900; font-style: normal; font-size: 16px;">Are the dashboard figures live payroll data?</summary>
+       <p data-template-id="faq-answer-4" class="canva-text" style="color: rgb(113, 107, 112); font-weight: 400; font-style: normal; font-size: 16px;">No. The dashboard values and calendar dates on this page are fictional, illustrative demonstration data and do not represent a customer payroll run.</p>
+      </details>
+     </div>
+    </div>
+   </section>
+   <section id="request-demo" class="demo-section" aria-labelledby="demo-title">
+    <div class="wrap">
+     <p data-template-id="demo-eyebrow" class="eyebrow canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 16px;">EXPLORE THE SOLUTION</p>
+     <h2 id="demo-title" data-template-id="demo-title" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 24px;">Request a Demo</h2>
+     <p data-template-id="demo-copy" class="canva-text" style="color: rgb(241, 230, 231); font-weight: 400; font-style: normal; font-size: 16px;">Interested in seeing how vSuite Payroll could fit your organization's payroll process? A demo-request form or approved contact destination has not been provided for this page, so requests cannot be submitted here yet. Please use Vishva Digital Technologies' official contact channel to enquire about a demonstration.</p>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="wrap">
+    <div class="footer-grid">
+     <div>
+      <div class="footer-logo-tile"><img data-template-id="footer-logo" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-payroll-footer.png" alt="Official vSuite Payroll logo featuring the Pay Right. Every Time. tagline.">
+      </div>
+      <h2 data-template-id="footer-product" class="canva-text" style="color: rgb(255, 255, 255); font-weight: 900; font-style: normal; font-size: 24px;">vSuite Payroll</h2>
+      <p data-template-id="footer-company" class="canva-text" style="color: rgb(216, 201, 205); font-weight: 700; font-style: normal; font-size: 16px;">Vishva Digital Technologies</p>
+      <p data-template-id="footer-description" class="canva-text" style="color: rgb(216, 201, 205); font-weight: 400; font-style: normal; font-size: 16px;">A configurable approach to payroll operations, from preparation and review through processing, payslips, and reporting.</p>
+      <p data-template-id="footer-product-tagline" class="footer-product-tag canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 16px;">Pay Right. Every Time.</p>
+     </div>
+     <nav class="footer-links" aria-label="Footer page navigation">
+      <h3 data-template-id="footer-nav-heading" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 19px;">Explore</h3><a href="#overview">Overview</a><a href="#payroll-features">Payroll Features</a><a href="#payroll-processing">Payroll Processing</a><a href="#enterprise-payroll">Enterprise Payroll</a><a href="#ai-agentic">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
+     </nav>
+     <div class="footer-links" aria-label="Related vSuite products">
+      <h3 data-template-id="footer-products-heading" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 19px;">Related products</h3>
+      <div data-template-id="footer-related-hr" class="footer-placeholder canva-text" style="color: rgb(197, 181, 186); font-weight: 400; font-style: normal; font-size: 16px;">vSuite Human Resources — link to configure</div>
+      <div data-template-id="footer-related-accounting" class="footer-placeholder canva-text" style="color: rgb(197, 181, 186); font-weight: 400; font-style: normal; font-size: 16px;">vSuite Accounting — link to configure</div>
+      <div data-template-id="footer-related-finance" class="footer-placeholder canva-text" style="color: rgb(197, 181, 186); font-weight: 400; font-style: normal; font-size: 16px;">vSuite Finance — link to configure</div>
+      <div data-template-id="footer-related-billing" class="footer-placeholder canva-text" style="color: rgb(197, 181, 186); font-weight: 400; font-style: normal; font-size: 16px;">vSuite Billing — link to configure</div>
+      <div data-template-id="footer-related-core" class="footer-placeholder canva-text" style="color: rgb(197, 181, 186); font-weight: 400; font-style: normal; font-size: 16px;">vCore — link to configure</div>
+     </div>
+     <div class="footer-links">
+      <h3 data-template-id="footer-info-heading" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 19px;">Information</h3>
+      <div data-template-id="footer-contact" class="footer-placeholder canva-text" style="color: rgb(197, 181, 186); font-weight: 400; font-style: normal; font-size: 16px;">Contact — details to configure</div>
+      <div data-template-id="footer-privacy" class="footer-placeholder canva-text" style="color: rgb(197, 181, 186); font-weight: 400; font-style: normal; font-size: 16px;">Privacy Policy — link to configure</div>
+      <div data-template-id="footer-terms" class="footer-placeholder canva-text" style="color: rgb(197, 181, 186); font-weight: 400; font-style: normal; font-size: 16px;">Terms — link to configure</div>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p data-template-id="footer-tagline" class="footer-brand-line canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 16px;">ONE SUITE. MULTIPLE SOLUTIONS. INTELLIGENTLY CONNECTED.</p>
+     <p>© <span id="current-year"></span> Vishva Digital Technologies. All rights reserved.</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("current-year").textContent = new Date().getFullYear();
+      const button = document.getElementById("menu-button");
+      const menu = document.getElementById("mobile-nav");
+      const icon = document.getElementById("menu-icon-path");
+      function setMenu(open) {
+        menu.hidden = !open;
+        button.setAttribute("aria-expanded", String(open));
+        button.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+        icon.setAttribute("d", open ? "M5 5l14 14M19 5L5 19" : "M4 6h16M4 12h16M4 18h16");
+      }
+      button.addEventListener("click", () => setMenu(menu.hidden));
+      menu.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setMenu(false)));
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !menu.hidden) { setMenu(false); button.focus(); }
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 1200 && !menu.hidden) setMenu(false);
+      });
+      const links = document.querySelectorAll(".desktop-nav a, .mobile-nav a");
+      function updateActiveLink() {
+        const hash = window.location.hash;
+        links.forEach(link => {
+          if (hash && link.getAttribute("href") === hash) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      }
+      window.addEventListener("hashchange", updateActiveLink);
+      updateActiveLink();
+    });
+  </script>
+ 
+<script src="fx/module-fx.js"></script>
+</body></html>

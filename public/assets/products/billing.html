@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="vSuite Billing by Vishva Digital Technologies helps organizations organize billing, pricing, invoicing, receivables, workflows, and AI-assisted billing intelligence.">
+  <title>vSuite Billing | Vishva Digital Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --deep-brown:#542009;--rich-brown:#71300D;--burnt-copper:#A7470C;--copper:#C45A0A;
+      --gold:#E5AD00;--warm-gold:#F2C94C;--cream:#FAF8F5;--beige:#F0E7DE;
+      --line:#DFC8B4;--charcoal:#34312F;--soft:#716B66;--shadow:0 18px 45px rgba(84,32,9,.11);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;width:100%;overflow-x:hidden;background:var(--cream);color:var(--charcoal);font-family:Source Sans Pro,sans-serif}
+    a{text-decoration:none;color:inherit}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .site-wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+    .section{padding:88px 0}
+    h1,h2,h3{font-family:Source Sans Pro,sans-serif;color:var(--deep-brown);letter-spacing:-.045em;margin-top:0}
+    h1{font-size:clamp(2.65rem,5vw,4.75rem);line-height:1.04;margin-bottom:21px}
+    h2{font-size:clamp(2rem,3.4vw,3.15rem);line-height:1.13;margin-bottom:16px}
+    h3{font-size:1.08rem;margin-bottom:8px}
+    p{line-height:1.7}
+    .lead{font-size:1.04rem;color:var(--soft);max-width:740px}
+    .eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.13em;color:var(--burnt-copper);margin:0 0 14px}
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--beige)}
+    .header-inner{min-height:90px;display:flex;align-items:center;gap:18px}
+    .brand img{width:225px;height:auto;display:block;object-fit:contain}
+    .nav{display:flex;align-items:center;gap:16px;margin-left:auto}
+    .nav a{font-size:.78rem;font-weight:800;color:var(--soft)}
+    .nav a:hover{color:var(--burnt-copper)}
+    .menu-button{display:none;border:0;background:transparent;color:var(--deep-brown);margin-left:auto;padding:8px}
+    .mobile-menu{display:none;padding:12px 20px 18px;background:#fff;border-top:1px solid var(--beige)}
+    .mobile-menu.open{display:grid;gap:4px}
+    .mobile-menu a{padding:10px 2px;font-size:.88rem;font-weight:800;color:var(--soft)}
+    .btn{border:1px solid transparent;border-radius:10px;padding:13px 18px;min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:.87rem;font-weight:800;transition:.2s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(84,32,9,.16)}
+    .primary{background:var(--rich-brown);color:#fff}.primary:hover{background:var(--copper)}
+    .secondary{background:#fff;color:var(--rich-brown);border-color:#CFAD8E}.secondary:hover{background:var(--beige)}
+    .gold{background:var(--gold);color:var(--deep-brown)}
+    .hero{padding:74px 0;background:linear-gradient(145deg,#fff 0%,#fff 48%,#F4E5D8 100%);overflow:hidden}
+    .hero-grid,.intro-grid,.feature-layout,.workflow-grid,.industry-layout,.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+    .hero-copy{position:relative}.hero-copy:before{content:"";position:absolute;width:200px;height:200px;border-radius:50%;left:-75px;top:-55px;background:rgba(229,173,0,.12);z-index:0}.hero-copy>*{position:relative}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}
+    .chips span{padding:8px 11px;border:1px solid #DFC8B4;border-radius:999px;background:#fff;color:var(--rich-brown);font-size:.76rem;font-weight:800}
+    .dashboard{border:1px solid #D6B896;border-radius:20px;background:#fff;padding:12px;box-shadow:var(--shadow)}
+    .dashboard-shell{overflow:hidden;border:1px solid var(--beige);border-radius:12px}
+    .dashboard-top{display:flex;justify-content:space-between;background:var(--deep-brown);padding:11px 14px;color:#F7E8C9;font-size:.68rem}
+    .dashboard-body{padding:16px;background:#FCF9F6}
+    .metric-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+    .metric{padding:10px;border:1px solid var(--beige);border-radius:9px;background:#fff}
+    .metric small{display:block;font-size:.53rem;color:var(--soft)}.metric b{display:block;margin-top:4px;color:var(--deep-brown);font-size:.85rem}
+    .dash-panel{margin-top:10px;padding:12px;border:1px solid var(--beige);border-radius:9px;background:#fff}
+    .bars{height:85px;display:flex;align-items:flex-end;gap:8px;border-bottom:1px solid var(--beige)}
+    .bars i{display:block;flex:1;background:#DEC2A4;border-radius:4px 4px 0 0}.bars i:nth-child(3),.bars i:nth-child(6){background:var(--burnt-copper)}
+    .section-head{text-align:center;max-width:830px;margin:0 auto 34px}.section-head .lead{margin:0 auto}
+    .image-card{margin:0;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:var(--shadow);padding:12px;overflow:hidden}
+    .image-card img{display:block;width:100%;height:auto;max-height:500px;object-fit:contain;border-radius:11px;background:#F7F0E9}
+    .image-card figcaption{padding:12px 4px 2px;color:var(--soft);font-size:.78rem;line-height:1.5}
+    .image-label{display:inline-block;color:var(--burnt-copper);font-size:.67rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;margin-bottom:6px}
+    .lifecycle{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .life{min-height:112px;padding:14px;border:1px solid var(--beige);border-radius:12px;background:var(--cream)}
+    .life:nth-child(even){background:#fff}.life b{display:grid;place-items:center;width:27px;height:27px;border-radius:50%;background:var(--deep-brown);color:#fff;font-size:.7rem;margin-bottom:13px}.life p{margin:0;color:var(--rich-brown);font-size:.75rem;font-weight:800;line-height:1.35}
+    .features{background:var(--cream)}
+    .searchbox{max-width:690px;margin:0 auto 18px}.searchbox input{width:100%;padding:14px 16px;border:1px solid #CFAD8E;border-radius:12px;background:#fff;color:var(--charcoal)}
+    .explorer-note{text-align:center;font-size:.84rem;color:var(--soft);margin:0 0 22px}
+    .feature-grid{display:grid;gap:12px}
+    .feature-card{border:1px solid var(--beige);border-radius:14px;background:#fff;overflow:hidden}
+    .feature-card.hidden{display:none}
+    .feature-toggle{width:100%;padding:18px;border:0;background:#fff;display:flex;justify-content:space-between;gap:16px;text-align:left;color:var(--deep-brown);font-family:Source Sans Pro,sans-serif;font-size:.93rem;font-weight:800}
+    .feature-toggle span:last-child{color:var(--burnt-copper);font-size:1.3rem;transition:.2s}.feature-card.open .feature-toggle span:last-child{transform:rotate(45deg)}
+    .feature-body{display:none;padding:0 18px 18px}.feature-card.open .feature-body{display:block}
+    .feature-body p{margin:0;color:var(--soft);font-size:.84rem}.feature-body ul{columns:2;margin:12px 0 0;padding-left:17px}.feature-body li{font-size:.77rem;margin:0 0 7px;color:var(--charcoal)}
+    .feature-visual{position:sticky;top:115px}
+    .light-section{background:#fff}
+    .panel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .panel{border:1px solid var(--beige);border-radius:16px;background:var(--cream);padding:22px}
+    .row{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--beige);font-size:.8rem}.row b{color:var(--rich-brown)}
+    .ai-section{background:var(--deep-brown);color:#fff}.ai-section h2,.ai-section h3{color:#fff}.ai-section .lead{color:#EADDD2}
+    .ai-copy{padding:5px 0}.workflow-note{padding:20px;border:1px solid rgba(242,201,76,.34);border-radius:14px;background:rgba(255,255,255,.05);color:#F4E9DF}.workflow-note p{font-size:.87rem;color:#EADDD2}
+    .workflow-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}.workflow-step{padding:14px 10px;border-radius:10px;text-align:center;font-size:.7rem;font-weight:800;background:var(--rich-brown);color:#fff}.workflow-step:nth-child(2),.workflow-step:nth-child(5){background:var(--gold);color:var(--deep-brown)}.workflow-step:nth-child(3){background:var(--copper)}
+    .industry-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:28px}.industry-card{padding:17px;border:1px solid var(--beige);border-radius:12px;background:var(--cream)}.industry-card h3{font-size:.92rem}.industry-card p{margin:0;color:var(--soft);font-size:.77rem}
+    .integration-grid,.benefit-grid,.trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .integration,.benefit,.trust-card{padding:18px;border-radius:12px;border:1px solid var(--beige);background:#fff}.integration{border-left:3px solid var(--burnt-copper)}.integration p,.benefit p,.trust-card p{margin:0;color:var(--soft);font-size:.78rem}
+    .benefits{background:var(--deep-brown)}.benefits h2,.benefits h3{color:#fff}.benefits .lead{color:#EADDD2}.benefit{border-color:rgba(242,201,76,.25);background:rgba(255,255,255,.05)}.benefit h3{color:var(--warm-gold);font-size:.92rem}.benefit p{color:#EADDD2}
+    .faq{background:var(--cream)}.faq-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:54px}.faq-list{border-top:1px solid #D8C4AF}.faq-item{border-bottom:1px solid #D8C4AF}.faq-q{width:100%;padding:17px 0;border:0;background:transparent;display:flex;justify-content:space-between;gap:14px;text-align:left;color:var(--deep-brown);font-weight:800}.faq-q span:last-child{font-size:1.3rem;color:var(--burnt-copper)}.faq-a{display:none;padding-bottom:17px;color:var(--soft);font-size:.87rem;line-height:1.65}.faq-item.open .faq-a{display:block}.faq-item.open .faq-q span:last-child{transform:rotate(45deg)}
+    .cta{padding:78px 0;background:linear-gradient(120deg,var(--deep-brown),var(--rich-brown) 58%,var(--copper));color:#fff}.cta h2{color:#fff}.cta p{color:#F4E8DD}.cta-card{padding:24px;border:1px solid rgba(242,201,76,.36);border-radius:17px;background:rgba(255,255,255,.08)}
+    footer{padding:52px 0 20px;background:var(--charcoal);color:#DDD0C5}.footer-grid{display:grid;grid-template-columns:1.3fr repeat(3,.8fr);gap:28px}.footer-logo{display:block;width:max-content}.footer-logo img{width:210px;height:auto;display:block;border-radius:4px;background:#fff}.footer-grid h3{color:var(--warm-gold);font-size:.86rem;letter-spacing:0}.footer-grid p,.footer-grid a{display:block;margin:0 0 5px;color:#DDD0C5;font-size:.79rem;line-height:1.7}.footer-grid a:hover{color:var(--warm-gold)}.footer-bottom{display:flex;justify-content:space-between;gap:14px;margin-top:30px;padding-top:18px;border-top:1px solid rgba(242,201,76,.2);font-size:.74rem;color:#C6B6A9}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}.reveal.visible{opacity:1;transform:none}
+    @media(max-width:1020px){.nav{display:none}.menu-button{display:block}.hero-grid,.intro-grid,.feature-layout,.workflow-grid,.industry-layout,.cta-grid,.faq-grid{grid-template-columns:1fr;gap:32px}.feature-visual{position:static}.industry-grid{grid-template-columns:repeat(2,1fr)}.integration-grid,.benefit-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1.2fr 1fr 1fr}.footer-grid>div:last-child{grid-column:2/4}}
+    @media(max-width:700px){.site-wrap{width:min(100% - 30px,1180px)}.section{padding:64px 0}.hero{padding:55px 0}.brand img{width:190px}.header-inner{min-height:76px}.metric-grid,.lifecycle{grid-template-columns:repeat(2,1fr)}.panel-grid{grid-template-columns:1fr}.feature-body ul{columns:1}.workflow-steps{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}.footer-grid>div:first-child{grid-column:1/-1}.footer-grid>div:last-child{grid-column:auto}.footer-bottom{display:block}.footer-bottom span{display:block;margin-bottom:6px}}
+    @media(max-width:430px){h1{font-size:2.4rem}.hero-actions .btn{width:100%}.industry-grid,.integration-grid,.benefit-grid,.trust-grid,.footer-grid{grid-template-columns:1fr}.footer-grid>div:first-child{grid-column:auto}.image-card{padding:8px}.dashboard{padding:7px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal,.reveal.visible,*{transition:none!important;animation:none!important}}
+  </style>
+  <link rel="stylesheet" href="css/billing.tailwind.css">
+  <script src="vendor/lucide.min.js"></script>
+  <style>:root{--fx-a:#A7470C;--fx-b:#E5AD00}</style>
+<link rel="stylesheet" href="fx/module-fx.css">
+</head>
+ <body data-template-id="__page-root" style="background: rgb(250, 248, 245);">
+  <header class="site-header">
+   <div class="site-wrap header-inner"><a class="brand" href="#overview" aria-label="vSuite Billing home"> <img data-template-id="brand-logo" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-billing.png" alt="Official vSuite Billing logo with Billing Made Brilliant tagline"> </a>
+    <nav class="nav" aria-label="Primary navigation"><a href="#overview">Overview</a> <a href="#features">Features</a> <a href="#workflow">Workflow</a> <a href="#industries">Industries</a> <a href="#integrations">Integrations</a> <a href="#faq">FAQ</a> <a href="#contact">Contact</a>
+    </nav><button id="menuToggle" class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu"> <i data-lucide="menu"></i> </button>
+   </div>
+   <nav id="mobileMenu" class="mobile-menu" aria-label="Mobile navigation"><a href="#overview">Overview</a><a href="#features">Features</a><a href="#workflow">Workflow</a> <a href="#industries">Industries</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+   </nav>
+  </header>
+  <main>
+   <section id="overview" class="hero">
+    <div class="site-wrap hero-grid">
+     <div class="hero-copy reveal">
+      <p data-template-id="hero-eyebrow" class="eyebrow canva-text" style="color: rgb(167, 71, 12); font-weight: 800; font-style: normal; font-size: 12px; letter-spacing: 0.13rem;">INTELLIGENT BILLING &amp; REVENUE OPERATIONS</p>
+      <h1 data-template-id="hero-title" class="canva-text" style="color: rgb(84, 32, 9); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 32px;">Intelligent Billing. Smarter Operations. Greater Visibility.</h1>
+      <p data-template-id="hero-description" class="lead canva-text" style="color: rgb(113, 107, 102); font-weight: 400; font-style: normal; font-size: 17px; line-height: 1.7;">vSuite Billing is designed to help businesses manage the complete billing lifecycle—from customer and billing account management to flexible pricing, invoice generation, payment tracking, collections, reporting, and financial integration. With configurable billing rules, workflow automation, and AI-driven intelligence, vSuite Billing helps organizations simplify complex billing operations and gain better visibility into their financial processes.</p>
+      <div class="hero-actions"><a data-template-id="hero-demo" class="btn primary canva-button" href="#contact" style="background: rgb(113, 48, 13); color: rgb(255, 255, 255); font-weight: 800; font-style: normal; font-size: 16px;">Request a Demo</a> <a data-template-id="hero-features" class="btn secondary canva-button" href="#features" style="background: rgb(255, 255, 255); color: rgb(113, 48, 13); font-weight: 800; font-style: normal; font-size: 16px;">Explore Features</a>
+      </div>
+      <div class="chips" aria-label="Key value propositions"><span>Flexible Billing Models</span><span>Automated Billing Workflows</span><span>AI-Powered Billing Intelligence</span>
+      </div>
+     </div>
+     <div class="dashboard reveal" role="img" aria-label="Illustrative sample billing dashboard showing invoice, payment, receivables, and trend information">
+      <div class="dashboard-shell">
+       <div class="dashboard-top">
+        <span>vSuite Billing</span><span>ILLUSTRATIVE SAMPLE DATA</span>
+       </div>
+       <div class="dashboard-body"><strong style="font-size:.8rem;color:#542009">Billing overview</strong>
+        <div class="metric-grid">
+         <div class="metric">
+          <small>Total billed</small><b>₹ 12.48L</b>
+         </div>
+         <div class="metric">
+          <small>Payments received</small><b>₹ 9.86L</b>
+         </div>
+         <div class="metric">
+          <small>Outstanding</small><b>₹ 2.62L</b>
+         </div>
+         <div class="metric">
+          <small>Overdue invoices</small><b>12</b>
+         </div>
+        </div>
+        <div class="dash-panel"><small style="font-weight:800;color:#542009">Monthly billing trend</small>
+         <div class="bars">
+          <i style="height:32%"></i><i style="height:48%"></i><i style="height:41%"></i><i style="height:65%"></i><i style="height:58%"></i><i style="height:84%"></i>
+         </div>
+        </div>
+        <div class="dash-panel" style="font-size:.67rem;color:#62400B;background:#FFF4DA;border-left:3px solid #E5AD00"><b>Illustrative billing insight:</b> Review invoices approaching due date before the next collection workflow.
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <section class="section light-section">
+    <div class="site-wrap intro-grid">
+     <div class="reveal">
+      <p class="eyebrow">CONNECTED BILLING OPERATIONS</p>
+      <h2 data-template-id="intro-title" class="canva-text" style="color: rgb(84, 32, 9); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 24px;">One Platform for the Entire Billing Lifecycle</h2>
+      <p data-template-id="intro-copy" class="lead canva-text" style="color: rgb(113, 107, 102); font-weight: 400; font-style: normal; font-size: 17px; line-height: 1.7;">Centralize customer management, pricing, billing rules, invoice processing, payment tracking, collections, analytics, and connected financial workflows in one structured billing operations environment.</p>
+      <div class="lifecycle" aria-label="Billing lifecycle" style="margin-top:28px">
+       <div class="life">
+        <b>1</b>
+        <p>Customer setup</p>
+       </div>
+       <div class="life">
+        <b>2</b>
+        <p>Billing configuration</p>
+       </div>
+       <div class="life">
+        <b>3</b>
+        <p>Pricing rules</p>
+       </div>
+       <div class="life">
+        <b>4</b>
+        <p>Invoice generation</p>
+       </div>
+       <div class="life">
+        <b>5</b>
+        <p>Approval &amp; delivery</p>
+       </div>
+       <div class="life">
+        <b>6</b>
+        <p>Payment tracking</p>
+       </div>
+       <div class="life">
+        <b>7</b>
+        <p>Collections</p>
+       </div>
+       <div class="life">
+        <b>8</b>
+        <p>Analytics</p>
+       </div>
+      </div>
+     </div>
+     <figure class="image-card reveal"><span class="image-label">Collaborative billing workspace</span> <img data-template-id="workspace-image" class="canva-image" loading="lazy" src="../uploads/vsuite/billing/collab-workspace.jpg" alt="Illustrative collaborative vSuite Billing office workspace with invoice dashboards, billing checklists, and teams reviewing billing operations">
+      <figcaption>
+       Illustrative billing operations workspace showing teams reviewing invoices, account activity, collections, and billing tasks together.
+      </figcaption>
+     </figure>
+    </div>
+   </section>
+   <section id="features" class="section features">
+    <div class="site-wrap">
+     <div class="section-head reveal">
+      <p class="eyebrow">FEATURE EXPLORER</p>
+      <h2 data-template-id="features-title" class="canva-text" style="color: rgb(84, 32, 9); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 24px;">Explore the vSuite Billing Capability Catalogue</h2>
+      <p class="lead">Search the billing capability catalogue and expand each category for a concise business-oriented overview.</p>
+     </div>
+     <div class="searchbox reveal"><label for="featureSearch" class="sr-only">Search billing features</label> <input id="featureSearch" type="search" placeholder="Search features, capabilities, or descriptions">
+     </div>
+     <p id="featureCount" class="explorer-note">Six billing capability categories are shown.</p>
+     <div class="feature-layout">
+      <div id="featureGrid" class="feature-grid">
+       <article class="feature-card reveal" data-search="customer account billing foundation customer profile billing accounts configuration rules period calendar credit"><button class="feature-toggle" type="button" aria-expanded="false"><span>Customer, Account and Billing Foundation</span><span>+</span></button>
+        <div class="feature-body">
+         <p>Organize customer records, billing profiles, accounts, calendars, credit settings, exceptions, and billing rule foundations.</p>
+         <ul>
+          <li>Customer management</li>
+          <li>Billing profiles</li>
+          <li>Billing accounts</li>
+          <li>Billing rule engine</li>
+          <li>Billing periods</li>
+          <li>Credit management</li>
+         </ul>
+        </div>
+       </article>
+       <article class="feature-card reveal" data-search="invoice lifecycle management generation lines numbering approval delivery status statements credit notes adjustments"><button class="feature-toggle" type="button" aria-expanded="false"><span>Invoice Lifecycle Management</span><span>+</span></button>
+        <div class="feature-body">
+         <p>Create, validate, approve, deliver, track, and review invoice lifecycle activity in configured workflows.</p>
+         <ul>
+          <li>Invoice generation</li>
+          <li>Line management</li>
+          <li>Approval workflow</li>
+          <li>Invoice delivery</li>
+          <li>Status tracking</li>
+          <li>Credit and debit notes</li>
+         </ul>
+        </div>
+       </article>
+       <article class="feature-card reveal" data-search="pricing rating subscription usage consumption milestone project contract tiers discounts invoice schedule"><button class="feature-toggle" type="button" aria-expanded="false"><span>Pricing, Rating and Billing Models</span><span>+</span></button>
+        <div class="feature-body">
+         <p>Support configurable recurring, usage, contract, project, milestone, and consolidated billing scenarios.</p>
+         <ul>
+          <li>Subscription billing</li>
+          <li>Usage-based billing</li>
+          <li>Contract pricing</li>
+          <li>Tiered pricing</li>
+          <li>Discounts</li>
+          <li>Automated billing runs</li>
+         </ul>
+        </div>
+       </article>
+       <article class="feature-card reveal" data-search="payment receivables collections balance outstanding dunning disputes accounting"><button class="feature-toggle" type="button" aria-expanded="false"><span>Payments, Receivables and Collections</span><span>+</span></button>
+        <div class="feature-body">
+         <p>Review outstanding balances, payment context, disputes, dunning activity, and collection workflows where configured.</p>
+         <ul>
+          <li>Payment tracking</li>
+          <li>Outstanding balances</li>
+          <li>Account balances</li>
+          <li>Dispute management</li>
+          <li>Dunning management</li>
+          <li>Collection workflow</li>
+         </ul>
+        </div>
+       </article>
+       <article class="feature-card reveal" data-search="analytics dashboard reports workflow calendar exceptions billing operations"><button class="feature-toggle" type="button" aria-expanded="false"><span>Billing Operations, Workflow and Analytics</span><span>+</span></button>
+        <div class="feature-body">
+         <p>Bring schedules, exceptions, approvals, operational dashboards, reports, and activity history into connected billing operations.</p>
+         <ul>
+          <li>Billing dashboard</li>
+          <li>Real-time views</li>
+          <li>Operational reports</li>
+          <li>Exceptions</li>
+          <li>Approvals</li>
+          <li>Transaction history</li>
+         </ul>
+        </div>
+       </article>
+       <article class="feature-card reveal" data-search="ai artificial intelligence assistant validation anomaly payment prediction collection recommendation agentic"><button class="feature-toggle" type="button" aria-expanded="false"><span>AI-Powered Billing Intelligence</span><span>+</span></button>
+        <div class="feature-body">
+         <p>Explore controlled, implementation-dependent possibilities for billing insights, validation, prioritization, recommendations, and review workflows.</p>
+         <ul>
+          <li>Natural language queries</li>
+          <li>Invoice validation</li>
+          <li>Anomaly analysis</li>
+          <li>Payment prediction</li>
+          <li>Collection recommendations</li>
+          <li>Generated summaries</li>
+         </ul>
+        </div>
+       </article>
+      </div>
+      <figure class="image-card feature-visual reveal"><span class="image-label">Product overview visual</span> <img data-template-id="product-overview-image" class="canva-image" loading="lazy" src="../uploads/vsuite/billing/product-overview.jpg" alt="Illustrative vSuite Billing product overview showing an invoicing dashboard, payments, customers, reports, and billing workflow materials">
+       <figcaption>
+        Illustrative vSuite Billing overview showing invoicing, payments, customer information, reporting, and billing workflow context.
+       </figcaption>
+      </figure>
+     </div>
+    </div>
+   </section>
+   <section class="section light-section">
+    <div class="site-wrap">
+     <div class="section-head reveal">
+      <p class="eyebrow">PRICING, RATING AND RECEIVABLES</p>
+      <h2>Flexible Structures for Diverse Billing Models</h2>
+      <p class="lead">Configure recurring charges, usage tiers, milestone rules, contract prices, discounts, and consolidated invoicing based on the workflows implemented for your organization.</p>
+     </div>
+     <div class="panel-grid">
+      <article class="panel reveal">
+       <h3>Pricing configuration</h3>
+       <div class="row">
+        <span>Recurring charge</span><b>Monthly schedule</b>
+       </div>
+       <div class="row">
+        <span>Usage tiers</span><b>Configured thresholds</b>
+       </div>
+       <div class="row">
+        <span>Volume discount</span><b>Rule-based adjustment</b>
+       </div>
+       <div class="row">
+        <span>Milestone billing</span><b>Event trigger</b>
+       </div>
+       <div class="row">
+        <span>Consolidated invoice</span><b>Multiple accounts</b>
+       </div>
+      </article>
+      <article class="panel reveal">
+       <h3>Receivables dashboard <span style="font-size:.65rem;color:#A7470C;letter-spacing:.08em">ILLUSTRATIVE</span></h3>
+       <div class="row">
+        <span>Outstanding balance</span><b>₹ 2.62L</b>
+       </div>
+       <div class="row">
+        <span>Overdue invoices</span><b>12</b>
+       </div>
+       <div class="row">
+        <span>Invoice ageing</span><b>Current · 1–30 · 31+</b>
+       </div>
+       <div class="row">
+        <span>Collection task status</span><b>Review queued</b>
+       </div>
+       <div class="row">
+        <span>Payment history</span><b>Tracked where integrated</b>
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="workflow" class="section ai-section">
+    <div class="site-wrap workflow-grid">
+     <div class="ai-copy reveal">
+      <p class="eyebrow" style="color:#F2C94C">AI-ASSISTED POSSIBILITIES</p>
+      <h2>AI-Powered Billing Intelligence</h2>
+      <p class="lead">AI surfaces shown here are illustrative possibilities, not verified facts. Use depends on implementation, available integrations, enablement, data quality, permissions, policies, and appropriate controls.</p>
+      <div class="workflow-note">
+       <h3>Recommendations are not verified facts</h3>
+       <p>Predictions, anomaly signals, collection suggestions, and generated summaries require human context and configured review processes.</p>
+      </div>
+      <div class="workflow-steps" aria-label="Controlled billing workflow">
+       <div class="workflow-step">
+        Detect issue
+       </div>
+       <div class="workflow-step">
+        Analyze context
+       </div>
+       <div class="workflow-step">
+        Recommend action
+       </div>
+       <div class="workflow-step">
+        Request approval
+       </div>
+       <div class="workflow-step">
+        Authorized action
+       </div>
+       <div class="workflow-step">
+        Record outcome
+       </div>
+      </div>
+     </div>
+     <figure class="image-card reveal"><span class="image-label">Workflow collaboration</span> <img data-template-id="collaboration-image" class="canva-image" loading="lazy" src="../uploads/vsuite/billing/workflow-collaboration.jpg" alt="Illustrative vSuite Billing team collaboration scene with a billing dashboard, invoice review, and shared workflow discussion">
+      <figcaption>
+       Illustrative team collaboration around billing dashboards, invoice review, task coordination, and controlled workflow decisions.
+      </figcaption>
+     </figure>
+    </div>
+   </section>
+   <section id="industries" class="section light-section">
+    <div class="site-wrap">
+     <div class="industry-layout">
+      <div class="reveal">
+       <p class="eyebrow">INDUSTRY-SPECIFIC BILLING</p>
+       <h2>Adaptable to Varied Business Scenarios</h2>
+       <p class="lead">These are potential billing scenarios, not claims about existing customers, verified results, or deployed capabilities.</p>
+       <div class="industry-grid">
+        <article class="industry-card">
+         <h3>Professional Services</h3>
+         <p>Potential project, retainer, time-based, and service billing workflows.</p>
+        </article>
+        <article class="industry-card">
+         <h3>Subscription / SaaS</h3>
+         <p>Potential recurring, usage-based, consumption, and plan-based structures.</p>
+        </article>
+        <article class="industry-card">
+         <h3>Retail / Hospitality</h3>
+         <p>Potential invoice, customer, payment, and reporting workflows.</p>
+        </article>
+        <article class="industry-card">
+         <h3>Logistics / Distribution</h3>
+         <p>Potential event, shipment, customer, and service-based billing.</p>
+        </article>
+        <article class="industry-card">
+         <h3>Utilities</h3>
+         <p>Potential consumption, meter, tariff, and billing-period scenarios.</p>
+        </article>
+        <article class="industry-card">
+         <h3>Marketplaces</h3>
+         <p>Potential multi-entity, fee, commission, and settlement structures.</p>
+        </article>
+       </div>
+      </div>
+      <figure class="image-card reveal"><span class="image-label">Hospitality billing scenario</span> <img data-template-id="hospitality-image" class="canva-image" loading="lazy" src="../uploads/vsuite/billing/hospitality-scenario.jpg" alt="Illustrative vSuite Billing café and retail billing scenario with invoice management, payment tracking, and billing dashboard screens">
+       <figcaption>
+        Illustrative café and retail billing scenario. The pictured setting is not presented as a vSuite Billing customer or verified deployment.
+       </figcaption>
+      </figure>
+     </div>
+    </div>
+   </section>
+   <section id="integrations" class="section">
+    <div class="site-wrap">
+     <div class="section-head reveal">
+      <p class="eyebrow">ENTERPRISE INTEGRATION</p>
+      <h2>Billing That Can Connect Across Business Workflows</h2>
+      <p class="lead">Revenue recognition, accounting, payment, contract accounting, and wider enterprise workflows can be connected where integrated, supported, configurable, or conceptual within the implementation scope.</p>
+     </div>
+     <div class="integration-grid">
+      <article class="integration reveal">
+       <h3>Revenue Recognition Integration</h3>
+       <p>Where integrated and configured according to implementation scope.</p>
+      </article>
+      <article class="integration reveal">
+       <h3>Billing-to-Accounting Integration</h3>
+       <p>Supported according to target systems and defined workflow scope.</p>
+      </article>
+      <article class="integration reveal">
+       <h3>Billing-to-Payment Integration</h3>
+       <p>Available where external payment systems are integrated.</p>
+      </article>
+      <article class="integration reveal">
+       <h3>Contract Accounting Integration</h3>
+       <p>Configurable according to relevant business workflows.</p>
+      </article>
+      <article class="integration reveal">
+       <h3>Operational Reporting</h3>
+       <p>Connect billing context into configured finance and operational reporting views.</p>
+      </article>
+      <article class="integration reveal">
+       <h3>Enterprise Workflow Context</h3>
+       <p>Align billing activity with relevant connected systems where supported.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section class="section benefits">
+    <div class="site-wrap">
+     <div class="reveal">
+      <p class="eyebrow" style="color:#F2C94C">BENEFITS</p>
+      <h2 data-template-id="benefits-title" class="canva-text" style="color: rgb(255, 255, 255); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 24px;">Designed for More Intelligent Billing Operations</h2>
+      <p class="lead">A practical foundation for more intelligent billing operations without unsupported ROI claims, metrics, case studies, or testimonials.</p>
+     </div>
+     <div class="benefit-grid" style="margin-top:30px">
+      <article class="benefit reveal">
+       <h3>Centralized billing operations</h3>
+       <p>Bring billing information and activities into a more connected workspace.</p>
+      </article>
+      <article class="benefit reveal">
+       <h3>Flexible billing models</h3>
+       <p>Support varied commercial scenarios through configured models.</p>
+      </article>
+      <article class="benefit reveal">
+       <h3>Invoice lifecycle visibility</h3>
+       <p>Track preparation, approval, delivery, and invoice status context.</p>
+      </article>
+      <article class="benefit reveal">
+       <h3>Receivables monitoring</h3>
+       <p>Review balances, ageing, payment activity, and overdue items.</p>
+      </article>
+      <article class="benefit reveal">
+       <h3>Workflow automation</h3>
+       <p>Use configured schedules, approvals, tasks, and billing rules where available.</p>
+      </article>
+      <article class="benefit reveal">
+       <h3>AI-assisted analysis</h3>
+       <p>Explore controlled billing intelligence possibilities where enabled.</p>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="faq" class="section faq">
+    <div class="site-wrap faq-grid">
+     <div class="reveal">
+      <p class="eyebrow">FAQ</p>
+      <h2 data-template-id="faq-title" class="canva-text" style="color: rgb(84, 32, 9); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 24px;">Questions, Answered Carefully</h2>
+      <p class="lead">Capabilities depend on configuration, implementation, integrations, permissions, and applicable controls where details are unconfirmed.</p>
+     </div>
+     <div class="faq-list reveal">
+      <article class="faq-item">
+       <button class="faq-q" type="button" aria-expanded="false"><span>What is vSuite Billing?</span><span>+</span></button>
+       <div class="faq-a">
+        vSuite Billing is designed to help businesses manage billing lifecycle activities including customer billing information, pricing, invoices, payments, collections, reporting, and connected workflows.
+       </div>
+      </article>
+      <article class="faq-item">
+       <button class="faq-q" type="button" aria-expanded="false"><span>Which billing models can be configured?</span><span>+</span></button>
+       <div class="faq-a">
+        Potential models include subscription, usage-based, consumption, contract, milestone, project, event, pro-rata, consolidated, multi-entity, and multi-currency scenarios where configured.
+       </div>
+      </article>
+      <article class="faq-item">
+       <button class="faq-q" type="button" aria-expanded="false"><span>Can invoices be generated automatically?</span><span>+</span></button>
+       <div class="faq-a">
+        Automated invoice scheduling and billing runs may be configured depending on implementation, rules, integrations, and approval controls.
+       </div>
+      </article>
+      <article class="faq-item">
+       <button class="faq-q" type="button" aria-expanded="false"><span>Does it support GST, VAT, and e-invoicing?</span><span>+</span></button>
+       <div class="faq-a">
+        Tax and e-invoicing support depends on jurisdiction, configuration, implementation, required integrations, and applicable regulations.
+       </div>
+      </article>
+      <article class="faq-item">
+       <button class="faq-q" type="button" aria-expanded="false"><span>What is the role of AI-assisted billing?</span><span>+</span></button>
+       <div class="faq-a">
+        AI-assisted billing may provide analysis, summaries, recommendations, query responses, or prioritization. Outputs require appropriate human review and configured controls.
+       </div>
+      </article>
+      <article class="faq-item">
+       <button class="faq-q" type="button" aria-expanded="false"><span>Can it connect with accounting and payment systems?</span><span>+</span></button>
+       <div class="faq-a">
+        Billing-to-accounting, billing-to-payment, revenue recognition, and contract accounting connections depend on target systems and the configured implementation scope.
+       </div>
+      </article>
+     </div>
+    </div>
+   </section>
+   <section id="contact" class="cta">
+    <div class="site-wrap cta-grid">
+     <div class="reveal">
+      <h2 data-template-id="cta-title" class="canva-text" style="color: rgb(255, 255, 255); font-family: Source Sans Pro; font-weight: 800; font-style: normal; font-size: 24px;">Bring Intelligence to Your Billing Operations.</h2>
+      <p data-template-id="cta-description" class="canva-text" style="color: rgb(240, 231, 222); font-weight: 400; font-style: normal; font-size: 17px; line-height: 1.7;">Discover how vSuite Billing can help organize billing processes, manage diverse pricing models, improve receivables visibility, and introduce intelligent automation into your business workflows.</p>
+      <div class="hero-actions"><a data-template-id="cta-demo" class="btn gold canva-button" href="mailto:contact@vishvadigital.com" target="_blank" rel="noopener noreferrer" style="background: rgb(229, 173, 0); color: rgb(84, 32, 9); font-weight: 800; font-style: normal; font-size: 16px;">Contact Vishva Digital Technologies</a> <a data-template-id="cta-contact" class="btn secondary canva-button" href="#overview" style="background: rgb(255, 255, 255); color: rgb(113, 48, 13); font-weight: 800; font-style: normal; font-size: 16px;">Back to Overview</a>
+      </div>
+     </div>
+     <aside class="cta-card reveal" aria-label="Illustrative billing workflow summary">
+      <p class="eyebrow" style="color:#F2C94C">ILLUSTRATIVE WORKFLOW</p>
+      <h3 style="color:#fff">Billing rules to operational visibility</h3>
+      <p>Explore customer setup, pricing configuration, invoice lifecycle activity, receivables context, approval controls, and connected financial workflows.</p>
+     </aside>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="site-wrap">
+    <div class="footer-grid">
+     <div><a class="footer-logo" href="#overview" aria-label="vSuite Billing home"><img data-template-id="footer-logo" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-billing-footer.png" alt="Official vSuite Billing logo with Billing Made Brilliant tagline"></a>
+      <p>vSuite Billing is a billing and revenue operations experience from Vishva Digital Technologies, designed around configurable workflows and connected business processes.</p>
+     </div>
+     <div>
+      <h3>Quick navigation</h3><a href="#overview">Overview</a><a href="#features">Features</a><a href="#workflow">Workflow</a><a href="#industries">Industries</a>
+     </div>
+     <div>
+      <h3>Related products</h3><a href="#integrations">vSuite Accounting</a><a href="#integrations">vSuite Finance</a><a href="#integrations">vSuite Commerce</a><a href="#integrations">vSuite Logistics</a>
+     </div>
+     <div>
+      <h3>Vishva Digital Technologies</h3><a href="#contact">Contact</a><a href="#faq">FAQ</a><a href="#overview">vSuite Billing</a>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <span>© <span id="year"></span> Vishva Digital Technologies. All rights reserved.</span><span>vSuite Billing · Intelligent billing operations</span>
+    </div>
+   </div>
+  </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const closeMenu = () => {
+        mobileMenu.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+      };
+      menuToggle.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.toggle("open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close navigation menu" : "Open navigation menu");
+      });
+      mobileMenu.querySelectorAll("a").forEach(link => link.addEventListener("click", closeMenu));
+      document.addEventListener("keydown", event => { if (event.key === "Escape") closeMenu(); });
+
+      document.querySelectorAll(".feature-toggle").forEach(button => {
+        button.addEventListener("click", () => {
+          const card = button.closest(".feature-card");
+          const open = card.classList.toggle("open");
+          button.setAttribute("aria-expanded", String(open));
+        });
+      });
+
+      const search = document.getElementById("featureSearch");
+      const cards = [...document.querySelectorAll(".feature-card")];
+      const count = document.getElementById("featureCount");
+      search.addEventListener("input", () => {
+        const query = search.value.trim().toLowerCase();
+        let visible = 0;
+        cards.forEach(card => {
+          const match = card.dataset.search.includes(query);
+          card.classList.toggle("hidden", !match);
+          if (match) visible++;
+        });
+        count.textContent = query ? `${visible} matching feature categories shown.` : "Six billing capability categories are shown.";
+      });
+
+      document.querySelectorAll(".faq-q").forEach(button => {
+        button.addEventListener("click", () => {
+          const item = button.closest(".faq-item");
+          const open = item.classList.toggle("open");
+          button.setAttribute("aria-expanded", String(open));
+        });
+      });
+
+      const reveals = document.querySelectorAll(".reveal");
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        reveals.forEach(element => observer.observe(element));
+      } else {
+        reveals.forEach(element => element.classList.add("visible"));
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+    });
+  </script>
+ 
+<script src="fx/module-fx.js"></script>
+</body></html>
