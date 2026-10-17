@@ -52,6 +52,15 @@ export class Header {
     this.open.update((v) => !v);
   }
 
+  // Logo: already on the home page -> glide back up to the hero (a same-URL link click does nothing by itself)
+  onLogoClick(event: Event) {
+    this.close();
+    if (this.url().split(/[?#]/)[0] === '/') {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
   // Mobile: tapping a parent opens its sub-menu instead of navigating
   onParentClick(item: MenuItem) {
     if (this.mobile() && item.children) {

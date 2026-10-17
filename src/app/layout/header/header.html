@@ -17,7 +17,7 @@
           <!-- Logo: big one at top, small one when header sticks -->
           <div class="site-title">
             <div class="site-logo" style="width: 99px">
-              <a routerLink="/" rel="home">
+              <a routerLink="/" rel="home" (click)="onLogoClick($event)">
                 <span class="logo">
                   <img
                     class="default"

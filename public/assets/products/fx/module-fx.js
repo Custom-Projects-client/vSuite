@@ -72,8 +72,12 @@
 })();
 
 /* ---- vSuite product modules: navigation bridge ----
-   Related-product links go to that product page; every "Request a Demo" / "Contact" control opens the site's Contact Us form.
-   The page runs inside an iframe, so it asks the parent site (postMessage) to change route; opened on its own it navigates directly. */
+   - vSuite product links (footer)      -> that product's page
+   - "Request a Demo" / "Book a Demo"   -> the site's Book a Demo form (/book-demo), product pre-selected
+   - "Contact" controls                 -> the site's Contact Us page (/contact-us)
+   - the module logo                    -> smooth scroll back to this page's hero
+   The page runs inside an iframe, so it asks the parent site (postMessage) to change route;
+   opened on its own it navigates directly. */
 (function () {
   try {
     var d = document;
@@ -87,64 +91,73 @@
       'vsuite e-commerce': '/product/vsuite-commerce/ecommerce',
       'vsuite commerce': '/product/vsuite-commerce/ecommerce',
       'vsuite processflow': '/product/vsuite-logistics/processflow',
-      'vsuite logistics': '/product/vsuite-logistics/processflow',
-      'vcore': '/'
+      'vsuite logistics': '/product/vsuite-logistics/processflow'
     };
-    var FILE = { 'accounting': 'accounting', 'billing': 'billing', 'hr': 'hr', 'payroll': 'payroll', 'ecommerce': 'ecommerce', 'processflow': 'processflow' };
+    var FILE = { accounting: 1, billing: 1, hr: 1, payroll: 1, ecommerce: 1, processflow: 1 };
     var CONTACT = '/contact-us';
     var here = (location.pathname.split('/').pop() || '').replace('.html', '');
+    var DEMO = '/book-demo' + (FILE[here] ? '?product=' + here : '');
 
     function routeFile(r) {
       if (r === '/product/vsuite-finance') return 'accounting';
       if (r === '/product/vsuite-workforce') return 'hr';
-      var last = r.split('/').pop(); return FILE[last] || '';
+      var last = r.split('/').pop(); return FILE[last] ? last : '';
     }
     function norm(t) { return (t || '').replace(/[\u2192\u2014\u2013].*$/, '').replace(/\s+/g, ' ').trim().toLowerCase(); }
     function go(route) {
-      if (route !== CONTACT && routeFile(route) === here) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
-      if (window.parent && window.parent !== window) window.parent.postMessage({ vsNav: route }, '*');
+      if (route.charAt(0) === '/' && route !== CONTACT && route.indexOf('/book-demo') !== 0 && routeFile(route) === here) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+      if (window.parent && window.parent !== window) window.parent.postMessage({ vsNav: route }, window.location.origin);
       else window.location.href = route;
     }
 
-    // ----- which clicks mean "contact / demo" -----
-    var CONTACT_SEL = [
-      'a[href="#request-demo"]', 'a[href="#request-a-demo"]', 'a[href="#contact"]', 'a[href="#contact-options"]', 'a[href="#demo-panel"]',
-      '#demo-request-button', '#demo-contact-button', '#demo-button',
-      '[data-template-id="contact-link-placeholder"]', '[data-template-id="contact-placeholder"]',
-      '[data-template-id="footer-contact"]', '[data-template-id="footer-contact-placeholder"]'
-    ].join(',');
-    var CONTACT_TEXT = /^(request a demo|contact|contact vishva digital technologies|discuss a demonstration|discuss your requirements|view contact information)\b/i;
+    var DEMO_TEXT = /^(request a demo|book a demo|book my demo|discuss a demonstration|discuss your requirements)/i;
+    var CONTACT_TEXT = /^(contact|view contact information)/i;
+    var DEMO_SEL = 'a[href="#request-demo"],a[href="#request-a-demo"],a[href="#demo-panel"],#demo-request-button,#demo-button';
+    var CONTACT_SEL = 'a[href="#contact"],a[href="#contact-options"],#demo-contact-button,' +
+      '[data-template-id="contact-link-placeholder"],[data-template-id="contact-placeholder"],[data-template-id="footer-contact"],[data-template-id="footer-contact-placeholder"]';
 
-    function contactTarget(el) {
-      var hit = el.closest(CONTACT_SEL); if (hit) return hit;
+    function kind(el) {
       var c = el.closest('a, button');
-      if (c && !c.closest('summary, .faq, .faq-list, [id^="faq"]') && c.getAttribute('aria-expanded') === null && CONTACT_TEXT.test((c.textContent || '').replace(/\s+/g, ' ').trim())) return c;
-      return null;
+      if (c && !c.closest('summary, .faq, .faq-list, [id^="faq"]') && c.getAttribute('aria-expanded') === null) {
+        var t = (c.textContent || '').replace(/\s+/g, ' ').trim();
+        if (DEMO_TEXT.test(t)) return 'demo';
+        if (CONTACT_TEXT.test(t)) return 'contact';
+      }
+      if (el.closest(CONTACT_SEL)) return 'contact';
+      if (el.closest(DEMO_SEL)) return 'demo';
+      return '';
     }
-    // ----- related-product entries in the footer -----
     function productTarget(el) {
       var t = el.closest('footer a, footer li, footer .footer-placeholder'); if (!t) return null;
-      var key = norm(t.textContent); return PRODUCTS.hasOwnProperty(key) ? { el: t, route: PRODUCTS[key] } : null;
+      var key = norm(t.textContent); return PRODUCTS.hasOwnProperty(key) ? PRODUCTS[key] : null;
     }
+    function stop(e) { e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation(); }
 
     d.addEventListener('click', function (e) {
       if (!e.target || !e.target.closest) return;
       var p = productTarget(e.target);
-      if (p) { e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation(); go(p.route); return; }
-      var c = contactTarget(e.target);
-      if (c) { e.preventDefault(); e.stopPropagation(); e.stopImmediatePropagation(); go(CONTACT); }
+      if (p) { stop(e); go(p); return; }
+      var k = kind(e.target);
+      if (k) { stop(e); go(k === 'demo' ? DEMO : CONTACT); return; }
+      var site = e.target.closest('a[href^="/"]');
+      if (site && site.getAttribute('href').indexOf('//') !== 0) { stop(e); go(site.getAttribute('href')); return; }
+      var logo = e.target.closest('header a.brand, header .brand a, header a[aria-label*="logo" i], header a[aria-label*="home" i], header a[aria-label*="overview" i]');
+      if (logo) { stop(e); window.scrollTo({ top: 0, behavior: 'smooth' }); }
     }, true);
 
-    // make footer product entries look and behave like links (real href + target=_top as a no-JS fallback)
+    // real href + target=_top as a no-JS fallback; keyboard support for non-link elements
     function decorate() {
       [].slice.call(d.querySelectorAll('footer a, footer li, footer .footer-placeholder')).forEach(function (el) {
         var key = norm(el.textContent); if (!PRODUCTS.hasOwnProperty(key)) return;
         var route = PRODUCTS[key];
         if (el.tagName === 'A') { el.setAttribute('href', route); el.setAttribute('target', '_top'); }
-        else { el.setAttribute('role', 'link'); el.setAttribute('tabindex', '0'); el.style.cursor = 'pointer';
+        else if (!el.querySelector('a')) { el.setAttribute('role', 'link'); el.setAttribute('tabindex', '0'); el.style.cursor = 'pointer';
           el.addEventListener('keydown', function (ev) { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); go(route); } }); }
       });
-      [].slice.call(d.querySelectorAll(CONTACT_SEL)).forEach(function (el) { if (el.tagName !== 'A' && el.tagName !== 'BUTTON') { el.style.cursor = 'pointer'; el.setAttribute('role', 'link'); el.setAttribute('tabindex', '0'); el.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); go(CONTACT); } }); } });
+      [].slice.call(d.querySelectorAll(CONTACT_SEL)).forEach(function (el) {
+        if (el.tagName !== 'A' && el.tagName !== 'BUTTON') { el.style.cursor = 'pointer'; el.setAttribute('role', 'link'); el.setAttribute('tabindex', '0');
+          el.addEventListener('keydown', function (ev) { if (ev.key === 'Enter') { ev.preventDefault(); go(CONTACT); } }); }
+      });
     }
     if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', decorate); else decorate();
   } catch (err) { if (window.console) console.warn('module-nav', err); }
