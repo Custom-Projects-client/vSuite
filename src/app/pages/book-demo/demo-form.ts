@@ -22,6 +22,7 @@ export class DemoForm implements OnInit {
     { key: 'payroll', label: 'vSuite Payroll' },
     { key: 'ecommerce', label: 'vSuite E-Commerce' },
     { key: 'processflow', label: 'vSuite ProcessFlow' },
+    { key: 'hospital', label: 'vSuite Hospital Management' },
     { key: 'all', label: 'All vSuite products' },
     { key: 'unsure', label: 'Not sure yet' },
   ];
@@ -37,7 +38,7 @@ export class DemoForm implements OnInit {
     product: new FormControl('', { nonNullable: true, validators: [Validators.required] }),
     details: new FormControl('', { nonNullable: true }),
   });
-  status = signal<'idle' | 'invalid' | 'sending' | 'sent' | 'failed'>('idle');
+  status = signal<'idle' | 'invalid' | 'sending' | 'sent' | 'fallback'>('idle');
 
   ngOnInit() {
     const wanted = this.route.snapshot.queryParamMap.get('product');
@@ -59,15 +60,22 @@ export class DemoForm implements OnInit {
     if (this.status() === 'sending') return;
     this.status.set('sending');
     const v = this.form.getRawValue();
-    const ok = await this.mail.send(`Demo request: ${v.product} (${v.name})`, {
+    const subject = `Demo request: ${v.product} (${v.name})`;
+    const fields = {
       Name: v.name,
       Email: v.email,
       Phone: v.phone,
       Company: v.company,
       'Product of interest': v.product,
       'Details / requirements': v.details,
-    });
-    this.status.set(ok ? 'sent' : 'failed');
-    if (ok) this.form.reset({ name: '', email: '', phone: '', company: '', product: '', details: '' });
+    };
+    const ok = await this.mail.send(subject, fields);
+    if (ok) {
+      this.status.set('sent');
+      this.form.reset({ name: '', email: '', phone: '', company: '', product: '', details: '' });
+    } else {
+      this.status.set('fallback');
+      this.mail.openMailClient(subject, fields);
+    }
   }
 }

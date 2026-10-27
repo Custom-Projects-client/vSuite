@@ -52,6 +52,11 @@ export class Header {
     this.open.update((v) => !v);
   }
 
+  // keeps the brand name spelled "vSuite" even where the theme sets menu text in capitals
+  fmt(label: string): string {
+    return label.replace(/vsuite/gi, '<span class="vs-brand">vSuite</span>');
+  }
+
   // Logo: already on the home page -> glide back up to the hero (a same-URL link click does nothing by itself)
   onLogoClick(event: Event) {
     this.close();

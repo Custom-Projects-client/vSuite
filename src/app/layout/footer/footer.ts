@@ -21,15 +21,28 @@ export class Footer {
   private mail = inject(MailService);
   sending = signal(false);
 
+  note = signal<'' | 'invalid' | 'fallback'>('');
+
   async subscribe(event: Event) {
     event.preventDefault();
-    if (this.email.invalid || this.sending()) return;
+    this.note.set('');
+    if (this.sending()) return;
+    if (this.email.invalid) {
+      this.email.markAsTouched();
+      this.note.set('invalid');
+      return;
+    }
     this.sending.set(true);
-    const ok = await this.mail.send('Newsletter subscription', { Email: this.email.value });
+    const fields = { Email: this.email.value };
+    const ok = await this.mail.send('Newsletter subscription', fields);
     this.sending.set(false);
     if (ok) {
       this.subscribed.set(true);
       this.email.reset();
+    } else {
+      // the form service could not take it: hand the sign-up to the visitor's e-mail app instead
+      this.note.set('fallback');
+      this.mail.openMailClient('Newsletter subscription', fields);
     }
   }
 }

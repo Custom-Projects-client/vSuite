@@ -29,11 +29,16 @@
   <script src="vendor/lucide.min.js"></script>
   <style>:root{--fx-a:#A50046;--fx-b:#E5AD00}</style>
 <link rel="stylesheet" href="fx/module-fx.css">
+<style id="vs-logo-size">
+    /* every product page shows its header logo at the same size */
+    header .brand img,.site-header .brand img{width:auto!important;height:92px!important;max-width:none!important;object-fit:contain!important}
+    @media(max-width:900px){header .brand img,.site-header .brand img{height:72px!important}}
+  </style>
 </head>
  <body data-template-id="__page-root" class="w-full" style="background: rgb(255, 255, 255);">
   <header class="site-header">
    <div class="wrap header-inner">
-    <a class="brand" href="#overview" aria-label="vSuite E-Commerce — overview"><img data-template-id="brand-logo-header" class="brand-logo canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-ecommerce.png" alt="vSuite E-Commerce logo"><span class="sr-only">vSuite E-Commerce</span></a>
+    <a class="brand" href="#overview" aria-label="vSuite E-Commerce — overview"><img data-template-id="brand-logo-header" class="brand-logo canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-ecommerce-header.png" alt="vSuite E-Commerce logo"><span class="sr-only">vSuite E-Commerce</span></a>
     <nav class="desktop-nav" aria-label="Primary navigation"><a href="#overview">Overview</a><a href="#commerce-features">Features</a><a href="#shopping-experience">Shopping Experience</a><a href="#enterprise-commerce">Enterprise Commerce</a><a href="#ai-agentic-ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a class="nav-cta" href="#request-demo">Request a Demo</a>
     </nav><button id="menu-button" class="menu-button" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false">
      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path id="menu-icon-path" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -841,6 +846,7 @@ With flexible commerce capabilities, AI-powered product discovery, personalized 
        <li><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a></li>
        <li><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a></li>
        <li><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a></li>
+       <li><a href="/product/vsuite-healthcare/hospital-management" target="_top">vSuite Hospital Management</a></li>
       </ul>
      </div>
      <div>

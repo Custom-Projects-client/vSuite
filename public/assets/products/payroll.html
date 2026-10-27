@@ -125,11 +125,16 @@
   <script src="vendor/lucide.min.js"></script>
   <style>:root{--fx-a:#702333;--fx-b:#e5ad00}</style>
 <link rel="stylesheet" href="fx/module-fx.css">
+<style id="vs-logo-size">
+    /* every product page shows its header logo at the same size */
+    header .brand img,.site-header .brand img{width:auto!important;height:92px!important;max-width:none!important;object-fit:contain!important}
+    @media(max-width:900px){header .brand img,.site-header .brand img{height:72px!important}}
+  </style>
 </head>
  <body data-template-id="__page-root" class="w-full" style="background: rgb(255, 255, 255);">
   <header class="site-header">
    <div class="wrap header-inner">
-    <a class="brand" href="#overview" aria-label="vSuite Payroll — go to overview"><img data-template-id="header-logo" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-payroll.png" alt="Official vSuite Payroll logo with the tagline Pay Right. Every Time."></a>
+    <a class="brand" href="#overview" aria-label="vSuite Payroll — go to overview"><img data-template-id="header-logo" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-payroll-header.png" alt="Official vSuite Payroll logo with the tagline Pay Right. Every Time."></a>
     <nav class="desktop-nav" aria-label="Primary navigation">
      <a href="#overview">Overview</a><a href="#payroll-features">Payroll Features</a><a href="#payroll-processing">Payroll Processing</a><a href="#enterprise-payroll">Enterprise Payroll</a><a href="#ai-agentic">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a class="nav-cta" href="#request-demo">Request a Demo</a>
     </nav><button id="menu-button" class="menu-button" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false">
@@ -404,7 +409,7 @@ With payroll automation, enterprise payroll capabilities, and AI-assisted valida
       <h3 data-template-id="footer-nav-heading" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 19px;">Explore</h3><a href="#overview">Overview</a><a href="#payroll-features">Payroll Features</a><a href="#payroll-processing">Payroll Processing</a><a href="#enterprise-payroll">Enterprise Payroll</a><a href="#ai-agentic">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
      </nav>
      <div class="footer-links" aria-label="Related vSuite products">
-      <h3 data-template-id="footer-products-heading" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 19px;">vSuite products</h3><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a>
+      <h3 data-template-id="footer-products-heading" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 19px;">vSuite products</h3><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a><a href="/product/vsuite-healthcare/hospital-management" target="_top">vSuite Hospital Management</a>
      </div>
      <div class="footer-links">
       <h3 data-template-id="footer-info-heading" class="canva-text" style="color: rgb(242, 201, 76); font-weight: 900; font-style: normal; font-size: 19px;">Information</h3>

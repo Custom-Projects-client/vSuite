@@ -28,10 +28,15 @@
   <script src="vendor/lucide.min.js"></script>
   <style>:root{--fx-a:#513260;--fx-b:#d4a017}</style>
 <link rel="stylesheet" href="fx/module-fx.css">
+<style id="vs-logo-size">
+    /* every product page shows its header logo at the same size */
+    header .brand img,.site-header .brand img{width:auto!important;height:92px!important;max-width:none!important;object-fit:contain!important}
+    @media(max-width:900px){header .brand img,.site-header .brand img{height:72px!important}}
+  </style>
 </head>
  <body data-template-id="__page-root" class="w-full" style="background: rgb(250, 249, 246);">
   <header class="header">
-   <div class="wrap header-inner"><a class="brand" href="#overview" aria-label="vSuite Accounting overview"><img data-template-id="header-logo" class="canva-image brand-logo" loading="lazy" src="../uploads/vsuite/modules/logo-accounting.png" alt="Official vSuite Accounting logo with a deep-plum lotus, gold accents, and the words vSuite Accounting"></a>
+   <div class="wrap header-inner"><a class="brand" href="#overview" aria-label="vSuite Accounting overview"><img data-template-id="header-logo" class="canva-image brand-logo" loading="lazy" src="../uploads/vsuite/modules/logo-accounting-header.png" alt="Official vSuite Accounting logo with a deep-plum lotus, gold accents, and the words vSuite Accounting"></a>
     <nav class="nav" aria-label="Primary navigation">
      <a href="#overview">Overview</a><a href="#features">Accounting Features</a><a href="#reporting">Financial Reporting</a><a href="#enterprise">Enterprise Accounting</a><a href="#ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
     </nav><button id="menu-toggle" class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><span class="menu-open">☰</span><span class="menu-close" hidden="">✕</span></button>
@@ -1369,7 +1374,7 @@
       <h3>Quick links</h3><a href="#overview">Overview</a><a href="#features">Accounting Features</a><a href="#reporting">Financial Reporting</a><a href="#enterprise">Enterprise Accounting</a><a href="#ai">AI &amp; Agentic AI</a><a href="#faq">FAQ</a>
      </div>
      <div>
-      <h3>vSuite products</h3><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a>
+      <h3>vSuite products</h3><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a><a href="/product/vsuite-healthcare/hospital-management" target="_top">vSuite Hospital Management</a>
      </div>
      <div id="contact-options">
       <h3>Vishva Digital Technologies</h3>

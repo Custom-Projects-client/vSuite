@@ -33,3 +33,14 @@ Use HTTPS (the contact map and form service need it on a live site).
 * Replace the `#` social-media links (`src/app/core/site-data.ts`, footer) with real profile URLs.
 * Open every page once, plus a product page -> "Request a Demo" -> submit the demo form, and the contact form.
 * Submit each form once on the live domain so the FormSubmit activation e-mail is triggered.
+
+## 5. Notes from the website-feedback round
+* **Map pin (footer "We are here" + Contact page):** both maps search for "Vishva Digital Technologies, 11/1G, 4th St, Durga Colony, Sembakkam, Chennai 600073".
+  The Contact page also has an **Open in Google Maps** button that opens the exact pin from https://maps.app.goo.gl/ZhS3LMUN2NZNsH7i8.
+  To embed that exact pin: Google Maps -> Share -> *Embed a map* -> copy the `src="..."` value and replace the `https://www.google.com/maps?q=...&output=embed` URL in
+  `src/app/layout/footer/footer.html` and `src/app/pages/contact-us/contact-section.html`.
+* **Forms (Contact, Book a Demo, Subscribe):** if the form service cannot deliver (FormSubmit not activated yet, no internet, blocked), the visitor now sees a clear message and
+  their e-mail app opens with the message ready, so no enquiry is lost. Activate FormSubmit once (section 3) and messages arrive directly in the mailbox.
+* **vSuite Hospital Management (vSuite Healthcare):** page `public/assets/products/hospital.html`, routes `/product/vsuite-healthcare/hospital-management`.
+  The text and the images `logo-healthcare.jpg`, `product-healthcare.jpg`, `modules/logo-hospital-header.png` are **placeholders** - replace the files (same names) and edit the text when the real details are ready.
+* **Blog:** the nine blog post detail pages still contain the theme's Lorem Ipsum text and are waiting for the real articles.

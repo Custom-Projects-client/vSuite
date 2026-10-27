@@ -25,7 +25,7 @@
       <p class="vs-contact-msg" [class.ok]="status() === 'sent'" role="status">
         @if (status() === 'invalid') { Please fill in your name, a valid email, a phone number and the product you are interested in. }
         @if (status() === 'sent') { Thank you! Your demo request has been sent. We will contact you shortly. }
-        @if (status() === 'failed') { Sorry, your request could not be sent. Please email us at info&#64;vishvadigitaltechnologies.com. }
+        @if (status() === 'fallback') { We could not send this automatically, so your email app has opened with your request ready &mdash; please press Send there. You can also email us at info&#64;vishvadigitaltechnologies.com. }
       </p>
     </form>
   </div>

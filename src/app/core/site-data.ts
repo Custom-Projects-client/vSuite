@@ -21,7 +21,7 @@ export const MENU: MenuItem[] = [
     link: '/product',
     children: [
       {
-        label: 'vSUITE FINANCE',
+        label: 'vSuite Finance',
         link: '/product/vsuite-finance',
         children: [
           { label: 'Accounting', link: '/product/vsuite-finance/accounting' },
@@ -29,7 +29,7 @@ export const MENU: MenuItem[] = [
         ],
       },
       {
-        label: 'vSUITE WORKFORCE',
+        label: 'vSuite Workforce',
         link: '/product/vsuite-workforce',
         children: [
           { label: 'Human Resources', link: '/product/vsuite-workforce/hr' },
@@ -37,14 +37,19 @@ export const MENU: MenuItem[] = [
         ],
       },
       {
-        label: 'vSUITE COMMERCE',
+        label: 'vSuite Commerce',
         link: '/product/vsuite-commerce',
         children: [{ label: 'E-Commerce', link: '/product/vsuite-commerce/ecommerce' }],
       },
       {
-        label: 'vSUITE LOGISTICS',
+        label: 'vSuite Logistics',
         link: '/product/vsuite-logistics',
         children: [{ label: 'ProcessFlow', link: '/product/vsuite-logistics/processflow' }],
+      },
+      {
+        label: 'vSuite Healthcare',
+        link: '/product/vsuite-healthcare',
+        children: [{ label: 'Hospital Management', link: '/product/vsuite-healthcare/hospital-management' }],
       },
     ],
   },

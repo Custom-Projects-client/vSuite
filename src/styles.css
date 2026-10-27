@@ -213,7 +213,8 @@ body { overflow-x: hidden; }
 .hx-btn-ghost:hover { transform: translateY(-4px) scale(1.04); background: #f3dca4; color: #06323c !important; border-color: #f3dca4; }
 
 /* product logo cards */
-.hx-prods { --card: clamp(84px, 14.5vh, 138px); display: grid; grid-template-columns: repeat(4, var(--card)); justify-content: center; gap: clamp(10px, 1.9vh, 18px); margin-top: 3vh; }
+.hx-prods { --card: clamp(80px, 13.5vh, 132px); display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(10px, 1.9vh, 18px); margin-top: 3vh; }
+.hx-prod { width: var(--card); }
 .vs-hero .hx-copy .styled-subtitle br + br { display: none; }
 .vs-hero .hx-copy .gem-divider { transform: scaleY(.7); transform-origin: top; }
 .hx-prod { display: block; border-radius: 20px; overflow: hidden; background: #fff; line-height: 0; text-decoration: none !important;
@@ -261,7 +262,7 @@ body { overflow-x: hidden; }
   .hx-rule span { animation-name: hx-line-s; }
   .hx-cta { flex-direction: column; align-items: center; gap: 12px; margin-top: 22px; }
   .hx-btn { width: min(280px, 100%); box-sizing: border-box; text-align: center; padding: 15px 20px; font-size: 13px; }
-  .hx-prods { --card: min(42vw, 150px); grid-template-columns: repeat(2, var(--card)); gap: 14px; margin-top: 26px; }
+  .hx-prods { --card: min(42vw, 150px); gap: 14px; margin-top: 26px; }
   .hx-ch { animation-delay: calc(var(--i, 0) * 30ms + 1.1s); }
   .hx-l1 .hx-ch { animation-delay: calc(var(--i, 0) * 30ms + 1.1s), calc(3s + var(--i, 0) * 120ms); }
   .hx-l2 .hx-ch { animation-delay: calc(var(--i, 0) * 16ms + 1.7s); }
@@ -279,3 +280,27 @@ body { overflow-x: hidden; }
   .hx-gem, .hx-halo, .hx-dash, .hx-spark, .hx-prod { animation: none !important; }
   .hx-rule span { width: 100px; } .hx-blade { stroke-dasharray: none; }
 }
+
+/* =====================================================
+   9. WEBSITE FEEDBACK CORRECTIONS
+   ===================================================== */
+/* "vSuite" always keeps this exact spelling, even inside headings that the theme sets in capitals */
+.vs-brand { text-transform: none !important; }
+
+/* five products in the home strip: equal columns on wide screens */
+@media (min-width: 1200px) {
+  .vs-prod-strip > .vc_column_container { width: 20% !important; flex: 0 0 20% !important; max-width: 20% !important; }  .vs-prod-strip .title-h3 { font-size: clamp(14px, 1.3vw, 20px) !important; letter-spacing: .02em !important; line-height: 1.5 !important; }
+  .vs-prod-strip .styled-subtitle { font-size: 15px !important; line-height: 1.6 !important; }
+}
+
+/* footer "we are here" address: short lines that stay inside the panel */
+.gem-map-with-text-text p, .gem-icon-with-text-text p { overflow-wrap: anywhere; word-break: normal; }
+
+/* contact page map: link to the exact pin */
+.vs-contact-map { position: relative; }
+.vs-map-link { position: absolute; right: 12px; bottom: 12px; padding: 8px 14px; border-radius: 30px; font-size: 13px; font-weight: 700; line-height: 1; text-decoration: none !important;
+  color: #1f2d5a !important; background: rgba(255,255,255,.95); box-shadow: 0 6px 18px rgba(0,0,0,.2); transition: transform .25s ease, box-shadow .25s ease; }
+.vs-map-link:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.28); }
+
+/* newsletter message under the Subscribe button */
+.mc4wp-alert.mc4wp-error p { color: #ff9b9b; }

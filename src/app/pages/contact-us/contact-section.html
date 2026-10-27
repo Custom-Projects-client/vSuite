@@ -11,8 +11,9 @@
           title="vSuite location"
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          src="https://www.google.com/maps?q=11%2F1G%2C%204th%20St%2C%20Durga%20Colony%2C%20Sembakkam%2C%20Chennai%2C%20Tamil%20Nadu%20600073&amp;output=embed"
+          src="https://www.google.com/maps?q=Vishva%20Digital%20Technologies%2C%2011%2F1G%2C%204th%20St%2C%20Durga%20Colony%2C%20Sembakkam%2C%20Chennai%20600073&amp;output=embed"
         ></iframe>
+        <a class="vs-map-link" href="https://maps.app.goo.gl/ZhS3LMUN2NZNsH7i8" target="_blank" rel="noopener">Open in Google Maps &rarr;</a>
       </div>
       <div class="vs-contact-cards">
         <div class="vs-contact-card vs-contact-wide vs-contact-email">
@@ -44,7 +45,7 @@
       <p class="vs-contact-msg" [class.ok]="status() === 'sent'" role="status">
         @if (status() === 'invalid') { Please fill in your name, a valid email, and a message. }
         @if (status() === 'sent') { Thank you! Your message has been sent. }
-        @if (status() === 'failed') { Sorry, your message could not be sent. Please email us at info&#64;vishvadigitaltechnologies.com. }
+        @if (status() === 'fallback') { We could not send this automatically, so your email app has opened with your message ready &mdash; please press Send there. You can also email us at info&#64;vishvadigitaltechnologies.com. }
       </p>
     </form>
   </div>

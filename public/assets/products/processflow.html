@@ -19,11 +19,16 @@
   <script src="vendor/lucide.min.js"></script>
   <style>:root{--fx-a:#4B00D6;--fx-b:#E5AD00}</style>
 <link rel="stylesheet" href="fx/module-fx.css">
+<style id="vs-logo-size">
+    /* every product page shows its header logo at the same size */
+    header .brand img,.site-header .brand img{width:auto!important;height:92px!important;max-width:none!important;object-fit:contain!important}
+    @media(max-width:900px){header .brand img,.site-header .brand img{height:72px!important}}
+  </style>
 </head>
  <body data-template-id="__page-root" class="w-full" style="background: rgb(255, 255, 255);">
   <header class="site-header">
    <div class="site-wrap header-inner">
-    <a class="brand" href="#top" aria-label="vSuite ProcessFlow — back to top"><img data-template-id="brand-logo-header" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-processflow.png" alt="vSuite ProcessFlow"></a>
+    <a class="brand" href="#top" aria-label="vSuite ProcessFlow — back to top"><img data-template-id="brand-logo-header" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-processflow-header.png" alt="vSuite ProcessFlow"></a>
     <nav class="desktop-nav" aria-label="Primary navigation">
      <a href="#overview">Overview</a><a href="#capabilities">Capabilities</a><a href="#how-it-works">How It Works</a><a href="#integrations">Integrations</a><a href="#ai-agentic-ai">AI &amp; Agentic AI</a><a href="#faq">FAQ</a><a class="nav-cta" href="#request-a-demo">Request a Demo</a>
     </nav><button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-nav" aria-expanded="false">
@@ -270,7 +275,7 @@
     </div>
     <div class="footer-related">
      <p class="footer-heading">vSuite products</p>
-     <nav aria-label="Related products"><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a>
+     <nav aria-label="Related products"><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a><a href="/product/vsuite-healthcare/hospital-management" target="_top">vSuite Hospital Management</a>
      </nav>
     </div>
     <div class="footer-contact">

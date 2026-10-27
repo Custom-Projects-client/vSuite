@@ -100,10 +100,15 @@
   <script src="vendor/lucide.min.js"></script>
   <style>:root{--fx-a:#A7470C;--fx-b:#E5AD00}</style>
 <link rel="stylesheet" href="fx/module-fx.css">
+<style id="vs-logo-size">
+    /* every product page shows its header logo at the same size */
+    header .brand img,.site-header .brand img{width:auto!important;height:92px!important;max-width:none!important;object-fit:contain!important}
+    @media(max-width:900px){header .brand img,.site-header .brand img{height:72px!important}}
+  </style>
 </head>
  <body data-template-id="__page-root" style="background: rgb(250, 248, 245);">
   <header class="site-header">
-   <div class="site-wrap header-inner"><a class="brand" href="#overview" aria-label="vSuite Billing home"> <img data-template-id="brand-logo" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-billing.png" alt="Official vSuite Billing logo with Billing Made Brilliant tagline"> </a>
+   <div class="site-wrap header-inner"><a class="brand" href="#overview" aria-label="vSuite Billing home"> <img data-template-id="brand-logo" class="canva-image" loading="lazy" src="../uploads/vsuite/modules/logo-billing-header.png" alt="Official vSuite Billing logo with Billing Made Brilliant tagline"> </a>
     <nav class="nav" aria-label="Primary navigation"><a href="#overview">Overview</a> <a href="#features">Features</a> <a href="#workflow">Workflow</a> <a href="#industries">Industries</a> <a href="#integrations">Integrations</a> <a href="#faq">FAQ</a> <a href="#contact">Contact</a>
     </nav><button id="menuToggle" class="menu-button" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu"> <i data-lucide="menu"></i> </button>
    </div>
@@ -571,7 +576,7 @@
       <h3>Quick navigation</h3><a href="#overview">Overview</a><a href="#features">Features</a><a href="#workflow">Workflow</a><a href="#industries">Industries</a>
      </div>
      <div>
-      <h3>vSuite products</h3><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a>
+      <h3>vSuite products</h3><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a><a href="/product/vsuite-healthcare/hospital-management" target="_top">vSuite Hospital Management</a>
      </div>
      <div>
       <h3>Vishva Digital Technologies</h3><a href="#contact">Contact</a><a href="#faq">FAQ</a><a href="#overview">vSuite Billing</a>

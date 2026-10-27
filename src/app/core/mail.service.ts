@@ -17,6 +17,18 @@ const WEB3FORMS_KEY = ''; // e.g. '1a2b3c4d-....' (leave empty to use FormSubmit
 
 @Injectable({ providedIn: 'root' })
 export class MailService {
+  /**
+   * Last resort when the form service is not reachable / not activated yet:
+   * opens the visitor's e-mail app with the message already written, addressed to the company mailbox.
+   */
+  openMailClient(subject: string, fields: Record<string, string | null | undefined>): void {
+    const lines = Object.entries(fields)
+      .filter(([, v]) => !!v)
+      .map(([k, v]) => `${k}: ${v}`);
+    const href = `mailto:${RECIPIENT}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+    window.location.href = href;
+  }
+
   /** Why the last send failed (for debugging; also logged to the console). */
   lastError = '';
 

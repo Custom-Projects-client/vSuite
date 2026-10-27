@@ -90,12 +90,12 @@
                             <ul class="sub-menu styled">
                               @for (child of item.children; track child.label) {
                                 <li class="menu-item megamenu-first-element" [class.menu-item-current]="isExact(child.link)">
-                                  <a [routerLink]="child.link" (click)="close()">{{ child.label }}</a>
+                                  <a [routerLink]="child.link" (click)="close()" [innerHTML]="fmt(child.label)"></a>
                                   @if (child.children) {
                                     <ul class="sub-menu styled">
                                       @for (sub of child.children; track sub.label) {
                                         <li class="menu-item megamenu-first-element" [class.menu-item-current]="isExact(sub.link)">
-                                          <a [routerLink]="sub.link" (click)="close()">{{ sub.label }}</a>
+                                          <a [routerLink]="sub.link" (click)="close()" [innerHTML]="fmt(sub.label)"></a>
                                         </li>
                                       }
                                     </ul>

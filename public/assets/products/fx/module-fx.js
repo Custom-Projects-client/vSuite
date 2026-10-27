@@ -91,9 +91,11 @@
       'vsuite e-commerce': '/product/vsuite-commerce/ecommerce',
       'vsuite commerce': '/product/vsuite-commerce/ecommerce',
       'vsuite processflow': '/product/vsuite-logistics/processflow',
-      'vsuite logistics': '/product/vsuite-logistics/processflow'
+      'vsuite logistics': '/product/vsuite-logistics/processflow',
+      'vsuite hospital management': '/product/vsuite-healthcare/hospital-management',
+      'vsuite healthcare': '/product/vsuite-healthcare/hospital-management'
     };
-    var FILE = { accounting: 1, billing: 1, hr: 1, payroll: 1, ecommerce: 1, processflow: 1 };
+    var FILE = { accounting: 1, billing: 1, hr: 1, payroll: 1, ecommerce: 1, processflow: 1, hospital: 1 };
     var CONTACT = '/contact-us';
     var here = (location.pathname.split('/').pop() || '').replace('.html', '');
     var DEMO = '/book-demo' + (FILE[here] ? '?product=' + here : '');
@@ -101,6 +103,8 @@
     function routeFile(r) {
       if (r === '/product/vsuite-finance') return 'accounting';
       if (r === '/product/vsuite-workforce') return 'hr';
+      if (r === '/product/vsuite-healthcare') return 'hospital';
+      if (r === '/product/vsuite-healthcare/hospital-management') return 'hospital';
       var last = r.split('/').pop(); return FILE[last] ? last : '';
     }
     function norm(t) { return (t || '').replace(/[\u2192\u2014\u2013].*$/, '').replace(/\s+/g, ' ').trim().toLowerCase(); }

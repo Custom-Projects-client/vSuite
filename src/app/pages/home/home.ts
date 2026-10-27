@@ -40,6 +40,7 @@ export class Home implements AfterViewInit, OnDestroy {
     { name: 'Workforce', tag: 'People. Potential. Performance.', logo: 'assets/uploads/vsuite/logo-workforce.jpg', link: '/product/vsuite-workforce' },
     { name: 'Commerce', tag: 'Sell. Manage. Grow.', logo: 'assets/uploads/vsuite/logo-commerce.jpg', link: '/product/vsuite-commerce' },
     { name: 'Logistics', tag: 'Logistics, Perfectly orchestrated', logo: 'assets/uploads/vsuite/logo-logistics.jpg', link: '/product/vsuite-logistics' },
+    { name: 'Healthcare', tag: 'Care, Connected.', logo: 'assets/uploads/vsuite/logo-healthcare.jpg', link: '/product/vsuite-healthcare' },
   ];
 
   // mouse movement: moves the spotlight and emblem, and attracts the network lines

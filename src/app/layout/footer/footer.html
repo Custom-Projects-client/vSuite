@@ -103,7 +103,7 @@
                                       <div class="wpb_wrapper">
                                         <p>
                                           <span style="color: #ffffff"
-                                            >11/1G, 4th St, Durga Colony, Sembakkam, Chennai, Tamil Nadu 600073 </span
+                                            >11/1G, 4th St, Durga Colony,<br />Sembakkam, Chennai,<br />Tamil Nadu 600073</span
                                           ><br />
                                           <span style="color: #ffffff"
                                             >Phone: +91-9344964680 </span
@@ -133,7 +133,7 @@
                           <iframe
                             height="911"
                             loading="lazy"
-                            src="https://www.google.com/maps?q=11%2F1G%2C%204th%20St%2C%20Durga%20Colony%2C%20Sembakkam%2C%20Chennai%2C%20Tamil%20Nadu%20600073&amp;output=embed"
+                            src="https://www.google.com/maps?q=Vishva%20Digital%20Technologies%2C%2011%2F1G%2C%204th%20St%2C%20Durga%20Colony%2C%20Sembakkam%2C%20Chennai%20600073&amp;output=embed"
                             style="pointer-events: none"
                             width="640"
                           ></iframe
@@ -165,7 +165,7 @@
             />
           </p>
           <p>
-            vSuite is an integrated business software platform that unifies finance, workforce, commerce, and workflow automation with the power of Generative AI and Agentic AI. Simplify operations, connect business processes, and drive intelligent growth—all in one suite.
+            vSuite is an integrated business software platform that unifies finance, workforce, commerce, healthcare, and workflow automation with the power of Generative AI and Agentic AI. Simplify operations, connect business processes, and drive intelligent growth—all in one suite.
           </p>
         </div>
       </div>
@@ -181,6 +181,7 @@
             <li><a routerLink="/product/vsuite-workforce/payroll">vSuite Payroll</a></li>
             <li><a routerLink="/product/vsuite-commerce/ecommerce">vSuite E-Commerce</a></li>
             <li><a routerLink="/product/vsuite-logistics/processflow">vSuite Processflow</a></li>
+            <li><a routerLink="/product/vsuite-healthcare/hospital-management">vSuite Hospital Management</a></li>
             <li><a routerLink="/contact-us">Contact Us</a></li>
             <li><a routerLink="/book-demo">Request a Demo</a></li>
           </ul>
@@ -209,7 +210,7 @@
         id="mc4wp_form_widget-2"
       >
         <h3 class="widget-title">Newsletter</h3>
-        <form class="mc4wp-form" (submit)="subscribe($event)">
+        <form class="mc4wp-form" (submit)="subscribe($event)" novalidate>
           <div class="mc4wp-form-fields">
             <p>
               Subscribe to our newsletter and stay up to date with all events coming straight in
@@ -227,6 +228,18 @@
             </p>
             <p class="mc-text small-body"><span>*</span> Personal data will be encrypted</p>
           </div>
+          @if (note() === 'invalid') {
+            <div class="mc4wp-response">
+              <div class="mc4wp-alert mc4wp-error"><p>Please enter a valid email address.</p></div>
+            </div>
+          }
+          @if (note() === 'fallback') {
+            <div class="mc4wp-response">
+              <div class="mc4wp-alert mc4wp-error">
+                <p>We could not subscribe you automatically, so your email app has opened - please press Send there.</p>
+              </div>
+            </div>
+          }
           @if (subscribed()) {
             <div class="mc4wp-response">
               <div class="mc4wp-alert mc4wp-success">

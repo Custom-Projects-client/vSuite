@@ -305,6 +305,7 @@ export const routes: Routes = [
   { path: 'product/vsuite-workforce', pathMatch: 'full', redirectTo: 'product/vsuite-workforce/hr' },
   { path: 'product/vsuite-commerce', pathMatch: 'full', redirectTo: 'product/vsuite-commerce/ecommerce' },
   { path: 'product/vsuite-logistics', pathMatch: 'full', redirectTo: 'product/vsuite-logistics/processflow' },
+  { path: 'product/vsuite-healthcare', pathMatch: 'full', redirectTo: 'product/vsuite-healthcare/hospital-management' },
   {
     path: 'product/vsuite-finance/accounting',
     title: 'vSuite Accounting | Vishva Digital Technologies',
@@ -339,6 +340,12 @@ export const routes: Routes = [
     path: 'product/vsuite-logistics/processflow',
     title: 'vSuite ProcessFlow | Vishva Digital Technologies',
     data: { bodyClass: 'product-view-page', src: 'assets/products/processflow.html' },
+    loadComponent: () => import('./pages/product-view/product-view').then((m) => m.ProductView),
+  },
+  {
+    path: 'product/vsuite-healthcare/hospital-management',
+    title: 'vSuite Hospital Management | Vishva Digital Technologies',
+    data: { bodyClass: 'product-view-page', src: 'assets/products/hospital.html' },
     loadComponent: () => import('./pages/product-view/product-view').then((m) => m.ProductView),
   },
   { path: '**', redirectTo: '' },

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en-IN"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="vSuite Hospital Management by Vishva Digital Technologies (vSuite Healthcare): connected patient, clinical, pharmacy, laboratory and billing operations with AI-assisted workflows.">
+  <title>vSuite Hospital Management | Vishva Digital Technologies</title>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{--fx-a:#0a7f72;--fx-b:#e5ad00;--deep:#073842;--rich:#0b5560;--accent:#0a7f72;--gold:#e5ad00;--warm-gold:#f2c94c;--off:#f4faf9;--line:#e1eeec;--ink:#2f3d3f;--muted:#5d7173}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:100px}
+    body{margin:0;width:100%;overflow-x:hidden;color:var(--ink);font-family:"Source Sans Pro",sans-serif}
+    a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+    [hidden]{display:none!important}section[id]{scroll-margin-top:100px}
+    .wrap{width:min(1220px,calc(100% - 48px));margin-inline:auto}
+    .site-header{position:sticky;top:0;z-index:30;background:#fffffffa;border-bottom:1px solid var(--line);box-shadow:0 3px 20px #07384209}
+    .header-inner{display:flex;align-items:center;gap:20px;min-height:82px;padding:8px 0}
+    .brand{display:inline-flex;align-items:center;flex:none;background:#fff}
+    .brand img{display:block;width:auto;height:92px;max-width:none;object-fit:contain}
+    .desktop-nav{margin-left:auto;display:flex;align-items:center;gap:clamp(9px,1.15vw,19px)}
+    .desktop-nav a,.mobile-nav a{font-weight:700;color:var(--deep)}
+    .desktop-nav a{font-size:.81rem;white-space:nowrap;padding:9px 1px;border-bottom:2px solid transparent}
+    .desktop-nav a:hover,.desktop-nav a[aria-current="location"]{color:var(--accent);border-bottom-color:var(--gold)}
+    .desktop-nav .nav-cta{padding:10px 13px;border:0;border-radius:7px;background:var(--rich);color:#fff}
+    .desktop-nav .nav-cta:hover{background:var(--accent);color:#fff}
+    .menu-button{display:none;margin-left:auto;align-items:center;justify-content:center;width:44px;height:44px;border-radius:9px;border:1px solid var(--line);color:var(--deep);background:#fff}
+    .menu-button svg{width:22px;height:22px}
+    .mobile-nav{display:none;border-top:1px solid var(--line);padding:8px 24px 18px;background:#fff}
+    .mobile-nav:not([hidden]){display:grid}.mobile-nav a{padding:10px 8px;border-radius:5px}.mobile-nav a:hover{background:var(--off)}
+    h1,h2,h3,p{margin-top:0}h1,h2,h3{color:var(--deep);letter-spacing:-.03em;line-height:1.12}
+    h1{font-size:clamp(2.6rem,4.6vw,4.6rem);font-weight:900;margin-bottom:18px}
+    h2{font-size:clamp(1.9rem,3.2vw,3rem);font-weight:900;margin-bottom:16px}
+    h3{font-size:1.16rem;font-weight:900;margin-bottom:8px}
+    .eyebrow{margin:0 0 14px;font-size:.8rem;font-weight:900;letter-spacing:.15em;color:var(--accent)}
+    .hero{padding:72px 0 80px;background:linear-gradient(120deg,#fff 43%,#f4faf9 100%)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);gap:clamp(28px,4vw,58px);align-items:center}
+    .hero-sub{color:var(--accent);font-weight:900;font-size:clamp(1.2rem,1.9vw,1.7rem);line-height:1.27;margin-bottom:18px}
+    .hero-description{color:var(--muted);font-size:1.05rem;line-height:1.65;max-width:620px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin:26px 0 8px}
+    .btn{display:inline-flex;justify-content:center;align-items:center;min-height:48px;padding:11px 22px;border:1px solid transparent;border-radius:8px;font-weight:900;transition:transform .2s,background .2s,box-shadow .2s}
+    .btn-primary{background:var(--rich);color:#fff;box-shadow:0 10px 24px #0b556030}.btn-primary:hover{background:var(--accent);transform:translateY(-2px)}
+    .btn-outline{border-color:var(--rich);color:var(--rich);background:#fff}.btn-outline:hover{background:var(--off);transform:translateY(-2px)}
+    .hero-media{border-radius:20px;overflow:hidden;box-shadow:0 26px 60px #07384233;border:1px solid var(--line);background:#fff}
+    .hero-media img{display:block;width:100%;height:auto}
+    section.block{padding:78px 0}section.alt{background:var(--off)}
+    .section-head{max-width:760px;margin-bottom:34px}.section-head p{color:var(--muted);font-size:1.05rem;line-height:1.65;margin:0}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;box-shadow:0 6px 20px #07384210}
+    .card p{margin:0;color:var(--muted);line-height:1.6}
+    .ico{display:grid;place-items:center;width:46px;height:46px;margin-bottom:16px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--rich));color:#fff;font-weight:900}
+    .flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;counter-reset:s}
+    .step{position:relative;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 18px;counter-increment:s}
+    .step:before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;margin-bottom:12px;border-radius:50%;background:var(--gold);color:var(--deep);font-weight:900}
+    .step h3{font-size:1.02rem}.step p{margin:0;color:var(--muted);font-size:.95rem;line-height:1.5}
+    .ai{background:linear-gradient(135deg,var(--deep),var(--rich));color:#fff}
+    .ai h2,.ai h3{color:#fff}.ai .section-head p{color:#d3ecea}.ai .eyebrow{color:var(--warm-gold)}
+    .ai .card{background:#ffffff14;border-color:#ffffff30;box-shadow:none}.ai .card p{color:#d3ecea}
+    .note{margin-top:22px;color:#b7dcd8;font-size:.92rem}
+    .faq-item{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px}
+    .faq-item summary{cursor:pointer;list-style:none;padding:18px 22px;font-weight:900;color:var(--deep)}.faq-item summary::-webkit-details-marker{display:none}
+    .faq-item p{margin:0;padding:0 22px 20px;color:var(--muted);line-height:1.6}
+    .cta{padding:70px 0;text-align:center;background:linear-gradient(120deg,var(--rich),var(--accent));color:#fff}
+    .cta h2{color:#fff}.cta p{max-width:660px;margin:0 auto 24px;color:#e2f4f2;line-height:1.6}
+    .cta .btn-primary{background:var(--gold);color:var(--deep);box-shadow:0 12px 28px #0003}.cta .btn-primary:hover{background:var(--warm-gold)}
+    .footer{background:var(--deep);color:#d3ecea;padding:52px 0 26px}
+    .footer-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:34px}
+    .footer h3{color:#fff;font-size:1rem}.footer p{line-height:1.6;margin:0 0 8px}
+    .footer nav{display:grid;gap:9px;align-content:start}
+    .footer nav a{color:#fff;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}.footer nav a:hover{text-decoration-color:var(--warm-gold)}
+    .footer-name{color:#fff;font-weight:900;font-size:1.3rem;margin-bottom:10px}
+    .footer-bottom{margin-top:30px;padding-top:18px;border-top:1px solid #ffffff22;font-size:.9rem}
+    @media(max-width:1200px){.desktop-nav{display:none}.menu-button{display:inline-flex}}
+    @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.footer-grid{grid-template-columns:1fr}.brand img{height:72px}}
+    @media(max-width:600px){.grid3,.flow{grid-template-columns:1fr}section.block{padding:56px 0}.hero{padding:44px 0 56px}}
+  </style>
+  <link rel="stylesheet" href="fx/module-fx.css">
+<style id="vs-logo-size">
+    /* every product page shows its header logo at the same size */
+    header .brand img,.site-header .brand img{width:auto!important;height:92px!important;max-width:none!important;object-fit:contain!important}
+    @media(max-width:900px){header .brand img,.site-header .brand img{height:72px!important}}
+  </style>
+</head>
+<body>
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="#overview" aria-label="vSuite Hospital Management overview"><img src="../uploads/vsuite/modules/logo-hospital-header.png" alt="vSuite Healthcare logo"></a>
+    <nav class="desktop-nav" aria-label="Page sections">
+      <a href="#overview">Overview</a><a href="#features">Hospital Features</a><a href="#operations">Care Operations</a><a href="#ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a class="nav-cta" href="#request-demo">Request a Demo</a>
+    </nav>
+    <button class="menu-button" id="menu-button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open navigation menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path id="menu-icon-path" d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Mobile page sections">
+    <a href="#overview">Overview</a><a href="#features">Hospital Features</a><a href="#operations">Care Operations</a><a href="#ai">AI &amp; Agentic AI</a><a href="#integrations">Integrations</a><a href="#faq">FAQ</a><a href="#request-demo">Request a Demo</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="overview">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">vSuite Healthcare</p>
+      <h1>vSuite Hospital Management</h1>
+      <p class="hero-sub">One connected system for patient care, clinical operations and hospital administration.</p>
+      <p class="hero-description">Bring registration, appointments, outpatient and inpatient care, pharmacy, laboratory and billing together on one platform, so every team works from the same patient record and the same real-time view of the hospital.</p>
+      <div class="actions"><a class="btn btn-primary" href="#request-demo">Request a Demo</a><a class="btn btn-outline" href="#features">Explore Features</a></div>
+    </div>
+    <div class="hero-media"><img src="../uploads/vsuite/product-healthcare.jpg" alt="vSuite Hospital Management dashboard"></div>
+  </div>
+</section>
+
+<section class="block alt" id="features">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Hospital features</p><h2>Everything a hospital runs on, in one place</h2><p>Modular capabilities that can be adopted together or one at a time, as your hospital grows.</p></div>
+    <div class="grid3">
+      <article class="card"><div class="ico">1</div><h3>Patient Registration &amp; Appointments</h3><p>Quick registration, unique patient records, doctor schedules and appointment booking with reminders.</p></article>
+      <article class="card"><div class="ico">2</div><h3>OPD &amp; IPD Management</h3><p>Outpatient consultations, admissions, bed and ward management, transfers and discharge workflows.</p></article>
+      <article class="card"><div class="ico">3</div><h3>Electronic Medical Records</h3><p>Consultation notes, prescriptions, history and reports in one structured, searchable patient record.</p></article>
+      <article class="card"><div class="ico">4</div><h3>Pharmacy &amp; Inventory</h3><p>Medicine dispensing, stock levels, expiry tracking and purchase requests linked to prescriptions.</p></article>
+      <article class="card"><div class="ico">5</div><h3>Laboratory &amp; Diagnostics</h3><p>Test orders, sample tracking and result entry flowing straight back to the treating doctor.</p></article>
+      <article class="card"><div class="ico">6</div><h3>Billing &amp; Insurance</h3><p>Itemised bills, package and insurance handling, payments and clear financial summaries.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="operations">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Care operations</p><h2>From the front desk to discharge</h2><p>A single patient journey, with each step handing over to the next automatically.</p></div>
+    <div class="flow">
+      <div class="step"><h3>Register</h3><p>Create or find the patient record and book the visit.</p></div>
+      <div class="step"><h3>Consult</h3><p>Doctors record notes, orders and prescriptions.</p></div>
+      <div class="step"><h3>Diagnose</h3><p>Laboratory and diagnostic requests are tracked to results.</p></div>
+      <div class="step"><h3>Treat</h3><p>Admission, ward care and medication are coordinated.</p></div>
+      <div class="step"><h3>Bill &amp; Discharge</h3><p>Charges are consolidated and the discharge summary is prepared.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block ai" id="ai">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">AI &amp; Agentic AI</p><h2>Assistive intelligence for hospital teams</h2><p>Generative AI and task-oriented agents help staff find information and complete routine work faster.</p></div>
+    <div class="grid3">
+      <article class="card"><h3>AI Assistant</h3><p>Ask questions about schedules, bed availability, stock or reports in plain language and get quick answers.</p></article>
+      <article class="card"><h3>Agentic Workflows</h3><p>Agents prepare appointment reminders, draft discharge summaries and flag incomplete bills for staff to review and approve.</p></article>
+      <article class="card"><h3>Operational Insights</h3><p>Dashboards on admissions, occupancy, waiting times and revenue help management plan ahead.</p></article>
+    </div>
+    <p class="note">AI output is assistive: clinical and financial decisions remain with qualified hospital staff.</p>
+  </div>
+</section>
+
+<section class="block alt" id="integrations">
+  <div class="wrap">
+    <div class="section-head"><p class="eyebrow">Integrations</p><h2>Part of the connected vSuite ecosystem</h2><p>Hospital Management works with the rest of vSuite, so finance and people operations stay in step with patient care.</p></div>
+    <div class="grid3">
+      <article class="card"><h3>vSuite Billing &amp; Accounting</h3><p>Patient billing flows into invoicing, reconciliation and financial reporting.</p></article>
+      <article class="card"><h3>vSuite HR &amp; Payroll</h3><p>Manage doctors, nurses and support staff, rosters and salary processing.</p></article>
+      <article class="card"><h3>vSuite ProcessFlow</h3><p>Automate document-heavy processes such as insurance paperwork and supplier invoices.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="faq">
+  <div class="wrap" style="max-width:860px">
+    <div class="section-head"><p class="eyebrow">FAQ</p><h2>Frequently asked questions</h2></div>
+    <details class="faq-item"><summary>Who is vSuite Hospital Management for?</summary><p>Clinics, nursing homes and hospitals that want one connected system for patient, clinical and administrative operations.</p></details>
+    <details class="faq-item"><summary>Can we start with only some modules?</summary><p>Yes. The modules are designed to be adopted step by step and configured to your hospital's processes.</p></details>
+    <details class="faq-item"><summary>Does it connect to other vSuite products?</summary><p>Yes. It is designed to work with vSuite Billing, Accounting, Human Resources, Payroll and ProcessFlow.</p></details>
+    <details class="faq-item"><summary>How can I see a demonstration?</summary><p>Choose Request a Demo and tell us about your hospital. Our team will get back to you to arrange it.</p></details>
+  </div>
+</section>
+
+<section class="cta" id="request-demo">
+  <div class="wrap">
+    <h2>See vSuite Hospital Management in action</h2>
+    <p>Tell us about your hospital and our team will get back to you to arrange a demonstration.</p>
+    <a class="btn btn-primary" id="demo-request-button" href="#request-demo">Request a Demo</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-name">vSuite Hospital Management</div>
+        <p>Part of vSuite Healthcare, by Vishva Digital Technologies.</p>
+        <p>info@vishvadigitaltechnologies.com<br>+91 93449 64680</p>
+      </div>
+      <div>
+        <h3>vSuite products</h3>
+        <nav><a href="/product/vsuite-finance/accounting" target="_top">vSuite Accounting</a><a href="/product/vsuite-finance/billing" target="_top">vSuite Billing</a><a href="/product/vsuite-workforce/hr" target="_top">vSuite Human Resources</a><a href="/product/vsuite-workforce/payroll" target="_top">vSuite Payroll</a><a href="/product/vsuite-commerce/ecommerce" target="_top">vSuite E-Commerce</a><a href="/product/vsuite-logistics/processflow" target="_top">vSuite ProcessFlow</a><a href="/product/vsuite-healthcare/hospital-management" target="_top">vSuite Hospital Management</a></nav>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <nav><a href="/contact-us" target="_top">Contact Us</a><a href="/privacy-policy" target="_top">Privacy Policy</a><a href="/terms" target="_top">Terms of Use</a></nav>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© <span id="current-year"></span> Vishva Digital Technologies. All rights reserved.</p></div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    const button = document.getElementById("menu-button"), menu = document.getElementById("mobile-nav"), icon = document.getElementById("menu-icon-path");
+    function setMenu(open){ menu.hidden = !open; button.setAttribute("aria-expanded", String(open)); button.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu"); icon.setAttribute("d", open ? "M5 5l14 14M19 5L5 19" : "M4 6h16M4 12h16M4 18h16"); }
+    button.addEventListener("click", () => setMenu(menu.hidden));
+    menu.querySelectorAll("a").forEach(l => l.addEventListener("click", () => setMenu(false)));
+    window.addEventListener("resize", () => { if (window.innerWidth > 1200 && !menu.hidden) setMenu(false); });
+  });
+</script>
+<script src="fx/module-fx.js"></script>
+</body></html>
