@@ -14,9 +14,11 @@
                   <div class="vc_column-inner">
                     <div class="wpb_wrapper">
                       <div
-                        class="fullwidth-block clearfix"
+                        class="fullwidth-block clearfix vs-hero"
                         id="fullwidth-block-68b065aa95d13"
-                        style="height: 100vh"
+                        style="min-height: 100vh"
+                        (mousemove)="heroMove($event)"
+                        (mouseleave)="heroLeave($event)"
                       >
                         <div class="gem-video-background" data-aspect-ratio="1920:1080">
                           <div class="gem-video-background-inner">
@@ -30,14 +32,54 @@
                           </div>
                           <div
                             class="gem-video-background-overlay"
-                            style="background-color: #635b93; opacity: 0.6"
+                            style="background-color: #04303a; opacity: 0.8"
                           ></div>
                         </div>
+                        <div class="hx-shade" aria-hidden="true"></div>
+                        <div class="hx-orb o1" aria-hidden="true"></div>
+                        <div class="hx-orb o2" aria-hidden="true"></div>
+                        <canvas #hxNet class="hx-net" aria-hidden="true"></canvas>
                         <div class="fullwidth-block-inner">
+                          <div class="hx-split">
+                           <div class="hx-copy">
+                          <div class="hx-emblem-wrap">
+                            <svg class="hx-emblem" viewBox="0 0 200 190" aria-hidden="true">
+                              <defs>
+                                <linearGradient id="hxTeal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34b3b8"/><stop offset=".5" stop-color="#14707a"/><stop offset="1" stop-color="#073842"/></linearGradient>
+                                <linearGradient id="hxGold" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#b8801a"/><stop offset=".5" stop-color="#e0a526"/><stop offset="1" stop-color="#ffe29a"/></linearGradient>
+                                <radialGradient id="hxHalo"><stop offset="0" stop-color="#e0a526" stop-opacity=".38"/><stop offset="1" stop-color="#e0a526" stop-opacity="0"/></radialGradient>
+                              </defs>
+                              <circle class="hx-halo" cx="100" cy="100" r="96" fill="url(#hxHalo)"/>
+                              <circle class="hx-dash" cx="100" cy="100" r="90" fill="none" stroke="#e0a526" stroke-width="1.2" stroke-dasharray="2 8" stroke-linecap="round"/>
+                              <circle class="hx-dash d2" cx="100" cy="100" r="78" fill="none" stroke="#ffffff" stroke-opacity=".35" stroke-width="1" stroke-dasharray="1 9" stroke-linecap="round"/>
+                              <g class="hx-petals">
+                                <path class="hx-petal" style="--r:-66deg;--sc:.7;--d:.55s" d="M100 150C70 122 72 62 100 26C128 62 130 122 100 150Z"/>
+                                <path class="hx-petal" style="--r:66deg;--sc:.7;--d:.55s" d="M100 150C70 122 72 62 100 26C128 62 130 122 100 150Z"/>
+                                <path class="hx-petal" style="--r:-34deg;--sc:.9;--d:.4s" d="M100 150C70 122 72 62 100 26C128 62 130 122 100 150Z"/>
+                                <path class="hx-petal" style="--r:34deg;--sc:.9;--d:.4s" d="M100 150C70 122 72 62 100 26C128 62 130 122 100 150Z"/>
+                                <path class="hx-petal" style="--r:0deg;--sc:1;--d:.25s" d="M100 150C70 122 72 62 100 26C128 62 130 122 100 150Z"/>
+                              </g>
+                              <g class="hx-blades" fill="none" stroke="url(#hxGold)" stroke-linecap="round">
+                                <path class="hx-blade" style="--r:-46deg;--sc:.62;--d:1s" stroke-width="5" pathLength="1" d="M100 150C98 124 98 104 100 82"/>
+                                <path class="hx-blade" style="--r:46deg;--sc:.62;--d:1s" stroke-width="5" pathLength="1" d="M100 150C98 124 98 104 100 82"/>
+                                <path class="hx-blade" style="--r:-22deg;--sc:.8;--d:1.12s" stroke-width="5.5" pathLength="1" d="M100 150C98 124 98 104 100 82"/>
+                                <path class="hx-blade" style="--r:22deg;--sc:.8;--d:1.12s" stroke-width="5.5" pathLength="1" d="M100 150C98 124 98 104 100 82"/>
+                                <path class="hx-blade" style="--r:0deg;--sc:.95;--d:1.24s" stroke-width="6" pathLength="1" d="M100 150C98 124 98 104 100 82"/>
+                              </g>
+                              <path class="hx-gem" d="M100 160L109 151L100 142L91 151Z" fill="url(#hxGold)"/>
+                              <g transform="translate(26 54)"><path class="hx-spark" style="--d:.2s" d="M0 -7L1.8 -1.8L7 0L1.8 1.8L0 7L-1.8 1.8L-7 0L-1.8 -1.8Z" fill="#ffe29a"/></g>
+                              <g transform="translate(176 66)"><path class="hx-spark" style="--d:1s" d="M0 -6L1.6 -1.6L6 0L1.6 1.6L0 6L-1.6 1.6L-6 0L-1.6 -1.6Z" fill="#ffffff"/></g>
+                              <g transform="translate(160 150)"><path class="hx-spark" style="--d:1.7s" d="M0 -5L1.4 -1.4L5 0L1.4 1.4L0 5L-1.4 1.4L-5 0L-1.4 -1.4Z" fill="#ffe29a"/></g>
+                              <g transform="translate(40 152)"><path class="hx-spark" style="--d:.6s" d="M0 -5L1.4 -1.4L5 0L1.4 1.4L0 5L-1.4 1.4L-5 0L-1.4 -1.4Z" fill="#ffffff"/></g>
+                            </svg>
+                          </div>
                           <div class="wpb_text_column wpb_content_element">
                             <div class="wpb_wrapper">
                               <div class="title-h1 title-xlarge" style="text-align: center">
-                                <span style="color: #ffffff">ONE SUITE.</span>
+                                <span class="hx-line hx-l1" style="color: #ffffff" aria-label="ONE SUITE.">
+                                  @for (w of hero1; track $index) {<span class="hx-word" aria-hidden="true">@for (ch of w.chars; track ch.i) {<span class="hx-ch" [class.from-r]="ch.side === 'r'" [style.--i]="ch.i">{{ ch.c }}</span>}</span>{{ ' ' }}
+                                  }
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -46,14 +88,17 @@
                           <div class="wpb_text_column wpb_content_element">
                             <div class="wpb_wrapper">
                               <div class="title-h1" style="text-align: center">
-                                <span class="light" style="color: #ffffff"
-                                  >MULTIPLE SOLUTIONS. INTELLIGENTLY CONNECTED.</span
-                                >
+                                <span class="light hx-line hx-l2" style="color: #ffffff" aria-label="MULTIPLE SOLUTIONS. INTELLIGENTLY CONNECTED.">
+                                  @for (w of hero2; track $index) {<span class="hx-word" aria-hidden="true">@for (ch of w.chars; track ch.i) {<span class="hx-ch" [class.from-r]="ch.side === 'r'" [style.--i]="ch.i">{{ ch.c }}</span>}</span>{{ ' ' }}
+                                  }
+                                </span>
                               </div>
                             </div>
                           </div>
                           <div class="clearboth"></div>
-                          <div class="gem-divider" style="margin-top: 40px"></div>
+                          <div class="gem-divider" style="margin-top: 20px"></div>
+                          <div class="hx-rule" aria-hidden="true"><span></span><em>&#9670;</em><span></span></div>
+                          <div class="gem-divider" style="margin-top: 20px"></div>
                           <div class="wpb_text_column wpb_content_element vc_custom_1467712437720">
                             <div class="wpb_wrapper">
                               <div
@@ -70,6 +115,20 @@
                                 >
                               </div>
                             </div>
+                          </div>
+                          <div class="hx-cta">
+                            <a class="hx-btn hx-btn-solid" routerLink="/book-demo">Request a Demo</a>
+                            <a class="hx-btn hx-btn-ghost" href="#" (click)="scrollToProducts($event)">Explore Products</a>
+                          </div>
+                           <!-- <div class="hx-prods">
+                            @for (n of heroProducts; track n.name) {
+                            <a class="hx-prod" [routerLink]="n.link" [attr.aria-label]="'vSuite ' + n.name + ' - ' + n.tag" [style.--k]="$index">
+                              <img [src]="n.logo" [alt]="'vSuite ' + n.name + ' logo'" loading="lazy" />
+                            </a>
+                            }
+                          </div> -->
+                           </div>
+                           
                           </div>
                         </div>
                       </div>
@@ -909,7 +968,7 @@ Support evolving requirements as your business grows.
                                   <a
                                     class="gem-button gem-button-size-giant gem-button-style-outline gem-button-text-weight-normal gem-button-border-6"
                                     data-hover-in="background-color:#ffffff;color:#00bcd4"
-                                    data-hover-out="border-color:#ffffff;background-color:transparent;color:#ffffff" routerLink="/contact-us"
+                                    data-hover-out="border-color:#ffffff;background-color:transparent;color:#ffffff" routerLink="/book-demo"
                                     style="
                                       border-radius: 0px;
                                       border-color: #ffffff;

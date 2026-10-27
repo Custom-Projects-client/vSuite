@@ -8,7 +8,7 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    title: 'Agency Dark | vSuite',
+    title: 'vSuite | Vishva Digital Technologies',
     data: {
       bodyClass:
         'home page-template-default page page-id-58 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -17,7 +17,7 @@ export const routes: Routes = [
   },
   {
     path: 'about-us',
-    title: 'About Our Agency – Agency Dark',
+    title: 'About Us | vSuite',
     data: {
       bodyClass:
         'page-template-default page page-id-295 page-child parent-pageid-707 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -26,7 +26,7 @@ export const routes: Routes = [
   },
   {
     path: 'our-team',
-    title: 'Our Team – Agency Dark',
+    title: 'Our Team | vSuite',
     data: {
       bodyClass:
         'page-template-default page page-id-435 page-child parent-pageid-707 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -35,7 +35,7 @@ export const routes: Routes = [
   },
   {
     path: 'our-clients',
-    title: 'Our Clients – Agency Dark',
+    title: 'Our Clients | vSuite',
     data: {
       bodyClass:
         'page-template-default page page-id-402 page-child parent-pageid-707 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -44,7 +44,7 @@ export const routes: Routes = [
   },
   {
     path: 'services',
-    title: 'Our Services – Agency Dark',
+    title: 'Our Services | vSuite',
     data: {
       bodyClass:
         'page-template-default page page-id-81 page-child parent-pageid-251 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -53,7 +53,7 @@ export const routes: Routes = [
   },
   {
     path: 'service-page',
-    title: 'Service Page – Agency Dark',
+    title: 'Service Page | vSuite',
     data: {
       bodyClass:
         'page-template-default page page-id-371 page-child parent-pageid-251 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -62,7 +62,7 @@ export const routes: Routes = [
   },
   {
     path: 'works',
-    title: 'Our Works – Agency Dark',
+    title: 'Our Works | vSuite',
     data: {
       bodyClass:
         'page-template-default page page-id-254 page-child parent-pageid-364 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -71,7 +71,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog',
-    title: 'Our Blogs – Agency Dark',
+    title: 'Our Blogs | vSuite',
     data: {
       bodyClass:
         'page-template-default page page-id-548 page-child parent-pageid-545 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -80,7 +80,7 @@ export const routes: Routes = [
   },
   {
     path: 'contact-us',
-    title: 'Contact Us – Agency Dark',
+    title: 'Contact Us | vSuite',
     data: {
       bodyClass:
         'page-template-default page page-id-11 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -88,8 +88,37 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/contact-us/contact-us').then((m) => m.ContactUs),
   },
   {
+    path: 'book-demo',
+    title: 'Book a Demo | vSuite',
+    data: {
+      bodyClass:
+        'page-template-default page page-id-11 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
+    },
+    loadComponent: () => import('./pages/book-demo/book-demo').then((m) => m.BookDemo),
+  },
+  {
+    path: 'privacy-policy',
+    title: 'Privacy Policy | vSuite',
+    data: {
+      doc: 'privacy',
+      bodyClass:
+        'page-template-default page page-id-11 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
+    },
+    loadComponent: () => import('./pages/legal/legal').then((m) => m.Legal),
+  },
+  {
+    path: 'terms',
+    title: 'Terms of Use | vSuite',
+    data: {
+      doc: 'terms',
+      bodyClass:
+        'page-template-default page page-id-11 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
+    },
+    loadComponent: () => import('./pages/legal/legal').then((m) => m.Legal),
+  },
+  {
     path: 'works/our-work-1',
-    title: 'Awesome Vector Items – Agency Dark',
+    title: 'Awesome Vector Items | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-173 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -99,7 +128,7 @@ export const routes: Routes = [
   },
   {
     path: 'works/our-work-2',
-    title: 'Branding Items – Agency Dark',
+    title: 'Branding Items | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-157 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -109,7 +138,7 @@ export const routes: Routes = [
   },
   {
     path: 'works/our-work-3',
-    title: 'All Items Pack – Agency Dark',
+    title: 'All Items Pack | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-191 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -119,7 +148,7 @@ export const routes: Routes = [
   },
   {
     path: 'works/100-best-items',
-    title: '100+ Best Items – Agency Dark',
+    title: '100+ Best Items | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-273 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -129,7 +158,7 @@ export const routes: Routes = [
   },
   {
     path: 'works/branding-tools',
-    title: 'Branding Tools – Agency Dark',
+    title: 'Branding Tools | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-274 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -139,7 +168,7 @@ export const routes: Routes = [
   },
   {
     path: 'works/fast-logo-items',
-    title: 'Fast Logo Items – Agency Dark',
+    title: 'Fast Logo Items | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-277 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -149,7 +178,7 @@ export const routes: Routes = [
   },
   {
     path: 'works/lets-get-money',
-    title: 'Lets Get Money – Agency Dark',
+    title: 'Lets Get Money | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-275 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -159,7 +188,7 @@ export const routes: Routes = [
   },
   {
     path: 'works/unbelievable-items',
-    title: 'Unbelievable Items – Agency Dark',
+    title: 'Unbelievable Items | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-276 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -171,7 +200,7 @@ export const routes: Routes = [
   },
   {
     path: 'works/world-items',
-    title: 'World Items – Agency Dark',
+    title: 'World Items | vSuite',
     data: {
       bodyClass:
         'thegem_pf_item-template-default single single-thegem_pf_item postid-272 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -181,7 +210,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/blog-post-1',
-    title: 'Sticky Blog Post – Agency Dark',
+    title: 'Sticky Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-206 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -191,7 +220,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/blog-post-2',
-    title: 'Images Blog Post – Agency Dark',
+    title: 'Images Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-192 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -201,7 +230,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/blog-post-4',
-    title: 'Blog Post – Agency Dark',
+    title: 'Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-567 single-format-quote wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -211,7 +240,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/blog-post-4-2',
-    title: 'Blog Post – Agency Dark',
+    title: 'Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-665 single-format-quote wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -221,7 +250,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/blog-post-5',
-    title: 'Images Blog Post – Agency Dark',
+    title: 'Images Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-569 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -231,7 +260,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/blog-post-6',
-    title: 'Images Blog Post – Agency Dark',
+    title: 'Images Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-571 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -241,7 +270,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/text-blog-post',
-    title: 'Text Blog Post – Agency Dark',
+    title: 'Text Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-219 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -251,7 +280,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/text-blog-post-2',
-    title: 'Youtube Blog Post – Agency Dark',
+    title: 'Youtube Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-666 single-format-video wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
@@ -261,7 +290,7 @@ export const routes: Routes = [
   },
   {
     path: 'blog/text-blog-post-7',
-    title: 'Text Blog Post – Agency Dark',
+    title: 'Text Blog Post | vSuite',
     data: {
       bodyClass:
         'post-template-default single single-post postid-573 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
