@@ -79,6 +79,15 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/blog/blog').then((m) => m.Blog),
   },
   {
+    path: 'blog/:slug',
+    data: {
+      bodyClass:
+        'page-template-default page page-id-548 page-child parent-pageid-545 wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
+    },
+    loadComponent: () =>
+      import('./pages/blog-article/blog-article').then((m) => m.BlogArticlePage),
+  },
+  {
     path: 'contact-us',
     title: 'Contact Us | vSuite',
     data: {
@@ -207,96 +216,6 @@ export const routes: Routes = [
     },
     loadComponent: () =>
       import('./pages/work-details/world-items/world-items').then((m) => m.WorldItems),
-  },
-  {
-    path: 'blog/blog-post-1',
-    title: 'Sticky Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-206 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/blog-post-1/blog-post-1').then((m) => m.BlogPost1),
-  },
-  {
-    path: 'blog/blog-post-2',
-    title: 'Images Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-192 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/blog-post-2/blog-post-2').then((m) => m.BlogPost2),
-  },
-  {
-    path: 'blog/blog-post-4',
-    title: 'Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-567 single-format-quote wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/blog-post-4/blog-post-4').then((m) => m.BlogPost4),
-  },
-  {
-    path: 'blog/blog-post-4-2',
-    title: 'Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-665 single-format-quote wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/blog-post-4-2/blog-post-4-2').then((m) => m.BlogPost4B),
-  },
-  {
-    path: 'blog/blog-post-5',
-    title: 'Images Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-569 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/blog-post-5/blog-post-5').then((m) => m.BlogPost5),
-  },
-  {
-    path: 'blog/blog-post-6',
-    title: 'Images Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-571 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/blog-post-6/blog-post-6').then((m) => m.BlogPost6),
-  },
-  {
-    path: 'blog/text-blog-post',
-    title: 'Text Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-219 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/text-blog-post/text-blog-post').then((m) => m.TextBlogPost),
-  },
-  {
-    path: 'blog/text-blog-post-2',
-    title: 'Youtube Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-666 single-format-video wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/text-blog-post-2/text-blog-post-2').then((m) => m.TextBlogPost2),
-  },
-  {
-    path: 'blog/text-blog-post-7',
-    title: 'Text Blog Post | vSuite',
-    data: {
-      bodyClass:
-        'post-template-default single single-post postid-573 single-format-standard wpb-js-composer js-comp-ver-6.0.5 vc_responsive',
-    },
-    loadComponent: () =>
-      import('./pages/blog-posts/text-blog-post-7/text-blog-post-7').then((m) => m.TextBlogPost7),
   },
   // Unknown URL -> home
   // ---- Product menu: each module is a standalone HTML page shown by <app-product-view> ----

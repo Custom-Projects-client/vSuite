@@ -1,4 +1,94 @@
 <!-- Our Blogs page | route: /blog | edit text, images and links below -->
+<style>
+  .vsb { position: relative; display: grid; gap: 30px; padding: 8px 0 12px; }
+  .vsb::before { content: ''; position: absolute; right: -80px; top: -90px; width: 460px; height: 460px; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(145, 123, 234, .3), transparent 65%); filter: blur(30px); }
+  .vsb::after { content: ''; position: absolute; left: -90px; bottom: 120px; width: 420px; height: 420px; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(39, 255, 227, .18), transparent 65%); filter: blur(34px); }
+  .vsb > *, .vsb-grid > * { position: relative; z-index: 1; }
+  .vsb-item { animation: vsbUp .9s cubic-bezier(.2, .8, .2, 1) both; animation-delay: calc(var(--i, 0) * 110ms); }
+  @keyframes vsbUp { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
+
+  /* shared card look */
+  .vsb-feature, .vsb-card { position: relative; overflow: hidden; border-radius: 22px; border: 1px solid rgba(255, 255, 255, .1);
+    background: linear-gradient(160deg, #3b5063, #2a3a49); box-shadow: 0 18px 44px rgba(0, 0, 0, .32);
+    transition: transform .45s cubic-bezier(.2, .8, .2, 1), box-shadow .45s ease, border-color .45s ease; }
+  .vsb-feature:hover, .vsb-card:hover { transform: translateY(-8px); border-color: var(--c); box-shadow: 0 28px 64px rgba(0, 0, 0, .46), 0 0 0 1px var(--c), 0 0 38px -6px var(--c); }
+  .vsb-media { position: relative; overflow: hidden; background: #1b2733; }
+  .vsb-media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .9s cubic-bezier(.2, .8, .2, 1); }
+  .vsb-feature:hover .vsb-media img, .vsb-card:hover .vsb-media img { transform: scale(1.08); }
+  .vsb-media::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(8, 18, 28, 0) 50%, rgba(8, 18, 28, .62) 100%); }
+  .vsb-num { position: absolute; z-index: 2; top: 16px; left: 16px; padding: 6px 13px; border-radius: 30px; color: var(--c); font-size: 13px; font-weight: 700; letter-spacing: .14em;
+    background: rgba(8, 18, 28, .58); border: 1px solid rgba(255, 255, 255, .2); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+  .vsb-cat { position: absolute; z-index: 2; left: 16px; bottom: 16px; max-width: calc(100% - 32px); padding: 7px 15px; border-radius: 30px; background: var(--c); color: #0f2030;
+    font-size: 12px; font-weight: 700; letter-spacing: .08em; line-height: 1.2; text-transform: uppercase; box-shadow: 0 8px 20px rgba(0, 0, 0, .3); }
+  .vsb-body { position: relative; display: flex; flex-direction: column; flex: 1; padding: 28px 30px 26px; }
+  .vsb .vsb-title { margin: 0 0 12px; color: #fff; font-size: 24px; line-height: 1.3; font-weight: 700; letter-spacing: 0; text-transform: none; }
+  .vsb-link { color: #fff !important; text-decoration: none !important; transition: color .25s ease; }
+  .vsb-link::after { content: ''; position: absolute; inset: 0; z-index: 3; }
+  .vsb-feature:hover .vsb-link, .vsb-card:hover .vsb-link { color: var(--c) !important; }
+  .vsb-link:focus-visible { outline: 3px solid var(--c); outline-offset: 6px; border-radius: 6px; }
+  .vsb .vsb-excerpt { margin: 0 0 22px; color: #bccad6; font-size: 16px; line-height: 1.75; }
+  .vsb-card .vsb-excerpt { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; }
+  .vsb-art + .vsb-body .vsb-excerpt { -webkit-line-clamp: unset; display: block; }
+  .vsb-foot { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, .1); }
+  .vsb-time { color: #94a8b9; font-size: 14px; }
+  .vsb-more { display: inline-flex; align-items: center; gap: 10px; color: var(--c); font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+  .vsb-more i { position: relative; width: 26px; height: 2px; background: currentColor; transition: width .35s ease; }
+  .vsb-more i::after { content: ''; position: absolute; right: 0; top: -4px; width: 9px; height: 9px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: rotate(45deg); }
+  .vsb-feature:hover .vsb-more i, .vsb-card:hover .vsb-more i { width: 42px; }
+
+  /* featured article: wide, image left */
+  .vsb-feature { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); }
+  .vsb-feature .vsb-media { min-height: 400px; }
+  .vsb-feature .vsb-body { justify-content: center; padding: 46px 44px; }
+  .vsb .vsb-feature .vsb-title { font-size: clamp(28px, 3vw, 38px); line-height: 1.2; margin-bottom: 18px; }
+  .vsb-feature .vsb-excerpt { font-size: 18px; }
+  .vsb-flag { align-self: flex-start; margin-bottom: 18px; padding: 7px 15px; border-radius: 30px; color: #f6c453; font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+    background: rgba(246, 196, 83, .12); border: 1px solid rgba(246, 196, 83, .45); }
+
+  /* card grid */
+  .vsb-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+  .vsb-card { display: flex; flex-direction: column; }
+  .vsb-card .vsb-media { aspect-ratio: 16 / 9; }
+  .vsb-art { display: grid; place-items: center; background: radial-gradient(circle at 18% 18%, rgba(39, 255, 227, .38), transparent 46%), radial-gradient(circle at 86% 82%, rgba(145, 123, 234, .55), transparent 52%), linear-gradient(135deg, #1d3b4a, #2c2f66); }
+  .vsb-art::after { display: none; }
+  .vsb-bignum { position: relative; z-index: 1; color: transparent; font-size: clamp(90px, 11vw, 140px); line-height: 1; font-weight: 700; letter-spacing: .02em; -webkit-text-stroke: 2px rgba(255, 255, 255, .6); transition: transform .8s cubic-bezier(.2, .8, .2, 1); }
+  .vsb-card:hover .vsb-bignum { transform: scale(1.1) rotate(-3deg); }
+  .vsb-hex { position: absolute; width: 170px; height: 196px; background: rgba(255, 255, 255, .07); clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%); }
+  .vsb-hex.h1 { right: -34px; top: -48px; } .vsb-hex.h2 { left: -40px; bottom: -70px; width: 130px; height: 150px; }
+
+  /* quote banner */
+  .vsb-quote { grid-column: 1 / -1; position: relative; overflow: hidden; padding: 50px 56px; border-radius: 22px; color: #fff;
+    background: linear-gradient(120deg, #12303c 0%, #2b3a8e 52%, #6e54d5 100%); box-shadow: 0 22px 54px rgba(20, 20, 70, .45); border: 1px solid rgba(255, 255, 255, .12); }
+  .vsb-quote::before { content: ''; position: absolute; right: -90px; top: -120px; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(39, 255, 227, .35), transparent 65%); }
+  .vsb-qmark { position: absolute; left: 30px; top: -22px; color: rgba(255, 255, 255, .12); font-size: 210px; line-height: 1; font-weight: 700; pointer-events: none; }
+  .vsb .vsb-qtext { position: relative; margin: 0 0 14px; max-width: 900px; color: #fff; font-size: clamp(24px, 3vw, 38px); line-height: 1.3; font-weight: 700; }
+  .vsb-qhi { color: #27ffe3; } .vsb-qlight { font-weight: 300; }
+  .vsb .vsb-qsub { position: relative; margin: 0 0 26px; max-width: 760px; color: #d6defa; font-size: 17px; line-height: 1.7; }
+  .vsb-qbtn { position: relative; display: inline-block; padding: 14px 32px; border-radius: 40px; background: #fff; color: #2b3a8e !important; font-size: 14px; font-weight: 700; letter-spacing: .12em; text-decoration: none !important;
+    transition: transform .3s ease, box-shadow .3s ease; }
+  .vsb-qbtn:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 16px 34px rgba(0, 0, 0, .35); }
+
+  @media (max-width: 991px) {
+    .vsb-feature { grid-template-columns: 1fr; }
+    .vsb-feature .vsb-media { min-height: 0; aspect-ratio: 16 / 9; }
+    .vsb-feature .vsb-body { padding: 30px 28px; }
+  }
+  @media (max-width: 760px) {
+    .vsb-grid { grid-template-columns: 1fr; gap: 24px; }
+    .vsb { gap: 24px; }
+    .vsb-body { padding: 24px 22px 22px; }
+    .vsb .vsb-title { font-size: 21px; }
+    .vsb-quote { padding: 36px 26px; }
+    .vsb-qmark { font-size: 150px; }
+    .vsb-feature:hover, .vsb-card:hover { transform: translateY(-4px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vsb-item { animation: none; }
+    .vsb-feature, .vsb-card, .vsb-media img, .vsb-bignum, .vsb-more i, .vsb-qbtn { transition: none; }
+  }
+</style>
 <div class="main-content" id="main-content">
   <div class="page-title-block custom-page-title" id="page-title">
     <div class="container">
@@ -137,1281 +227,129 @@
                     <div class="wpb_wrapper">
                       <div class="clearboth"></div>
                       <div class="gem-divider" style="margin-top: 100px"></div>
-                      <div class="timeline_new-wrapper">
-                        <div class="timeline-new-line" style="background-color: #00bcd4"></div>
-                        <div
-                          class="blog blog-style-timeline_new blog-style-timeline clearfix item-animation-move-up"
-                          data-next-page="2"
-                        >
-                          <article
-                            class="sticky default-background post-206 post type-post status-publish format-standard has-post-thumbnail category-blogs category-news tag-artists tag-branding tag-colors tag-design tag-developing tag-future tag-items tag-marketing tag-news tag-people tag-testing"
-                            data-post-date="Sep 2024"
-                            id="post-206"
-                          >
-                            <div class="item-post-container">
-                              <div class="post-timeline-elements">
-                                <div class="pointer" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">01</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div class="pointer-right" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">01</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div
-                                  class="timeline-date-title"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                                <div
-                                  class="timeline-date-title-right"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                              </div>
-                              <div
-                                class="post-item clearfix"
-                                style="background-color: #384856; border-color: #384856"
-                              >
-                                <div class="sticky-label"></div>
-                                <div class="post-image">
-                                  <div class="post-featured-content">
-                                    <a routerLink="/product">
-                                      <picture>
-                                        <img
-                                          alt="One Connected Platform. Multiple Business Solutions."
-                                          class="img-responsive"
-                                          height="540"
-                                          loading="lazy"
-                                          src="assets/uploads/vsuite/blog/post-1.jpg"
-                                          width="1170"
-                                        />
-                                      </picture>
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-text-wrap">
-                                  <div class="post-meta date-color">
-                                    <div class="entry-meta clearfix gem-post-date">
-                                      <div class="post-meta-left">
-                                        <span class="post-meta-author"><span class="vs-brand">vSuite</span> Platform</span>
-                                      </div>
-                                      <div class="post-meta-right">
-                                        <span class="post-meta-likes" style="display: none"
-                                          ><a
-                                            (click)="$event.preventDefault()"
-                                            class="zilla-likes"
-                                            href="#"
-                                            id="zilla-likes-206"
-                                            title="Like this"
-                                            ><span class="zilla-likes-count">10</span>
-                                            <span class="zilla-likes-postfix"></span></a
-                                        ></span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="post-title">
-                                    <h2 class="entry-title">
-                                      <a
-                                        data-hover-in="color:#00bcd4"
-                                        rel="bookmark"
-                                        routerLink="/product"
-                                        style="color: #ffffff"
-                                        >ONE CONNECTED PLATFORM. MULTIPLE BUSINESS SOLUTIONS.</a
-                                      >
-                                    </h2>
-                                  </div>
-                                  <div class="post-content" style="color: #99a9b5">
-                                    <div class="summary">
-                                      <p>Discover how vSuite brings Billing, Accounting, Human Resources, Payroll, E-Commerce, and ProcessFlow together to help businesses manage essential operations through an integrated product suite.</p>
-                                    </div>
-                                  </div>
-                                  <div class="post-misc">
-                                    <div class="post-links">
-                                      <div class="post-footer-sharing">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            (click)="$event.preventDefault()"
-                                            class="gem-button gem-button-size-medium gem-button-style-flat gem-button-text-weight-normal gem-button-empty"
-                                            href="#"
-                                            style="
-                                              border-radius: 3px;
-                                              background-color: #5f727f;
-                                              color: #ffffff;
-                                            "
-                                            target="_self"
-                                            ><i
-                                              class="gem-print-icon gem-icon-pack-thegem-icons gem-icon-share"
-                                            ></i
-                                          ></a>
-                                        </div>
-                                        <div class="sharing-popup">
-                                          <div
-                                            class="socials-sharing socials socials-colored-hover"
-                                          >
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-1%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Facebook"
-                                              ><i class="socials-item-icon facebook"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://twitter.com/intent/tweet?text=Sticky+Blog+Post&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-1%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Twitter"
-                                              ><i class="socials-item-icon twitter"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-1%2F&amp;description=Sticky+Blog+Post&amp;media=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fwp-content%2Fuploads%2F2019%2F09%2F2-1-thegem-blog-timeline-large.jpg"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Pinterest"
-                                              ><i class="socials-item-icon pinterest"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-1%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Tumblr"
-                                              ><i class="socials-item-icon tumblr"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-1%2F&amp;title=Sticky+Blog+Post&amp;summary=Lorem+Ipsum.+Proin+gravida+nibh+vel+velit+auctor+aliquet.+Aenean+sollicitudin%2C+lorem+quis+bibendum+auctor%2C+nisi+elit+consequat+ipsum%2C+nec+sagittis+sem+nibh+id+elit.+Duis+sed+odio+sit+amet+nibh+vulputate+cursus+a+sit+amet+mauris."
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="LinkedIn"
-                                              ><i class="socials-item-icon linkedin"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.reddit.com/submit?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-1%2F&amp;title=Sticky+Blog+Post"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Reddit"
-                                              ><i class="socials-item-icon reddit"></i
-                                            ></a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="post-read-more">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            class="gem-button gem-button-size-medium gem-button-style-outline gem-button-text-weight-normal gem-button-border-2"
-                                            routerLink="/product"
-                                            style="border-radius: 3px"
-                                            >READ ARTICLE</a
-                                          >
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                      <div class="vsb">
+                          <article class="vsb-feature vsb-item" style="--c: #27ffe3; --i: 0">
+                            <div class="vsb-media">
+                              <img alt="One Connected Platform. Multiple Business Solutions." loading="lazy" src="assets/uploads/vsuite/blog/post-1.jpg" />
+                              <span class="vsb-num">01</span>
+                              <span class="vsb-cat"><span class="vs-brand">vSuite</span> Platform</span>
+                            </div>
+                            <div class="vsb-body">
+                              <span class="vsb-flag">&#9733; Featured article</span>
+                              <h2 class="vsb-title"><a class="vsb-link" routerLink="/blog/connected-platform">One Connected Platform. Multiple Business Solutions.</a></h2>
+                              <p class="vsb-excerpt">Discover how <span class="vs-brand">vSuite</span> brings Billing, Accounting, Human Resources, Payroll, E-Commerce, and ProcessFlow together to help businesses manage essential operations through an integrated product suite.</p>
+                              <div class="vsb-foot">
+                                <span class="vsb-time">5 min read</span>
+                                <span class="vsb-more">Read article <i></i></span>
                               </div>
                             </div>
                           </article>
-                          <article
-                            class="post-207 post type-post status-publish format-standard has-post-thumbnail category-blogs category-news tag-colors tag-design tag-future tag-marketing tag-news tag-people"
-                            data-post-date="Aug 2024"
-                            id="post-207"
-                          >
-                            <div class="item-post-container">
-                              <div class="post-timeline-elements">
-                                <div class="pointer" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">02</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div class="pointer-right" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">02</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div
-                                  class="timeline-date-title"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                                <div
-                                  class="timeline-date-title-right"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                              </div>
-                              <div
-                                class="post-item clearfix"
-                                style="background-color: #384856; border-color: #384856"
-                              >
-                                <div class="post-image">
-                                  <div class="post-featured-content">
-                                    <a routerLink="/about-us">
-                                      <picture>
-                                        <img
-                                          alt="Why Business Process Integration Matters"
-                                          class="img-responsive"
-                                          height="540"
-                                          loading="lazy"
-                                          src="assets/uploads/vsuite/blog/post-2.jpg"
-                                          width="1170"
-                                        />
-                                      </picture>
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-text-wrap">
-                                  <div class="post-meta date-color">
-                                    <div class="entry-meta clearfix gem-post-date">
-                                      <div class="post-meta-left">
-                                        <span class="post-meta-author">Integration &amp; Productivity</span>
-                                      </div>
-                                      <div class="post-meta-right">
-                                        <span class="post-meta-likes" style="display: none"
-                                          ><a
-                                            (click)="$event.preventDefault()"
-                                            class="zilla-likes"
-                                            href="#"
-                                            id="zilla-likes-192"
-                                            title="Like this"
-                                            ><span class="zilla-likes-count">7</span>
-                                            <span class="zilla-likes-postfix"></span></a
-                                        ></span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="post-title">
-                                    <h3 class="entry-title">
-                                      <a
-                                        data-hover-in="color:#00bcd4"
-                                        rel="bookmark"
-                                        routerLink="/about-us"
-                                        style="color: #ffffff"
-                                        >WHY BUSINESS PROCESS INTEGRATION MATTERS</a
-                                      >
-                                    </h3>
-                                  </div>
-                                  <div class="post-content" style="color: #99a9b5">
-                                    <div class="summary">
-                                      <p>Learn why disconnected applications and manual data transfers can complicate business operations, and explore how connected workflows can improve consistency, visibility, and efficiency.</p>
-                                    </div>
-                                  </div>
-                                  <div class="post-misc">
-                                    <div class="post-links">
-                                      <div class="post-footer-sharing">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            (click)="$event.preventDefault()"
-                                            class="gem-button gem-button-size-tiny gem-button-style-flat gem-button-text-weight-normal gem-button-empty"
-                                            href="#"
-                                            style="
-                                              border-radius: 3px;
-                                              background-color: #5f727f;
-                                              color: #ffffff;
-                                            "
-                                            target="_self"
-                                            ><i
-                                              class="gem-print-icon gem-icon-pack-thegem-icons gem-icon-share"
-                                            ></i
-                                          ></a>
-                                        </div>
-                                        <div class="sharing-popup">
-                                          <div
-                                            class="socials-sharing socials socials-colored-hover"
-                                          >
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-2%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Facebook"
-                                              ><i class="socials-item-icon facebook"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://twitter.com/intent/tweet?text=Images+Blog+Post&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-2%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Twitter"
-                                              ><i class="socials-item-icon twitter"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-2%2F&amp;description=Images+Blog+Post&amp;media=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fwp-content%2Fuploads%2F2019%2F09%2F3-1-thegem-blog-timeline-large.jpg"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Pinterest"
-                                              ><i class="socials-item-icon pinterest"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-2%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Tumblr"
-                                              ><i class="socials-item-icon tumblr"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-2%2F&amp;title=Images+Blog+Post&amp;summary=Lorem+Ipsum.+Proin+gravida+nibh+vel+velit+auctor+aliquet.+Aenean+sollicitudin%2C+lorem+quis+bibendum+auctor%2C+nisi+elit+consequat+ipsum%2C+nec+sagittis+sem+nibh+id+elit.+Duis+sed+odio+sit+amet+nibh+vulputate+cursus+a+sit+amet+mauris."
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="LinkedIn"
-                                              ><i class="socials-item-icon linkedin"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.reddit.com/submit?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-2%2F&amp;title=Images+Blog+Post"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Reddit"
-                                              ><i class="socials-item-icon reddit"></i
-                                            ></a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="post-read-more">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            class="gem-button gem-button-size-tiny gem-button-style-outline gem-button-text-weight-normal gem-button-border-2"
-                                            routerLink="/about-us"
-                                            style="border-radius: 3px"
-                                            >READ ARTICLE</a
-                                          >
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                          <div class="vsb-grid">
+                          <article class="vsb-card vsb-item" style="--c: #5393ff; --i: 1">
+                            <div class="vsb-media">
+                              <img alt="Why Business Process Integration Matters" loading="lazy" src="assets/uploads/vsuite/blog/post-2.jpg" />
+                              <span class="vsb-num">02</span>
+                              <span class="vsb-cat">Integration &amp; Productivity</span>
+                            </div>
+                            <div class="vsb-body">
+                              
+                              <h3 class="vsb-title"><a class="vsb-link" routerLink="/blog/business-process-integration">Why Business Process Integration Matters</a></h3>
+                              <p class="vsb-excerpt">Learn why disconnected applications and manual data transfers can complicate business operations, and explore how connected workflows can improve consistency, visibility, and efficiency.</p>
+                              <div class="vsb-foot">
+                                <span class="vsb-time">5 min read</span>
+                                <span class="vsb-more">Read article <i></i></span>
                               </div>
                             </div>
                           </article>
-                          <article
-                            class="no-image post-219 post type-post status-publish format-standard category-blogs category-news tag-colors tag-design tag-future tag-marketing tag-news tag-people"
-                            data-post-date="Aug 2024"
-                            id="post-219"
-                          >
-                            <div class="item-post-container">
-                              <div class="post-timeline-elements">
-                                <div class="pointer" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f"><span class="vs-brand">vSuite</span></span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div class="pointer-right" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f"><span class="vs-brand">vSuite</span></span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="post-item clearfix"
-                                style="background-color: #384856; border-color: #384856"
-                              >
-                                <div class="post-text-wrap">
-                                  <div class="post-meta date-color">
-                                    <div class="entry-meta clearfix gem-post-date">
-                                      <div class="post-meta-left">
-                                        <span class="post-meta-author"><span class="vs-brand">vSuite</span> Platform</span>
-                                      </div>
-                                      <div class="post-meta-right">
-                                        <span class="post-meta-likes" style="display: none"
-                                          ><a
-                                            (click)="$event.preventDefault()"
-                                            class="zilla-likes"
-                                            href="#"
-                                            id="zilla-likes-219"
-                                            title="Like this"
-                                            ><span class="zilla-likes-count">7</span>
-                                            <span class="zilla-likes-postfix"></span></a
-                                        ></span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="post-title">
-                                    <h3 class="entry-title">
-                                      <a
-                                        data-hover-in="color:#00bcd4"
-                                        rel="bookmark"
-                                        routerLink="/about-us"
-                                        style="color: #ffffff"
-                                        >BUILDING A SMARTER, MORE CONNECTED BUSINESS</a
-                                      >
-                                    </h3>
-                                  </div>
-                                  <div class="post-content" style="color: #99a9b5">
-                                    <div class="summary">
-                                      <p>A modern business needs more than individual software applications. It needs processes, people, and information to work together.</p><p>vSuite, developed by Vishva Digital Technologies, brings together business applications and automation capabilities to help organizations simplify operations and build a foundation for intelligent growth.</p>
-                                    </div>
-                                  </div>
-                                  <div class="post-misc">
-                                    <div class="post-links">
-                                      <div class="post-footer-sharing">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            (click)="$event.preventDefault()"
-                                            class="gem-button gem-button-size-tiny gem-button-style-flat gem-button-text-weight-normal gem-button-empty"
-                                            href="#"
-                                            style="
-                                              border-radius: 3px;
-                                              background-color: #5f727f;
-                                              color: #ffffff;
-                                            "
-                                            target="_self"
-                                            ><i
-                                              class="gem-print-icon gem-icon-pack-thegem-icons gem-icon-share"
-                                            ></i
-                                          ></a>
-                                        </div>
-                                        <div class="sharing-popup">
-                                          <div
-                                            class="socials-sharing socials socials-colored-hover"
-                                          >
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Ftext-blog-post%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Facebook"
-                                              ><i class="socials-item-icon facebook"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://twitter.com/intent/tweet?text=Text+Blog+Post&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Ftext-blog-post%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Twitter"
-                                              ><i class="socials-item-icon twitter"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Ftext-blog-post%2F&amp;description=Text+Blog+Post"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Pinterest"
-                                              ><i class="socials-item-icon pinterest"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Ftext-blog-post%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Tumblr"
-                                              ><i class="socials-item-icon tumblr"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Ftext-blog-post%2F&amp;title=Text+Blog+Post&amp;summary=Lorem+Ipsum.+Proin+gravida+nibh+vel+velit+auctor+aliquet.+Aenean+sollicitudin%2C+lorem+quis+bibendum+auctor%2C+nisi+elit+consequat+ipsum%2C+nec+sagittis+sem+nibh+id+elit.+Duis+sed+odio+sit+amet+nibh+vulputate+cursus+a+sit+amet+mauris.+Aenean+sollicitudin%2C+lorem+quis+bibendum+auctor%2C+nisi+elit+consequat+ipsum%2C+nec+sagittis+sem+nibh+id+elit.+Morbi+accumsan+ipsum+velit.+Nam+nec+tellus+a+odio+tincidunt+auctor+a+ornare+odio.+Sed+non++mauris+vitae+erat+consequat+auctor+eu+in+elit."
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="LinkedIn"
-                                              ><i class="socials-item-icon linkedin"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.reddit.com/submit?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Ftext-blog-post%2F&amp;title=Text+Blog+Post"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Reddit"
-                                              ><i class="socials-item-icon reddit"></i
-                                            ></a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="post-read-more">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            class="gem-button gem-button-size-tiny gem-button-style-outline gem-button-text-weight-normal gem-button-border-2"
-                                            routerLink="/about-us"
-                                            style="border-radius: 3px"
-                                            >READ ARTICLE</a
-                                          >
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                          <article class="vsb-card vsb-item" style="--c: #917bea; --i: 2">
+                            <div class="vsb-media vsb-art">
+                            <img alt="Building A Smarter, More Connected Business" loading="lazy" src="assets/uploads/vsuite/blog/post-7.jpeg" />
+                              <!-- <span class="vsb-bignum">03</span><i class="vsb-hex h1"></i><i class="vsb-hex h2"></i> -->
+                              <span class="vsb-num">03</span>
+                              <span class="vsb-cat"><span class="vs-brand">vSuite</span> Platform</span>
+                            </div>
+                            <div class="vsb-body">
+                              
+                              <h3 class="vsb-title"><a class="vsb-link" routerLink="/blog/smarter-connected-business">Building a Smarter, More Connected Business</a></h3>
+                              <p class="vsb-excerpt">A modern business needs more than individual software applications. It needs processes, people, and information to work together.<br /><br /><span class="vs-brand">vSuite</span>, developed by Vishva Digital Technologies, brings together business applications and automation capabilities to help organizations simplify operations and build a foundation for intelligent growth.</p>
+                              <div class="vsb-foot">
+                                <span class="vsb-time">5 min read</span>
+                                <span class="vsb-more">Read article <i></i></span>
                               </div>
                             </div>
                           </article>
-                          <article
-                            class="post-567 post type-post status-publish format-quote category-blogs tag-colors tag-design tag-future tag-marketing tag-news tag-people post_format-post-format-quote"
-                            data-post-date="Aug 2024"
-                            id="post-567"
-                          >
-                            <div class="item-post-container">
-                              <div class="post-timeline-elements">
-                                <div class="pointer" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f"><span class="vs-brand">vSuite</span></span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div class="pointer-right" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f"><span class="vs-brand">vSuite</span></span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                              </div>
-                              <div
-                                class="post-item clearfix"
-                                style="background-color: #384856; border-color: #384856"
-                              >
-                                <div class="post-image">
-                                  <div class="post-featured-content">
-                                    <blockquote style="background-color: #2a3b49">
-                                      <div class="title-h3">
-                                        <span style="color: #ffffff">&ldquo;ONE SUITE. <span style="color: #20edd1">MULTIPLE SOLUTIONS.</span><span class="light"> INTELLIGENTLY CONNECTED.&rdquo;</span></span>
-                                      </div>
-                                      <div class="quote-bottom clearfix">
-                                        <div class="quote-author" style="color: #00bcd4">
-                                          Explore how integrated business applications, automation, and AI can help simplify everyday operations and support business growth.
-                                        </div>
-                                        <div class="quote-link" style="color: #00bcd4">
-                                          <a routerLink="/product">EXPLORE <span class="vs-brand">vSuite</span></a>
-                                        </div>
-                                      </div>
-                                    </blockquote>
-                                  </div>
-                                </div>
+                          <article class="vsb-quote vsb-item" style="--c: #27ffe3; --i: 4">
+                            <span class="vsb-qmark" aria-hidden="true">&ldquo;</span>
+                            <p class="vsb-qtext">ONE SUITE. <span class="vsb-qhi">MULTIPLE SOLUTIONS.</span> <span class="vsb-qlight">INTELLIGENTLY CONNECTED.</span></p>
+                            <p class="vsb-qsub">Explore how integrated business applications, automation, and AI can help simplify everyday operations and support business growth.</p>
+                            <a class="vsb-qbtn" routerLink="/blog/intelligently-connected">EXPLORE <span class="vs-brand">vSuite</span></a>
+                          </article>
+                          <article class="vsb-card vsb-item" style="--c: #00bcd4; --i: 5">
+                            <div class="vsb-media">
+                              <img alt="From Manual Tasks To Workflow Automation" loading="lazy" src="assets/uploads/vsuite/blog/post-3.jpg" />
+                              <span class="vsb-num">04</span>
+                              <span class="vsb-cat">Automation</span>
+                            </div>
+                            <div class="vsb-body">
+                              
+                              <h3 class="vsb-title"><a class="vsb-link" routerLink="/blog/workflow-automation">From Manual Tasks to Workflow Automation</a></h3>
+                              <p class="vsb-excerpt">Explore how repetitive tasks such as document handling, data entry, approvals, and notifications can be streamlined through workflow automation, RPA, and system integration.</p>
+                              <div class="vsb-foot">
+                                <span class="vsb-time">5 min read</span>
+                                <span class="vsb-more">Read article <i></i></span>
                               </div>
                             </div>
                           </article>
-                          <article
-                            class="post-210 post type-post status-publish format-standard has-post-thumbnail category-blogs tag-colors tag-design tag-future tag-marketing tag-news tag-people"
-                            data-post-date="Jul 2024"
-                            id="post-210"
-                          >
-                            <div class="item-post-container">
-                              <div class="post-timeline-elements">
-                                <div class="pointer" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">03</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div class="pointer-right" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">03</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div
-                                  class="timeline-date-title"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                                <div
-                                  class="timeline-date-title-right"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                              </div>
-                              <div
-                                class="post-item clearfix"
-                                style="background-color: #384856; border-color: #384856"
-                              >
-                                <div class="post-image">
-                                  <div class="post-featured-content">
-                                    <a routerLink="/product/vsuite-logistics/processflow">
-                                      <picture>
-                                        <img
-                                          alt="From Manual Tasks To Workflow Automation"
-                                          class="img-responsive"
-                                          height="540"
-                                          loading="lazy"
-                                          src="assets/uploads/vsuite/blog/post-3.jpg"
-                                          width="1170"
-                                        />
-                                      </picture>
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-text-wrap">
-                                  <div class="post-meta date-color">
-                                    <div class="entry-meta clearfix gem-post-date">
-                                      <div class="post-meta-left">
-                                        <span class="post-meta-author">Automation</span>
-                                      </div>
-                                      <div class="post-meta-right">
-                                        <span class="post-meta-likes" style="display: none"
-                                          ><a
-                                            (click)="$event.preventDefault()"
-                                            class="zilla-likes"
-                                            href="#"
-                                            id="zilla-likes-569"
-                                            title="Like this"
-                                            ><span class="zilla-likes-count">1</span>
-                                            <span class="zilla-likes-postfix"></span></a
-                                        ></span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="post-title">
-                                    <h3 class="entry-title">
-                                      <a
-                                        data-hover-in="color:#00bcd4"
-                                        rel="bookmark"
-                                        routerLink="/product/vsuite-logistics/processflow"
-                                        style="color: #ffffff"
-                                        >FROM MANUAL TASKS TO WORKFLOW AUTOMATION</a
-                                      >
-                                    </h3>
-                                  </div>
-                                  <div class="post-content" style="color: #99a9b5">
-                                    <div class="summary">
-                                      <p>Explore how repetitive tasks such as document handling, data entry, approvals, and notifications can be streamlined through workflow automation, RPA, and system integration.</p>
-                                    </div>
-                                  </div>
-                                  <div class="post-misc">
-                                    <div class="post-links">
-                                      <div class="post-footer-sharing">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            (click)="$event.preventDefault()"
-                                            class="gem-button gem-button-size-tiny gem-button-style-flat gem-button-text-weight-normal gem-button-empty"
-                                            href="#"
-                                            style="
-                                              border-radius: 3px;
-                                              background-color: #5f727f;
-                                              color: #ffffff;
-                                            "
-                                            target="_self"
-                                            ><i
-                                              class="gem-print-icon gem-icon-pack-thegem-icons gem-icon-share"
-                                            ></i
-                                          ></a>
-                                        </div>
-                                        <div class="sharing-popup">
-                                          <div
-                                            class="socials-sharing socials socials-colored-hover"
-                                          >
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-5%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Facebook"
-                                              ><i class="socials-item-icon facebook"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://twitter.com/intent/tweet?text=Images+Blog+Post&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-5%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Twitter"
-                                              ><i class="socials-item-icon twitter"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-5%2F&amp;description=Images+Blog+Post&amp;media=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fwp-content%2Fuploads%2F2019%2F09%2F4-1-thegem-blog-timeline-large.jpg"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Pinterest"
-                                              ><i class="socials-item-icon pinterest"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-5%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Tumblr"
-                                              ><i class="socials-item-icon tumblr"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-5%2F&amp;title=Images+Blog+Post&amp;summary=Lorem+Ipsum.+Proin+gravida+nibh+vel+velit+auctor+aliquet.+Aenean+sollicitudin%2C+lorem+quis+bibendum+auctor%2C+nisi+elit+consequat+ipsum%2C+nec+sagittis+sem+nibh+id+elit.+Duis+sed+odio+sit+amet+nibh+vulputate+cursus+a+sit+amet+mauris."
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="LinkedIn"
-                                              ><i class="socials-item-icon linkedin"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.reddit.com/submit?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-5%2F&amp;title=Images+Blog+Post"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Reddit"
-                                              ><i class="socials-item-icon reddit"></i
-                                            ></a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="post-read-more">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            class="gem-button gem-button-size-tiny gem-button-style-outline gem-button-text-weight-normal gem-button-border-2"
-                                            routerLink="/product/vsuite-logistics/processflow"
-                                            style="border-radius: 3px"
-                                            >READ ARTICLE</a
-                                          >
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                          <article class="vsb-card vsb-item" style="--c: #ff9f6b; --i: 6">
+                            <div class="vsb-media">
+                              <img alt="Generative Ai And Agentic Ai In Business" loading="lazy" src="assets/uploads/vsuite/blog/post-4.jpg" />
+                              <span class="vsb-num">05</span>
+                              <span class="vsb-cat">AI &amp; Innovation</span>
+                            </div>
+                            <div class="vsb-body">
+                              
+                              <h3 class="vsb-title"><a class="vsb-link" routerLink="/blog/generative-agentic-ai">Generative AI and Agentic AI in Business</a></h3>
+                              <p class="vsb-excerpt">Understand the difference between Generative AI and Agentic AI, and explore how they can support knowledge discovery, document processing, decision support, and multi-step business workflows.</p>
+                              <div class="vsb-foot">
+                                <span class="vsb-time">6 min read</span>
+                                <span class="vsb-more">Read article <i></i></span>
                               </div>
                             </div>
                           </article>
-                          <article
-                            class="post-211 post type-post status-publish format-standard has-post-thumbnail category-blogs tag-colors tag-design tag-future tag-marketing tag-news tag-people"
-                            data-post-date="Jun 2024"
-                            id="post-211"
-                          >
-                            <div class="item-post-container">
-                              <div class="post-timeline-elements">
-                                <div class="pointer" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">04</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div class="pointer-right" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">04</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div
-                                  class="timeline-date-title"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                                <div
-                                  class="timeline-date-title-right"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                              </div>
-                              <div
-                                class="post-item clearfix"
-                                style="background-color: #384856; border-color: #384856"
-                              >
-                                <div class="post-image">
-                                  <div class="post-featured-content">
-                                    <a routerLink="/about-us">
-                                      <picture>
-                                        <img
-                                          alt="Generative Ai And Agentic Ai In Business"
-                                          class="img-responsive"
-                                          height="540"
-                                          loading="lazy"
-                                          src="assets/uploads/vsuite/blog/post-4.jpg"
-                                          width="1170"
-                                        />
-                                      </picture>
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-text-wrap">
-                                  <div class="post-meta date-color">
-                                    <div class="entry-meta clearfix gem-post-date">
-                                      <div class="post-meta-left">
-                                        <span class="post-meta-author">AI &amp; Innovation</span>
-                                      </div>
-                                      <div class="post-meta-right">
-                                        <span class="post-meta-likes" style="display: none"
-                                          ><a
-                                            (click)="$event.preventDefault()"
-                                            class="zilla-likes"
-                                            href="#"
-                                            id="zilla-likes-571"
-                                            title="Like this"
-                                            ><span class="zilla-likes-count">1</span>
-                                            <span class="zilla-likes-postfix"></span></a
-                                        ></span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="post-title">
-                                    <h3 class="entry-title">
-                                      <a
-                                        data-hover-in="color:#00bcd4"
-                                        rel="bookmark"
-                                        routerLink="/about-us"
-                                        style="color: #ffffff"
-                                        >GENERATIVE AI AND AGENTIC AI IN BUSINESS</a
-                                      >
-                                    </h3>
-                                  </div>
-                                  <div class="post-content" style="color: #99a9b5">
-                                    <div class="summary">
-                                      <p>Understand the difference between Generative AI and Agentic AI, and explore how they can support knowledge discovery, document processing, decision support, and multi-step business workflows.</p>
-                                    </div>
-                                  </div>
-                                  <div class="post-misc">
-                                    <div class="post-links">
-                                      <div class="post-footer-sharing">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            (click)="$event.preventDefault()"
-                                            class="gem-button gem-button-size-tiny gem-button-style-flat gem-button-text-weight-normal gem-button-empty"
-                                            href="#"
-                                            style="
-                                              border-radius: 3px;
-                                              background-color: #5f727f;
-                                              color: #ffffff;
-                                            "
-                                            target="_self"
-                                            ><i
-                                              class="gem-print-icon gem-icon-pack-thegem-icons gem-icon-share"
-                                            ></i
-                                          ></a>
-                                        </div>
-                                        <div class="sharing-popup">
-                                          <div
-                                            class="socials-sharing socials socials-colored-hover"
-                                          >
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Facebook"
-                                              ><i class="socials-item-icon facebook"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://twitter.com/intent/tweet?text=Images+Blog+Post&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Twitter"
-                                              ><i class="socials-item-icon twitter"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;description=Images+Blog+Post&amp;media=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fwp-content%2Fuploads%2F2019%2F09%2F5-thegem-blog-timeline-large.jpg"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Pinterest"
-                                              ><i class="socials-item-icon pinterest"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Tumblr"
-                                              ><i class="socials-item-icon tumblr"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;title=Images+Blog+Post&amp;summary=Lorem+Ipsum.+Proin+gravida+nibh+vel+velit+auctor+aliquet.+Aenean+sollicitudin%2C+lorem+quis+bibendum+auctor%2C+nisi+elit+consequat+ipsum%2C+nec+sagittis+sem+nibh+id+elit.+Duis+sed+odio+sit+amet+nibh+vulputate+cursus+a+sit+amet+mauris."
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="LinkedIn"
-                                              ><i class="socials-item-icon linkedin"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.reddit.com/submit?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;title=Images+Blog+Post"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Reddit"
-                                              ><i class="socials-item-icon reddit"></i
-                                            ></a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="post-read-more">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            class="gem-button gem-button-size-tiny gem-button-style-outline gem-button-text-weight-normal gem-button-border-2"
-                                            routerLink="/about-us"
-                                            style="border-radius: 3px"
-                                            >READ ARTICLE</a
-                                          >
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                          <article class="vsb-card vsb-item" style="--c: #f6c453; --i: 7">
+                            <div class="vsb-media">
+                              <img alt="Simplifying Finance With Digital Tools" loading="lazy" src="assets/uploads/vsuite/blog/post-5.jpg" />
+                              <span class="vsb-num">06</span>
+                              <span class="vsb-cat">Finance &amp; Accounting</span>
+                            </div>
+                            <div class="vsb-body">
+                              
+                              <h3 class="vsb-title"><a class="vsb-link" routerLink="/blog/simplifying-finance">Simplifying Finance with Digital Tools</a></h3>
+                              <p class="vsb-excerpt">Explore ways to improve billing, accounting, financial reporting, reconciliation, and payroll processes with structured data, connected applications, and automation.</p>
+                              <div class="vsb-foot">
+                                <span class="vsb-time">5 min read</span>
+                                <span class="vsb-more">Read article <i></i></span>
                               </div>
                             </div>
                           </article>
-<article
-                            class="post-212 post type-post status-publish format-standard has-post-thumbnail category-blogs tag-colors tag-design tag-future tag-marketing tag-news tag-people"
-                            data-post-date="Jun 2024"
-                            id="post-212"
-                          >
-                            <div class="item-post-container">
-                              <div class="post-timeline-elements">
-                                <div class="pointer" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">05</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div class="pointer-right" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">05</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div
-                                  class="timeline-date-title"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                                <div
-                                  class="timeline-date-title-right"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                              </div>
-                              <div
-                                class="post-item clearfix"
-                                style="background-color: #384856; border-color: #384856"
-                              >
-                                <div class="post-image">
-                                  <div class="post-featured-content">
-                                    <a routerLink="/product/vsuite-finance/billing">
-                                      <picture>
-                                        <img
-                                          alt="Simplifying Finance With Digital Tools"
-                                          class="img-responsive"
-                                          height="540"
-                                          loading="lazy"
-                                          src="assets/uploads/vsuite/blog/post-5.jpg"
-                                          width="1170"
-                                        />
-                                      </picture>
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-text-wrap">
-                                  <div class="post-meta date-color">
-                                    <div class="entry-meta clearfix gem-post-date">
-                                      <div class="post-meta-left">
-                                        <span class="post-meta-author">Finance &amp; Accounting</span>
-                                      </div>
-                                      <div class="post-meta-right">
-                                        <span class="post-meta-likes" style="display: none"
-                                          ><a
-                                            (click)="$event.preventDefault()"
-                                            class="zilla-likes"
-                                            href="#"
-                                            id="zilla-likes-571"
-                                            title="Like this"
-                                            ><span class="zilla-likes-count">1</span>
-                                            <span class="zilla-likes-postfix"></span></a
-                                        ></span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="post-title">
-                                    <h3 class="entry-title">
-                                      <a
-                                        data-hover-in="color:#00bcd4"
-                                        rel="bookmark"
-                                        routerLink="/product/vsuite-finance/billing"
-                                        style="color: #ffffff"
-                                        >SIMPLIFYING FINANCE WITH DIGITAL TOOLS</a
-                                      >
-                                    </h3>
-                                  </div>
-                                  <div class="post-content" style="color: #99a9b5">
-                                    <div class="summary">
-                                      <p>Explore ways to improve billing, accounting, financial reporting, reconciliation, and payroll processes with structured data, connected applications, and automation.</p>
-                                    </div>
-                                  </div>
-                                  <div class="post-misc">
-                                    <div class="post-links">
-                                      <div class="post-footer-sharing">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            (click)="$event.preventDefault()"
-                                            class="gem-button gem-button-size-tiny gem-button-style-flat gem-button-text-weight-normal gem-button-empty"
-                                            href="#"
-                                            style="
-                                              border-radius: 3px;
-                                              background-color: #5f727f;
-                                              color: #ffffff;
-                                            "
-                                            target="_self"
-                                            ><i
-                                              class="gem-print-icon gem-icon-pack-thegem-icons gem-icon-share"
-                                            ></i
-                                          ></a>
-                                        </div>
-                                        <div class="sharing-popup">
-                                          <div
-                                            class="socials-sharing socials socials-colored-hover"
-                                          >
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Facebook"
-                                              ><i class="socials-item-icon facebook"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://twitter.com/intent/tweet?text=Images+Blog+Post&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Twitter"
-                                              ><i class="socials-item-icon twitter"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;description=Images+Blog+Post&amp;media=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fwp-content%2Fuploads%2F2019%2F09%2F5-thegem-blog-timeline-large.jpg"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Pinterest"
-                                              ><i class="socials-item-icon pinterest"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Tumblr"
-                                              ><i class="socials-item-icon tumblr"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;title=Images+Blog+Post&amp;summary=Lorem+Ipsum.+Proin+gravida+nibh+vel+velit+auctor+aliquet.+Aenean+sollicitudin%2C+lorem+quis+bibendum+auctor%2C+nisi+elit+consequat+ipsum%2C+nec+sagittis+sem+nibh+id+elit.+Duis+sed+odio+sit+amet+nibh+vulputate+cursus+a+sit+amet+mauris."
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="LinkedIn"
-                                              ><i class="socials-item-icon linkedin"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.reddit.com/submit?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;title=Images+Blog+Post"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Reddit"
-                                              ><i class="socials-item-icon reddit"></i
-                                            ></a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="post-read-more">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            class="gem-button gem-button-size-tiny gem-button-style-outline gem-button-text-weight-normal gem-button-border-2"
-                                            routerLink="/product/vsuite-finance/billing"
-                                            style="border-radius: 3px"
-                                            >READ ARTICLE</a
-                                          >
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                          <article class="vsb-card vsb-item" style="--c: #b69cff; --i: 8">
+                            <div class="vsb-media">
+                              <img alt="Intelligent Document Processing With vSuite ProcessFlow" loading="lazy" src="assets/uploads/vsuite/blog/post-6.jpg" />
+                              <span class="vsb-num">07</span>
+                              <span class="vsb-cat"><span class="vs-brand">vSuite</span> ProcessFlow</span>
+                            </div>
+                            <div class="vsb-body">
+                              
+                              <h3 class="vsb-title"><a class="vsb-link" routerLink="/blog/processflow-document-processing">Intelligent Document Processing with <span class="vs-brand">vSuite</span> ProcessFlow</a></h3>
+                              <p class="vsb-excerpt">Learn how OCR, data extraction, validation, document routing, and approval workflows can help reduce manual document handling and make information easier to process.</p>
+                              <div class="vsb-foot">
+                                <span class="vsb-time">5 min read</span>
+                                <span class="vsb-more">Read article <i></i></span>
                               </div>
                             </div>
                           </article>
-<article
-                            class="post-213 post type-post status-publish format-standard has-post-thumbnail category-blogs tag-colors tag-design tag-future tag-marketing tag-news tag-people"
-                            data-post-date="Jun 2024"
-                            id="post-213"
-                          >
-                            <div class="item-post-container">
-                              <div class="post-timeline-elements">
-                                <div class="pointer" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">06</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div class="pointer-right" style="box-shadow: 0 0 0 3px #00bcd4">
-                                  <div>
-                                    <span class="date" style="color: #5f727f">06</span
-                                    ><span class="time" style="color: #00bcd4"></span>
-                                  </div>
-                                </div>
-                                <div
-                                  class="timeline-date-title"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                                <div
-                                  class="timeline-date-title-right"
-                                  style="border-color: #00bcd4; color: #00bcd4"
-                                ><span class="vs-brand">vSuite</span></div>
-                              </div>
-                              <div
-                                class="post-item clearfix"
-                                style="background-color: #384856; border-color: #384856"
-                              >
-                                <div class="post-image">
-                                  <div class="post-featured-content">
-                                    <a routerLink="/product/vsuite-logistics/processflow">
-                                      <picture>
-                                        <img
-                                          alt="Intelligent Document Processing With Vsuite Processflow"
-                                          class="img-responsive"
-                                          height="540"
-                                          loading="lazy"
-                                          src="assets/uploads/vsuite/blog/post-6.jpg"
-                                          width="1170"
-                                        />
-                                      </picture>
-                                    </a>
-                                  </div>
-                                </div>
-                                <div class="post-text-wrap">
-                                  <div class="post-meta date-color">
-                                    <div class="entry-meta clearfix gem-post-date">
-                                      <div class="post-meta-left">
-                                        <span class="post-meta-author"><span class="vs-brand">vSuite</span> ProcessFlow</span>
-                                      </div>
-                                      <div class="post-meta-right">
-                                        <span class="post-meta-likes" style="display: none"
-                                          ><a
-                                            (click)="$event.preventDefault()"
-                                            class="zilla-likes"
-                                            href="#"
-                                            id="zilla-likes-571"
-                                            title="Like this"
-                                            ><span class="zilla-likes-count">1</span>
-                                            <span class="zilla-likes-postfix"></span></a
-                                        ></span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div class="post-title">
-                                    <h3 class="entry-title">
-                                      <a
-                                        data-hover-in="color:#00bcd4"
-                                        rel="bookmark"
-                                        routerLink="/product/vsuite-logistics/processflow"
-                                        style="color: #ffffff"
-                                        >INTELLIGENT DOCUMENT PROCESSING WITH <span class="vs-brand">vSuite</span> PROCESSFLOW</a
-                                      >
-                                    </h3>
-                                  </div>
-                                  <div class="post-content" style="color: #99a9b5">
-                                    <div class="summary">
-                                      <p>Learn how OCR, data extraction, validation, document routing, and approval workflows can help reduce manual document handling and make information easier to process.</p>
-                                    </div>
-                                  </div>
-                                  <div class="post-misc">
-                                    <div class="post-links">
-                                      <div class="post-footer-sharing">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            (click)="$event.preventDefault()"
-                                            class="gem-button gem-button-size-tiny gem-button-style-flat gem-button-text-weight-normal gem-button-empty"
-                                            href="#"
-                                            style="
-                                              border-radius: 3px;
-                                              background-color: #5f727f;
-                                              color: #ffffff;
-                                            "
-                                            target="_self"
-                                            ><i
-                                              class="gem-print-icon gem-icon-pack-thegem-icons gem-icon-share"
-                                            ></i
-                                          ></a>
-                                        </div>
-                                        <div class="sharing-popup">
-                                          <div
-                                            class="socials-sharing socials socials-colored-hover"
-                                          >
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Facebook"
-                                              ><i class="socials-item-icon facebook"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://twitter.com/intent/tweet?text=Images+Blog+Post&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Twitter"
-                                              ><i class="socials-item-icon twitter"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;description=Images+Blog+Post&amp;media=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fwp-content%2Fuploads%2F2019%2F09%2F5-thegem-blog-timeline-large.jpg"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Pinterest"
-                                              ><i class="socials-item-icon pinterest"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="http://tumblr.com/widgets/share/tool?canonicalUrl=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Tumblr"
-                                              ><i class="socials-item-icon tumblr"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;title=Images+Blog+Post&amp;summary=Lorem+Ipsum.+Proin+gravida+nibh+vel+velit+auctor+aliquet.+Aenean+sollicitudin%2C+lorem+quis+bibendum+auctor%2C+nisi+elit+consequat+ipsum%2C+nec+sagittis+sem+nibh+id+elit.+Duis+sed+odio+sit+amet+nibh+vulputate+cursus+a+sit+amet+mauris."
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="LinkedIn"
-                                              ><i class="socials-item-icon linkedin"></i
-                                            ></a>
-                                            <a
-                                              class="socials-item"
-                                              href="https://www.reddit.com/submit?url=https%3A%2F%2Fcodex-themes.com%2Fthegem%2Fsites%2Fagency-dark%2Fblog-post-6%2F&amp;title=Images+Blog+Post"
-                                              rel="noopener"
-                                              target="_blank"
-                                              title="Reddit"
-                                              ><i class="socials-item-icon reddit"></i
-                                            ></a>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      <div class="post-read-more">
-                                        <div
-                                          class="gem-button-container gem-button-position-inline"
-                                        >
-                                          <a
-                                            class="gem-button gem-button-size-tiny gem-button-style-outline gem-button-text-weight-normal gem-button-border-2"
-                                            routerLink="/product/vsuite-logistics/processflow"
-                                            style="border-radius: 3px"
-                                            >READ ARTICLE</a
-                                          >
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </article>
+                          </div>
                         </div>
-                      </div>
                       <div class="clearboth"></div>
                       <div class="gem-divider" style="margin-top: 150px"></div>
                       <div

@@ -1,0 +1,141 @@
+<!-- Blog article page | route: /blog/:slug | text comes from blog-articles.ts -->
+<div class="vsa-progress" aria-hidden="true"><i [style.width.%]="progress()"></i></div>
+
+@if (article(); as a) {
+  <section class="vsa-hero">
+    <div class="vsa-wrap">
+      <a class="vsa-back" routerLink="/blog">&larr; All articles</a>
+      <p class="vsa-eyebrow">{{ a.eyebrow }}</p>
+      <h1>{{ a.title }}</h1>
+      <p class="vsa-intro">{{ a.intro }}</p>
+      <div class="vsa-meta">
+        <span>By Vishva Digital Technologies</span><i></i><span>{{ a.minutes }} min read</span><i></i><span>{{ a.category }}</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="vsa-page">
+    <div class="vsa-layout">
+      <aside class="vsa-toc" aria-label="In this article">
+        <p class="vsa-toc-title">In this article</p>
+        <nav>
+          @for (h of toc(); track h.id) {
+            <a [href]="'#' + h.id" [class.active]="active() === h.id" (click)="goTo(h.id, $event)">
+              <span>{{ num(h.id) }}</span>{{ h.text }}
+            </a>
+          }
+        </nav>
+        <p class="vsa-toc-read">{{ progress() }}% read</p>
+      </aside>
+
+      <article class="vsa-article" id="vsaBody" (click)="onBodyClick($event)">
+        <details class="vsa-toc-m">
+          <summary>In this article</summary>
+          <nav>
+            @for (h of toc(); track h.id) {
+              <a [href]="'#' + h.id" (click)="goTo(h.id, $event)"><span>{{ num(h.id) }}</span>{{ h.text }}</a>
+            }
+          </nav>
+        </details>
+
+        @if (a.cover) {
+          <img class="vsa-cover" [src]="a.cover" [alt]="a.title" />
+        }
+
+        @for (b of a.blocks; track $index) {
+          @if (b.t === 'h2') {
+            <h2 [attr.id]="b.id"><span class="vsa-num">{{ num(b.id) }}</span>{{ b.text }}</h2>
+          }
+          @if (b.t === 'p') {
+            <p [class.vsa-lead]="b.lead" [innerHTML]="b.html"></p>
+          }
+          @if (b.t === 'quote') {
+            <blockquote class="vsa-quote" [innerHTML]="b.html"></blockquote>
+          }
+          @if (b.t === 'cards') {
+            <div class="vsa-cards" [class.vsa-problem]="b.tone === 'problem'">
+              @for (c of b.items ?? []; track $index) {
+                <div class="vsa-card">
+                  <span class="vsa-icon" aria-hidden="true">{{ c.icon }}</span>
+                  <h3>{{ c.title }}</h3>
+                  <p [innerHTML]="c.html"></p>
+                </div>
+              }
+            </div>
+          }
+          @if (b.t === 'ul') {
+            <ul class="vsa-checks">
+              @for (li of b.items ?? []; track $index) {
+                <li [innerHTML]="li"></li>
+              }
+            </ul>
+          }
+          @if (b.t === 'steps') {
+            <ol class="vsa-steps">
+              @for (s of b.items ?? []; track $index) {
+                <li>
+                  <strong>{{ s.title }}</strong>
+                  <span [innerHTML]="s.html"></span>
+                </li>
+              }
+            </ol>
+          }
+          @if (b.t === 'table') {
+            <div class="vsa-table">
+              <table>
+                <thead>
+                  <tr>
+                    @for (th of b.head ?? []; track $index) {
+                      <th>{{ th }}</th>
+                    }
+                  </tr>
+                </thead>
+                <tbody>
+                  @for (row of b.rows ?? []; track $index) {
+                    <tr>
+                      @for (cell of row; track $index) {
+                        <td [innerHTML]="cell"></td>
+                      }
+                    </tr>
+                  }
+                </tbody>
+              </table>
+            </div>
+          }
+        }
+
+        @if (a.takeaway) {
+          <div class="vsa-takeaway">
+            <strong>{{ a.takeawayTitle }}</strong>
+            <p [innerHTML]="a.takeaway"></p>
+          </div>
+        }
+
+        <div class="vsa-cta">
+          <h2>Explore vSuite</h2>
+          <p>One suite. Multiple solutions. Intelligently connected. See how vSuite can support your business.</p>
+          <div class="vsa-cta-row">
+            <a class="vsa-btn vsa-btn-gold" routerLink="/book-demo">Request a Demo</a>
+            <!-- <a class="vsa-btn vsa-btn-line" routerLink="/product">Explore Products</a> -->
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <section class="vsa-more">
+      <div class="vsa-wrap">
+        <h2>Continue reading</h2>
+        <div class="vsa-more-grid">
+          @for (m of more(); track m.slug) {
+            <a class="vsa-more-card" [routerLink]="['/blog', m.slug]">
+              <span class="vsa-more-cat">{{ m.category }}</span>
+              <strong>{{ m.title }}</strong>
+              <span class="vsa-more-meta">{{ m.minutes }} min read &rarr;</span>
+            </a>
+          }
+        </div>
+        <p class="vsa-more-all"><a routerLink="/blog">&larr; Back to all articles</a></p>
+      </div>
+    </section>
+  </div>
+}

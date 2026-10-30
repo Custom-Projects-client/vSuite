@@ -15,7 +15,7 @@ import { Injectable } from '@angular/core';
 // If sending fails for any reason, the reason is printed in the browser console ("[vSuite mail]"),
 // and the forms open the visitor's e-mail app with the message ready, so no enquiry is lost.
 const RECIPIENT = 'info@vishvadigitaltechnologies.com';
-const WEB3FORMS_KEY = ''; // <- paste your Web3Forms access key here, e.g. '1a2b3c4d-5e6f-....'
+const WEB3FORMS_KEY = '14b2377f-7b52-4eed-a23a-880e33b9a84d';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/' + RECIPIENT;
 
