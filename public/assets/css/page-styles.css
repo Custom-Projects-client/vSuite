@@ -153,11 +153,87 @@ body.product-view-page{overflow:hidden}
 .vs-tile{background:#384856;border-radius:8px;padding:18px 12px;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;gap:4px}
 .vs-tile b{font-weight:700;font-size:.95em}
 .vs-tile span{color:#99a9b5;font-size:.8em}
-.vs-eco{max-width:760px;margin:30px auto 0;background:#1f2230;border-radius:12px;padding:30px 24px 22px}
-.vs-eco-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px 12px}
-.vs-eco-grid div{display:flex;flex-direction:column;align-items:center;gap:8px;color:#fff;font-size:.95em}
-.vs-eco-foot{border-top:1px solid #384856;margin-top:26px;padding-top:18px;text-align:center;color:#fff;font-weight:700}
-@media (max-width:600px){.vs-eco-grid{grid-template-columns:repeat(2,1fr)}.vs-tiles{grid-template-columns:1fr}}
+/* ── Card container ────────────────────────────────────────── */
+.vs-eco {
+  max-width: 760px;
+  margin: 30px auto 0;
+  background: #1f2230;
+  border-radius: 12px;
+  padding: 30px 24px 22px;
+}
+
+/* ── Grid: 3 columns, orphan handled by centering last row ─── */
+.vs-eco-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px 12px;
+  align-items: start;
+}
+
+/* ── Each item: vertical stack, centered, consistent height ─ */
+.vs-eco-grid > div,
+.vs-eco-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  color: #fff;
+  font-size: .95em;
+  text-align: center;
+  line-height: 1.25;
+  min-height: 72px;         /* keeps icon+label rows equal height */
+}
+
+/* ── Icons: no margin, rely on flex gap ───────────────────── */
+.vs-eco-item svg {
+  display: block;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+/* ── Labels: wrap nicely, don't break mid-word ────────────── */
+.vs-eco-item span {
+  font-size: .92em;
+  font-weight: 500;
+  letter-spacing: .2px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* ── Footer line ──────────────────────────────────────────── */
+.vs-eco-foot {
+  border-top: 1px solid #384856;
+  margin-top: 26px;
+  padding-top: 18px;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ── Fix the orphan (7th item) on the last row: center it ── */
+/* With 7 items in 3 cols, the 7th sits alone in col 1.       */
+/* Center it by making the last item span the full row and    */
+/* auto-centering its content.                                */
+.vs-eco-grid > .vs-eco-item:last-child:nth-child(3n + 1) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: 33.333%;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .vs-eco-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 10px;
+  }
+  /* On 2-col layout, 7 items → last row has 1 orphan.
+     Center it the same way.                                  */
+  .vs-eco-grid > .vs-eco-item:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+    width: 50%;
+  }
+}
 
 /* ---- About Vishva / About vSuite pages (pages/about-vishva, pages/about-vsuite) ---- */
 .vs-doc{background:#212331;color:#c3ced6}
