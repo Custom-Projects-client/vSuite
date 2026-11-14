@@ -44,3 +44,9 @@ Use HTTPS (the contact map and form service need it on a live site).
 * **vSuite Hospital Management (vSuite Healthcare):** page `public/assets/products/hospital.html`, routes `/product/vsuite-healthcare/hospital-management`.
   The text and the images `logo-healthcare.jpg`, `product-healthcare.jpg`, `modules/logo-hospital-header.png` are **placeholders** - replace the files (same names) and edit the text when the real details are ready.
 * **Blog:** the nine blog post detail pages still contain the theme's Lorem Ipsum text and are waiting for the real articles.
+
+## 6. Newsletter confirmation e-mail (footer "Subscribe")
+When someone subscribes in the footer, a "thank you" confirmation e-mail is sent to **the address they typed** (FormSubmit `_autoresponse`),
+and the sign-up also arrives in info@vishvadigitaltechnologies.com. **Before going live:** submit the footer Subscribe once on the LIVE site and click
+**Activate Form** in the e-mail FormSubmit sends to info@vishvadigitaltechnologies.com (check Spam). Until it is activated the sign-up still reaches the
+company mailbox through Web3Forms, but the subscriber gets no confirmation.

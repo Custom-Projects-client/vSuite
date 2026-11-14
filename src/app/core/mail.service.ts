@@ -15,6 +15,10 @@ import { Injectable } from '@angular/core';
 // If sending fails for any reason, the reason is printed in the browser console ("[vSuite mail]"),
 // and the forms open the visitor's e-mail app with the message ready, so no enquiry is lost.
 const RECIPIENT = 'info@vishvadigitaltechnologies.com';
+
+/** Confirmation e-mail the subscriber receives at the address they typed (footer + blog newsletter forms). */
+export const NEWSLETTER_THANKS =
+  'Thank you for subscribing to the vSuite newsletter! We have received your email address and will keep you updated with news from vSuite by Vishva Digital Technologies. If you did not sign up, you can simply ignore this email.';
 const WEB3FORMS_KEY = '14b2377f-7b52-4eed-a23a-880e33b9a84d';
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
 const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/' + RECIPIENT;
@@ -36,11 +40,35 @@ export class MailService {
   /** Why the last send failed (for debugging; also logged to the console). */
   lastError = '';
 
-  /** Resolves true when the message was accepted for delivery. */
-  async send(subject: string, fields: Record<string, string | null | undefined>): Promise<boolean> {
+  /**
+   * Resolves true when the message was accepted for delivery.
+   * autoresponse (optional): text e-mailed back to the sender's own address (the "Email" field), e.g. a
+   * subscription confirmation. It is sent through FormSubmit.co (Web3Forms' auto-reply is a paid feature);
+   * if FormSubmit cannot take it (e.g. not activated yet) the message still goes to the company mailbox below.
+   */
+  async send(
+    subject: string,
+    fields: Record<string, string | null | undefined>,
+    autoresponse?: string,
+  ): Promise<boolean> {
     this.lastError = '';
     const clean: Record<string, string> = {};
     for (const [k, v] of Object.entries(fields)) if (v) clean[k] = String(v);
+
+    if (autoresponse && clean['Email']) {
+      const ok = await this.post(FORMSUBMIT_ENDPOINT, {
+        _subject: subject,
+        _template: 'table',
+        _captcha: 'false',
+        _honey: '',
+        _autoresponse: autoresponse,
+        _replyto: clean['Email'],
+        email: clean['Email'],
+        ...clean,
+      });
+      if (ok) return true;
+      // fall through: deliver to the company mailbox with the normal service
+    }
 
     const useWeb3 = WEB3FORMS_KEY.trim().length > 0;
     const body: Record<string, string | boolean> = useWeb3
@@ -64,8 +92,12 @@ export class MailService {
       else body['_replyto'] = clean['Email'];
     }
 
+    return this.post(useWeb3 ? WEB3FORMS_ENDPOINT : FORMSUBMIT_ENDPOINT, body);
+  }
+
+  private async post(url: string, body: Record<string, string | boolean>): Promise<boolean> {
     try {
-      const res = await fetch(useWeb3 ? WEB3FORMS_ENDPOINT : FORMSUBMIT_ENDPOINT, {
+      const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify(body),

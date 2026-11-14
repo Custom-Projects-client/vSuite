@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { MailService } from '../../core/mail.service';
+import { MailService, NEWSLETTER_THANKS } from '../../core/mail.service';
 import { PAGE_IMPORTS } from '../../shared/page-imports';
 
 // Blog page  ->  route "/blog"
@@ -17,7 +17,7 @@ export class Blog {
     event.preventDefault();
     if (!email || this.newsletter() === 'sending') return;
     this.newsletter.set('sending');
-    const ok = await this.mail.send('Newsletter subscription (Blog page)', { Email: email });
+    const ok = await this.mail.send('Newsletter subscription (Blog page)', { Email: email }, NEWSLETTER_THANKS);
     this.newsletter.set(ok ? 'sent' : 'failed');
   }
 }
