@@ -421,3 +421,44 @@ body { overflow-x: hidden; }
   .vsa-cta { padding: 26px 20px; }
 }
 @media (prefers-reduced-motion: reduce) { .vsa-progress i, .vsa-card, .vsa-more-card, .vsa-back { transition: none; } }
+
+/* Header logo: the small (sticky-header) logo sits exactly on top of the big one, so it stays clickable and does not jump right (desktop/tablet; on phones only the small one is shown) */
+@media (min-width: 768px) {
+  #site-header .site-title a .logo { position: relative; }
+  #site-header .site-title a img.small { position: absolute !important; left: 0; top: 50%; transform: translateY(-50%); }
+}
+
+/* Copyright stays on one line on desktop */
+@media (min-width: 992px) { .vs-copy { white-space: nowrap; } }
+
+/* Home: the five product cards are all the same size (equal-height rows, same image ratio) */
+.portfolio-set:has(> .vsuite-product) { display: flex; flex-wrap: wrap; height: auto !important; }
+.portfolio-set > .portfolio-item.vsuite-product { float: none; display: flex; height: auto !important; }
+.portfolio-item.vsuite-product > .wrap { width: 100%; height: auto !important; display: flex; flex-direction: column; }
+.portfolio-item.vsuite-product > .wrap > .caption { flex: 1 1 auto; }
+.portfolio-item.vsuite-product .image-inner img { aspect-ratio: 5 / 4; object-fit: cover; }
+
+/* Our Team: the three boxes (Engineering / Product Development / AI) are the same height */
+.vs-equal-row { display: flex; flex-wrap: wrap; }
+.vs-equal-row > .wpb_column { float: none; }
+.vs-equal-row > .wpb_column > .vc_column-inner,
+.vs-equal-row > .wpb_column > .vc_column-inner > .wpb_wrapper { height: 100%; }
+.vs-equal-row .gem-quote { height: 100%; box-sizing: border-box; margin-bottom: 0; }
+.vs-equal-row { margin-bottom: 72px; }
+
+/* About Us: the picture and the paragraph beside it line up top and bottom */
+@media (min-width: 992px) {
+  .vs-platform-row { display: flex; align-items: stretch; }
+  .vs-platform-row > .wpb_column { float: none; }
+  .vs-platform-row > .wpb_column:first-child { flex: 0 0 46%; max-width: 46%; position: relative; }
+  .vs-platform-row > .wpb_column:last-child { flex: 1 1 0; max-width: 54%; }
+  .vs-platform-row > .wpb_column:last-child .gem-button { margin-bottom: 0; }
+  /* the picture fills the column box exactly (top of the heading -> bottom of the button) */
+  .vs-platform-row > .wpb_column:first-child .vc_column-inner,
+  .vs-platform-row > .wpb_column:first-child .wpb_wrapper,
+  .vs-platform-row > .wpb_column:first-child .centered-box,
+  .vs-platform-row > .wpb_column:first-child .gem-image,
+  .vs-platform-row > .wpb_column:first-child .gem-wrapbox-inner { position: absolute; inset: 0; height: 100%; width: 100%; }
+  .vs-platform-row > .wpb_column:first-child .vc_column-inner { left: 15px; right: 15px; width: auto; padding: 0; }
+  .vs-platform-row > .wpb_column:first-child img { width: 100%; height: 100%; object-fit: contain; object-position: left center; }
+}

@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MailService } from '../../core/mail.service';
+import { MailService, NEWSLETTER_THANKS } from '../../core/mail.service';
 import { RouterLink } from '@angular/router';
 
 import { Fullwidth } from '../../shared/directives/fullwidth';
@@ -34,7 +34,12 @@ export class Footer {
     }
     this.sending.set(true);
     const fields = { Email: this.email.value };
-    const ok = await this.mail.send('Newsletter subscription', fields);
+    // the subscriber also gets a confirmation e-mail at the address they entered
+    const ok = await this.mail.send(
+      'Newsletter subscription',
+      fields,
+      NEWSLETTER_THANKS,
+    );
     this.sending.set(false);
     if (ok) {
       this.subscribed.set(true);

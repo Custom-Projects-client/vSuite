@@ -54,16 +54,30 @@ export class DiagramCircle implements AfterViewInit, OnDestroy {
       progress.push({ circle: bar, len, pct: arc.percent });
     });
 
-    // 3) centre title
-    const label = document.createElementNS(ns, 'text');
-    label.setAttribute('x', `${center}`);
-    label.setAttribute('y', `${center + 8}`);
-    label.setAttribute('text-anchor', 'middle');
-    label.setAttribute('fill', 'currentColor');
-    label.setAttribute('font-size', '26');
-    label.setAttribute('font-weight', '700');
-    label.textContent = this.el.dataset['title'] ?? '';
-    svg.appendChild(label);
+    // 3) centre: logo image when data-logo is set, otherwise the title text
+    const logoSrc = this.el.dataset['logo'];
+    if (logoSrc) {
+      const img = document.createElementNS(ns, 'image');
+      const w = 150,
+        h = 94; // logo is 1.6 : 1, sized to sit inside the innermost ring
+      img.setAttribute('href', logoSrc);
+      img.setAttribute('x', `${center - w / 2}`);
+      img.setAttribute('y', `${center - h / 2}`);
+      img.setAttribute('width', `${w}`);
+      img.setAttribute('height', `${h}`);
+      img.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      svg.appendChild(img);
+    } else {
+      const label = document.createElementNS(ns, 'text');
+      label.setAttribute('x', `${center}`);
+      label.setAttribute('y', `${center + 8}`);
+      label.setAttribute('text-anchor', 'middle');
+      label.setAttribute('fill', 'currentColor');
+      label.setAttribute('font-size', '26');
+      label.setAttribute('font-weight', '700');
+      label.textContent = this.el.dataset['title'] ?? '';
+      svg.appendChild(label);
+    }
     box.appendChild(svg);
 
     // 4) legend under the chart
